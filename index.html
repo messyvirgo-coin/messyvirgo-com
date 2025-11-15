@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$MESSY - AI Agent Token on Base</title>
+    <meta name="description" content="Meet Messy, your guide to AI-powered fund management on the Base network. Discover how $MESSY is making complex DeFi accessible and fun.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Minimal favicon setup for MESSY -->
+    <link rel="icon" href="/favicons/messy.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e7eb;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, #ff69b4, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at top, rgba(255, 105, 180, 0.1), transparent 60%),
+                        radial-gradient(ellipse at bottom, rgba(255, 215, 0, 0.1), transparent 60%);
+            animation: aurora 20s infinite alternate;
+        }
+        @keyframes aurora {
+            from { transform: rotate(0deg) scale(1.5); }
+            to { transform: rotate(360deg) scale(2); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-glow-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-glow-container:before {
+            content: '';
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-image: conic-gradient(transparent, rgba(255, 105, 180, 0.5), transparent 30%);
+            animation: rotate 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .card-glow-container:hover:before {
+            opacity: 1;
+        }
+        @keyframes rotate {
+            100% { transform: rotate(1turn); }
+        }
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff69b4, #ffd700);
+            width: 0%;
+            z-index: 100;
+            transition: width 0.1s ease-out;
+        }
+        /* Tooltip Styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: rgba(10, 10, 10, 0.9);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid rgba(255, 105, 180, 0.5);
+            font-size: 0.8rem;
+            line-height: 1.2;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(255, 105, 180, 0.5) transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <div id="scroll-progress"></div>
+    <div class="aurora-bg"></div>
+
+    <!-- Litepaper Modal -->
+    <div id="litepaperModal" class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center p-4">
+        <div class="glassmorphism rounded-lg p-8 max-w-sm w-full text-center relative border-pink-400/50">
+            <button onclick="toggleModal(false)" class="absolute top-2 right-3 text-2xl text-white/70 hover:text-white">&times;</button>
+            <img src="messy-mascot.png" alt="Messy Mascot" class="w-24 h-auto mx-auto mb-4">
+            <h3 class="text-xl font-serif text-gradient mb-2">The Litepaper is Coming!</h3>
+            <p class="text-white/80 text-sm">Messy's AI is compiling the final data for our Litepaper, set for release in December 2025. It will detail our full AI methodology, fund strategy, and the complete 2-year vesting schedule for the creator wallet. Follow us on X for the official release announcement!</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="messy-banner.jpg" alt="Fantasy Landscape" class="w-full h-full object-cover brightness-[0.7]">
+        </div>
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        <div class="relative z-20 px-4">
+            <h1 class="text-4xl md:text-6xl font-bold font-serif text-gradient mb-4">AI-Powered Fund Management on Base</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-white/90">Let $MESSY be your guide into the world of autonomous, AI-driven funds. Complex tech, made simple and accessible.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#swap" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20">Swap $MESSY Now</a>
+                <button onclick="toggleModal(true)" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Litepaper (Soon)</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <span class="text-2xl font-bold font-serif text-gradient">$MESSY</span>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
+                    <a href="#about" class="text-gray-300 hover:text-pink-400 transition">About</a>
+                    <a href="#tokenomics" class="text-gray-300 hover:text-pink-400 transition">Tokenomics</a>
+                    <a href="#evolution" class="text-gray-300 hover:text-pink-400 transition">Evolution</a>
+                    <a href="#vision" class="text-gray-300 hover:text-pink-400 transition">Vision</a>
+                    <a href="#funds" class="text-gray-300 hover:text-pink-400 transition">Funds</a>
+                    <a href="#data" class="text-gray-300 hover:text-pink-400 transition">Data</a>
+                    <a href="#swap" class="bg-pink-500/20 text-pink-300 px-4 py-2 rounded-md hover:bg-pink-500/30 transition">Swap</a>
+                </div>
+                <!-- Mobile Nav Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">About</a>
+            <a href="#tokenomics" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Tokenomics</a>
+            <a href="#evolution" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Evolution</a>
+            <a href="#vision" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Vision</a>
+            <a href="#funds" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Funds</a>
+            <a href="#data" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Data</a>
+            <a href="#swap" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Swap</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 space-y-24">
+
+        <!-- What is $MESSY? -->
+        <section id="about" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">What is $MESSY?</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">At her core, Messy is your friendly guide, designed to make complex topics like AI agents and DeFi accessible and fun. Our mission is to wrap sophisticated technology in a whimsical, anime-themed token that anyone can understand and enjoy.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+                <!-- Card 1 -->
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Audited & Secure</h3>
+                        <p class="text-sm text-gray-300">Created with CertiK-audited smart contract templates from Bitbond's Token Tool, ensuring security and reliability without custom code.</p>
+                    </div>
+                </div>
+                 <!-- Card 2 -->
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
+                     <div class="relative z-10">
+                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Narrative Strategist</h3>
+                        <p class="text-sm text-gray-300">Analyzes social media APIs for keyword velocity and sentiment shifts to identify and amplify emerging narratives.</p>
+                    </div>
+                </div>
+                 <!-- Card 3 -->
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
+                     <div class="relative z-10">
+                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Reflexive Tokenomics</h3>
+                        <p class="text-sm text-gray-300">Innovative tax mechanics reward holders and power the ecosystem, optimized for the speed and low fees of the Base network.</p>
+                    </div>
+                </div>
+                 <!-- Card 4 -->
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
+                     <div class="relative z-10">
+                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Proven Foundation</h3>
+                        <p class="text-sm text-gray-300">Developed by a team with a deep background in derivatives and automated trading platforms, providing a solid base for Messy's AI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokenomics Explained -->
+        <section id="tokenomics" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Tokenomics Explained</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Discover how $MESSY’s tokenomics reward holders and power our AI-driven fund management on Base.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cards -->
+                <div class="glassmorphism rounded-lg p-6 text-left">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Transaction Tax (4.95%)</h3>
+                    <p class="text-sm text-gray-300">A small tax on token swaps powers the ecosystem. <br>• <strong>1.25% Reflections:</strong> Distributed to all holders. <br>• <strong>3.70% Treasury:</strong> Funds AI development, marketing, burns, and strategic buybacks.</p>
+                </div>
+                <div class="glassmorphism rounded-lg p-6 text-left">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Liquidity Pools</h3>
+                    <p class="text-sm text-gray-300">Pairs with $VIRTUAL and $AERO for arbitrage. Core WETH liquidity is locked. <a href="https://www.team.finance/view-coin/0x09f87F948C88848363B124C9099CbB58E4Cc7cB6?name=Messy%20Virgo&symbol=MESSY&chainid=0x2105&_gl=1*6dl1n2*_gcl_au*MzY2ODA1NTcwLjE3NTI0ODI1NDg." target="_blank" class="text-pink-400 hover:underline">View Lock</a>.</p>
+                </div>
+                 <div class="glassmorphism rounded-lg p-6 text-left">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">
+                        <div class="tooltip">Supply Burn 🔥
+                            <span class="tooltiptext">Messy explains: "Burning tokens is like taking them out of circulation forever! This makes the remaining tokens more scarce, which can help support their value over time."</span>
+                        </div>
+                    </h3>
+                    <p class="text-sm text-gray-300"><span id="burn-counter" class="font-bold text-lg">8,767,934.07</span> $MESSY sent to a dead address. <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6?a=0x000000000000000000000000000000000000dEaD" target="_blank" class="text-pink-400 hover:underline">Track</a>.</p>
+                </div>
+                <div class="glassmorphism rounded-lg p-6 text-left md:col-span-2">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Supply Breakdown</h3>
+                    <table class="w-full text-sm text-left">
+                        <tbody class="divide-y divide-white/10">
+                            <tr><td class="py-2">Total Supply</td><td class="text-right">995,971,583.00</td><td class="text-right text-gray-400">100.00%</td></tr>
+                            <tr><td class="py-2">Creator Wallet</td><td class="text-right">432,749,652.81</td><td class="text-right text-gray-400">43.45%</td></tr>
+                            <tr><td class="py-2">Airdropped</td><td class="text-right">502,666,946.25</td><td class="text-right text-gray-400">50.46%</td></tr>
+                            <tr><td class="py-2">LP Allocation</td><td class="text-right">61,451,578.00</td><td class="text-right text-gray-400">6.17%</td></tr>
+                            <tr><td class="py-2">Burned</td><td class="text-right">8,767,934.07</td><td class="text-right text-gray-400">0.88%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="glassmorphism rounded-lg p-6 text-left">
+                     <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Community Airdrop</h3>
+                     <p class="text-sm text-gray-300">MESSY V1 on Ethereum was a bonding-curve fair launch — no insiders, no hidden wallets, no presale. Everyone played by the same rules. To unlock momentum, $MESSY expanded to Base from her Ethereum roots. A voluntary airdrop was offered to original ETH holders, bridging our foundational community to a faster, more scalable network.</p>
+                </div>
+                 <div class="glassmorphism rounded-lg p-6 text-left md:col-span-3">
+                    <h4 class="text-xl font-bold font-serif text-pink-400 mb-2">Creator Wallet Security</h4>
+                    <p class="text-sm text-gray-300 mb-4">The entire creator wallet is secured in an industry-standard Gnosis Safe, requiring multiple team members to approve any transaction. We are publicly committed to a strict 2-year vesting schedule, the full details of which will be published in our upcoming Litepaper. The public Safe address and monthly treasury reports will follow the Litepaper's release.</p>
+                    <table class="w-full text-sm text-left">
+                        <thead class="text-xs text-gray-400 uppercase"><tr><th>Allocation</th><th class="text-right">Amount</th><th class="text-right">% of Total</th></tr></thead>
+                        <tbody class="divide-y divide-white/10">
+                            <tr><td class="py-2">Community & Partners</td><td class="text-right">248,992,895.75</td><td class="text-right">25.00%</td></tr>
+                            <tr><td class="py-2">Protocol Liquidity</td><td class="text-right">99,597,158.30</td><td class="text-right">10.00%</td></tr>
+                            <tr><td class="py-2">Contributors & Advisors</td><td class="text-right">49,798,579.15</td><td class="text-right">5.00%</td></tr>
+                            <tr><td class="py-2">Treasury</td><td class="text-right">34,361,019.61</td><td class="text-right">3.45%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Evolution -->
+        <section id="evolution" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">The Evolution</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">A staged journey from a culture catalyst to an autonomous fund manager, with Messy guiding the way.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phase 1 -->
+                <div class="glassmorphism rounded-lg p-6 text-center">
+                    <div class="text-4xl mb-4">📢</div>
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Phase 1: Culture Engine</h3>
+                    <p class="text-sm text-gray-300">Shaping narratives through raids and campaigns.</p>
+                    <span class="inline-block bg-green-500/20 text-green-300 text-xs font-bold px-3 py-1 rounded-full mt-4">LIVE</span>
+                </div>
+                 <!-- Phase 2 -->
+                <div class="glassmorphism rounded-lg p-6 text-center">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Phase 2: Interactive Agent</h3>
+                    <p class="text-sm text-gray-300">An interactive Telegram & X agent providing real-time alerts on wallet movements and social sentiment spikes.</p>
+                    <span class="inline-block bg-yellow-500/20 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full mt-4">NEXT</span>
+                </div>
+                 <!-- Phase 3 -->
+                <div class="glassmorphism rounded-lg p-6 text-center">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Phase 3: Autonomous Trader</h3>
+                    <p class="text-sm text-gray-300">Autonomous trading with logic-based performance, executing strategies developed in Phase 2.</p>
+                    <span class="inline-block bg-purple-500/20 text-purple-300 text-xs font-bold px-3 py-1 rounded-full mt-4">SOON</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Long-Term Vision -->
+        <section id="vision" class="text-center fade-in">
+             <div class="glassmorphism rounded-lg py-12 px-8">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Long-Term Vision</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300">Messy's long-term vision is to build the first truly accessible, decentralized on-chain hedge fund. By guiding users through the complexities of DeFi, we are creating a new model of value creation—one governed by its community and powered by an autonomous AI that works for everyone.</p>
+            </div>
+        </section>
+        
+        <!-- Our Funds -->
+        <section id="funds" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Our Funds</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Explore the funds where Messy's AI is being developed and deployed, backed by our team's deep background in automated trading.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- $MESSYBASED -->
+                <div class="glassmorphism rounded-lg p-6 text-left">
+                    <h3 class="text-2xl font-bold font-serif text-pink-400 mb-2">$MESSYBASED <span class="text-lg text-gray-400 font-normal">(Base)</span></h3>
+                    <p class="text-sm text-gray-300 mb-4">Our flagship fund on the Base network. Currently managed manually by our team, it serves as the primary testing ground for Messy's AI-driven strategies and narrative analysis.</p>
+                    <a href="https://guru.fund/$MESSYBASED" target="_blank" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-lg text-sm hover:bg-pink-600 transition-transform duration-300 inline-block transform hover:scale-105">View on Guru Fund</a>
+                </div>
+                 <!-- $MESSYFUND -->
+                <div class="glassmorphism rounded-lg p-6 text-left">
+                    <h3 class="text-2xl font-bold font-serif text-pink-400 mb-2">$MESSYFUND <span class="text-lg text-gray-400 font-normal">(Ethereum)</span></h3>
+                    <p class="text-sm text-gray-300 mb-4">Our Ethereum-based fund where the price is linked to a portfolio of real micro-cap tokens like $M87 and $GURU. This will be the future investable vehicle for Messy's autonomous strategies.</p>
+                    <a href="https://guru.fund/$MESSYFUND" target="_blank" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-lg text-sm hover:bg-pink-600 transition-transform duration-300 inline-block transform hover:scale-105">View on Guru Fund</a>
+                </div>
+            </div>
+            <!-- Path to Autonomy -->
+            <div class="glassmorphism rounded-lg p-6 text-left mt-8">
+                <h3 class="text-2xl font-bold font-serif text-pink-400 mb-2">The Path to Autonomy</h3>
+                <p class="text-sm text-gray-300 mb-4">Messy's AI brain is already running daily analyses which are manually verified by our team. This iterative process ensures the AI is learning from real market conditions before it takes full control. We will continue to share these insights on X.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <blockquote class="border-l-4 border-pink-400/50 pl-4 italic text-sm text-gray-300">
+                        <p>"Narrative momentum in Crypto AI/DePIN favors agents for verifiable data/compute (e.g., M87’s P2P), suggesting MESSYFUND rotate more into DePIN-heavy infra like 0xShadow for edge in scalability."</p>
+                        <footer class="text-xs text-pink-400/60 mt-2">An Insight from Messy's AI</footer>
+                    </blockquote>
+                     <blockquote class="border-l-4 border-yellow-400/50 pl-4 italic text-sm text-gray-300">
+                        <p>"Spikes in wallet creation and transaction volume for `$TRENDY` token on Base correlate with a 92% probability of a social sentiment upswing within 12 hours. MESSYFUND can preemptively scale into this position."</p>
+                        <footer class="text-xs text-yellow-400/60 mt-2">Insight Generated: Sep 20, 2025</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Live On-Chain Data -->
+        <section id="data" class="fade-in">
+             <div class="w-full h-[600px] rounded-lg overflow-hidden glassmorphism p-2">
+                <iframe src="https://www.geckoterminal.com/base/pools/0x09f87f948c88848363b124c9099cbb58e4cc7cb6?embed=1&info=0&swaps=0&light_chart=0&chart_type=price&resolution=4h&bg_color=111827"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen>
+                </iframe>
+            </div>
+             <div class="text-center mt-4">
+                 <a href="https://www.dextools.io/app/en/token/messy" target="_blank" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-block">View full analytics on DEXTools</a>
+             </div>
+        </section>
+
+        <!-- Swap -->
+        <section id="swap" class="text-center fade-in">
+             <div class="glassmorphism rounded-lg py-12 px-8">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Get Your $MESSY</h2>
+                <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-300">Trade $MESSY with 4.95% slippage on Aerodrome, the leading DEX on Base. Join the future of accessible DeFi!</p>
+                <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20 text-xl">Swap Now</a>
+            </div>
+        </section>
+        
+        <!-- Join the Alpha -->
+        <section id="alpha" class="fade-in">
+            <div class="glassmorphism bg-gradient-to-br from-white/10 to-white/5 rounded-lg py-12 px-8 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Join the Alpha</h2>
+                 <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-300">Messy's journey is driven by her community. Follow her latest findings on X and join our Telegram for real-time discussions.</p>
+                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                     <a href="https://x.com/MessyVirgoCoin" target="_blank" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Follow on X</a>
+                     <a href="https://t.me/messyvirgo" target="_blank" class="bg-pink-500/80 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-500 transition-transform duration-300 transform hover:scale-105">Join Telegram</a>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 border-t border-white/10">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            <p>&copy; 2025 $MESSY. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://x.com/MessyVirgoCoin" target="_blank" class="hover:text-pink-400 transition">X (Twitter)</a>
+                <a href="https://t.me/messyvirgo" target="_blank" class="hover:text-pink-400 transition">Telegram</a>
+                <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" class="hover:text-pink-400 transition">Contract</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Observer for fade-in animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- Mascot and Parallax Effect ---
+        const mascot = document.getElementById('mascot');
+        const hero = document.getElementById('hero');
+        if (mascot && hero) {
+            window.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const { offsetWidth, offsetHeight } = hero;
+                const x = (clientX - offsetWidth / 2) / 50;
+                const y = (clientY - offsetHeight / 2) / 50;
+                mascot.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+
+             window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                hero.style.backgroundPositionY = `${scrollY * 0.5}px`;
+            });
+        } else if (hero) {
+             window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                hero.style.backgroundPositionY = `${scrollY * 0.5}px`;
+            });
+        }
+        
+        // --- Animated Burn Counter ---
+        const burnCounter = document.getElementById('burn-counter');
+        if (burnCounter) {
+             const target = parseFloat(burnCounter.innerText.replace(/,/g, ''));
+             let current = 0;
+             const increment = target / 200;
+
+             const updateCounter = () => {
+                 if (current < target) {
+                     current += increment;
+                     burnCounter.innerText = current.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                     requestAnimationFrame(updateCounter);
+                 } else {
+                     burnCounter.innerText = target.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                 }
+             };
+             
+             // Start counter when it becomes visible
+             const counterObserver = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting) {
+                    updateCounter();
+                    counterObserver.unobserve(burnCounter);
+                }
+             }, {threshold: 0.5});
+             counterObserver.observe(burnCounter);
+        }
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // --- Scroll Progress Bar ---
+        const scrollProgress = document.getElementById('scroll-progress');
+        if (scrollProgress) {
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                scrollProgress.style.width = `${progress}%`;
+            });
+        }
+    });
+
+    // --- Modal Toggle Function ---
+    function toggleModal(show) {
+        const modal = document.getElementById('litepaperModal');
+        if (show) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        } else {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    }
+</script>
+
+</body>
+</html>
+
