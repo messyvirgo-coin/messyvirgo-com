@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: If you want to track the compiled CSS
+# Uncomment the line below if you don't want to commit tailwind.css
+# css/tailwind.css
+

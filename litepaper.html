@@ -1,279 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$MESSY - Interactive Litepaper</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Litepaper | $MESSY - AI Agent Token on Base</title>
+    <meta name="title" content="Litepaper | $MESSY - AI Agent Token on Base">
+    <meta name="description" content="Explore Messy's interactive litepaper: AI-powered fund management, tokenomics, vesting schedules, and the roadmap to autonomous trading on Base.">
+    <meta name="keywords" content="MESSY litepaper, tokenomics, vesting schedule, AI fund management, Base network">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.messyvirgo.com/litepaper.html">
+    <meta property="og:title" content="$MESSY Litepaper">
+    <meta property="og:description" content="Explore Messy's interactive litepaper with detailed tokenomics and AI strategy.">
+    <meta property="og:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.messyvirgo.com/litepaper.html">
+    <meta property="twitter:title" content="$MESSY Litepaper">
+    <meta property="twitter:description" content="Explore Messy's interactive litepaper with detailed tokenomics and AI strategy.">
+    <meta property="twitter:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.messyvirgo.com/litepaper.html">
+    
+    <!-- Fonts & External Scripts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: The SPA is designed as a single-page, narrative scrolling experience that guides the user from the high-level vision to the technical details. The structure prioritizes user understanding over mirroring the litepaper's linear format. It begins with the core vision, moves to the ecosystem's components (AI, Funds), visualizes the tokenomics, builds trust with an interactive vesting schedule, and concludes with the future roadmap. This thematic flow is more engaging and helps users synthesize complex information logically. -->
-    <!-- Visualization & Content Choices: Key data points are transformed into interactive elements. Tokenomics (tax, treasury) are shown as Donut charts (Chart.js) for clear, at-a-glance understanding of proportions. The critical 2-year Vesting Schedule is visualized as an interactive Gantt-style chart (HTML/CSS/JS) to make the timeline and lockup periods tangible and explorable. The Roadmap is a vertical timeline (HTML/CSS) to represent the project's forward momentum. These choices turn passive reading into active exploration. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FDFBF8; /* Warm neutral background */
-            color: #434242;
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/litepaper.css">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Document",
+        "name": "$MESSY Litepaper",
+        "description": "Interactive litepaper for Messy Virgo AI-powered fund management",
+        "url": "https://www.messyvirgo.com/litepaper.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Messy Virgo"
         }
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -31px;
-            top: 5px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background-color: #EAB308; /* Accent Gold */
-            border: 4px solid #FDFBF8;
-            z-index: 1;
-        }
-        .vesting-bar {
-            position: absolute;
-            height: 100%;
-            border-radius: 4px;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-        .vesting-bar:hover {
-            opacity: 1;
-        }
-        .vesting-label {
-             pointer-events: none;
-        }
-        .glossary-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
-        }
-    </style>
+    }
+    </script>
 </head>
-<body class="antialiased">
+<body class="litepaper-page">
+    <div id="scroll-progress"></div>
+    <div class="aurora-bg"></div>
 
-    <header class="py-12 text-center">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-800">$MESSY</h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-600">An Interactive Exploration of the Litepaper</p>
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
+                    <a href="/" class="text-gray-300 hover:text-pink-400 transition">Home</a>
+                    <a href="litepaper.html" class="text-gray-300 hover:text-pink-400 transition">Litepaper</a>
+                    <a href="founder-profiles.html" class="text-gray-300 hover:text-pink-400 transition">Founders</a>
+                    <a href="buildlog.html" class="text-gray-300 hover:text-pink-400 transition">Build Log</a>
+                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap $MESSY</a>
+                </div>
+                <!-- Mobile Nav Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
+            <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
+            <a href="litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
+            <a href="founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
+            <a href="buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
+            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
+        </div>
+    </nav>
+
+    <!-- Sticky Section Navigation -->
+    <div class="litepaper-nav">
+        <ul>
+            <li><a href="#abstract">Introduction</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#ecosystem">Ecosystem</a></li>
+            <li><a href="#trust">Trust</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <header class="litepaper-header">
+        <div class="litepaper-main">
+            <h1 class="text-gradient">$MESSY</h1>
+            <p>An Interactive Exploration of AI-Powered Fund Management</p>
         </div>
     </header>
 
-    <main class="container mx-auto px-6">
+    <main class="litepaper-main">
         
-        <section id="abstract" class="py-16 fade-in-section">
-            <div class="max-w-4xl mx-auto text-center bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Introduction</h2>
-                 <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-700">$MESSY is an innovative project on the Base network designed to simplify the complex worlds of artificial intelligence and decentralized finance (DeFi) for everyday users. Our main goal is to make advanced, AI-powered fund management accessible, understandable, and engaging. We do this through a unique "Synergy" approach, where our playful, anime-themed mascot, Messy, serves as a friendly guide into a realm usually reserved for technical experts.</p>
+        <!-- Abstract Section -->
+        <section id="abstract" class="litepaper-section">
+            <h2>Introduction</h2>
+            <div class="litepaper-box">
+                <p class="text-lg font-semibold mb-4 text-yellow-400">Complexity, Simplified.</p>
+                <p>$MESSY is more than just a token on the Base network; it represents the friendly face of a highly advanced intelligence. We believe that the future of wealth creation lies at the crossroads of institutional-grade Artificial Intelligence and Decentralized Finance (DeFi)—a realm that has traditionally been a fortress of complexity, accessible only to technical experts and insiders.</p>
+                <p class="mt-4">Our mission is to break down those barriers. We are combining the raw power of finance-grade AI, complex fund management, and cryptographic security into an experience that is both accessible and engaging. With Messy, our anime-inspired guide, you don't need to be a data scientist to take advantage of next-generation algorithms. We handle the heavy lifting behind the scenes, protecting you from noise and technical complexity, so you can focus on what truly matters: the journey and the results.</p>
             </div>
         </section>
         
-        <section id="glossary" class="py-16 fade-in-section">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center">Key Concepts, Simplified by Messy</h2>
-                <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-700 text-center">New to this? No problem! I'm here to help. Click on any term below to learn what it means in simple words.</p>
-                <div class="mt-8 space-y-4">
-                    <div class="glossary-item bg-white border border-gray-200 rounded-lg">
-                        <button class="glossary-toggle w-full text-left p-4 font-bold text-lg text-gray-800 flex justify-between items-center">
-                            What is DeFi?
-                            <span class="transform transition-transform duration-300">&#9662;</span>
-                        </button>
-                        <div class="glossary-content px-4 text-gray-600">
-                            <p class="pb-4">DeFi stands for "Decentralized Finance." Think of it like a global, open alternative to the current financial system. Instead of banks, you have smart contracts (code) that run on a blockchain, letting you trade, save, and invest without needing a middleman.</p>
-                        </div>
-                    </div>
-                    <div class="glossary-item bg-white border border-gray-200 rounded-lg">
-                        <button class="glossary-toggle w-full text-left p-4 font-bold text-lg text-gray-800 flex justify-between items-center">
-                            What are Reflections?
-                             <span class="transform transition-transform duration-300">&#9662;</span>
-                        </button>
-                        <div class="glossary-content px-4 text-gray-600">
-                            <p class="pb-4">Reflections are a way to reward you just for holding a token. A small fee from every trade is automatically sent to all token holders. It's like earning interest, but you see your token balance grow directly in your wallet from the community's trading activity.</p>
-                        </div>
-                    </div>
-                     <div class="glossary-item bg-white border border-gray-200 rounded-lg">
-                        <button class="glossary-toggle w-full text-left p-4 font-bold text-lg text-gray-800 flex justify-between items-center">
-                            What's a DAO?
-                             <span class="transform transition-transform duration-300">&#9662;</span>
-                        </button>
-                        <div class="glossary-content px-4 text-gray-600">
-                            <p class="pb-4">A DAO is a "Decentralized Autonomous Organization." It's like a club or company with no central leader. Instead, the community of token holders votes on all major decisions. It’s a way to make sure the project is truly run by the people who believe in it.</p>
-                        </div>
-                    </div>
+<!-- Vision Section -->
+        <section id="vision" class="litepaper-section">
+            <h2>The Vision: The Ultimate Alpha-Hunting Machine</h2>
+            <div class="litepaper-box mb-8">
+                <p>We are not just building a fund; we are designing a digital organism built to seek value in the chaotic blockchain ocean. Our goal is to launch a proprietary, AI-powered engine that exceeds human limits, constantly scanning, analyzing, and optimizing to generate returns for our ecosystem.</p>
+                <p class="mt-4">This engine never rests, driven by four pillars of intelligence:</p>
+            </div>
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <h3>1. The All-Hearing Ear (Signal Detection)</h3>
+                    <p>Before a trend reaches the mainstream, it begins as a whisper. Our Agentic AI system is connected to the internet's nervous system. It monitors subtle signals across social media, news outlets, and on-chain movements. By performing real-time Sentiment and Narrative Analysis, we spot high-potential assets early, long before the crowd notices.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>2. The Crystal Lens (AI Due Diligence)</h3>
+                    <p>Identifying a token is simple; understanding its truth is difficult. Once a signal is detected, our engine activates its Due Diligence layer. Like a diamond cutter examining a rough stone, the AI applies multiple "Lenses"—perspectives that analyze the project from every angle. It inspects APIs, code repositories, and whitepapers and performs automated Fact-Checking to reveal inconsistencies. It assigns a proprietary score to each asset, separating the empty hype from genuine gems.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>3. The Architect (Portfolio Optimization)</h3>
+                    <p>Data is useless without a strategy. This is where our mathematical core kicks in. Using advanced constraint programming and solver algorithms, the engine doesn't just "pick stocks"—it mathematically builds the optimal portfolio. It balances risk and reward with cold, calculated precision to make sure our funds are always positioned for maximum efficiency.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>4. The Human Heart (Community Sovereignty)</h3>
+                    <p>We believe that a machine without a soul is dangerous. While our AI handles the calculations, the direction remains in your hands. We are leading a "Human-in-the-Loop" governance model in which the Messy community holds ultimate authority. The AI suggests the best options, but the community confirms the final outcome. This is the harmony of silicon and soul—combining the sophistication of a hedge fund with the transparency of a DAO.</p>
                 </div>
             </div>
         </section>
 
-        <section id="vision" class="py-16 fade-in-section">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Vision: Your Guide to AI-Powered Funds</h2>
-                <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-700">This section introduces the core mission of the $MESSY project. It explains the goal of making complex financial technologies like AI and DeFi accessible to everyone by leveraging an intelligent, automated management layer on established platforms like Guru.fund. The goal is to demystify algorithmic trading and create a more inclusive model of value creation.</p>
-            </div>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200 h-full">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">AI Engine: Messy's Brain</h3>
-                    <p class="text-gray-600">The heart of the project is a dual-capability AI engine that provides manually verified insights, turning complex data into actionable intelligence.</p>
-                </div>
-                <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                        <h4 class="font-bold text-lg text-gray-800">Narrative Analysis</h4>
-                        <p class="mt-2 text-gray-600">Scans social media to track keyword velocity and sentiment shifts, identifying trends before they become mainstream.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                        <h4 class="font-bold text-lg text-gray-800">On-Chain Analysis</h4>
-                        <p class="mt-2 text-gray-600">Monitors blockchain data for patterns in wallet creation and transaction volumes to predict market movements.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="ecosystem" class="py-16 fade-in-section">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Ecosystem & Tokenomics</h2>
-                <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-700">Explore the core components of the $MESSY ecosystem. This includes the two investment funds where the AI's strategies are deployed and the tokenomics that power the project, visualized below to clearly show how value is distributed and how the treasury is sustained.</p>
-            </div>
-            <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                 <div class="space-y-8">
-                    <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                        <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">Investment Vehicles</h3>
-                        <div class="space-y-6">
-                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                                <h4 class="font-bold text-lg text-yellow-600">$MESSYBASED (Base)</h4>
-                                <p class="mt-2 text-gray-600">The flagship fund on the Base network, serving as our fast-moving innovation lab to test AI strategies in a low-cost environment.</p>
+        <!-- Ecosystem Section -->
+        <section id="ecosystem" class="litepaper-section">
+            <h2>The Ecosystem & Tokenomics</h2>
+            <p class="text-center text-gray-400 mb-8">Explore the core components of the $MESSY ecosystem. This includes the two investment funds where the AI's strategies are deployed and the tokenomics that power the project, visualized below to clearly show how value is distributed and how the treasury is sustained.</p>
+            <div class="ecosystem-grid">
+                <div>
+                    <div class="litepaper-box">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-4">Investment Vehicles</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                <h4 class="font-bold text-yellow-400">$MESSYBASED (Base)</h4>
+                                <p class="text-gray-400 text-sm mt-2">The flagship fund on the Base network, serving as our fast-moving innovation lab to test AI strategies in a low-cost environment.</p>
                             </div>
-                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                                <h4 class="font-bold text-lg text-yellow-600">$MESSYFUND (Ethereum)</h4>
-                                <p class="mt-2 text-gray-600">An Ethereum-based fund whose value is linked to a portfolio of tangible assets (e.g., $M87, $GURU), like a traditional investment fund. This is our long-term, high-value portfolio.</p>
+                            <div class="bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+                                <h4 class="font-bold text-yellow-400">$MESSYFUND (Ethereum)</h4>
+                                <p class="text-gray-400 text-sm mt-2">An Ethereum-based fund whose value is linked to a portfolio of tangible assets (e.g., $M87, $GURU), like a traditional investment fund.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                        <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Security Foundation</h3>
-                        <p class="text-center text-gray-600">The $MESSY smart contract was created using **CertiK-audited** templates via Bitbond's Token Tool, ensuring a foundation of proven security. The contract is publicly verified on BaseScan.</p>
+                    <div class="litepaper-box">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">Security Foundation</h3>
+                        <p>The $MESSY smart contract was created using <strong>CertiK-audited</strong> templates via Bitbond's Token Tool, ensuring a foundation of proven security. The contract is publicly verified on BaseScan.</p>
                     </div>
                 </div>
-                <div class="space-y-8">
-                    <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
-                        <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">How Trading Grows the Ecosystem</h3>
+                <div>
+                    <div class="litepaper-box">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-4">How Trading Grows the Ecosystem</h3>
                         <div class="chart-container">
                             <canvas id="taxChart"></canvas>
                         </div>
-                         <div class="text-center mt-4 text-sm text-gray-600 space-y-2">
-                             <p><strong>1.25% Shared with You (Reflections):</strong> A portion of every trade is automatically shared among all token holders. Just by holding $MESSY in your wallet, you'll see your balance grow over time.</p>
-                             <p><strong>3.70% Reinvested in the Project (Treasury):</strong> This portion funds everything that makes the project successful: marketing, AI development, and strategic token burns and buybacks to support the token's value.</p>
-                         </div>
+                        <div class="text-center mt-4 text-sm text-gray-400 space-y-2">
+                            <p><strong>1.25% Shared with You (Reflections):</strong> A portion of every trade is automatically shared among all token holders. Just by holding $MESSY in your wallet, you'll see your balance grow over time.</p>
+                            <p><strong>3.70% Reinvested in the Project (Treasury):</strong> This portion funds everything that makes the project successful: marketing, AI development, and strategic token burns and buybacks to support the token's value.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="trust" class="py-16 fade-in-section">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Trust & Transparency</h2>
-                <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-700">Transparency is a cornerstone of the $MESSY project. This section details the management of the Creator Wallet and visualizes the public 2-year vesting schedule. Explore the data below to understand our long-term commitment.</p>
-            </div>
-            <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                     <h3 class="text-xl font-bold text-gray-800 mb-2">Creator Wallet Security</h3>
-                    <p class="text-gray-600 mb-4 text-sm">To ensure the long-term health of the project and build absolute trust with our community, the 432.7M tokens in the Creator Wallet are secured in an industry-standard **Gnosis Safe**, which is like a digital bank vault that requires multiple keys to open. We are publicly and immutably committed to the 2-year vesting schedule below, and all transactions will be detailed in a monthly "State of the Treasury" report for complete transparency.</p>
+        <!-- Trust & Transparency Section -->
+        <section id="trust" class="litepaper-section">
+            <h2>Trust & Transparency</h2>
+            <p class="text-center text-gray-400 mb-8">Transparency is a cornerstone of the $MESSY project. This section details the management of the Creator Wallet and visualizes the public 2-year vesting schedule.</p>
+            
+            <div class="trust-cards-container max-w-4xl mx-auto">
+                
+                <!-- Card 1: Creator Wallet Security -->
+                <div class="trust-card">
+                    <div class="trust-card-badge">1</div>
+                    <h3 class="trust-card-title">Creator Wallet Security</h3>
+                    <p class="text-sm text-gray-400 mb-4">To ensure the long-term health of the project and build absolute trust with our community, the 432,700,000 tokens in the Creator Wallet are planned to be migrated to an industry-standard <strong>Gnosis Safe</strong> multi-signature vault (migration in progress). This will enable secure, transparent management requiring multiple approvals for fund movement.</p>
+                    <h4 class="text-base font-bold text-yellow-400 mb-2">Co-Founder Allocation & Vesting</h4>
+                    <p class="text-sm text-gray-400 mb-3">Michael ("Technical Co-Founder & CTO") will receive <strong>110,000,000 $MESSY tokens (11% of the total supply)</strong> from the Creator Wallet in recognition of his pivotal role and contributions as Co-Founder and CTO. This allocation includes estimated transactional taxes, resulting in a net effective payment of approximately 10%+ of the total supply after tax deductions.</p>
+                    <p class="text-sm text-gray-400">All transactions, including CTO vesting, will be detailed in a monthly "State of the Treasury" report for full transparency.</p>
+                </div>
+                
+                <!-- Card 2: Interactive Vesting Timeline -->
+                <div class="trust-card">
+                    <div class="trust-card-badge">2</div>
+                    <h3 class="trust-card-title">Interactive Vesting Timeline</h3>
+                    <p class="text-sm text-gray-400 mb-4">The interactive vesting timeline below includes two CTO tranches: <strong>2% upfront (Nov 2025)</strong> and <strong>6 × 1.5% quarterly</strong> payments beginning end of Q1/2026. This ensures transparency for all major stakeholder allocations and unlocks.</p>
+                    <div id="vesting-chart-container" class="vesting-chart-container">
+                        <div class="absolute top-2 left-4 text-xs text-gray-500">Year 1</div>
+                        <div class="absolute top-2 left-1/2 -ml-4 text-xs text-gray-500">Year 2</div>
+                        <div class="absolute top-2 right-4 text-xs text-gray-500">End</div>
+                        <div class="absolute top-8 bottom-0 left-1/2 border-l border-dashed border-gray-600"></div>
+                    </div>
+                    <div id="vesting-details" class="vesting-details">
+                        Hover over a bar to see vesting details.
+                    </div>
+                </div>
+                
+                <!-- Card 3: Allocation Schedule -->
+                <div class="trust-card">
+                    <div class="trust-card-badge">3</div>
+                    <h3 class="trust-card-title">Allocation Schedule</h3>
+                    <p class="text-sm text-gray-400 mb-4">Complete breakdown of all vesting schedules and unlock dates for the Creator Wallet allocations.</p>
                     <div class="overflow-x-auto">
-                        <table class="w-full text-sm text-left">
-                            <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+                        <table class="litepaper-table">
+                            <thead>
                                 <tr>
-                                    <th class="px-4 py-2">Allocation</th>
-                                    <th class="px-4 py-2">Cliff</th>
-                                    <th class="px-4 py-2">Unlocks Begin</th>
+                                    <th>Allocation</th>
+                                    <th class="text-right">Cliff</th>
+                                    <th class="text-right">Unlocks Begin</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b">
-                                    <td class="px-4 py-2 font-medium">Protocol Liquidity</td>
-                                    <td class="px-4 py-2">3 Months</td>
-                                    <td class="px-4 py-2">Jan 1, 2026</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="px-4 py-2 font-medium">Community & Partners</td>
-                                    <td class="px-4 py-2">6 Months</td>
-                                    <td class="px-4 py-2">Apr 1, 2026</td>
-                                </tr>
-                                 <tr class="border-b">
-                                    <td class="px-4 py-2 font-medium">Contributors & Advisors</td>
-                                    <td class="px-4 py-2">12 Months</td>
-                                    <td class="px-4 py-2">Oct 1, 2026</td>
+                                <tr>
+                                    <td class="font-medium">Protocol Liquidity</td>
+                                    <td class="text-right">3 Months</td>
+                                    <td class="text-right">Jan 1, 2026</td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-2 font-medium">Treasury (Strategic)</td>
-                                    <td class="px-4 py-2">9 Months</td>
-                                    <td class="px-4 py-2">Jul 1, 2026</td>
+                                    <td class="font-medium">Community & Partners</td>
+                                    <td class="text-right">6 Months</td>
+                                    <td class="text-right">Apr 1, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Contributors & Advisors</td>
+                                    <td class="text-right">12 Months</td>
+                                    <td class="text-right">Oct 1, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Treasury (Strategic)</td>
+                                    <td class="text-right">9 Months</td>
+                                    <td class="text-right">Jul 1, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">CTO (Michael) – Upfront</td>
+                                    <td class="text-right">1 Month</td>
+                                    <td class="text-right">Nov 1, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">CTO (Michael) – Vesting</td>
+                                    <td class="text-right">6 Months</td>
+                                    <td class="text-right">Mar 31, 2026</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Interactive Vesting Timeline</h3>
-                    <div id="vesting-chart-container" class="relative w-full h-72 bg-gray-50 rounded-lg p-4 pr-8 pt-10">
-                        <div class="absolute top-2 left-4 text-xs text-gray-500">Year 1</div>
-                        <div class="absolute top-2 left-1/2 -ml-4 text-xs text-gray-500">Year 2</div>
-                        <div class="absolute top-2 right-4 text-xs text-gray-500">End</div>
-                        <div class="absolute top-8 bottom-0 left-1/2 border-l border-dashed border-gray-300"></div>
-                    </div>
-                    <div id="vesting-details" class="mt-2 p-2 bg-gray-50 rounded-lg border border-gray-200 text-center text-gray-700 text-sm">
-                        Hover over a bar to see vesting details.
-                    </div>
-                </div>
+                
             </div>
         </section>
 
-        <section id="roadmap" class="py-16 fade-in-section">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Roadmap: The Path to Autonomy</h2>
-                <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-700">Our evolution is a staged journey to ensure stability and performance. The timeline below outlines the key phases, from establishing our brand and community to achieving full decentralization through DAO governance. This represents our strategic plan for building a sustainable, community-driven ecosystem.</p>
+        <!-- Roadmap Section -->
+        <section id="roadmap" class="litepaper-section">
+            <h2>Roadmap: The Path to Autonomy</h2>
+            <div class="litepaper-box mb-8">
+                <p class="font-semibold mb-4">A staged revolution toward the first AI-native autonomous investment engine.</p>
+                <p>The development of MESSY follows a careful, step-by-step process that balances innovation, stability, and long-term sustainability. Each stage builds on the intelligence and infrastructure of the previous one, guiding the system from cultural identity to full autonomy under decentralized governance. This journey is deliberate; it is designed to ensure that every step is secure, transparent, and aligned with the community's interests.</p>
             </div>
-            <div class="mt-12 max-w-2xl mx-auto">
-                <div class="relative pl-8 border-l-2 border-yellow-500">
-                    <div class="mb-12 timeline-item">
-                        <h4 class="text-xl font-bold text-gray-800">Phase 1: Culture Engine (LIVE)</h4>
-                        <p class="mt-2 text-gray-600">Establish the brand and community. Shape narratives through strategic campaigns and build a strong social media presence.</p>
-                    </div>
-                    <div class="mb-12 timeline-item">
-                        <h4 class="text-xl font-bold text-gray-800">Phase 2: Interactive Agent (Q1 2026)</h4>
-                        <p class="mt-2 text-gray-600">Launch an interactive Telegram & X agent providing real-time alerts on wallet movements and social sentiment, giving the community direct access to AI insights.</p>
-                    </div>
-                    <div class="mb-12 timeline-item">
-                        <h4 class="text-xl font-bold text-gray-800">Phase 3: Autonomous Trader (Q3 2026)</h4>
-                        <p class="mt-2 text-gray-600">Grant the AI autonomous trading capabilities, allowing it to execute strategies within predefined risk parameters on the `$MESSYFUND` portfolio.</p>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Phase 1: Culture Engine (LIVE)</h4>
+                        <p>Phase 1 focuses on establishing MESSY's identity and voice. Before any intelligence can be trusted, it must be understood and embraced. This stage involves shaping the culture, strengthening social foundations, and creating a recognizable presence that connects with the community. Through consistent storytelling, high-quality content, and an active ecosystem of participants, MESSY evolves from a mere token to a symbol of curiosity, intelligence, and accessible innovation. The community developed in this phase becomes the foundation for all future capabilities.</p>
                     </div>
                     <div class="timeline-item">
-                        <h4 class="text-xl font-bold text-gray-800">Phase 4: DAO Governance (2027)</h4>
-                        <p class="mt-2 text-gray-600">Begin the phased transition of the Gnosis Safe's control to a DAO, where $MESSY token holders can vote on proposals and govern the future of the ecosystem. This responsible, staged approach ensures the DAO is mature, secure, and truly represents a decentralized community upon launch.</p>
+                        <h4>Phase 2: Minimum Viable Intelligence (Q1 2026)</h4>
+                        <p>The second phase introduces the system's first functional intelligence: the Agentic Token Due Diligence Engine. This is where MESSY begins to think. The engine processes on-chain activity, detects emerging signals, analyzes tokens in real time, and develops a clear understanding of each asset's fundamentals and risks. It marks the system's first move from narrative to logic. This minimal viable intelligence forms the analytical core for everything that comes next, powering future trading execution, agent swarms, and external data integrations. With Phase 2, MESSY shifts from voice to insight.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Phase 3: The Autonomous Trader (Q3 2026)</h4>
+                        <p>Phase 3 is where intelligence transforms into action. The autonomous trader signifies the shift from passive analysis to active portfolio management. Using predefined risk parameters and mathematical optimization techniques, the AI begins managing the $MESSYFUND, selecting and adjusting positions based on real-time inputs and the insights from its earlier due diligence systems. Every decision is transparent and auditable, ensuring responsible execution within the community's boundaries. This stage embodies the move from "understanding the market" to "operating within it," unlocking a level of speed and precision that surpasses human ability while remaining aligned with human-defined constraints.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Phase 4: The DAO Transition (2027)</h4>
+                        <p>The final phase concludes the journey by shifting authority from the founding team to the community. Control of the treasury, risk parameters, and system development gradually transfers to $MESSY token holders through a structured transition of the Gnosis Safe. This governance framework ensures that the community's collective intelligence guides the ecosystem's long-term direction, while the AI continues to perform operational tasks behind the scenes. By the time this phase is fully implemented, MESSY becomes a living, decentralized digital institution—an autonomous intelligence shaped by human intent and reinforced by algorithmic precision.</p>
                     </div>
                 </div>
             </div>
@@ -281,155 +306,17 @@
 
     </main>
 
-    <footer class="py-12 bg-gray-100 mt-16">
-        <div class="container mx-auto px-6 text-center text-gray-600">
-            <p class="font-semibold">Disclaimer</p>
-            <p class="text-sm mt-2 max-w-3xl mx-auto">This interactive litepaper is for informational purposes only and does not constitute financial advice. The $MESSY token is a high-risk digital asset. Please conduct your own thorough research (DYOR) before making any investment decisions.</p>
-            <p class="text-xs mt-4">&copy; 2025 $MESSY. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="litepaper-footer">
+        <div class="litepaper-main">
+            <p class="disclaimer">Disclaimer</p>
+            <p>This interactive litepaper is for informational purposes only and does not constitute financial advice. The $MESSY token is a high-risk digital asset. Please conduct your own thorough research (DYOR) before making any investment decisions.</p>
+            <p class="mt-4 text-xs">&copy; 2025 $MESSY. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            const taxData = {
-                labels: ['Reinvested in Project (3.70%)', 'Shared with You (1.25%)'],
-                datasets: [{
-                    data: [3.70, 1.25],
-                    backgroundColor: ['#D97706', '#FBBF24'],
-                    borderColor: '#FDFBF8',
-                    borderWidth: 4,
-                    hoverOffset: 4
-                }]
-            };
-
-            const taxConfig = {
-                type: 'doughnut',
-                data: taxData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    family: "'Inter', sans-serif",
-                                    size: 14
-                                },
-                                color: '#434242',
-                                padding: 20
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.label}: ${context.raw}%`;
-                                }
-                            }
-                        }
-                    },
-                    cutout: '60%'
-                }
-            };
-            
-            const taxChartCtx = document.getElementById('taxChart').getContext('2d');
-            new Chart(taxChartCtx, taxConfig);
-
-            const vestingData = [
-                { name: 'Protocol Liquidity', cliff: 3, vesting: 21, color: '#38A169' },
-                { name: 'Community & Partners', cliff: 6, vesting: 18, color: '#3182CE' },
-                { name: 'Contributors & Advisors', cliff: 12, vesting: 12, color: '#805AD5' },
-                { name: 'Treasury (Strategic)', cliff: 9, vesting: 15, color: '#D53F8C' }
-            ];
-
-            const chartContainer = document.getElementById('vesting-chart-container');
-            const detailsPanel = document.getElementById('vesting-details');
-            
-            const computedStyle = window.getComputedStyle(chartContainer);
-            const paddingLeft = parseFloat(computedStyle.paddingLeft);
-            const paddingRight = parseFloat(computedStyle.paddingRight);
-            const containerWidth = chartContainer.clientWidth - paddingLeft - paddingRight;
-
-            vestingData.forEach((item, index) => {
-                const totalDuration = 24; 
-                const topOffset = index * 40;
-
-                const fullBarContainer = document.createElement('div');
-                fullBarContainer.style.position = 'absolute';
-                fullBarContainer.style.width = `${containerWidth}px`;
-                fullBarContainer.style.height = '16px';
-                fullBarContainer.style.top = `${topOffset + 40}px`;
-                
-                const cliffBar = document.createElement('div');
-                cliffBar.className = 'vesting-bar';
-                cliffBar.style.backgroundColor = item.color;
-                cliffBar.style.opacity = '0.3';
-                cliffBar.style.left = `0%`;
-                cliffBar.style.width = `${(item.cliff / totalDuration) * 100}%`;
-                
-                const bar = document.createElement('div');
-                bar.className = 'vesting-bar';
-                bar.style.backgroundColor = item.color;
-                bar.style.left = `${(item.cliff / totalDuration) * 100}%`;
-                bar.style.width = `${(item.vesting / totalDuration) * 100}%`;
-                
-                const label = document.createElement('div');
-                label.className = 'absolute text-xs text-gray-700 whitespace-nowrap vesting-label';
-                label.textContent = item.name;
-                label.style.bottom = '100%';
-                label.style.marginBottom = '2px';
-                label.style.left = `0%`;
-                
-                fullBarContainer.appendChild(label);
-                fullBarContainer.appendChild(cliffBar);
-                fullBarContainer.appendChild(bar);
-                chartContainer.appendChild(fullBarContainer);
-
-                [bar, cliffBar].forEach(el => {
-                    el.addEventListener('mouseover', () => {
-                        detailsPanel.innerHTML = `
-                            <strong style="color:${item.color}">${item.name}</strong><br>
-                            Cliff: ${item.cliff} months, Vesting: ${item.vesting} months
-                        `;
-                    });
-                    el.addEventListener('mouseout', () => {
-                        detailsPanel.innerHTML = 'Hover over a bar to see vesting details.';
-                    });
-                });
-            });
-
-
-            const sections = document.querySelectorAll('.fade-in-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-            
-            const glossaryToggles = document.querySelectorAll('.glossary-toggle');
-            glossaryToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const content = toggle.nextElementSibling;
-                    const arrow = toggle.querySelector('span');
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                        arrow.style.transform = 'rotate(0deg)';
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        arrow.style.transform = 'rotate(180deg)';
-                    }
-                });
-            });
-        });
-    </script>
+    <!-- External Scripts -->
+    <script src="/js/main.js" defer></script>
+    <script src="/js/litepaper.js" defer></script>
 </body>
 </html>
-

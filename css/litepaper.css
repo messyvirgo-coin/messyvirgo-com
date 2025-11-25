@@ -1,0 +1,568 @@
+/* ========================================
+   LITEPAPER PAGE STYLES
+   ======================================== */
+
+/* Litepaper-Specific Theme Override */
+body.litepaper-page {
+    background-color: #0a0a0a;
+    color: #e5e7eb;
+}
+
+/* Header */
+.litepaper-header {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.litepaper-header h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .litepaper-header h1 {
+        font-size: 3.75rem;
+    }
+}
+
+.litepaper-header p {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    color: #9ca3af;
+}
+
+/* Main Container */
+.litepaper-main {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Sections */
+.litepaper-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    padding: 4rem 0;
+}
+
+.litepaper-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.litepaper-section h2 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #ff69b4, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (min-width: 768px) {
+    .litepaper-section h2 {
+        font-size: 2.25rem;
+    }
+}
+
+/* Content Boxes */
+.litepaper-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+}
+
+.litepaper-box p {
+    color: #d1d5db;
+    line-height: 1.75;
+}
+
+/* Glossary Styles */
+.glossary-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.glossary-toggle {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: #e5e7eb;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.glossary-toggle:hover {
+    background-color: rgba(255, 105, 180, 0.1);
+}
+
+.glossary-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    padding: 0 1rem;
+    color: #9ca3af;
+}
+
+.glossary-content.open {
+    max-height: 500px;
+    padding-bottom: 1rem;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    max-height: 400px;
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        height: 350px;
+    }
+}
+
+/* Vision Section */
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .vision-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.vision-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    height: 100%;
+}
+
+.vision-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fbbf24;
+    margin-bottom: 1rem;
+}
+
+.vision-card p {
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-top: 0.75rem;
+}
+
+.vision-card p + p {
+    margin-top: 1rem;
+}
+
+/* Ecosystem Grid */
+.ecosystem-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .ecosystem-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid #fbbf24;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 5px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fbbf24;
+    border: 4px solid #0a0a0a;
+    z-index: 1;
+}
+
+.timeline-item h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #e5e7eb;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item p {
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-top: 0.5rem;
+}
+
+.timeline-item p + p {
+    margin-top: 1rem;
+}
+
+/* Vesting Chart */
+.vesting-chart-container {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 2.5rem 2rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1.5rem;
+}
+
+.vesting-bar {
+    position: absolute;
+    height: 100%;
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.vesting-bar:hover {
+    opacity: 1;
+}
+
+.vesting-label {
+    pointer-events: none;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.vesting-details {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Table Styles */
+.litepaper-table {
+    width: 100%;
+    margin-top: 1.5rem;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.litepaper-table thead {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.litepaper-table th {
+    padding: 0.75rem;
+    text-align: left;
+    color: #9ca3af;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.litepaper-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
+}
+
+.litepaper-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Footer */
+.litepaper-footer {
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4rem;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.litepaper-footer p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    line-height: 1.75;
+}
+
+.litepaper-footer .disclaimer {
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+/* Sticky Navigation */
+.litepaper-nav {
+    position: sticky;
+    top: 4rem;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 30;
+    padding: 1rem;
+}
+
+.litepaper-nav ul {
+    max-width: 56rem;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.litepaper-nav a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+}
+
+.litepaper-nav a:hover,
+.litepaper-nav a.active {
+    color: #ff69b4;
+}
+
+/* Simple Elegant Trust Cards */
+.trust-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 100%;
+}
+
+.trust-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(180deg, rgba(255, 105, 180, 0.6), rgba(255, 215, 0, 0.6)) 1;
+    transition: all 0.3s ease;
+}
+
+.trust-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(8px);
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.1);
+}
+
+.trust-card-badge {
+    position: absolute;
+    top: -12px;
+    left: 2rem;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #ff69b4, #ffd700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.trust-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fbbf24;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.trust-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fbbf24;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.trust-card p {
+    color: #b3b3b3;
+    line-height: 1.7;
+}
+
+/* Enhanced Responsive */
+@media (max-width: 768px) {
+    .litepaper-section {
+        padding: 2rem 0;
+    }
+
+    .litepaper-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .litepaper-box {
+        padding: 1.25rem;
+    }
+
+    .litepaper-box p {
+        font-size: 0.95rem;
+    }
+
+    .vision-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .vision-card p {
+        font-size: 0.9rem;
+    }
+
+    .timeline {
+        padding-left: 1rem;
+    }
+
+    .timeline-item {
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+        left: -1.75rem;
+        width: 16px;
+        height: 16px;
+    }
+
+    .timeline-item h4 {
+        font-size: 1rem;
+    }
+
+    .timeline-item p {
+        font-size: 0.9rem;
+    }
+
+    .vesting-chart-container {
+        height: 12rem;
+        padding: 2rem 1rem 0.5rem;
+    }
+
+    .litepaper-table {
+        font-size: 0.8rem;
+    }
+
+    .litepaper-table th,
+    .litepaper-table td {
+        padding: 0.5rem;
+    }
+
+    .litepaper-nav {
+        top: 3rem;
+    }
+
+    .litepaper-nav ul {
+        flex-direction: row;
+        gap: 0.5rem;
+        overflow-x: auto;
+        padding: 0 0.5rem;
+        scrollbar-width: none;
+    }
+
+    .litepaper-nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .litepaper-nav a {
+        font-size: 0.75rem;
+        white-space: nowrap;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .trust-card {
+        padding: 1.5rem;
+    }
+
+    .trust-card:hover {
+        transform: translateX(4px);
+    }
+
+    .trust-card-badge {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        left: 1rem;
+    }
+
+    .trust-card-title {
+        font-size: 1.125rem;
+    }
+
+    .trust-cards-container {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .litepaper-header h1 {
+        font-size: 2rem;
+    }
+
+    .litepaper-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .litepaper-box {
+        padding: 1rem;
+    }
+
+    .litepaper-main {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .vision-card {
+        padding: 1rem;
+    }
+
+    .vision-grid {
+        gap: 1rem;
+    }
+
+    .ecosystem-grid {
+        gap: 1.5rem;
+    }
+}
+
