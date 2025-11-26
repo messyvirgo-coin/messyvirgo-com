@@ -23,7 +23,7 @@ body.founder-profiles-page {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-    align-items: center;
+    align-items: start;
     padding: 3rem;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
@@ -35,13 +35,13 @@ body.founder-profiles-page {
 
 @media (min-width: 768px) {
     .founder-card {
-        grid-template-columns: 300px 1fr;
-        gap: 4rem;
+        grid-template-columns: 280px 1fr;
+        gap: 3rem;
     }
     
     /* Second founder: reverse the order */
     .founder-card:nth-child(2) {
-        grid-template-columns: 1fr 300px;
+        grid-template-columns: 1fr 280px;
     }
     
     .founder-card:nth-child(2) .founder-avatar {
@@ -60,28 +60,40 @@ body.founder-profiles-page {
     box-shadow: 0 8px 32px rgba(255, 105, 180, 0.15);
 }
 
-/* Fade-in animation */
-.founder-card.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Automatic fade-in animation for founder cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.founder-card.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+.founder-card.fade-in {
+    /* Override base.css transition to allow animation */
+    transition: none;
+    /* Ensure initial state from base.css is maintained */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 /* Founder Avatar */
 .founder-avatar {
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .founder-photo {
     width: 240px;
     height: 240px;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
     object-fit: cover;
     border-radius: 20px;
     border: 3px solid rgba(255, 105, 180, 0.3);
@@ -138,14 +150,14 @@ body.founder-profiles-page {
     font-weight: bold;
     font-family: 'Playfair Display', serif;
     color: #e5e7eb;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
 }
 
 .founder-title {
-    font-size: 1.125rem;
-    color: #fbbf24;
+    font-size: 1rem;
+    color: #fb923c; /* Orange - Business & Operations */
     font-weight: 600;
-    margin: 0;
+    margin: 0 0 1rem 0;
 }
 
 /* Founder Quote */
@@ -154,7 +166,7 @@ body.founder-profiles-page {
     border-left: 4px solid #ff69b4;
     background: rgba(255, 105, 180, 0.05);
     border-radius: 4px;
-    margin: 0.5rem 0;
+    margin: 0 0 1.5rem 0;
 }
 
 .founder-quote p {
@@ -166,6 +178,18 @@ body.founder-profiles-page {
 }
 
 /* Founder Bio */
+.bio-preview {
+    display: block;
+}
+
+.bio-preview.expanded {
+    display: block;
+}
+
+.bio-preview:not(.expanded) .founder-bio:nth-child(n+2) {
+    display: none;
+}
+
 .founder-bio {
     font-size: 1rem;
     color: #b3b3b3;
@@ -177,29 +201,17 @@ body.founder-profiles-page {
     margin-top: 1.25rem;
 }
 
-/* Read More functionality */
-.bio-preview {
-    display: block;
-}
-
-.bio-full {
-    display: none;
-    margin-top: 1rem;
-}
-
-.bio-full.expanded {
-    display: block;
-}
-
 .read-more-btn {
     display: inline-block;
+    position: relative;
+    z-index: 1;
     margin-top: 1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.25rem;
     background: rgba(255, 105, 180, 0.1);
     border: 1px solid rgba(255, 105, 180, 0.3);
-    border-radius: 6px;
+    border-radius: 20px;
     color: #ff69b4;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -208,14 +220,15 @@ body.founder-profiles-page {
 .read-more-btn:hover {
     background: rgba(255, 105, 180, 0.2);
     border-color: #ff69b4;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
 }
 
 /* Social Links */
 .founder-socials {
     display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.75rem;
+    margin: 0;
     justify-content: center;
 }
 
@@ -225,19 +238,19 @@ body.founder-profiles-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 105, 180, 0.1);
-    border: 1px solid rgba(255, 105, 180, 0.3);
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
     border-radius: 50%;
-    color: #ff69b4;
+    color: #60a5fa; /* Blue - Product Development */
     transition: all 0.3s ease;
     text-decoration: none;
 }
 
 .social-link:hover {
-    background: rgba(255, 105, 180, 0.2);
-    border-color: #ff69b4;
+    background: rgba(96, 165, 250, 0.2);
+    border-color: #60a5fa;
     transform: scale(1.1) translateY(-2px);
-    box-shadow: 0 0 1rem rgba(255, 105, 180, 0.3);
+    box-shadow: 0 0 1rem rgba(96, 165, 250, 0.3);
 }
 
 .social-link svg {
@@ -281,11 +294,11 @@ body.founder-profiles-page {
     }
 
     .founder-name {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     .founder-title {
-        font-size: 1.0625rem;
+        font-size: 0.9375rem;
     }
 
     .founder-bio {
@@ -324,11 +337,11 @@ body.founder-profiles-page {
     }
 
     .founder-name {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .founder-title {
-        font-size: 1rem;
+        font-size: 0.875rem;
     }
 
     .founder-quote {
@@ -355,27 +368,12 @@ body.founder-profiles-page {
     }
 }
 
-/* Animation for entrance */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.founder-card {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.founder-card:nth-child(1) {
+/* Staggered fade-in animation delays */
+.founder-card.fade-in:nth-child(1) {
     animation-delay: 0.1s;
 }
 
-.founder-card:nth-child(2) {
+.founder-card.fade-in:nth-child(2) {
     animation-delay: 0.2s;
 }
 

@@ -48,12 +48,8 @@ body.litepaper-page {
 }
 
 /* Content Boxes */
+/* Use standard .mv-card with additional padding/margin */
 .litepaper-box {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
     padding: 2rem;
     margin: 1.5rem 0;
 }
@@ -61,6 +57,30 @@ body.litepaper-page {
 .litepaper-box p {
     color: #d1d5db;
     line-height: 1.75;
+}
+
+.litepaper-box-header {
+    margin-bottom: 0;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0;
+}
+
+/* Automatic fade-in animation for litepaper boxes */
+.litepaper-box.fade-in {
+    /* Override base.css transition to allow animation */
+    transition: none !important;
+    /* Ensure initial state from base.css is maintained */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.litepaper-box.fade-in.visible {
+    /* Prevent base.css from interfering with animation */
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 /* Chart Container */
@@ -94,10 +114,8 @@ body.litepaper-page {
     }
 }
 
+/* Use standard .mv-card with additional styles */
 .vision-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
     padding: 2rem;
     height: 100%;
 }
@@ -133,10 +151,17 @@ body.litepaper-page {
 
 .vision-card.fade-in {
     /* Override base.css transition to allow animation */
-    transition: none;
+    transition: none !important;
     /* Ensure initial state from base.css is maintained */
     opacity: 0;
     transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.vision-card.fade-in.visible {
+    /* Prevent base.css from interfering with animation */
+    opacity: 1;
+    transform: translateY(0);
     animation: fadeInUp 0.6s ease-out forwards;
 }
 
@@ -302,17 +327,13 @@ body.litepaper-page {
     max-width: 100%;
 }
 
+/* Use standard .mv-card with additional styles */
 .trust-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 2rem;
     position: relative;
     border-left: 4px solid transparent;
     border-image: linear-gradient(180deg, rgba(255, 105, 180, 0.6), rgba(255, 215, 0, 0.6)) 1;
-    transition: all 0.3s ease;
 }
 
 .trust-card:hover {
@@ -360,10 +381,17 @@ body.litepaper-page {
 /* Automatic fade-in animation for trust cards */
 .trust-card.fade-in {
     /* Override base.css transition to allow animation */
-    transition: none;
+    transition: none !important;
     /* Ensure initial state from base.css is maintained */
     opacity: 0;
     transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.trust-card.fade-in.visible {
+    /* Prevent base.css from interfering with animation */
+    opacity: 1;
+    transform: translateY(0);
     animation: fadeInUp 0.6s ease-out forwards;
 }
 
