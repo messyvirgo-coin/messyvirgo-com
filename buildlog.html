@@ -33,7 +33,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/tailwind.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/buildlog.css">
     
     <!-- Favicons -->
@@ -94,130 +94,167 @@
     <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
         
         <!-- Header Section -->
-        <section class="buildlog-section">
-            <h2>Build Log</h2>
-            <p>Track Messy's development progress week by week. Explore our AI development milestones, community achievements, and infrastructure improvements.</p>
-            
-            <!-- Filter & Search Controls -->
-            <div class="buildlog-controls">
-                <div class="buildlog-filters">
-                    <button class="filter-badge" data-category="development">Development</button>
-                    <button class="filter-badge" data-category="marketing">Marketing</button>
-                    <button class="filter-badge" data-category="community">Community</button>
-                    <button class="filter-badge" data-category="ai">AI</button>
-                    <button class="filter-badge" data-category="infrastructure">Infrastructure</button>
-                </div>
-                <input type="text" class="buildlog-search" placeholder="Search updates..." aria-label="Search build log entries">
-            </div>
+        <section class="mv-page-header mb-16">
+            <h1 class="text-gradient mb-4">Build Log</h1>
+            <p class="max-w-3xl mx-auto">Track Messy's development progress week by week. Explore our AI development milestones, community achievements, and infrastructure improvements.</p>
+        </section>
 
-            <!-- Timeline Container -->
-            <div class="buildlog-timeline">
+        <!-- Timeline Container -->
+        <div class="buildlog-timeline text-left">
                 
                 <!-- Week Entry Template -->
-                <div class="buildlog-entry" data-week="Nov 25-Dec 1, 2025">
-                    <div class="buildlog-entry-card">
+                <!--
+                <div class="buildlog-entry fade-in" data-week="Nov 25-Dec 1, 2025">
+                    <div class="mv-card buildlog-entry-card">
                         <div class="buildlog-entry-header">
                             <div class="buildlog-entry-title">
                                 <div class="buildlog-entry-week">Week of November 25 - December 1, 2025</div>
-                                <div class="buildlog-entry-date">Coming soon</div>
-                                <div class="buildlog-entry-tags">
-                                    <span class="entry-tag tag-development">Development</span>
-                                    <span class="entry-tag tag-infrastructure">Infrastructure</span>
-                                </div>
                             </div>
-                            <div class="buildlog-entry-toggle expanded">▼</div>
                         </div>
-                        <div class="buildlog-entry-content expanded">
+                        <div class="buildlog-entry-content">
                             <div class="buildlog-entry-body">
                                 <p style="color: #9ca3af; font-style: italic;">Content coming soon...</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                -->
 
-                <!-- Week Entry -->
-                <div class="buildlog-entry" data-week="Nov 18-24, 2025">
-                    <div class="buildlog-entry-card">
+                <!-- Week Entry: Nov 18-24 -->
+                <div class="buildlog-entry fade-in" data-week="Nov 18-24, 2025">
+                    <div class="mv-card buildlog-entry-card">
                         <div class="buildlog-entry-header">
                             <div class="buildlog-entry-title">
                                 <div class="buildlog-entry-week">Week of November 18-24, 2025</div>
-                                <div class="buildlog-entry-date">Coming soon</div>
-                                <div class="buildlog-entry-tags">
-                                    <span class="entry-tag tag-community">Community</span>
-                                    <span class="entry-tag tag-marketing">Marketing</span>
-                                </div>
                             </div>
-                            <div class="buildlog-entry-toggle">▼</div>
                         </div>
                         <div class="buildlog-entry-content">
                             <div class="buildlog-entry-body">
-                                <p style="color: #9ca3af; font-style: italic;">Content coming soon...</p>
+                                <div class="mb-6">
+                                    <h4 class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider">Marketing</h4>
+                                    <ul>
+                                        <li>Created the full MESSY Raiding Rules, establishing Quality > Noise as a core cultural pillar.</li>
+                                        <li>Introduced the idea of Telegram Topics, preparing for the later full reorganization.</li>
+                                        <li>Ran a week-long sponsored X KOL promotion, boosting visibility and expanding reach across CT.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-6">
+                                    <h4 class="text-orange-400 font-bold mb-2 uppercase text-xs tracking-wider">Business & Operations</h4>
+                                    <ul>
+                                        <li>Increased Aerodrome $MESSY liquidity pools and launched additional arbitrage LPs, improving liquidity routing and reducing slippage.</li>
+                                        <li>Finalized the CTO LOI, setting clear terms for role, allocation, and vesting.</li>
+                                        <li>Updated the Allocation Schedule and Interactive Vesting Timeline to include the CTO's two vesting tranches.</li>
+                                        <li>Evaluated multiple data providers (SimiliScan, MarketStalker, and others) for the upcoming Agentic Due Diligence Engine.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-wider">Product Development</h4>
+                                    <ul>
+                                        <li>Concluded PoC and started with Due Diligence Engine (MVP) including new integration for CoinGecko Pro API.</li>
+                                        <li>Created hexagonal architecture for backend with possibility of open-sourcing core package at a later stage.</li>
+                                        <li>Implemented foundational capabilities such as Rate Limiting, Usage Tracking etc.</li>
+                                        <li>Established v1 of development workflows & fully automated CI/CD pipelines.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Week Entry -->
-                <div class="buildlog-entry" data-week="Nov 11-17, 2025">
-                    <div class="buildlog-entry-card">
+                <!-- Week Entry: Nov 11-17 -->
+                <div class="buildlog-entry fade-in" data-week="Nov 11-17, 2025">
+                    <div class="mv-card buildlog-entry-card">
                         <div class="buildlog-entry-header">
                             <div class="buildlog-entry-title">
                                 <div class="buildlog-entry-week">Week of November 11-17, 2025</div>
-                                <div class="buildlog-entry-date">Coming soon</div>
-                                <div class="buildlog-entry-tags">
-                                    <span class="entry-tag tag-ai">AI</span>
-                                    <span class="entry-tag tag-development">Development</span>
-                                </div>
                             </div>
-                            <div class="buildlog-entry-toggle">▼</div>
                         </div>
                         <div class="buildlog-entry-content">
                             <div class="buildlog-entry-body">
-                                <p style="color: #9ca3af; font-style: italic;">Content coming soon...</p>
+                                <div class="mb-6">
+                                    <h4 class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider">Marketing</h4>
+                                    <ul>
+                                        <li>Created the Team Avatars, establishing the first consistent visual identity across founders, contributors, and future team profiles.</li>
+                                        <li>Launched the "Meet the Founders" mini-series, introducing Michael and Franco and reinforcing MESSY's human-driven brand narrative.</li>
+                                        <li>Continued building MESSY's narrative and educational material, including anti-spam guidelines, raiding quality rules, and early agent-deep-dive content.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-6">
+                                    <h4 class="text-orange-400 font-bold mb-2 uppercase text-xs tracking-wider">Business & Operations</h4>
+                                    <ul>
+                                        <li>Added $MESSY to the AI Agent Index on Cookie.fun (<a href="https://agents.cookie.fun/en/agent/messy" target="_blank">View Link</a>), strengthening external discoverability and positioning MESSY within the broader AI-agent ecosystem.</li>
+                                        <li>Advanced the LOI finalization process with the CTO.</li>
+                                        <li>Continued structuring EPICs, token search logic, and fallback architecture for the Due Diligence Engine.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-wider">Product Development</h4>
+                                    <ul>
+                                        <li>Created Messy Virgo Github organization and repos including initial CI/CD pipelines.</li>
+                                        <li>Setup hyperscaler environments for production and development including automated deployment.</li>
+                                        <li>Started with PoC to validate core architecture concepts including integrations with GeckoTerminal & DexScreener.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Week Entry -->
-                <div class="buildlog-entry" data-week="Nov 4-10, 2025">
-                    <div class="buildlog-entry-card">
+                <!-- Week Entry: Nov 4-10 -->
+                <div class="buildlog-entry fade-in" data-week="Nov 4-10, 2025">
+                    <div class="mv-card buildlog-entry-card">
                         <div class="buildlog-entry-header">
                             <div class="buildlog-entry-title">
                                 <div class="buildlog-entry-week">Week of November 4-10, 2025</div>
-                                <div class="buildlog-entry-date">Coming soon</div>
-                                <div class="buildlog-entry-tags">
-                                    <span class="entry-tag tag-infrastructure">Infrastructure</span>
-                                    <span class="entry-tag tag-development">Development</span>
-                                </div>
                             </div>
-                            <div class="buildlog-entry-toggle">▼</div>
                         </div>
                         <div class="buildlog-entry-content">
                             <div class="buildlog-entry-body">
-                                <p style="color: #9ca3af; font-style: italic;">Content coming soon...</p>
+                                <div class="mb-6">
+                                    <h4 class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider">Marketing</h4>
+                                    <ul>
+                                        <li>Set up the messyvirgo team email and social profiles, establishing the official communication and identity infrastructure.</li>
+                                        <li>Created the first MESSY Team Visuals, shaping the brand's early graphic direction and avatar style.</li>
+                                    </ul>
+                                </div>
+                                <div class="mb-6">
+                                    <h4 class="text-orange-400 font-bold mb-2 uppercase text-xs tracking-wider">Business & Operations</h4>
+                                    <ul>
+                                        <li>Conducted x402 Autonomous Payments Evaluation, exploring future integrations for automated agent execution, external data triggers, and multi-chain payment flows.</li>
+                                        <li>Continued writing EPICs and drafting user stories for the Due Diligence Engine, laying the groundwork for the product roadmap and technical handoff.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-wider">Product Development</h4>
+                                    <ul>
+                                        <li>Analysed existing concepts & infrastructure and created an architecture concept based on updated vision.</li>
+                                        <li>Established foundational IT capabilities such as choice of hyperscaler, AI-, Development- & CI/CD- foundations.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Week Entry -->
-                <div class="buildlog-entry" data-week="Oct 28-Nov 3, 2025">
-                    <div class="buildlog-entry-card">
+                <!-- Week Entry: Oct 28-Nov 3 -->
+                <div class="buildlog-entry fade-in" data-week="Oct 28-Nov 3, 2025">
+                    <div class="mv-card buildlog-entry-card">
                         <div class="buildlog-entry-header">
                             <div class="buildlog-entry-title">
                                 <div class="buildlog-entry-week">Week of October 28 - November 3, 2025</div>
-                                <div class="buildlog-entry-date">Coming soon</div>
-                                <div class="buildlog-entry-tags">
-                                    <span class="entry-tag tag-development">Development</span>
-                                    <span class="entry-tag tag-infrastructure">Infrastructure</span>
-                                </div>
                             </div>
-                            <div class="buildlog-entry-toggle">▼</div>
                         </div>
                         <div class="buildlog-entry-content">
                             <div class="buildlog-entry-body">
-                                <p style="color: #9ca3af; font-style: italic;">Content coming soon...</p>
+                                <div>
+                                    <h4 class="text-orange-400 font-bold mb-2 uppercase text-xs tracking-wider">Business & Operations</h4>
+                                    <ul>
+                                        <li>Onboarded the CTO (Michael), marking the beginning of MESSY's technical leadership and formal architecture development.</li>
+                                        <li>Began specifying the MESSY Due Diligence dApp, including scope definition, data layers, and early UX considerations.</li>
+                                        <li>Evaluated partner APIs (SimiliScan, MarketStalker, and others) to determine viable data sources for token metadata, on-chain behaviors, and due diligence scoring.</li>
+                                        <li>Started writing the first draft of the Litepaper, establishing the core narrative, Phases 1–4, and the technical foundations of the MESSY ecosystem.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -234,8 +271,6 @@
                     <a href="https://t.me/messyvirgo" target="_blank" class="cta-btn cta-btn-primary">Join Telegram</a>
                 </div>
             </div>
-
-        </section>
 
     </main>
 

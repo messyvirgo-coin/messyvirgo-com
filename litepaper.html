@@ -34,7 +34,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/tailwind.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/litepaper.css">
     
     <!-- Favicons -->
@@ -92,58 +92,47 @@
         </div>
     </nav>
 
-    <!-- Sticky Section Navigation -->
-    <div class="litepaper-nav">
-        <ul>
-            <li><a href="#abstract">Introduction</a></li>
-            <li><a href="#vision">Vision</a></li>
-            <li><a href="#ecosystem">Ecosystem</a></li>
-            <li><a href="#trust">Trust</a></li>
-            <li><a href="#roadmap">Roadmap</a></li>
-        </ul>
-    </div>
+    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+        
+        <!-- Header Section -->
+        <section class="mv-page-header mb-16">
+            <h1 class="text-gradient mb-4">Litepaper</h1>
+            <p class="max-w-3xl mx-auto">An interactive exploration of $MESSY's AI-powered fund management, tokenomics, vesting schedules, and the roadmap to autonomous trading on Base.</p>
+        </section>
 
-    <!-- Header -->
-    <header class="litepaper-header">
-        <div class="litepaper-main">
-            <h1 class="text-gradient">$MESSY</h1>
-            <p>An Interactive Exploration of AI-Powered Fund Management</p>
-        </div>
-    </header>
-
-    <main class="litepaper-main">
+    <div class="litepaper-main">
         
         <!-- Abstract Section -->
-        <section id="abstract" class="litepaper-section">
-            <h2>Introduction</h2>
-            <div class="litepaper-box">
-                <p class="text-lg font-semibold mb-4 text-yellow-400">Complexity, Simplified.</p>
-                <p>$MESSY is more than just a token on the Base network; it represents the friendly face of a highly advanced intelligence. We believe that the future of wealth creation lies at the crossroads of institutional-grade Artificial Intelligence and Decentralized Finance (DeFi)—a realm that has traditionally been a fortress of complexity, accessible only to technical experts and insiders.</p>
+        <section id="abstract" class="mv-section">
+            <div class="mv-card litepaper-box fade-in">
+                <p>Complexity, Simplified.</p>
+                <p class="mt-4">$MESSY is more than just a token on the Base network; it represents the friendly face of a highly advanced intelligence. We believe that the future of wealth creation lies at the crossroads of institutional-grade Artificial Intelligence and Decentralized Finance (DeFi)—a realm that has traditionally been a fortress of complexity, accessible only to technical experts and insiders.</p>
                 <p class="mt-4">Our mission is to break down those barriers. We are combining the raw power of finance-grade AI, complex fund management, and cryptographic security into an experience that is both accessible and engaging. With Messy, our anime-inspired guide, you don't need to be a data scientist to take advantage of next-generation algorithms. We handle the heavy lifting behind the scenes, protecting you from noise and technical complexity, so you can focus on what truly matters: the journey and the results.</p>
             </div>
         </section>
         
-<!-- Vision Section -->
-        <section id="vision" class="litepaper-section">
-            <h2>The Vision: The Ultimate Alpha-Hunting Machine</h2>
-            <div class="litepaper-box mb-8">
-                <p>We are not just building a fund; we are designing a digital organism built to seek value in the chaotic blockchain ocean. Our goal is to launch a proprietary, AI-powered engine that exceeds human limits, constantly scanning, analyzing, and optimizing to generate returns for our ecosystem.</p>
-                <p class="mt-4">This engine never rests, driven by four pillars of intelligence:</p>
-            </div>
-            <div class="vision-grid">
-                <div class="vision-card">
+        <!-- Vision Section -->
+        <section id="vision" class="mv-section">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4 text-center">The Vision: The Ultimate Alpha-Hunting Machine</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+                We are not just building a fund; we are designing a digital organism built to seek value in the chaotic blockchain ocean.
+                Our goal is to launch a proprietary, AI-powered engine that exceeds human limits, constantly scanning, analyzing, and optimizing to generate returns for our ecosystem.<br/><br/>
+                This engine never rests, driven by four pillars of intelligence:
+            </p>
+    <div class="vision-grid">
+                <div class="mv-card vision-card fade-in">
                     <h3>1. The All-Hearing Ear (Signal Detection)</h3>
                     <p>Before a trend reaches the mainstream, it begins as a whisper. Our Agentic AI system is connected to the internet's nervous system. It monitors subtle signals across social media, news outlets, and on-chain movements. By performing real-time Sentiment and Narrative Analysis, we spot high-potential assets early, long before the crowd notices.</p>
                 </div>
-                <div class="vision-card">
+                <div class="mv-card vision-card fade-in">
                     <h3>2. The Crystal Lens (AI Due Diligence)</h3>
                     <p>Identifying a token is simple; understanding its truth is difficult. Once a signal is detected, our engine activates its Due Diligence layer. Like a diamond cutter examining a rough stone, the AI applies multiple "Lenses"—perspectives that analyze the project from every angle. It inspects APIs, code repositories, and whitepapers and performs automated Fact-Checking to reveal inconsistencies. It assigns a proprietary score to each asset, separating the empty hype from genuine gems.</p>
                 </div>
-                <div class="vision-card">
+                <div class="mv-card vision-card fade-in">
                     <h3>3. The Architect (Portfolio Optimization)</h3>
                     <p>Data is useless without a strategy. This is where our mathematical core kicks in. Using advanced constraint programming and solver algorithms, the engine doesn't just "pick stocks"—it mathematically builds the optimal portfolio. It balances risk and reward with cold, calculated precision to make sure our funds are always positioned for maximum efficiency.</p>
                 </div>
-                <div class="vision-card">
+                <div class="mv-card vision-card fade-in">
                     <h3>4. The Human Heart (Community Sovereignty)</h3>
                     <p>We believe that a machine without a soul is dangerous. While our AI handles the calculations, the direction remains in your hands. We are leading a "Human-in-the-Loop" governance model in which the Messy community holds ultimate authority. The AI suggests the best options, but the community confirms the final outcome. This is the harmony of silicon and soul—combining the sophistication of a hedge fund with the transparency of a DAO.</p>
                 </div>
@@ -151,9 +140,9 @@
         </section>
 
         <!-- Ecosystem Section -->
-        <section id="ecosystem" class="litepaper-section">
-            <h2>The Ecosystem & Tokenomics</h2>
-            <p class="text-center text-gray-400 mb-8">Explore the core components of the $MESSY ecosystem. This includes the two investment funds where the AI's strategies are deployed and the tokenomics that power the project, visualized below to clearly show how value is distributed and how the treasury is sustained.</p>
+        <section id="ecosystem" class="mv-section">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4 text-center">The Ecosystem & Tokenomics</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Explore the core components of the $MESSY ecosystem. This includes the two investment funds where the AI's strategies are deployed and the tokenomics that power the project, visualized below to clearly show how value is distributed and how the treasury is sustained.</p>
             <div class="ecosystem-grid">
                 <div>
                     <div class="litepaper-box">
@@ -190,14 +179,14 @@
         </section>
 
         <!-- Trust & Transparency Section -->
-        <section id="trust" class="litepaper-section">
-            <h2>Trust & Transparency</h2>
-            <p class="text-center text-gray-400 mb-8">Transparency is a cornerstone of the $MESSY project. This section details the management of the Creator Wallet and visualizes the public 2-year vesting schedule.</p>
+        <section id="trust" class="mv-section">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4 text-center">Trust & Transparency</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">Transparency is a cornerstone of the $MESSY project. This section details the management of the Creator Wallet and visualizes the public 2-year vesting schedule.</p>
             
             <div class="trust-cards-container max-w-4xl mx-auto">
                 
                 <!-- Card 1: Creator Wallet Security -->
-                <div class="trust-card">
+                <div class="mv-card trust-card fade-in">
                     <div class="trust-card-badge">1</div>
                     <h3 class="trust-card-title">Creator Wallet Security</h3>
                     <p class="text-sm text-gray-400 mb-4">To ensure the long-term health of the project and build absolute trust with our community, the 432,700,000 tokens in the Creator Wallet are planned to be migrated to an industry-standard <strong>Gnosis Safe</strong> multi-signature vault (migration in progress). This will enable secure, transparent management requiring multiple approvals for fund movement.</p>
@@ -207,7 +196,7 @@
                 </div>
                 
                 <!-- Card 2: Interactive Vesting Timeline -->
-                <div class="trust-card">
+                <div class="mv-card trust-card fade-in">
                     <div class="trust-card-badge">2</div>
                     <h3 class="trust-card-title">Interactive Vesting Timeline</h3>
                     <p class="text-sm text-gray-400 mb-4">The interactive vesting timeline below includes two CTO tranches: <strong>2% upfront (Nov 2025)</strong> and <strong>6 × 1.5% quarterly</strong> payments beginning end of Q1/2026. This ensures transparency for all major stakeholder allocations and unlocks.</p>
@@ -223,7 +212,7 @@
                 </div>
                 
                 <!-- Card 3: Allocation Schedule -->
-                <div class="trust-card">
+                <div class="mv-card trust-card fade-in">
                     <div class="trust-card-badge">3</div>
                     <h3 class="trust-card-title">Allocation Schedule</h3>
                     <p class="text-sm text-gray-400 mb-4">Complete breakdown of all vesting schedules and unlock dates for the Creator Wallet allocations.</p>
@@ -276,10 +265,10 @@
         </section>
 
         <!-- Roadmap Section -->
-        <section id="roadmap" class="litepaper-section">
-            <h2>Roadmap: The Path to Autonomy</h2>
-            <div class="litepaper-box mb-8">
-                <p class="font-semibold mb-4">A staged revolution toward the first AI-native autonomous investment engine.</p>
+        <section id="roadmap" class="mv-section">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4 text-center">Roadmap: The Path to Autonomy</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">A staged revolution toward the first AI-native autonomous investment engine.</p>
+            <div class="litepaper-box mb-12">
                 <p>The development of MESSY follows a careful, step-by-step process that balances innovation, stability, and long-term sustainability. Each stage builds on the intelligence and infrastructure of the previous one, guiding the system from cultural identity to full autonomy under decentralized governance. This journey is deliberate; it is designed to ensure that every step is secure, transparent, and aligned with the community's interests.</p>
             </div>
             <div class="max-w-3xl mx-auto">
@@ -304,6 +293,7 @@
             </div>
         </section>
 
+    </div>
     </main>
 
     <!-- Footer -->

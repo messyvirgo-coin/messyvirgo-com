@@ -33,7 +33,7 @@
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/tailwind.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/founder-profiles.css">
     
     <!-- Favicons -->
@@ -101,9 +101,9 @@
     <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
         
         <!-- Header Section -->
-        <section class="founder-section text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold font-serif text-gradient mb-4">Meet the Founders</h1>
-            <p class="text-gray-400 max-w-3xl mx-auto text-lg">The vision behind Messy Virgo is built on diverse expertise, relentless innovation, and a shared commitment to making AI-powered DeFi accessible to everyone.</p>
+        <section class="mv-page-header mb-16">
+            <h1 class="text-gradient mb-4">Meet the Founders</h1>
+            <p class="max-w-3xl mx-auto">The vision behind Messy Virgo is built on diverse expertise, relentless innovation, and a shared commitment to making AI-powered DeFi accessible to everyone.</p>
         </section>
 
         <!-- Founders Grid -->
@@ -115,34 +115,8 @@
                     <img src="/images/founder-franco.png" alt="Franco - Co-Founder & CMO" class="founder-photo" onerror="handleImageError(this);">
                     <div class="avatar-placeholder" id="franco-placeholder" style="display: none;">F</div>
                     <p class="avatar-subtitle" id="franco-subtitle" style="display: none;">Add photo (240x240px)</p>
-                </div>
-                
-                <div class="founder-info">
                     <h2 class="founder-name">Franco</h2>
                     <p class="founder-title">Business Co-Founder & CMO</p>
-                    
-                    <blockquote class="founder-quote">
-                        <p>"To me, genuine innovation is all about people. I truly believe that technology should act as a bridge—connecting ambition with empathy and turning signals into stories that bring us closer together. In every project I take on, I lead with warmth, curiosity, and a strong belief that true progress is only meaningful if it benefits everyone."</p>
-                    </blockquote>
-                    
-                    <div class="bio-preview">
-                        <p class="founder-bio">
-                            Franco is a digital marketing strategist, innovator, and executive coach who bridges entrepreneurial vision with over 25 years of digital transformation expertise. As Co-Founder and CMO of Messy Virgo, he leads the creative and growth strategy behind the brand—where narrative, AI, and market intelligence converge.
-                        </p>
-                    </div>
-                    
-                    <div class="bio-full" id="franco-full">
-                        <p class="founder-bio">
-                            Franco is a serial entrepreneur who has co-founded and scaled multiple ventures, including one of Switzerland's top digital agencies. He has advised global brands on digital marketing, content ecosystems, and brand strategy. From launching a tech startup in China to holding patents in wearable tech, Franco combines creative insight with operational precision—turning bold ideas into sustainable businesses.
-                        </p>
-                        
-                        <p class="founder-bio">
-                            Before co-founding Messy Virgo, he spent several years working in crypto derivatives and algorithmic trading, helping grow platforms pioneering automated trading and market infrastructure. Certified in Web 3.0 financial services and executive coaching, Franco lives as a crypto nomad, channeling his passion for innovation, entrepreneurship, and animal welfare into every project—balancing sharp strategy with genuine human depth.
-                        </p>
-                    </div>
-                    
-                    <button class="read-more-btn" onclick="toggleBio('franco')">Read More</button>
-                    
                     <div class="founder-socials">
                         <a href="https://x.com/GFScrypto" target="_blank" rel="noopener noreferrer" class="social-link" title="X / Twitter">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.694-5.832 6.694H2.423l7.723-8.835L1.082 2.25h6.648l4.721 6.237 5.25-6.237zM5.564 19.75h3.615l12.849-16.948h-3.602L5.564 19.75z"></path></svg>
@@ -152,6 +126,26 @@
                         </a>
                     </div>
                 </div>
+                
+                <div class="founder-info">
+                    <blockquote class="founder-quote">
+                        <p>"To me, genuine innovation is all about people. I truly believe that technology should act as a bridge—connecting ambition with empathy and turning signals into stories that bring us closer together. In every project I take on, I lead with warmth, curiosity, and a strong belief that true progress is only meaningful if it benefits everyone."</p>
+                    </blockquote>
+                    
+                    <div class="bio-preview" id="franco-bio">
+                        <p class="founder-bio">
+                            Franco is a digital marketing strategist, innovator, and executive coach who bridges entrepreneurial vision with over 25 years of digital transformation expertise. As Co-Founder and CMO of Messy Virgo, he leads the creative and growth strategy behind the brand—where narrative, AI, and market intelligence converge.
+                        </p>
+                        <p class="founder-bio">
+                            Franco is a serial entrepreneur who has co-founded and scaled multiple ventures, including one of Switzerland's top digital agencies. He has advised global brands on digital marketing, content ecosystems, and brand strategy. From launching a tech startup in China to holding patents in wearable tech, Franco combines creative insight with operational precision—turning bold ideas into sustainable businesses.
+                        </p>
+                        <p class="founder-bio">
+                            Before co-founding Messy Virgo, he spent several years working in crypto derivatives and algorithmic trading, helping grow platforms pioneering automated trading and market infrastructure. Certified in Web 3.0 financial services and executive coaching, Franco lives as a crypto nomad, channeling his passion for innovation, entrepreneurship, and animal welfare into every project—balancing sharp strategy with genuine human depth.
+                        </p>
+                    </div>
+                    
+                    <button class="read-more-btn" onclick="toggleBio('franco')">Read More</button>
+                </div>
             </div>
 
             <!-- Michael Profile -->
@@ -160,38 +154,8 @@
                     <img src="/images/founder-michael.png" alt="Michael - Co-Founder & CTO" class="founder-photo" onerror="handleImageError(this);">
                     <div class="avatar-placeholder" id="michael-placeholder" style="display: none;">M</div>
                     <p class="avatar-subtitle" id="michael-subtitle" style="display: none;">Add photo (240x240px)</p>
-                </div>
-                
-                <div class="founder-info">
                     <h2 class="founder-name">Michael</h2>
                     <p class="founder-title">Technical Co-Founder & CTO</p>
-                    
-                    <blockquote class="founder-quote">
-                        <p>"The finish line is always far away, but every single step—in a marathon or in technology—is about breaking down the complex distance into something simple and achievable. My mission is to make the hyper-complex power of AI, Crypto, and DeFi as accessible as putting on your running shoes."</p>
-                    </blockquote>
-                    
-                    <div class="bio-preview">
-                        <p class="founder-bio">
-                            Michael is an AI, Data, and Software Architect who bridges deep technical expertise with entrepreneurial vision. As Co-Founder and CTO of Messy Virgo, he leads the design of AI-driven systems that democratize access to algorithmic trading and DeFi.
-                        </p>
-                    </div>
-                    
-                    <div class="bio-full" id="michael-full">
-                        <p class="founder-bio">
-                            With more than a decade of experience founding and scaling technology ventures, Michael blends hands-on engineering with strategic leadership. His expertise lies in integrating cutting-edge AI capabilities—GenAI, Agentic AI, and RAG—into tightly coupled software and data platforms that deliver scalable automation for complex financial workflows. Relatively new to crypto, he brings a builder's curiosity and systems-thinking approach to on-chain innovation.
-                        </p>
-                        
-                        <p class="founder-bio">
-                            Formally certified across entrepreneurship, software development, data engineering, and AI technologies, he champions AI-assisted development to align technical precision with inclusive value creation. Whether debugging code at 2 AM or trail running through mountains, Michael applies the same relentless problem-solving mindset—building systems that learn, adapt, and serve with purpose.
-                        </p>
-                        
-                        <p class="founder-bio">
-                            A hacker by passion and problem solver by design, he balances building the future of autonomous finance with what grounds him: family, his dogs, running, yoga, and a commitment to animal welfare.
-                        </p>
-                    </div>
-                    
-                    <button class="read-more-btn" onclick="toggleBio('michael')">Read More</button>
-                    
                     <div class="founder-socials">
                         <a href="https://x.com/MessyVirgoM" target="_blank" rel="noopener noreferrer" class="social-link" title="X / Twitter">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.694-5.832 6.694H2.423l7.723-8.835L1.082 2.25h6.648l4.721 6.237 5.25-6.237zM5.564 19.75h3.615l12.849-16.948h-3.602L5.564 19.75z"></path></svg>
@@ -200,6 +164,29 @@
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
                         </a>
                     </div>
+                </div>
+                
+                <div class="founder-info">
+                    <blockquote class="founder-quote">
+                        <p>"The finish line is always far away, but every single step—in a marathon or in technology—is about breaking down the complex distance into something simple and achievable. My mission is to make the hyper-complex power of AI, Crypto, and DeFi as accessible as putting on your running shoes."</p>
+                    </blockquote>
+                    
+                    <div class="bio-preview" id="michael-bio">
+                        <p class="founder-bio">
+                            Michael is an AI, Data, and Software Architect who bridges deep technical expertise with entrepreneurial vision. As Co-Founder and CTO of Messy Virgo, he leads the design of AI-driven systems that democratize access to algorithmic trading and DeFi.
+                        </p>
+                        <p class="founder-bio">
+                            With more than a decade of experience founding and scaling technology ventures, Michael blends hands-on engineering with strategic leadership. His expertise lies in integrating cutting-edge AI capabilities—GenAI, Agentic AI, and RAG—into tightly coupled software and data platforms that deliver scalable automation for complex financial workflows. Relatively new to crypto, he brings a builder's curiosity and systems-thinking approach to on-chain innovation.
+                        </p>
+                        <p class="founder-bio">
+                            Formally certified across entrepreneurship, software development, data engineering, and AI technologies, he champions AI-assisted development to align technical precision with inclusive value creation. Whether debugging code at 2 AM or trail running through mountains, Michael applies the same relentless problem-solving mindset—building systems that learn, adapt, and serve with purpose.
+                        </p>
+                        <p class="founder-bio">
+                            A hacker by passion and problem solver by design, he balances building the future of autonomous finance with what grounds him: family, his dogs, running, yoga, and a commitment to animal welfare.
+                        </p>
+                    </div>
+                    
+                    <button class="read-more-btn" onclick="toggleBio('michael')">Read More</button>
                 </div>
             </div>
 
@@ -253,14 +240,14 @@
 
         // Toggle bio expansion
         function toggleBio(founder) {
-            const fullBio = document.getElementById(`${founder}-full`);
+            const bioPreview = document.getElementById(`${founder}-bio`);
             const button = event.target;
             
-            if (fullBio.classList.contains('expanded')) {
-                fullBio.classList.remove('expanded');
+            if (bioPreview.classList.contains('expanded')) {
+                bioPreview.classList.remove('expanded');
                 button.textContent = 'Read More';
             } else {
-                fullBio.classList.add('expanded');
+                bioPreview.classList.add('expanded');
                 button.textContent = 'Read Less';
             }
         }

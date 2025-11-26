@@ -4,15 +4,6 @@ Static website for $MESSY, an AI-powered fund management token on the Base netwo
 
 **Live Site:** https://www.messyvirgo.com
 
-## Overview
-
-$MESSY is an innovative project that combines artificial intelligence with decentralized finance (DeFi) to create accessible, AI-driven fund management. The project features:
-
-- **AI-Powered Analysis**: Narrative and on-chain analysis capabilities
-- **Reflexive Tokenomics**: 4.95% transaction tax with reflections and treasury allocation
-- **Investment Funds**: $MESSYBASED (Base) and $MESSYFUND (Ethereum)
-- **Staged Evolution**: From culture engine to autonomous trader to DAO governance
-
 ## Local Preview
 
 Serve from the repository root:
@@ -42,7 +33,8 @@ npm exec --yes browser-sync start --server --files "*.html, *.css, *.js"
 ```
 ├── index.html, litepaper.html, buildlog.html, founder-profiles.html
 ├── css/
-│   ├── main.css           (Shared styles)
+│   ├── tailwind.css       (Tailwind utilities)
+│   ├── base.css           (Shared design system)
 │   ├── litepaper.css      (Litepaper-specific)
 │   ├── buildlog.css       (Build Log-specific)
 │   └── founder-profiles.css
@@ -71,14 +63,6 @@ npm exec --yes browser-sync start --server --files "*.html, *.css, *.js"
 - **Vanilla JavaScript** for interactivity
 - **Chart.js** (litepaper only) for data visualization
 - **Google Fonts** (Inter & Playfair Display)
-
-## Updating Content
-
-**Build Log:** Add new entries in `buildlog.html` by copying a sample week entry and updating dates, titles, achievements, and category tags (`tag-development`, `tag-marketing`, `tag-community`, `tag-ai`, `tag-infrastructure`).
-
-**Styles:** Edit `/css/main.css` for colors (CSS variables in `:root`) and global styles. Page-specific styles are in their respective CSS files.
-
-**Meta Tags:** Update `<title>` and `<meta name="description">` in each HTML file's `<head>` section.
 
 ## Deployment
 
