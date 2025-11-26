@@ -1,39 +1,12 @@
 /* ========================================
-   FOUNDER PROFILES PAGE STYLES
+   FOUNDER PROFILES PAGE - Page-Specific Styles
+   Shared styles moved to base.css
    ======================================== */
 
-/* Page Background */
+/* Page Background (optional override if needed) */
 body.founder-profiles-page {
     background-color: #0a0a0a;
     color: #e5e7eb;
-}
-
-/* Header Section */
-.founder-section {
-    text-align: center;
-    /* No padding needed - using main's py-16 md:py-24 */
-}
-
-.founder-section h1 {
-    font-size: 2.25rem;
-    font-weight: bold;
-    /* margin-bottom controlled by Tailwind mb-4 in HTML */
-    background: linear-gradient(90deg, #ff69b4, #ffd700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@media (min-width: 768px) {
-    .founder-section h1 {
-        font-size: 3rem;
-    }
-}
-
-.founder-section p {
-    color: #9ca3af;
-    font-size: 1.0625rem;
-    line-height: 1.75;
 }
 
 /* Founders Container */
@@ -274,18 +247,6 @@ body.founder-profiles-page {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .founder-section {
-        padding: 1.5rem 0 2rem;
-    }
-
-    .founder-section h1 {
-        font-size: 1.875rem;
-    }
-
-    .founder-section p {
-        font-size: 0.95rem;
-    }
-
     .founder-grid {
         gap: 3rem;
     }
@@ -347,26 +308,27 @@ body.founder-profiles-page {
 }
 
 @media (max-width: 480px) {
-    .founder-section h1 {
-        font-size: 1.5rem;
+    .founder-card {
+        padding: 1.5rem;
     }
 
-    .founder-card {
-        padding: 1rem;
+    .founder-photo {
+        width: 160px;
+        height: 160px;
     }
 
     .avatar-placeholder {
-        width: 90px;
-        height: 90px;
-        font-size: 2rem;
+        width: 160px;
+        height: 160px;
+        font-size: 3rem;
     }
 
     .founder-name {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .founder-title {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .founder-quote {
@@ -375,7 +337,7 @@ body.founder-profiles-page {
     }
 
     .founder-bio {
-        font-size: 0.85rem;
+        font-size: 0.875rem;
     }
 
     .founder-socials {
@@ -383,8 +345,8 @@ body.founder-profiles-page {
     }
 
     .social-link {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
     }
 
     .social-link svg {
@@ -456,4 +418,3 @@ body.founder-profiles-page {
         max-width: none;
     }
 }
-

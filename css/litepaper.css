@@ -1,16 +1,12 @@
 /* ========================================
-   LITEPAPER PAGE STYLES
+   LITEPAPER PAGE - Page-Specific Styles
+   Shared styles moved to base.css
    ======================================== */
 
 /* Litepaper-Specific Theme Override */
 body.litepaper-page {
     background-color: #0a0a0a;
     color: #e5e7eb;
-}
-
-/* Header Section - matches founder-profiles and buildlog */
-.litepaper-header-section {
-    /* No padding needed - using main's py-16 md:py-24 like other pages */
 }
 
 /* Main Container */
@@ -65,47 +61,6 @@ body.litepaper-page {
 .litepaper-box p {
     color: #d1d5db;
     line-height: 1.75;
-}
-
-/* Glossary Styles */
-.glossary-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.glossary-toggle {
-    width: 100%;
-    text-align: left;
-    padding: 1rem;
-    font-weight: bold;
-    font-size: 1.125rem;
-    color: #e5e7eb;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.glossary-toggle:hover {
-    background-color: rgba(255, 105, 180, 0.1);
-}
-
-.glossary-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-    padding: 0 1rem;
-    color: #9ca3af;
-}
-
-.glossary-content.open {
-    max-height: 500px;
-    padding-bottom: 1rem;
 }
 
 /* Chart Container */
@@ -312,40 +267,7 @@ body.litepaper-page {
     color: #e5e7eb;
 }
 
-/* Sticky Navigation */
-.litepaper-nav {
-    position: sticky;
-    top: 4rem;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 30;
-    padding: 1rem;
-}
-
-.litepaper-nav ul {
-    max-width: 56rem;
-    margin: 0 auto;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.litepaper-nav a {
-    color: #9ca3af;
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.3s ease;
-}
-
-.litepaper-nav a:hover,
-.litepaper-nav a.active {
-    color: #ff69b4;
-}
-
-/* Simple Elegant Trust Cards */
+/* Trust Cards */
 .trust-cards-container {
     display: flex;
     flex-direction: column;
@@ -470,28 +392,6 @@ body.litepaper-page {
         padding: 0.5rem;
     }
 
-    .litepaper-nav {
-        top: 3rem;
-    }
-
-    .litepaper-nav ul {
-        flex-direction: row;
-        gap: 0.5rem;
-        overflow-x: auto;
-        padding: 0 0.5rem;
-        scrollbar-width: none;
-    }
-
-    .litepaper-nav ul::-webkit-scrollbar {
-        display: none;
-    }
-
-    .litepaper-nav a {
-        font-size: 0.75rem;
-        white-space: nowrap;
-        padding: 0.5rem 0.75rem;
-    }
-
     .trust-card {
         padding: 1.5rem;
     }
@@ -517,10 +417,6 @@ body.litepaper-page {
 }
 
 @media (max-width: 480px) {
-    .litepaper-header-section {
-        padding: 1.5rem 0 2rem;
-    }
-
     .litepaper-section h2 {
         font-size: 1.25rem;
     }
@@ -535,7 +431,7 @@ body.litepaper-page {
     }
 
     .vision-card {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .vision-grid {
@@ -546,4 +442,3 @@ body.litepaper-page {
         gap: 1.5rem;
     }
 }
-
