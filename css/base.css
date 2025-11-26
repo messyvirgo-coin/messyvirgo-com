@@ -92,6 +92,59 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.75;
 }
 
+/* ========================================
+   SECTION SPACING (Global Design System)
+   ======================================== */
+
+/* Main content container with generous section spacing */
+.mv-content-main {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+    .mv-content-main {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .mv-content-main {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+/* Section spacing - generous spacing between sections */
+.mv-section {
+    margin-bottom: 6rem; /* 96px - matches space-y-24 from start page */
+}
+
+@media (min-width: 768px) {
+    .mv-section {
+        margin-bottom: 6rem;
+    }
+}
+
+/* Section heading spacing */
+.mv-section h2 {
+    margin-bottom: 1rem; /* 16px */
+}
+
+/* Section intro paragraph spacing */
+.mv-section-intro {
+    margin-bottom: 3rem; /* 48px - matches mb-12 from start page */
+    max-width: 48rem; /* max-w-3xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Card Base - shared glassmorphism card */
 .mv-card {
     background: var(--mv-glass-bg);
