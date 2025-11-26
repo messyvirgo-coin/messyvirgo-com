@@ -9,6 +9,282 @@ body.buildlog-page {
     color: #e5e7eb;
 }
 
+/* Hero Section */
+.buildlog-hero {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.buildlog-hero-container {
+    background: var(--mv-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--mv-glass-border);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    position: relative;
+    overflow: visible;
+    animation: subtleFloat 6s ease-in-out infinite;
+}
+
+/* Animated gradient border */
+.buildlog-hero-container::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(255, 215, 0, 0.2), rgba(255, 105, 180, 0.2));
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+    z-index: -1;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Animated glow effect */
+.buildlog-hero-container::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(255, 215, 0, 0.1));
+    filter: blur(20px);
+    opacity: 0.3;
+    animation: pulseGlow 4s ease-in-out infinite;
+    z-index: -2;
+    pointer-events: none;
+}
+
+@keyframes subtleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1.01);
+    }
+}
+
+.buildlog-hero-image-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.buildlog-hero-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 12px;
+    filter: drop-shadow(0 4px 12px rgba(255, 105, 180, 0.2));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.buildlog-hero-image:hover {
+    transform: translateY(-4px) scale(1.03);
+    filter: drop-shadow(0 6px 16px rgba(255, 105, 180, 0.3));
+}
+
+.buildlog-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 500px;
+    z-index: 1;
+}
+
+.buildlog-hero-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #ff69b4, #ffd700, #ff69b4);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1.3;
+    animation: gradientText 5s linear infinite;
+    filter: drop-shadow(0 2px 6px rgba(255, 105, 180, 0.2));
+}
+
+@keyframes gradientText {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+.buildlog-hero-description {
+    font-size: 0.95rem;
+    color: var(--mv-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.buildlog-hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 350px;
+}
+
+.buildlog-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.buildlog-hero-btn::after {
+    display: none !important;
+}
+
+.buildlog-hero-btn svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.buildlog-hero-btn-primary {
+    background: linear-gradient(135deg, #ff69b4 0%, #ffd700 100%);
+    color: white !important;
+    box-shadow: 0 2px 12px rgba(255, 105, 180, 0.3);
+}
+
+.buildlog-hero-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255, 105, 180, 0.4);
+    color: white !important;
+}
+
+.buildlog-hero-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--mv-text-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.buildlog-hero-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 105, 180, 0.3);
+    transform: translateY(-1px);
+    color: var(--mv-text-primary) !important;
+}
+
+@media (min-width: 640px) {
+    .buildlog-hero-container {
+        padding: 2.5rem 2rem;
+        gap: 1.75rem;
+    }
+
+    .buildlog-hero-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .buildlog-hero-title {
+        font-size: 1.75rem;
+    }
+
+    .buildlog-hero-description {
+        font-size: 1rem;
+    }
+
+    .buildlog-hero-buttons {
+        flex-direction: row;
+        max-width: none;
+        gap: 1rem;
+    }
+
+    .buildlog-hero-btn {
+        flex: 1;
+        padding: 0.875rem 1.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .buildlog-hero-container {
+        padding: 2.5rem 2.5rem;
+        gap: 2rem;
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .buildlog-hero-image-wrapper {
+        flex-shrink: 0;
+    }
+
+    .buildlog-hero-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .buildlog-hero-content {
+        align-items: flex-start;
+        flex: 1;
+    }
+
+    .buildlog-hero-title {
+        font-size: 1.875rem;
+    }
+
+    .buildlog-hero-buttons {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .buildlog-hero-container {
+        padding: 3rem;
+    }
+
+    .buildlog-hero-image {
+        width: 180px;
+        height: 180px;
+    }
+}
+
 /* Timeline Container */
 .buildlog-timeline {
     position: relative;
@@ -17,6 +293,12 @@ body.buildlog-page {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Archive Section */
+.buildlog-archive {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
 }
 
 /* Timeline Entry */
@@ -292,30 +574,41 @@ body.buildlog-page {
 .cta-btn {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 600;
     transition: all 0.3s ease;
     display: inline-block;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.cta-btn::after {
+    display: none !important;
 }
 
 .cta-btn-primary {
     background: linear-gradient(90deg, #ff69b4, #ffd700);
-    color: white;
+    color: white !important;
     box-shadow: 0 0 1rem rgba(255, 105, 180, 0.3);
 }
 
 .cta-btn-primary:hover {
     transform: scale(1.05);
+    text-decoration: none !important;
+    color: white !important;
 }
 
 .cta-btn-secondary {
     background: rgba(255, 255, 255, 0.1);
-    color: #e5e7eb;
+    color: #e5e7eb !important;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .cta-btn-secondary:hover {
     background: rgba(255, 255, 255, 0.15);
+    text-decoration: none !important;
+    color: #e5e7eb !important;
 }
 
 /* Enhanced Responsive */
