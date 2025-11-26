@@ -38,6 +38,8 @@ body.buildlog-page {
 }
 
 .buildlog-entry.fade-in {
+    /* Override base.css transition to allow animation */
+    transition: none;
     animation: fadeInUp 0.6s ease-out forwards;
 }
 
