@@ -90,8 +90,11 @@ body.litepaper-page {
     max-width: 450px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     height: 300px;
     max-height: 400px;
+    flex: 1;
 }
 
 @media (min-width: 768px) {
@@ -182,7 +185,52 @@ body.litepaper-page {
 @media (min-width: 1024px) {
     .ecosystem-grid {
         grid-template-columns: 1fr 1fr;
+        align-items: stretch; /* Make columns equal height */
     }
+    
+    .ecosystem-grid > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    /* Left column: cards stack naturally */
+    .ecosystem-grid > div:first-child > .mv-card {
+        display: flex;
+        flex-direction: column;
+        margin: 0; /* Remove litepaper-box margin */
+    }
+    
+    /* Right column: single card stretches to match left column height */
+    .ecosystem-grid > div:last-child {
+        min-height: 100%;
+    }
+    
+    .ecosystem-grid > div:last-child > .mv-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin: 0; /* Remove litepaper-box margin */
+    }
+}
+
+/* Fund Box - nested boxes inside Investment Vehicles card */
+.fund-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.fund-box:hover {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.fund-box h4 {
+    color: #D97706; /* Orange from "Reinvested in Project" chart segment */
 }
 
 /* Timeline Styles */
