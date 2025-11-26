@@ -8,28 +8,9 @@ body.litepaper-page {
     color: #e5e7eb;
 }
 
-/* Header */
-.litepaper-header {
-    padding: 3rem 1rem;
-    text-align: center;
-}
-
-.litepaper-header h1 {
-    font-size: 2.25rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-    .litepaper-header h1 {
-        font-size: 3.75rem;
-    }
-}
-
-.litepaper-header p {
-    margin-top: 1rem;
-    font-size: 1.125rem;
-    color: #9ca3af;
+/* Header Section - matches founder-profiles and buildlog */
+.litepaper-header-section {
+    /* No padding needed - using main's py-16 md:py-24 like other pages */
 }
 
 /* Main Container */
@@ -536,8 +517,8 @@ body.litepaper-page {
 }
 
 @media (max-width: 480px) {
-    .litepaper-header h1 {
-        font-size: 2rem;
+    .litepaper-header-section {
+        padding: 1.5rem 0 2rem;
     }
 
     .litepaper-section h2 {

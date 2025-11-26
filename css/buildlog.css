@@ -4,114 +4,14 @@
 
 /* Build Log Section */
 .buildlog-section {
-    padding: 4rem 0;
-}
-
-.buildlog-section h2 {
-    font-size: 1.875rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    background: linear-gradient(90deg, #ff69b4, #ffd700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@media (min-width: 768px) {
-    .buildlog-section h2 {
-        font-size: 2.25rem;
-    }
-}
-
-.buildlog-section > p {
-    color: #9ca3af;
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.0625rem;
-}
-
-/* Filter and Search */
-.buildlog-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin: 3rem 0;
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media (min-width: 768px) {
-    .buildlog-controls {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-.buildlog-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.filter-badge {
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
-    color: #d1d5db;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.filter-badge:hover {
-    border-color: rgba(255, 105, 180, 0.5);
-    background: rgba(255, 105, 180, 0.1);
-}
-
-.filter-badge.active {
-    background: linear-gradient(90deg, rgba(255, 105, 180, 0.3), rgba(255, 215, 0, 0.1));
-    border-color: #ff69b4;
-    color: #fbbf24;
-}
-
-.buildlog-search {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e5e7eb;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-@media (min-width: 768px) {
-    .buildlog-search {
-        width: 250px;
-    }
-}
-
-.buildlog-search::placeholder {
-    color: #6b7280;
-}
-
-.buildlog-search:focus {
-    outline: none;
-    border-color: #ff69b4;
-    box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+    /* No padding needed - using main's py-16 md:py-24 */
 }
 
 /* Timeline Container */
 .buildlog-timeline {
-    max-width: 48rem;
-    margin: 3rem auto 0;
     position: relative;
     padding-left: 0;
+    margin-top: 4rem;
 }
 
 /* Timeline Entry */
@@ -119,7 +19,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     animation: fadeIn 0.6s ease-out forwards;
 }
 
@@ -154,9 +54,10 @@
 .buildlog-entry-header {
     padding: 1.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 1rem;
+    text-align: left;
 }
 
 .buildlog-entry-title {
@@ -164,10 +65,11 @@
 }
 
 .buildlog-entry-week {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: bold;
     color: #e5e7eb;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
 }
 
 .buildlog-entry-date {
@@ -193,7 +95,7 @@
     letter-spacing: 0.05em;
 }
 
-.tag-development {
+.tag-product {
     background: rgba(59, 130, 246, 0.2);
     color: #60a5fa;
     border: 1px solid rgba(59, 130, 246, 0.3);
@@ -205,59 +107,59 @@
     border: 1px solid rgba(236, 72, 153, 0.3);
 }
 
-.tag-community {
-    background: rgba(34, 197, 94, 0.2);
-    color: #4ade80;
-    border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-.tag-ai {
-    background: rgba(168, 85, 247, 0.2);
-    color: #c084fc;
-    border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.tag-infrastructure {
+.tag-business {
     background: rgba(249, 115, 22, 0.2);
     color: #fb923c;
     border: 1px solid rgba(249, 115, 22, 0.3);
 }
 
-.buildlog-entry-toggle {
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ff69b4;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.buildlog-entry-toggle.expanded {
-    transform: rotate(180deg);
-}
 
 .buildlog-entry-content {
-    max-height: 0;
-    overflow: hidden;
     transition: max-height 0.3s ease;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.buildlog-entry-content.expanded {
-    max-height: 2000px;
-}
-
 .buildlog-entry-body {
     padding: 1.5rem;
+    text-align: left;
+}
+
+.buildlog-entry-body h4 {
+    font-size: 1.125rem !important;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.buildlog-entry-body h4.text-pink-400 {
+    color: #f472b6 !important;
+    border-bottom-color: rgba(236, 72, 153, 0.3);
+}
+
+.buildlog-entry-body h4.text-orange-400 {
+    color: #fb923c !important;
+    border-bottom-color: rgba(249, 115, 22, 0.3);
+}
+
+.buildlog-entry-body h4.text-blue-400 {
+    color: #60a5fa !important;
+    border-bottom-color: rgba(59, 130, 246, 0.3);
 }
 
 .buildlog-entry-body ul {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.buildlog-entry-body > div {
+    margin-bottom: 2rem;
+}
+
+.buildlog-entry-body > div:last-child {
+    margin-bottom: 0;
 }
 
 .buildlog-entry-body li {
