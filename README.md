@@ -42,7 +42,8 @@ npm exec --yes browser-sync start --server --files "*.html, *.css, *.js"
 ```
 ├── index.html, litepaper.html, buildlog.html, founder-profiles.html
 ├── css/
-│   ├── main.css           (Shared styles)
+│   ├── tailwind.css       (Tailwind utilities)
+│   ├── base.css           (Shared design system)
 │   ├── litepaper.css      (Litepaper-specific)
 │   ├── buildlog.css       (Build Log-specific)
 │   └── founder-profiles.css
@@ -72,11 +73,53 @@ npm exec --yes browser-sync start --server --files "*.html, *.css, *.js"
 - **Chart.js** (litepaper only) for data visualization
 - **Google Fonts** (Inter & Playfair Display)
 
-## Updating Content
+## Design System
 
-**Build Log:** Add new entries in `buildlog.html` by copying a sample week entry and updating dates, titles, achievements, and category tags (`tag-development`, `tag-marketing`, `tag-community`, `tag-ai`, `tag-infrastructure`).
+The site uses a **utilities-first approach** with Tailwind CSS + a minimal custom design system:
 
-**Styles:** Edit `/css/main.css` for colors (CSS variables in `:root`) and global styles. Page-specific styles are in their respective CSS files.
+### Styling Architecture
+
+1. **`/css/tailwind.css`** - Tailwind utility classes for layout, spacing, typography
+2. **`/css/base.css`** - Shared design tokens, components, and global styles:
+   - CSS variables (`--mv-*`) for colors, glassmorphism, spacing
+   - Shared components (`.mv-page-header`, `.mv-card`, `.glassmorphism`)
+   - Global animations (aurora background, fade-in, card glow)
+   - Navigation, buttons, links, footer styles
+3. **Page-specific CSS** - Only unique, page-specific components:
+   - `founder-profiles.css` - Founder card layouts and avatars
+   - `litepaper.css` - Timeline, vesting chart, trust cards
+   - `buildlog.css` - Build log entries and timeline
+
+### Design Tokens (CSS Variables)
+
+All color and style tokens are defined in `/css/base.css` under `:root`:
+
+```css
+--mv-bg-dark: #0a0a0a;
+--mv-text-primary: #e5e7eb;
+--mv-text-muted: #9ca3af;
+--mv-accent-pink: #ff69b4;
+--mv-accent-gold: #ffd700;
+--mv-glass-bg: rgba(255, 255, 255, 0.05);
+--mv-border-radius: 8px;
+```
+
+### Shared Components
+
+- **`.mv-page-header`** - Standard page header (used on all 3 content pages)
+- **`.mv-card`** - Glassmorphism card with hover effects
+- **`.text-gradient`** - Pink-to-gold gradient text
+- **`.glassmorphism`** - Glass-blur backdrop effect
+
+### Adding New Content
+
+**Build Log:** Add new entries in `buildlog.html` by copying a sample week entry and updating dates, titles, achievements, and category tags.
+
+**Styles:** 
+- For colors/tokens: Edit CSS variables in `/css/base.css` (`:root` section)
+- For shared components: Add to `/css/base.css`
+- For page-specific styles: Edit the relevant page CSS file
+- Prefer Tailwind utilities in HTML over custom CSS
 
 **Meta Tags:** Update `<title>` and `<meta name="description">` in each HTML file's `<head>` section.
 
