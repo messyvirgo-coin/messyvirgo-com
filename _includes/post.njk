@@ -99,7 +99,7 @@
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24 flex-1">
+    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24 flex-1 relative z-10">
         <!-- Post Header -->
         <article class="fade-in">
             <header class="mb-12 text-center">
@@ -191,6 +191,42 @@
             display: none !important;
         }
         
+        /* Ensure main content is above background */
+        main {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Ensure article content is visible */
+        article.fade-in {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Mobile fallback: ensure content is visible even if JS fails */
+        @media (max-width: 768px) {
+            article.fade-in {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+        }
+        
+        /* Ensure prose content is visible */
+        .prose {
+            position: relative;
+            z-index: 1;
+            color: #d1d5db !important;
+        }
+        
+        /* Ensure all text in prose is visible on mobile */
+        @media (max-width: 768px) {
+            .prose,
+            .prose * {
+                color: #d1d5db !important;
+                opacity: 1 !important;
+            }
+        }
+        
         /* Back to Blog button style - matching read-more-btn */
         .read-more-btn {
             display: inline-block;
@@ -219,7 +255,41 @@
     </style>
     <script>
         // Add prose styling for markdown content
+        // Run immediately (not waiting for DOMContentLoaded) to ensure it runs before main.js
+        (function() {
+            // Ensure fade-in content is visible on mobile - run immediately
+            const makeVisible = () => {
+                const fadeInElements = document.querySelectorAll('.fade-in');
+                fadeInElements.forEach(el => {
+                    // Check if element is in viewport or near it
+                    const rect = el.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight + 100; // 100px buffer
+                    
+                    if (isVisible || !el.classList.contains('visible')) {
+                        // Use requestAnimationFrame for smooth transition
+                        requestAnimationFrame(() => {
+                            el.classList.add('visible');
+                        });
+                    }
+                });
+            };
+            
+            // Run immediately if DOM is ready, otherwise wait
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', makeVisible);
+            } else {
+                makeVisible();
+            }
+            
+            // Also run after a short delay as fallback for mobile
+            setTimeout(makeVisible, 100);
+            
+            // Re-run on scroll to catch any missed elements
+            window.addEventListener('scroll', makeVisible, { passive: true });
+        })();
+        
         document.addEventListener('DOMContentLoaded', () => {
+            
             const proseContent = document.querySelector('.prose');
             if (proseContent) {
                 // Style paragraphs - add spacing
