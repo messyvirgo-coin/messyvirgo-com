@@ -1,0 +1,562 @@
+/* ========================================
+   LITEPAPER PAGE - Page-Specific Styles
+   Shared styles moved to base.css
+   ======================================== */
+
+/* Litepaper-Specific Theme Override */
+body.litepaper-page {
+    background-color: #0a0a0a;
+    color: #e5e7eb;
+}
+
+/* Main Container */
+.litepaper-main {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Sections */
+.litepaper-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    padding: 4rem 0;
+}
+
+.litepaper-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.litepaper-section h2 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #ff69b4, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (min-width: 768px) {
+    .litepaper-section h2 {
+        font-size: 2.25rem;
+    }
+}
+
+/* Content Boxes */
+/* Use standard .mv-card with additional padding/margin */
+.litepaper-box {
+    padding: 2rem;
+    margin: 1.5rem 0;
+}
+
+.litepaper-box p {
+    color: #d1d5db;
+    line-height: 1.75;
+}
+
+.litepaper-box-header {
+    margin-bottom: 0;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0;
+}
+
+/* Automatic fade-in animation for litepaper boxes */
+.litepaper-box.fade-in {
+    /* Override base.css transition to allow animation */
+    transition: none !important;
+    /* Ensure initial state from base.css is maintained */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.litepaper-box.fade-in.visible {
+    /* Prevent base.css from interfering with animation */
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    height: 300px;
+    max-height: 400px;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        height: 350px;
+    }
+}
+
+/* Vision Section */
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .vision-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Use standard .mv-card with additional styles */
+.vision-card {
+    padding: 2rem;
+    height: 100%;
+}
+
+.vision-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fbbf24;
+    margin-bottom: 1rem;
+}
+
+.vision-card p {
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-top: 0.75rem;
+}
+
+.vision-card p + p {
+    margin-top: 1rem;
+}
+
+/* Automatic fade-in animation for vision cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vision-card.fade-in {
+    /* Override base.css transition to allow animation */
+    transition: none !important;
+    /* Ensure initial state from base.css is maintained */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.vision-card.fade-in.visible {
+    /* Prevent base.css from interfering with animation */
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Staggered fade-in animation delays for vision cards */
+.vision-card.fade-in:nth-child(1) { animation-delay: 0s; }
+.vision-card.fade-in:nth-child(2) { animation-delay: 0.1s; }
+.vision-card.fade-in:nth-child(3) { animation-delay: 0.2s; }
+.vision-card.fade-in:nth-child(4) { animation-delay: 0.3s; }
+
+/* Ecosystem Grid */
+.ecosystem-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .ecosystem-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch; /* Make columns equal height */
+    }
+    
+    .ecosystem-grid > div {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    /* Left column: cards stack naturally */
+    .ecosystem-grid > div:first-child > .mv-card {
+        display: flex;
+        flex-direction: column;
+        margin: 0; /* Remove litepaper-box margin */
+    }
+    
+    /* Right column: single card stretches to match left column height */
+    .ecosystem-grid > div:last-child {
+        min-height: 100%;
+    }
+    
+    .ecosystem-grid > div:last-child > .mv-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin: 0; /* Remove litepaper-box margin */
+    }
+}
+
+/* Fund Box - nested boxes inside Investment Vehicles card */
+.fund-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.fund-box:hover {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.fund-box h4 {
+    color: #D97706; /* Orange from "Reinvested in Project" chart segment */
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid #fbbf24;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 5px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fbbf24;
+    border: 4px solid #0a0a0a;
+    z-index: 1;
+}
+
+.timeline-item h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #e5e7eb;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item p {
+    color: #9ca3af;
+    line-height: 1.8;
+    margin-top: 0.5rem;
+}
+
+.timeline-item p + p {
+    margin-top: 1rem;
+}
+
+/* Vesting Chart */
+.vesting-chart-container {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 2.5rem 2rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1.5rem;
+}
+
+.vesting-bar {
+    position: absolute;
+    height: 100%;
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.vesting-bar:hover {
+    opacity: 1;
+}
+
+.vesting-label {
+    pointer-events: none;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.vesting-details {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Table Styles */
+.litepaper-table {
+    width: 100%;
+    margin-top: 1.5rem;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.litepaper-table thead {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.litepaper-table th {
+    padding: 0.75rem;
+    text-align: left;
+    color: #9ca3af;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.litepaper-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
+}
+
+.litepaper-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Footer */
+.litepaper-footer {
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4rem;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.litepaper-footer p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    line-height: 1.75;
+}
+
+.litepaper-footer .disclaimer {
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+/* Trust Cards */
+.trust-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 100%;
+}
+
+/* Use standard .mv-card with additional styles */
+.trust-card {
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(180deg, rgba(255, 105, 180, 0.6), rgba(255, 215, 0, 0.6)) 1;
+}
+
+.trust-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(8px);
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.1);
+}
+
+.trust-card-badge {
+    position: absolute;
+    top: -12px;
+    left: 2rem;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #ff69b4, #ffd700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.trust-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fbbf24;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.trust-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fbbf24;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.trust-card p {
+    color: #b3b3b3;
+    line-height: 1.7;
+}
+
+/* Automatic fade-in animation for trust cards */
+.trust-card.fade-in {
+    /* Override base.css transition to allow animation */
+    transition: none !important;
+    /* Ensure initial state from base.css is maintained */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.trust-card.fade-in.visible {
+    /* Prevent base.css from interfering with animation */
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Staggered fade-in animation delays for trust cards */
+.trust-card.fade-in:nth-child(1) { animation-delay: 0s; }
+.trust-card.fade-in:nth-child(2) { animation-delay: 0.1s; }
+.trust-card.fade-in:nth-child(3) { animation-delay: 0.2s; }
+
+/* Enhanced Responsive */
+@media (max-width: 768px) {
+    .litepaper-section {
+        padding: 2rem 0;
+    }
+
+    .litepaper-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .litepaper-box {
+        padding: 1.25rem;
+    }
+
+    .litepaper-box p {
+        font-size: 0.95rem;
+    }
+
+    .vision-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .vision-card p {
+        font-size: 0.9rem;
+    }
+
+    .timeline {
+        padding-left: 1rem;
+    }
+
+    .timeline-item {
+        margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+        left: -1.75rem;
+        width: 16px;
+        height: 16px;
+    }
+
+    .timeline-item h4 {
+        font-size: 1rem;
+    }
+
+    .timeline-item p {
+        font-size: 0.9rem;
+    }
+
+    .vesting-chart-container {
+        height: 12rem;
+        padding: 2rem 1rem 0.5rem;
+    }
+
+    .litepaper-table {
+        font-size: 0.8rem;
+    }
+
+    .litepaper-table th,
+    .litepaper-table td {
+        padding: 0.5rem;
+    }
+
+    .trust-card {
+        padding: 1.5rem;
+    }
+
+    .trust-card:hover {
+        transform: translateX(4px);
+    }
+
+    .trust-card-badge {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        left: 1rem;
+    }
+
+    .trust-card-title {
+        font-size: 1.125rem;
+    }
+
+    .trust-cards-container {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .litepaper-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .litepaper-box {
+        padding: 1rem;
+    }
+
+    .litepaper-main {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .vision-card {
+        padding: 1.5rem;
+    }
+
+    .vision-grid {
+        gap: 1rem;
+    }
+
+    .ecosystem-grid {
+        gap: 1.5rem;
+    }
+}

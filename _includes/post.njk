@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | $MESSY Blog</title>
+    <meta name="title" content="{{ title }} | $MESSY Blog">
+    <meta name="description" content="{{ description or 'Read this post on the MESSY blog' }}">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.messyvirgo.com/blog/{{ page.date | dateFilter }}/{{ title | slugify }}/">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description or 'Read this post on the MESSY blog' }}">
+    <meta property="og:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.messyvirgo.com/blog/{{ page.date | dateFilter }}/{{ title | slugify }}/">
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ description or 'Read this post on the MESSY blog' }}">
+    <meta property="twitter:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.messyvirgo.com/blog/{{ page.date | dateFilter }}/{{ title | slugify }}/">
+    
+    <!-- Fonts & External Scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/base.css">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "{{ title }}",
+        "description": "{{ description or 'Read this post on the MESSY blog' }}",
+        "datePublished": "{{ page.date | htmlDateString }}",
+        "author": {
+            "@type": "Organization",
+            "name": "Messy Virgo"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Messy Virgo",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.messyvirgo.com/images/messy-mascot.png"
+            }
+        }
+    }
+    </script>
+</head>
+<body class="blog-post-page">
+    <div id="scroll-progress"></div>
+    <div class="aurora-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
+                    <a href="/" class="text-gray-300 hover:text-pink-400 transition">Home</a>
+                    <a href="/litepaper.html" class="text-gray-300 hover:text-pink-400 transition">Litepaper</a>
+                    <a href="/founder-profiles.html" class="text-gray-300 hover:text-pink-400 transition">Founders</a>
+                    <a href="/buildlog.html" class="text-gray-300 hover:text-pink-400 transition">Build Log</a>
+                    <a href="/blog/" class="text-gray-300 hover:text-pink-400 transition">Blog</a>
+                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap $MESSY</a>
+                </div>
+                <!-- Mobile Nav Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
+            <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
+            <a href="/litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
+            <a href="/founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
+            <a href="/buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
+            <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
+            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24">
+        <!-- Post Header -->
+        <article class="fade-in">
+            <header class="mb-12 text-center">
+                <h1 class="text-gradient text-4xl md:text-5xl font-bold font-serif mb-4">{{ title }}</h1>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-400 text-sm">
+                    <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+                    {% if tags and tags.length > 0 %}
+                        <div class="flex gap-2">
+                            {% for tag in tags %}
+                                {% if tag !== "blog" %}
+                                    <span class="text-pink-400">#{{ tag }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </header>
+
+            <!-- Post Content -->
+            <div class="prose prose-invert max-w-none mb-16 text-gray-300 leading-relaxed">
+                {{ content | safe }}
+            </div>
+
+            <!-- Post Footer -->
+            <footer class="border-t border-white/10 pt-8">
+                <div class="flex justify-between items-center">
+                    <a href="/blog/" class="text-pink-400 hover:text-pink-300 transition">&larr; Back to Blog</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 border-t border-white/10 mt-24">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            <p>&copy; 2025 $MESSY. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://x.com/MessyVirgoCoin" target="_blank" class="hover:text-pink-400 transition">X (Twitter)</a>
+                <a href="https://t.me/messyvirgo" target="_blank" class="hover:text-pink-400 transition">Telegram</a>
+                <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" class="hover:text-pink-400 transition">Contract</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="/js/main.js" defer></script>
+    <script>
+        // Add prose styling for markdown content
+        document.addEventListener('DOMContentLoaded', () => {
+            const proseContent = document.querySelector('.prose');
+            if (proseContent) {
+                // Style headings
+                proseContent.querySelectorAll('h2, h3, h4, h5, h6').forEach(heading => {
+                    heading.classList.add('text-gradient', 'font-serif', 'mb-4', 'mt-6');
+                    if (heading.tagName === 'H2') heading.classList.add('text-2xl', 'md:text-3xl');
+                    if (heading.tagName === 'H3') heading.classList.add('text-xl', 'md:text-2xl');
+                });
+
+                // Style lists
+                proseContent.querySelectorAll('ul, ol').forEach(list => {
+                    list.classList.add('mb-4', 'ml-6');
+                });
+
+                // Style links
+                proseContent.querySelectorAll('a').forEach(link => {
+                    link.classList.add('text-pink-400', 'hover:text-pink-300', 'transition', 'underline');
+                });
+
+                // Style blockquotes
+                proseContent.querySelectorAll('blockquote').forEach(blockquote => {
+                    blockquote.classList.add('border-l-4', 'border-pink-400/50', 'pl-6', 'py-2', 'italic', 'text-gray-300', 'my-6');
+                });
+
+                // Style code blocks
+                proseContent.querySelectorAll('pre').forEach(pre => {
+                    pre.classList.add('bg-gray-900', 'border', 'border-gray-700', 'rounded', 'p-4', 'overflow-x-auto', 'my-4');
+                });
+
+                // Style inline code
+                proseContent.querySelectorAll('code').forEach(code => {
+                    if (!code.parentElement.tagName === 'PRE') {
+                        code.classList.add('bg-gray-900', 'text-pink-400', 'px-2', 'py-1', 'rounded', 'text-sm');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

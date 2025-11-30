@@ -1,0 +1,162 @@
+---
+layout: null
+permalink: /blog/index.html
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | $MESSY - AI Agent Token on Base</title>
+    <meta name="title" content="Blog | $MESSY - AI Agent Token on Base">
+    <meta name="description" content="Read the latest articles and insights about MESSY, AI agents, DeFi, and autonomous fund management.">
+    <meta name="keywords" content="MESSY blog, AI agents, DeFi, autonomous trading, crypto insights">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.messyvirgo.com/blog/">
+    <meta property="og:title" content="$MESSY Blog">
+    <meta property="og:description" content="Read the latest articles and insights about MESSY, AI agents, DeFi, and autonomous fund management.">
+    <meta property="og:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.messyvirgo.com/blog/">
+    <meta property="twitter:title" content="$MESSY Blog">
+    <meta property="twitter:description" content="Read the latest articles and insights about MESSY, AI agents, DeFi, and autonomous fund management.">
+    <meta property="twitter:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.messyvirgo.com/blog/">
+    
+    <!-- Fonts & External Scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/base.css">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "$MESSY Blog",
+        "description": "Latest articles and insights about MESSY, AI agents, DeFi, and autonomous fund management",
+        "url": "https://www.messyvirgo.com/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Messy Virgo"
+        }
+    }
+    </script>
+</head>
+<body class="blog-page">
+    <div id="scroll-progress"></div>
+    <div class="aurora-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
+                    <a href="/" class="text-gray-300 hover:text-pink-400 transition">Home</a>
+                    <a href="/litepaper.html" class="text-gray-300 hover:text-pink-400 transition">Litepaper</a>
+                    <a href="/founder-profiles.html" class="text-gray-300 hover:text-pink-400 transition">Founders</a>
+                    <a href="/buildlog.html" class="text-gray-300 hover:text-pink-400 transition">Build Log</a>
+                    <a href="/blog/" class="text-gray-300 hover:text-pink-400 transition">Blog</a>
+                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap $MESSY</a>
+                </div>
+                <!-- Mobile Nav Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
+            <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
+            <a href="/litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
+            <a href="/founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
+            <a href="/buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
+            <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
+            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+        
+        <!-- Header Section -->
+        <section class="mv-page-header mb-16">
+            <h1 class="text-gradient mb-4">MESSY Blog</h1>
+            <p class="max-w-3xl mx-auto">Insights, updates, and deep dives into AI agents, autonomous fund management, and the future of DeFi.</p>
+        </section>
+
+        <!-- Blog Posts Grid -->
+        <section class="blog-posts-grid">
+            {% if collections.blog.length > 0 %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {% for post in collections.blog %}
+                        <article class="mv-card glassmorphism rounded-lg p-6 hover:shadow-lg hover:shadow-pink-500/20 transition fade-in group">
+                            <div class="mb-4">
+                                <time datetime="{{ post.date | htmlDateString }}" class="text-gray-400 text-sm">{{ post.date | readableDate }}</time>
+                            </div>
+                            <h2 class="text-2xl md:text-xl font-bold font-serif text-gradient mb-3 group-hover:text-pink-400 transition line-clamp-2">
+                                {{ post.data.title }}
+                            </h2>
+                            <p class="text-gray-300 mb-4 line-clamp-3">
+                                {{ post.data.description or post.content | excerpt }}
+                            </p>
+                            {% if post.data.tags and post.data.tags.length > 0 %}
+                                <div class="flex gap-2 mb-4 flex-wrap">
+                                    {% for tag in post.data.tags %}
+                                        {% if tag !== "blog" %}
+                                            <span class="text-pink-300 text-xs bg-pink-500/10 px-2 py-1 rounded">#{{ tag }}</span>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <a href="{{ post.url }}" class="inline-flex items-center text-pink-400 hover:text-pink-300 transition font-semibold text-sm">
+                                Read More <span class="ml-2">→</span>
+                            </a>
+                        </article>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="mv-card glassmorphism rounded-lg p-12 text-center">
+                    <h2 class="text-2xl font-serif text-gradient mb-4">No posts yet</h2>
+                    <p class="text-gray-300">Check back soon for the latest insights on MESSY and AI agents!</p>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 border-t border-white/10">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            <p>&copy; 2025 $MESSY. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://x.com/MessyVirgoCoin" target="_blank" class="hover:text-pink-400 transition">X (Twitter)</a>
+                <a href="https://t.me/messyvirgo" target="_blank" class="hover:text-pink-400 transition">Telegram</a>
+                <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" class="hover:text-pink-400 transition">Contract</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
+
