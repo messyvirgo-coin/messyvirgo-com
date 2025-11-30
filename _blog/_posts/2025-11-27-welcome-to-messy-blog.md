@@ -1,6 +1,6 @@
 ---
 title: "Welcome to the MESSY Blog"
-date: 2024-12-15
+date: 2025-11-27
 description: "Introducing the new MESSY Blog - your hub for insights on AI agents, autonomous fund management, and the future of DeFi."
 tags: [announcements, ai-agents, blog]
 layout: post.njk
@@ -35,8 +35,6 @@ Don't miss new posts! Follow us on:
 ### Get the Latest Directly
 
 We'll be announcing new posts across our social channels, so make sure you're following us to stay in the loop.
-
----
 
 Thanks for reading, and welcome to the MESSY Blog! We're excited to share our journey with you.
 

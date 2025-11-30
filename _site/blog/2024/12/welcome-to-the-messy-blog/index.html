@@ -62,7 +62,7 @@
     }
     </script>
 </head>
-<body class="blog-post-page">
+<body class="blog-post-page flex flex-col min-h-screen">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
@@ -99,28 +99,13 @@
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24">
+    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24 flex-1">
         <!-- Post Header -->
         <article class="fade-in">
             <header class="mb-12 text-center">
                 <h1 class="text-gradient text-4xl md:text-5xl font-bold font-serif mb-4">Welcome to the MESSY Blog</h1>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-400 text-sm">
                     <time datetime="2024-12-15">December 15, 2024</time>
-                    
-                        <div class="flex gap-2">
-                            
-                                
-                                    <span class="text-pink-400">#announcements</span>
-                                
-                            
-                                
-                                    <span class="text-pink-400">#ai-agents</span>
-                                
-                            
-                                
-                            
-                        </div>
-                    
                 </div>
             </header>
 
@@ -147,18 +132,15 @@
 </ul>
 <h3 id="get-the-latest-directly" tabindex="-1">Get the Latest Directly</h3>
 <p>We'll be announcing new posts across our social channels, so make sure you're following us to stay in the loop.</p>
-<hr>
 <p>Thanks for reading, and welcome to the MESSY Blog! We're excited to share our journey with you.</p>
 <p><em>- The MESSY Team</em></p>
 
             </div>
 
             <!-- Post Footer -->
-            <footer class="border-t border-white/10 pt-8">
-                <div class="flex justify-between items-center">
-                    <a href="/blog/" class="text-pink-400 hover:text-pink-300 transition">&larr; Back to Blog</a>
-                </div>
-            </footer>
+            <div class="mt-16 pt-10">
+                <a href="/blog/" class="inline-flex items-center read-more-btn">&larr; Back to Blog</a>
+            </div>
         </article>
     </main>
 
@@ -176,15 +158,52 @@
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
+    <style>
+        /* Back to Blog button style - matching read-more-btn */
+        .read-more-btn {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            padding: 0.5rem 1.25rem;
+            background: rgba(255, 105, 180, 0.1);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            border-radius: 20px;
+            color: #ff69b4;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .read-more-btn::after {
+            display: none !important;
+        }
+        .read-more-btn:hover {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: #ff69b4;
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: #ff69b4;
+        }
+    </style>
     <script>
         // Add prose styling for markdown content
         document.addEventListener('DOMContentLoaded', () => {
             const proseContent = document.querySelector('.prose');
             if (proseContent) {
-                // Style headings
+                // Style paragraphs - add spacing
+                proseContent.querySelectorAll('p').forEach(paragraph => {
+                    paragraph.classList.add('mb-6');
+                });
+
+                // Style headings with better spacing
                 proseContent.querySelectorAll('h2, h3, h4, h5, h6').forEach(heading => {
-                    heading.classList.add('text-gradient', 'font-serif', 'mb-4', 'mt-6');
-                    if (heading.tagName === 'H2') heading.classList.add('text-2xl', 'md:text-3xl');
+                    heading.classList.add('text-gradient', 'font-serif', 'mb-4', 'mt-10');
+                    if (heading.tagName === 'H2') {
+                        heading.classList.add('text-2xl', 'md:text-3xl');
+                        // More space before H2 headings
+                        heading.classList.remove('mt-10');
+                        heading.classList.add('mt-12');
+                    }
                     if (heading.tagName === 'H3') heading.classList.add('text-xl', 'md:text-2xl');
                 });
 

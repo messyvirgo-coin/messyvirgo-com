@@ -59,7 +59,7 @@ permalink: /blog/index.html
     }
     </script>
 </head>
-<body class="blog-page">
+<body class="blog-page flex flex-col min-h-screen">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
@@ -96,7 +96,7 @@ permalink: /blog/index.html
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24 flex-1">
         
         <!-- Header Section -->
         <section class="mv-page-header mb-16">
@@ -119,16 +119,7 @@ permalink: /blog/index.html
                             <p class="text-gray-300 mb-4 line-clamp-3">
                                 {{ post.data.description or post.content | excerpt }}
                             </p>
-                            {% if post.data.tags and post.data.tags.length > 0 %}
-                                <div class="flex gap-2 mb-4 flex-wrap">
-                                    {% for tag in post.data.tags %}
-                                        {% if tag !== "blog" %}
-                                            <span class="text-pink-300 text-xs bg-pink-500/10 px-2 py-1 rounded">#{{ tag }}</span>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                            <a href="{{ post.url }}" class="inline-flex items-center text-pink-400 hover:text-pink-300 transition font-semibold text-sm">
+                            <a href="{{ post.url }}" class="read-more-btn">
                                 Read More <span class="ml-2">→</span>
                             </a>
                         </article>
@@ -144,7 +135,7 @@ permalink: /blog/index.html
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/20 border-t border-white/10">
+    <footer class="bg-black/20 border-t border-white/10 mt-24">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
             <p>&copy; 2025 $MESSY. All rights reserved.</p>
             <div class="mt-4 flex justify-center space-x-6">
@@ -157,6 +148,35 @@ permalink: /blog/index.html
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
+    <style>
+        /* Read More button style - matching founders page */
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(255, 105, 180, 0.1);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            border-radius: 20px;
+            color: #ff69b4;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .read-more-btn::after {
+            display: none !important;
+        }
+        .read-more-btn:hover {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: #ff69b4;
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: #ff69b4;
+        }
+    </style>
 </body>
 </html>
 

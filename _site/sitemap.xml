@@ -43,8 +43,15 @@
     <!-- Blog Posts -->
     
     <url>
-        <loc>https://www.messyvirgo.com/blog/2024/12/welcome-to-the-messy-blog/</loc>
-        <lastmod>2024-12-15</lastmod>
+        <loc>https://www.messyvirgo.com/blog/2025/11/from-weekend-hacks-to-autonomous-lenses-how-messy-virgo-is-designing-its-due-diligence-engine/</loc>
+        <lastmod>2025-11-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.messyvirgo.com/blog/2025/11/welcome-to-the-messy-blog/</loc>
+        <lastmod>2025-11-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>

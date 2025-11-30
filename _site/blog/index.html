@@ -55,7 +55,7 @@
     }
     </script>
 </head>
-<body class="blog-page">
+<body class="blog-page flex flex-col min-h-screen">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
@@ -92,7 +92,7 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24 flex-1">
         
         <!-- Header Section -->
         <section class="mv-page-header mb-16">
@@ -107,7 +107,22 @@
                     
                         <article class="mv-card glassmorphism rounded-lg p-6 hover:shadow-lg hover:shadow-pink-500/20 transition fade-in group">
                             <div class="mb-4">
-                                <time datetime="2024-12-15" class="text-gray-400 text-sm">December 15, 2024</time>
+                                <time datetime="2025-11-30" class="text-gray-400 text-sm">November 30, 2025</time>
+                            </div>
+                            <h2 class="text-2xl md:text-xl font-bold font-serif text-gradient mb-3 group-hover:text-pink-400 transition line-clamp-2">
+                                From Weekend Hacks to Autonomous Lenses: How Messy Virgo Is Designing Its Due Diligence Engine
+                            </h2>
+                            <p class="text-gray-300 mb-4 line-clamp-3">
+                                Andrej Karpathy’s “weekend vibe” agentic AI hack meets Messy Virgo’s on-chain reality in this piece, showing how our lens architecture turns tool orchestration, self-evaluation, and tight reasoning loops into an AI-native due diligence engine—and the foundation for an autonomous trader on Base and Ethereum.
+                            </p>
+                            <a href="/blog/2025/11/from-weekend-hacks-to-autonomous-lenses-how-messy-virgo-is-designing-its-due-diligence-engine/" class="read-more-btn">
+                                Read More <span class="ml-2">→</span>
+                            </a>
+                        </article>
+                    
+                        <article class="mv-card glassmorphism rounded-lg p-6 hover:shadow-lg hover:shadow-pink-500/20 transition fade-in group">
+                            <div class="mb-4">
+                                <time datetime="2025-11-27" class="text-gray-400 text-sm">November 27, 2025</time>
                             </div>
                             <h2 class="text-2xl md:text-xl font-bold font-serif text-gradient mb-3 group-hover:text-pink-400 transition line-clamp-2">
                                 Welcome to the MESSY Blog
@@ -115,22 +130,7 @@
                             <p class="text-gray-300 mb-4 line-clamp-3">
                                 Introducing the new MESSY Blog - your hub for insights on AI agents, autonomous fund management, and the future of DeFi.
                             </p>
-                            
-                                <div class="flex gap-2 mb-4 flex-wrap">
-                                    
-                                        
-                                            <span class="text-pink-300 text-xs bg-pink-500/10 px-2 py-1 rounded">#announcements</span>
-                                        
-                                    
-                                        
-                                            <span class="text-pink-300 text-xs bg-pink-500/10 px-2 py-1 rounded">#ai-agents</span>
-                                        
-                                    
-                                        
-                                    
-                                </div>
-                            
-                            <a href="/blog/2024/12/welcome-to-the-messy-blog/" class="inline-flex items-center text-pink-400 hover:text-pink-300 transition font-semibold text-sm">
+                            <a href="/blog/2025/11/welcome-to-the-messy-blog/" class="read-more-btn">
                                 Read More <span class="ml-2">→</span>
                             </a>
                         </article>
@@ -141,7 +141,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/20 border-t border-white/10">
+    <footer class="bg-black/20 border-t border-white/10 mt-24">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
             <p>&copy; 2025 $MESSY. All rights reserved.</p>
             <div class="mt-4 flex justify-center space-x-6">
@@ -154,6 +154,35 @@
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
+    <style>
+        /* Read More button style - matching founders page */
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(255, 105, 180, 0.1);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            border-radius: 20px;
+            color: #ff69b4;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .read-more-btn::after {
+            display: none !important;
+        }
+        .read-more-btn:hover {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: #ff69b4;
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: #ff69b4;
+        }
+    </style>
 </body>
 </html>
 
