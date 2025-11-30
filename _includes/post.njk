@@ -99,7 +99,7 @@
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24 flex-1 relative z-10">
+    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24 flex-1">
         <!-- Post Header -->
         <article class="fade-in">
             <header class="mb-12 text-center">
@@ -191,14 +191,6 @@
             display: none !important;
         }
         
-        /* Mobile fallback: ensure content is visible even if JS fails */
-        @media (max-width: 768px) {
-            article.fade-in {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
-            }
-        }
-        
         /* Back to Blog button style - matching read-more-btn */
         .read-more-btn {
             display: inline-block;
@@ -226,40 +218,8 @@
         }
     </style>
     <script>
-        // Ensure fade-in content is visible on mobile (only for blog post pages)
-        (function() {
-            try {
-                // Only run on blog post pages (check for .blog-post-page class)
-                if (!document.body.classList.contains('blog-post-page')) {
-                    return;
-                }
-                
-                const makeVisible = () => {
-                    try {
-                        const article = document.querySelector('article.fade-in');
-                        if (article && !article.classList.contains('visible')) {
-                            article.classList.add('visible');
-                        }
-                    } catch (e) {
-                        console.warn('Error making content visible:', e);
-                    }
-                };
-                
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', makeVisible);
-                } else {
-                    makeVisible();
-                }
-                
-                // Fallback for mobile
-                setTimeout(makeVisible, 100);
-            } catch (e) {
-                console.warn('Error in fade-in visibility script:', e);
-            }
-        })();
-        
+        // Add prose styling for markdown content
         document.addEventListener('DOMContentLoaded', () => {
-            
             const proseContent = document.querySelector('.prose');
             if (proseContent) {
                 // Style paragraphs - add spacing
@@ -316,7 +276,7 @@
 
                 // Style inline code
                 proseContent.querySelectorAll('code').forEach(code => {
-                    if (code.parentElement.tagName !== 'PRE') {
+                    if (!code.parentElement.tagName === 'PRE') {
                         code.classList.add('bg-gray-900', 'text-pink-400', 'px-2', 'py-1', 'rounded', 'text-sm');
                     }
                 });
