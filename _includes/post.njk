@@ -191,6 +191,14 @@
             display: none !important;
         }
         
+        /* Mobile-specific: ensure blog post content is always visible */
+        @media (max-width: 768px) {
+            body.blog-post-page article.fade-in {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+        }
+        
         /* Back to Blog button style - matching read-more-btn */
         .read-more-btn {
             display: inline-block;
