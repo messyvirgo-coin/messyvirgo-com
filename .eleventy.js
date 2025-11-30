@@ -14,9 +14,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("css/tailwind.css");
 
   // Collections
-  eleventyConfig.addCollection("blog", function (collection) {
-    return collection
-      .getFilteredByGlob("_blog/_posts/*.md")
+  eleventyConfig.addCollection("blog", function (collectionApi) {
+    return collectionApi
+      .getAll()
+      .filter(function(item) {
+        return item.inputPath && item.inputPath.includes("_blog/_posts/") && item.inputPath.endsWith(".md");
+      })
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   });
 
