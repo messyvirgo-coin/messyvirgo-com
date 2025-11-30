@@ -2,6 +2,9 @@
 module.exports = {
   content: [
     "./*.html",
+    "./blog/**/*.njk",
+    "./_blog/**/*.md",
+    "./_includes/**/*.njk",
     "./js/**/*.js"
   ],
   theme: {
