@@ -342,7 +342,7 @@ body.buildlog-page {
 /* Use standard .mv-card with additional styles */
 .buildlog-entry-card {
     overflow: hidden;
-    cursor: pointer;
+    cursor: default;
 }
 
 .buildlog-entry-card:hover {
@@ -487,6 +487,7 @@ body.buildlog-page {
     color: #fbbf24;
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .buildlog-entry-body a:hover {
