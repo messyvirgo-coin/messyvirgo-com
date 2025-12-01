@@ -81,7 +81,7 @@ This is where our architecture aligns strongly with the patterns hinted at in Ka
 
 Rather than handing raw data directly to a summarizer, we've inserted an explicit Validation layer between Data and Info:
 
-**Source scoring**
+#### Source scoring
 
 Each data source or LLM output is scored along dimensions like:
 
@@ -89,7 +89,7 @@ Each data source or LLM output is scored along dimensions like:
 - **Completeness:** Does it cover the critical aspects we care about?
 - **Consistency:** Does it contradict itself or other trusted signals?
 
-**Cross-review**
+#### Cross-review
 
 Multiple models can critique each other's outputs. For example:
 
@@ -97,7 +97,7 @@ Multiple models can critique each other's outputs. For example:
 - Narrative claims are checked against on-chain metrics or unlock schedules.
 - Conflicting data is highlighted rather than silently averaged away.
 
-**Gap and conflict detection**
+#### Gap and conflict detection
 
 The Validation layer is explicitly allowed to say:
 
@@ -105,7 +105,7 @@ The Validation layer is explicitly allowed to say:
 - "These two sources strongly disagree on circulating supply or vesting terms."
 - "This narrative cannot be confirmed with the current on-chain evidence."
 
-**Critical safety mechanisms**
+#### Critical safety mechanisms
 
 The Validation layer also includes explicit kill switches for deal-breaking findings. For example:
 
@@ -115,7 +115,7 @@ The Validation layer also includes explicit kill switches for deal-breaking find
 
 These kill-switches ensure we never waste resources on fundamentally compromised assets and maintain clear audit trails for why tokens are filtered out.
 
-**Guidance for the next stage**
+#### Guidance for the next stage
 
 Instead of just sending "all the data" forward, Validation produces guidance:
 
