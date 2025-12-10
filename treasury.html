@@ -1,0 +1,198 @@
+---
+permalink: /treasury.html
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasury | $MESSY - Transfers & Allocations</title>
+    <meta name="title" content="Treasury | $MESSY - Transfers & Allocations">
+    <meta name="description" content="Transparent record of $MESSY treasury movements. Track allocations, transactions, and on-chain activity month by month.">
+    <meta name="keywords" content="MESSY treasury, treasury updates, token treasury, on-chain transparency, Messy Virgo treasury">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.messyvirgo.com/treasury.html">
+    <meta property="og:title" content="$MESSY Treasury">
+    <meta property="og:description" content="Transparent record of $MESSY treasury movements.">
+    <meta property="og:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.messyvirgo.com/treasury.html">
+    <meta property="twitter:title" content="$MESSY Treasury">
+    <meta property="twitter:description" content="Transparent record of $MESSY treasury movements.">
+    <meta property="twitter:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.messyvirgo.com/treasury.html">
+
+    <!-- Fonts & External Scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/buildlog.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/png" href="/favicons/messy-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "$MESSY Treasury",
+        "description": "Transparent record of $MESSY treasury movements and allocations.",
+        "url": "https://www.messyvirgo.com/treasury.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Messy Virgo"
+        }
+    }
+    </script>
+</head>
+<body class="buildlog-page">
+    <div id="scroll-progress"></div>
+    <div class="aurora-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
+                    <a href="/" class="text-gray-300 hover:text-pink-400 transition">Home</a>
+                    <a href="litepaper.html" class="text-gray-300 hover:text-pink-400 transition">Litepaper</a>
+                    <a href="founder-profiles.html" class="text-gray-300 hover:text-pink-400 transition">Founders</a>
+                    <a href="buildlog.html" class="text-gray-300 hover:text-pink-400 transition">Build Log</a>
+                    <a href="/blog/" class="text-gray-300 hover:text-pink-400 transition">Blog</a>
+                    <a href="treasury.html" class="text-pink-400 hover:text-pink-300 transition">Treasury</a>
+                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap $MESSY</a>
+                </div>
+                <!-- Mobile Nav Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
+            <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
+            <a href="litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
+            <a href="founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
+            <a href="buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
+            <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
+            <a href="treasury.html" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Treasury</a>
+            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+        
+        <!-- Header Section -->
+        <section class="mv-page-header mb-16 text-center">
+            <h1 class="text-gradient mb-4">Treasury</h1>
+            <p class="max-w-3xl mx-auto">Transparent log of treasury activity, reflecting on-chain movements and allocations.</p>
+        </section>
+
+        <div class="buildlog-timeline text-left">
+
+                <div class="buildlog-entry fade-in" data-week="November 2025">
+                    <div class="mv-card buildlog-entry-card">
+                        <div class="buildlog-entry-header">
+                            <div class="buildlog-entry-title">
+                                <div class="buildlog-entry-week">November 2025</div>
+                            </div>
+                        </div>
+                        <div class="buildlog-entry-content">
+                            <div class="buildlog-entry-body">
+                                <div class="mb-6">
+                                    <h4 class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider">Co-Founder &amp; CTO Upfront</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+                                        <div class="glassmorphism rounded-lg p-4">
+                                            <p class="text-gray-400 text-xs uppercase tracking-wide mb-1">Reference</p>
+                                            <p class="font-semibold">
+                                                <a href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">Transaction</a>
+                                            </p>
+                                        </div>
+                                        <div class="glassmorphism rounded-lg p-4">
+                                            <p class="text-gray-400 text-xs uppercase tracking-wide mb-1">Amount</p>
+                                            <p class="font-semibold">20,000,000.00</p>
+                                        </div>
+                                        <div class="glassmorphism rounded-lg p-4">
+                                            <p class="text-gray-400 text-xs uppercase tracking-wide mb-1">% of Supply</p>
+                                            <p class="font-semibold">2.01%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buildlog-entry fade-in" data-week="December 2025">
+                    <div class="mv-card buildlog-entry-card">
+                        <div class="buildlog-entry-header">
+                            <div class="buildlog-entry-title">
+                                <div class="buildlog-entry-week">December 2025</div>
+                            </div>
+                        </div>
+                        <div class="buildlog-entry-content">
+                            <div class="buildlog-entry-body">
+                                <div class="mb-6">
+                                    <h4 class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider">Safe Wallet Test Transaction</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+                                        <div class="glassmorphism rounded-lg p-4">
+                                            <p class="text-gray-400 text-xs uppercase tracking-wide mb-1">Reference</p>
+                                            <p class="font-semibold">
+                                                <a href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">Transaction</a>
+                                            </p>
+                                        </div>
+                                        <div class="glassmorphism rounded-lg p-4">
+                                            <p class="text-gray-400 text-xs uppercase tracking-wide mb-1">Amount</p>
+                                            <p class="font-semibold">120,000.00</p>
+                                        </div>
+                                        <div class="glassmorphism rounded-lg p-4">
+                                            <p class="text-gray-400 text-xs uppercase tracking-wide mb-1">% of Supply</p>
+                                            <p class="font-semibold">-</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 border-t border-white/10">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            <p>&copy; 2025 $MESSY. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://x.com/MessyVirgoCoin" target="_blank" class="hover:text-pink-400 transition">X (Twitter)</a>
+                <a href="https://t.me/messyvirgo" target="_blank" class="hover:text-pink-400 transition">Telegram</a>
+                <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" class="hover:text-pink-400 transition">Contract</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="/js/main.js" defer></script>
+    <script src="/js/buildlog.js" defer></script>
+</body>
+</html>
