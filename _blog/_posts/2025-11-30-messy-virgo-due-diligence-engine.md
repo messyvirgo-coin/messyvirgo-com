@@ -178,7 +178,7 @@ Over time, we expect to:
 
 Throughout, we remain conservative in how we communicate these capabilities. This is early-stage, moving-target work, and we treat scores and outputs as decision support — not oracles.
 
-## How This Relates to the Broader Messy Virgo Roadmap
+## How This Relates to the Broader Messy Virgo Coin Roadmap
 
 Putting it all together with the litepaper roadmap ([Messy Virgo litepaper](https://www.messyvirgo.com/litepaper)):
 
