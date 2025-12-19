@@ -129,9 +129,9 @@ permalink: /messy-virgo-coin.html
 
     <main class="max-w-7xl mx-auto px-4 py-16 md:py-24 space-y-16">
         <!-- Header -->
-        <section class="mv-page-header mb-6 text-center fade-in">
+        <section class="mv-page-header mb-10 text-center fade-in">
             <h1 class="text-gradient mb-4">Messy Virgo Coin (MESSY)</h1>
-            <p class="max-w-3xl mx-auto">The ticker is <strong>MESSY</strong> (often written as <strong>$MESSY</strong> in crypto). This page exists so search engines and humans can find the right project quickly.</p>
+            <p class="max-w-3xl mx-auto text-lg text-gray-200">Token overview, official links, and a straight answer to the questions people ask most.</p>
         </section>
 
         <!-- Quick Facts -->
@@ -147,13 +147,22 @@ permalink: /messy-virgo-coin.html
                         <div class="text-gray-400 text-xs uppercase tracking-wide mb-1">Symbol</div>
                         <div class="text-base font-semibold">MESSY (ticker) / $MESSY (common notation)</div>
                     </div>
-                    <div class="glassmorphism rounded-lg p-5 md:col-span-2">
-                        <div class="text-gray-400 text-xs uppercase tracking-wide mb-1">Verified Contract Address (Base)</div>
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                            <code class="bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-xs md:text-sm break-all">0x09f87f948c88848363b124c9099cbb58e4cc7cb6</code>
-                            <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-bold py-2 px-5 rounded-lg border border-white/20 hover:bg-white/20 transition">View on BaseScan</a>
+                    <div class="glassmorphism rounded-lg p-6 md:col-span-2">
+                        <div class="text-gray-400 text-xs uppercase tracking-wide mb-3">Verified Contract Address (Base)</div>
+                        <div class="bg-black/30 border border-white/10 rounded-lg px-4 py-3 flex items-center justify-between gap-3 mb-3">
+                            <code class="text-sm md:text-base font-mono text-gray-200 break-all select-all flex-1">0x09f87f948c88848363b124c9099cbb58e4cc7cb6</code>
+                            <button onclick="navigator.clipboard.writeText('0x09f87f948c88848363b124c9099cbb58e4cc7cb6'); this.querySelector('svg').classList.add('text-green-400'); setTimeout(() => this.querySelector('svg').classList.remove('text-green-400'), 2000);" class="flex-shrink-0 text-gray-400 hover:text-pink-400 transition p-1" title="Copy address">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </button>
                         </div>
-                        <div class="mt-3 text-xs text-gray-400">BaseScan lists this token as “Messy Virgo (MESSY)” with <strong>18</strong> decimals.</div>
+                        <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition text-sm inline-flex items-center gap-1">
+                            View on BaseScan
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -162,19 +171,58 @@ permalink: /messy-virgo-coin.html
         <!-- How to Buy -->
         <section class="fade-in">
             <div class="glassmorphism rounded-lg p-8 md:p-10 text-left">
-                <h2 class="text-2xl md:text-3xl font-bold font-serif text-pink-400 mb-6">How to Buy $MESSY (Aerodrome on Base)</h2>
-                <ol class="space-y-4 text-gray-300">
-                    <li><strong>Get Base ETH for gas:</strong> You’ll need a little ETH on Base for transaction fees.</li>
-                    <li><strong>Use a wallet:</strong> MetaMask / Coinbase Wallet are common options.</li>
-                    <li><strong>Open Aerodrome swap:</strong> Use our pre-filled swap link and verify the contract matches <code class="bg-black/30 border border-white/10 rounded px-2 py-1 text-xs">0x09f87f948c88848363b124c9099cbb58e4cc7cb6</code>.</li>
-                    <li><strong>Set slippage:</strong> Follow the guidance on the homepage (and current market conditions).</li>
-                    <li><strong>Confirm swap:</strong> Approve and swap.</li>
-                </ol>
-                <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20">Swap $MESSY on Aerodrome</a>
-                    <a href="litepaper.html" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Read the Litepaper</a>
+                <h2 class="text-2xl md:text-3xl font-bold font-serif text-pink-400 mb-2">How to Buy $MESSY</h2>
+
+                
+                <!-- Two-column layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Left column: Step-by-step Process -->
+                    <div class="glassmorphism rounded-lg p-6 space-y-6">
+                        <!-- Step 1 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pink-500/20 border border-pink-500/50 flex items-center justify-center text-pink-400 font-bold text-sm">1</div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-white mb-2">Set up a wallet that supports Base</h3>
+                                <p class="text-gray-300 text-sm mb-3">You'll need ETH on Base for both gas fees and to swap for $MESSY.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <a href="https://rabby.io" target="_blank" rel="noopener noreferrer" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg px-4 py-2 text-sm text-gray-300 hover:text-white transition">Rabby Wallet</a>
+                                    <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg px-4 py-2 text-sm text-gray-300 hover:text-white transition">MetaMask</a>
+                                    <a href="https://www.coinbase.com/wallet" target="_blank" rel="noopener noreferrer" class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg px-4 py-2 text-sm text-gray-300 hover:text-white transition">Coinbase Wallet</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pink-500/20 border border-pink-500/50 flex items-center justify-center text-pink-400 font-bold text-sm">2</div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-white mb-2">Swap on Aerodrome</h3>
+                                <p class="text-gray-300 text-sm mb-3">Use the swap link below. <strong class="text-pink-400">Important: Set slippage to 5%</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right column: Alternative Base App -->
+                    <div class="glassmorphism rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-white mb-2">Alternative: Use the Base mobile app</h3>
+                        <p class="text-gray-300 text-sm mb-4">Download the Base app for a simpler mobile experience.</p>
+                        <div class="flex flex-col gap-3">
+                            <a href="https://apps.apple.com/us/app/base-formerly-coinbase-wallet/id1278383455" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-5 py-3 text-sm text-white font-semibold transition inline-flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-1.02.65.03 2.47.26 3.64 1.98-3.09.67-5.06 3.08-4.17 5.9 1.08 3.39 4.58 5.12 7.16 5.19-.09-1.25.27-2.5 1-3.44-2.78-3.23-2.51-7.92.59-10.64z"/></svg>
+                                App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=org.toshi" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-5 py-3 text-sm text-white font-semibold transition inline-flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.11L13.69,12L3.84,21.89C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L13.69,12L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                                Google Play
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <p class="mt-6 text-xs text-gray-400">Reminder: always verify the token contract before swapping. This page is informational and not financial advice.</p>
+
+                <!-- CTA Button -->
+                <div class="flex justify-center">
+                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20">Swap $MESSY on Aerodrome</a>
+                </div>
             </div>
         </section>
 
@@ -218,7 +266,7 @@ permalink: /messy-virgo-coin.html
         </section>
 
         <!-- FAQ -->
-        <section class="fade-in">
+        <section class="fade-in" id="faq">
             <div class="glassmorphism rounded-lg p-8 md:p-10 text-left">
                 <h2 class="text-2xl md:text-3xl font-bold font-serif text-pink-400 mb-6">FAQ</h2>
                 <div class="space-y-6 text-gray-300">
@@ -303,7 +351,7 @@ permalink: /messy-virgo-coin.html
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
             <p>&copy; 2025 $MESSY. All rights reserved.</p>
             <div class="mt-4 flex justify-center flex-wrap gap-x-6 gap-y-2">
-                <a href="/messy-virgo-coin.html" class="hover:text-pink-400 transition">Token</a>
+                <a href="/messy-virgo-coin.html" class="hover:text-pink-400 transition">Token FAQ</a>
                 <a href="https://x.com/MessyVirgoCoin" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition">X (Twitter)</a>
                 <a href="https://t.me/messyvirgo" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition">Telegram</a>
             </div>
