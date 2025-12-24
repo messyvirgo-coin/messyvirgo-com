@@ -181,6 +181,8 @@
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
+    <!-- Mermaid (for ```mermaid fenced blocks in blog posts) -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
     <style>
         /* Fix title spacing to prevent text clipping (descenders like 'g' being cut off) */
         .blog-post-page header h1 {
@@ -278,6 +280,21 @@
             text-decoration: none;
             color: #ff69b4;
         }
+
+        /* Mermaid diagram container styling */
+        .prose .mermaid {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1.25rem 0;
+        }
+
+        .prose .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
     <script>
         // Add prose styling for markdown content
@@ -338,11 +355,56 @@
 
                 // Style inline code
                 proseContent.querySelectorAll('code').forEach(code => {
-                    if (!code.parentElement.tagName === 'PRE') {
+                    if (code.parentElement && code.parentElement.tagName !== 'PRE') {
                         code.classList.add('bg-gray-900', 'text-pink-400', 'px-2', 'py-1', 'rounded', 'text-sm');
                     }
                 });
             }
+        });
+    </script>
+    <script>
+        // Render Mermaid diagrams from fenced blocks:
+        // ```mermaid
+        // flowchart ...
+        // ```
+        document.addEventListener('DOMContentLoaded', () => {
+            const prose = document.querySelector('.prose');
+            if (!prose) return;
+
+            // Convert <pre><code class="language-mermaid">…</code></pre> into <div class="mermaid">…</div>
+            const mermaidCodeBlocks = prose.querySelectorAll('pre > code.language-mermaid, pre > code.mermaid');
+            mermaidCodeBlocks.forEach((code) => {
+                const pre = code.parentElement;
+                if (!pre) return;
+
+                const container = document.createElement('div');
+                container.className = 'mermaid';
+                container.textContent = code.textContent || '';
+                pre.replaceWith(container);
+            });
+
+            // Initialize Mermaid (wait briefly in case the CDN script hasn't loaded yet)
+            const tryInit = () => {
+                if (!window.mermaid) return false;
+                try {
+                    window.mermaid.initialize({
+                        startOnLoad: false,
+                        theme: 'dark',
+                        securityLevel: 'strict',
+                    });
+                    window.mermaid.run({ querySelector: '.prose .mermaid' });
+                } catch (e) {
+                    console.warn('Mermaid render failed:', e);
+                }
+                return true;
+            };
+
+            if (tryInit()) return;
+            let attempts = 0;
+            const timer = setInterval(() => {
+                attempts += 1;
+                if (tryInit() || attempts > 40) clearInterval(timer); // ~2s max
+            }, 50);
         });
     </script>
 </body>
