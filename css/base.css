@@ -54,6 +54,8 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.3;
+    padding-bottom: 0.1em;
 }
 
 /* Glassmorphism Effect */
