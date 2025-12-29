@@ -179,34 +179,36 @@ permalink: /messy-virgo-coin.html
 
         <!-- Quick Facts -->
         <section id="quick-facts" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">Quick Facts</h2>
-            <div class="glassmorphism rounded-lg p-8 md:p-10 max-w-4xl mx-auto mb-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                    <div class="glassmorphism rounded-lg p-6">
-                        <div class="text-gray-400 text-xs uppercase tracking-wide mb-2">Network</div>
-                        <div class="text-lg font-semibold text-gray-200">Base</div>
-                    </div>
-                    <div class="glassmorphism rounded-lg p-6">
-                        <div class="text-gray-400 text-xs uppercase tracking-wide mb-2">Symbol</div>
-                        <div class="text-lg font-semibold text-gray-200">MESSY (ticker) / <span class="text-pink-400">$MESSY</span> (common notation)</div>
-                    </div>
-                    <div class="glassmorphism rounded-lg p-6 md:col-span-2">
-                        <div class="text-gray-400 text-xs uppercase tracking-wide mb-3">Verified Contract Address (Base)</div>
-                        <div class="bg-black/30 border border-white/10 rounded-lg px-4 py-3 flex items-center justify-between gap-3 mb-3">
-                            <code class="text-sm md:text-base font-mono text-gray-200 break-all select-all flex-1">0x09f87f948c88848363b124c9099cbb58e4cc7cb6</code>
-                            <button onclick="navigator.clipboard.writeText('0x09f87f948c88848363b124c9099cbb58e4cc7cb6'); this.querySelector('svg').classList.add('text-green-400'); setTimeout(() => this.querySelector('svg').classList.remove('text-green-400'), 2000);" class="flex-shrink-0 text-gray-400 hover:text-pink-400 transition p-1" title="Copy address">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition text-sm inline-flex items-center gap-1">
-                            View on BaseScan
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+                <!-- Network -->
+                <div class="glassmorphism rounded-lg p-6 text-left border border-white/10">
+                    <div class="text-gray-400 text-xs uppercase tracking-wide mb-3 font-semibold">Network</div>
+                    <div class="text-2xl font-bold text-white">Base</div>
+                </div>
+
+                <!-- Symbol -->
+                <div class="glassmorphism rounded-lg p-6 text-left border border-white/10">
+                    <div class="text-gray-400 text-xs uppercase tracking-wide mb-3 font-semibold">Symbol</div>
+                    <div class="text-lg font-semibold text-white">MESSY <span class="text-gray-400">(ticker)</span><br><span class="text-pink-400">$MESSY</span> <span class="text-gray-400">(common)</span></div>
+                </div>
+
+                <!-- Contract Address -->
+                <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 md:col-span-2">
+                    <div class="text-gray-400 text-xs uppercase tracking-wide mb-4 font-semibold">Verified Contract Address</div>
+                    <div class="bg-black/30 border border-white/10 rounded-lg px-4 py-3 flex items-center justify-between gap-3 mb-4">
+                        <code class="text-sm md:text-base font-mono text-gray-300 break-all select-all flex-1">0x09f87f948c88848363b124c9099cbb58e4cc7cb6</code>
+                        <button onclick="navigator.clipboard.writeText('0x09f87f948c88848363b124c9099cbb58e4cc7cb6'); this.querySelector('svg').classList.add('text-green-400'); setTimeout(() => this.querySelector('svg').classList.remove('text-green-400'), 2000);" class="flex-shrink-0 text-gray-400 hover:text-pink-400 transition p-1" title="Copy address">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                             </svg>
-                        </a>
+                        </button>
                     </div>
+                    <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition text-sm inline-flex items-center gap-1">
+                        View on BaseScan
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -351,24 +353,30 @@ permalink: /messy-virgo-coin.html
                     <h3 class="text-xl font-bold font-serif text-pink-400 mb-6 text-left">On-Chain Data & Analytics</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-transparent transition-all duration-300 border border-white/10 hover:border-blue-400/30">
-                            <div class="w-12 h-12 rounded-lg bg-blue-500/20 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            <div class="mb-4 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/20 border border-blue-400/50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                </div>
                             </div>
                             <div class="text-xs uppercase tracking-wide text-gray-400 mb-2">Explorer</div>
                             <div class="text-lg font-semibold text-white mb-2">BaseScan</div>
                             <div class="text-sm text-gray-300">Verified contract, holders, transfers & supply.</div>
                         </a>
                         <a href="https://www.dextools.io/app/en/token/messy" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-purple-500/10 hover:to-transparent transition-all duration-300 border border-white/10 hover:border-purple-400/30">
-                            <div class="w-12 h-12 rounded-lg bg-purple-500/20 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            <div class="mb-4 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-lg bg-purple-500/20 border border-purple-400/50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                </div>
                             </div>
                             <div class="text-xs uppercase tracking-wide text-gray-400 mb-2">Charts</div>
                             <div class="text-lg font-semibold text-white mb-2">DEXTools</div>
                             <div class="text-sm text-gray-300">Live analytics and advanced trading charts.</div>
                         </a>
                         <a href="https://www.geckoterminal.com/base/pools/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-indigo-500/10 hover:to-transparent transition-all duration-300 border border-white/10 hover:border-indigo-400/30">
-                            <div class="w-12 h-12 rounded-lg bg-indigo-500/20 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            <div class="mb-4 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-lg bg-indigo-500/20 border border-indigo-400/50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                                </div>
                             </div>
                             <div class="text-xs uppercase tracking-wide text-gray-400 mb-2">Pool Chart</div>
                             <div class="text-lg font-semibold text-white mb-2">GeckoTerminal</div>
@@ -382,24 +390,30 @@ permalink: /messy-virgo-coin.html
                     <h3 class="text-xl font-bold font-serif text-pink-400 mb-6 text-left">Market Info & Community</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <a href="https://www.coingecko.com/en/coins/messy-virgo" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-yellow-500/10 hover:to-transparent transition-all duration-300 border border-white/10 hover:border-yellow-400/30">
-                            <div class="w-12 h-12 rounded-lg bg-yellow-500/20 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="mb-4 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-lg bg-yellow-500/20 border border-yellow-400/50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
                             </div>
                             <div class="text-xs uppercase tracking-wide text-gray-400 mb-2">Listing</div>
                             <div class="text-lg font-semibold text-white mb-2">CoinGecko</div>
                             <div class="text-sm text-gray-300">Market cap, volume & token information.</div>
                         </a>
                         <a href="https://x.com/MessyVirgoCoin" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-blue-400/10 hover:to-transparent transition-all duration-300 border border-white/10 hover:border-blue-300/30">
-                            <div class="w-12 h-12 rounded-lg bg-blue-400/20 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-blue-300" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-7.007 3.748 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                            <div class="mb-4 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-lg bg-blue-400/20 border border-blue-400/50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-7.007 3.748 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                                </div>
                             </div>
                             <div class="text-xs uppercase tracking-wide text-gray-400 mb-2">Social</div>
                             <div class="text-lg font-semibold text-white mb-2">X (Twitter)</div>
                             <div class="text-sm text-gray-300">Updates, insights & community news.</div>
                         </a>
                         <a href="https://t.me/messyvirgo" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-cyan-500/10 hover:to-transparent transition-all duration-300 border border-white/10 hover:border-cyan-400/30">
-                            <div class="w-12 h-12 rounded-lg bg-cyan-500/20 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 text-cyan-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.82-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295-.42 0-.34-.148-.477-.524l-1.048-3.455-.003-.001c-.148-.487-.09-.85.212-1.204.795-.971 4.605-4.175 4.605-4.175.196-.196.461-.09.414.218l-.74 4.692.54 5.376c.075.658.341.82.697.456l.6-.547 1.17-1.133c.326-.315.604-.325.895-.04l.742.56c.37.28.517.268.517-.91l.003-.467-.073-1.555z"></path></svg>
+                            <div class="mb-4 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-cyan-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.82-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295-.42 0-.34-.148-.477-.524l-1.048-3.455-.003-.001c-.148-.487-.09-.85.212-1.204.795-.971 4.605-4.175 4.605-4.175.196-.196.461-.09.414.218l-.74 4.692.54 5.376c.075.658.341.82.697.456l.6-.547 1.17-1.133c.326-.315.604-.325.895-.04l.742.56c.37.28.517.268.517-.91l.003-.467-.073-1.555z"></path></svg>
+                                </div>
                             </div>
                             <div class="text-xs uppercase tracking-wide text-gray-400 mb-2">Community</div>
                             <div class="text-lg font-semibold text-white mb-2">Telegram</div>
@@ -411,79 +425,166 @@ permalink: /messy-virgo-coin.html
         </section>
 
         <!-- FAQ -->
-        <section class="fade-in" id="faq">
-            <div class="glassmorphism rounded-lg p-8 md:p-10 text-left">
-                <h2 class="text-2xl md:text-3xl font-bold font-serif text-pink-400 mb-6">FAQ</h2>
-                <div class="space-y-6 text-gray-300">
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">What is Messy Virgo Coin (MESSY)?</h3>
-                        <p>Messy Virgo Coin (ticker: <strong>MESSY</strong>, commonly written as <strong>$MESSY</strong>) is an AI-focused crypto project on Base. The roadmap progresses from culture and narrative (Phase 1) to an agentic due diligence engine (Phase 2), then to transparent, constraint-based portfolio execution (Phase 3), and finally to community-led governance (Phase 4).</p>
+        <section id="faq" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto mb-12 text-gray-400">
+                <p>Got questions? We've got answers. Explore our FAQ organized by topic to find what you need to know about $MESSY.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Token Basics -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-6 text-left flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        Token Basics
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-pink-400">•</span>
+                                What is Messy Virgo Coin (MESSY)?
+                            </h4>
+                            <p class="text-gray-300 text-sm">Messy Virgo Coin (ticker: <strong>MESSY</strong>, commonly written as <strong>$MESSY</strong>) is an AI-focused crypto project on Base. The roadmap progresses from Foundation (Phase 1) to Research with due diligence tools (Phase 2), then to Execution with on-chain strategies (Phase 3), and finally to Governance (Phase 4).</p>
+                        </div>
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-pink-400">•</span>
+                                What is the official contract address?
+                            </h4>
+                            <p class="text-gray-300 text-sm">The Base contract is <code class="bg-black/30 border border-white/10 rounded px-2 py-1 text-xs">0x09f87f948c88848363b124c9099cbb58e4cc7cb6</code>. Always verify on BaseScan before swapping.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">What is the official contract address?</h3>
-                        <p>The Base contract is <code class="bg-black/30 border border-white/10 rounded px-2 py-1 text-xs">0x09f87f948c88848363b124c9099cbb58e4cc7cb6</code>. Always verify on BaseScan before swapping.</p>
+                </div>
+
+                <!-- Tokenomics & Trading -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-6 text-left flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        Tokenomics & Trading
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-purple-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-purple-400">•</span>
+                                What are the tokenomics fees?
+                            </h4>
+                            <p class="text-gray-300 text-sm mb-2">MESSY uses a <strong>4.95%</strong> transaction tax designed to fund holders and development:</p>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li class="flex gap-2"><span class="text-purple-400">→</span><span><strong>1.25% reflections:</strong> distributed to holders automatically.</span></li>
+                                <li class="flex gap-2"><span class="text-purple-400">→</span><span><strong>3.70% treasury:</strong> funds AI development, marketing, and strategic burns/buybacks.</span></li>
+                            </ul>
+                        </div>
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-purple-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-purple-400">•</span>
+                                How do reflections work?
+                            </h4>
+                            <p class="text-gray-300 text-sm">Reflections are an automatic holder reward mechanism: a portion of each trade (<strong>1.25%</strong>) is shared across holders. In practice, balances can increase over time simply by holding (subject to on-chain mechanics and trading activity).</p>
+                        </div>
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-purple-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-purple-400">•</span>
+                                Is liquidity locked?
+                            </h4>
+                            <p class="text-gray-300 text-sm">Core WETH liquidity is listed as locked, and the homepage links to the lock proof. You can use that "View Lock" link in the Tokenomics section to verify the lock status.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">What are the tokenomics fees?</h3>
-                        <p>MESSY uses a <strong>4.95%</strong> transaction tax designed to fund holders and development:</p>
-                        <ul class="mt-3 list-disc pl-6 space-y-1 text-gray-300">
-                            <li><strong>1.25% reflections:</strong> distributed to holders automatically.</li>
-                            <li><strong>3.70% treasury:</strong> funds AI development, marketing, and strategic burns/buybacks.</li>
-                        </ul>
+                </div>
+
+                <!-- Supply & Distribution -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-6 text-left flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        Supply & Distribution
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-blue-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-blue-400">•</span>
+                                What is the supply and distribution?
+                            </h4>
+                            <p class="text-gray-300 text-sm mb-2">The supply breakdown is:</p>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li class="flex gap-2"><span class="text-blue-400">→</span><span><strong>Total supply:</strong> 995,971,583 (100%)</span></li>
+                                <li class="flex gap-2"><span class="text-blue-400">→</span><span><strong>Creator allocation:</strong> 431,853,058.75 (43.36%)</span></li>
+                                <li class="flex gap-2"><span class="text-blue-400">→</span><span><strong>Airdropped:</strong> 502,666,946.25 (50.47%)</span></li>
+                                <li class="flex gap-2"><span class="text-blue-400">→</span><span><strong>LP allocation:</strong> 61,451,578 (6.17%)</span></li>
+                            </ul>
+                            <p class="text-gray-300 text-sm mt-3">For full vesting schedules and planned unlock dates, refer to the <a href="/litepaper.html" class="text-pink-400 hover:underline">Litepaper</a>.</p>
+                        </div>
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-blue-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-blue-400">•</span>
+                                How is the treasury managed (and why Safe wallets)?
+                            </h4>
+                            <p class="text-gray-300 text-sm mb-2">The creator allocation has been transferred into <strong>six Safe smart wallets</strong> on Base. This approach is used because the reflection mechanic can be incompatible with traditional third-party lockers. Treasury and team movements are intended to be transparent and verifiable on-chain, with recurring disclosures ("State of the Treasury") and detailed schedules in the litepaper.</p>
+                            <p class="text-gray-300 text-sm">All transfers from these Safe wallets are still subject to the same <strong>1.25%</strong> reflection tax.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">How do reflections work?</h3>
-                        <p>Reflections are an automatic holder reward mechanism: a portion of each trade (<strong>1.25%</strong>) is shared across holders. In practice, balances can increase over time simply by holding (subject to on-chain mechanics and trading activity).</p>
+                </div>
+
+                <!-- Funds & Roadmap -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-6 text-left flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        Funds & Roadmap
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-indigo-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-indigo-400">•</span>
+                                What are $MESSYBASED and $MESSYFUND?
+                            </h4>
+                            <p class="text-gray-300 text-sm mb-2">The ecosystem includes two complementary funds:</p>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li class="flex gap-2"><span class="text-indigo-400">→</span><span><strong>$MESSYBASED (Base):</strong> a fast-moving innovation lab to test strategies in a low-cost environment.</span></li>
+                                <li class="flex gap-2"><span class="text-indigo-400">→</span><span><strong>$MESSYFUND (Ethereum):</strong> an Ethereum-based fund whose value is linked to a portfolio of assets; it is the target vehicle for Phase 3 portfolio execution.</span></li>
+                            </ul>
+                        </div>
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-indigo-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-indigo-400">•</span>
+                                What's the roadmap in plain English?
+                            </h4>
+                            <ul class="space-y-2 text-gray-300 text-sm">
+                                <li class="flex gap-2"><span class="text-indigo-400">→</span><span><strong>Phase 1 (LIVE):</strong> Foundation — Launch the token, treasuries, and initial test funds. Establish Messy's presence and process on‑chain.</span></li>
+                                <li class="flex gap-2"><span class="text-indigo-400">→</span><span><strong>Phase 2 (Q1 2026):</strong> Research — Turn playbooks into signals, dashboards, and due‑diligence tools. Messy learns from structured data and real market behavior.</span></li>
+                                <li class="flex gap-2"><span class="text-indigo-400">→</span><span><strong>Phase 3 (Q3 2026+):</strong> Execution — Route a controlled share of capital through on‑chain strategies powered by Messy's models, with human oversight and clear safeguards.</span></li>
+                                <li class="flex gap-2"><span class="text-indigo-400">→</span><span><strong>Phase 4 (2027):</strong> Governance — Gradually hand more control over parameters and capital allocation to the community via on‑chain governance once the stack has proved itself.</span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">How is the treasury managed (and why Safe wallets)?</h3>
-                        <p>The creator allocation has been transferred into <strong>six Safe smart wallets</strong> on Base. This approach is used because the reflection mechanic can be incompatible with traditional third-party lockers. Treasury and team movements are intended to be transparent and verifiable on-chain, with recurring disclosures (“State of the Treasury”) and detailed schedules in the litepaper.</p>
-                        <p class="mt-2">All transfers from these Safe wallets are still subject to the same <strong>1.25%</strong> reflection tax.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">What is the supply and distribution?</h3>
-                        <p>The homepage provides a snapshot-style breakdown (see “Supply Breakdown”). As shown there:</p>
-                        <ul class="mt-3 list-disc pl-6 space-y-1 text-gray-300">
-                            <li><strong>Total supply:</strong> 995,971,583 100%</li>
-                            <li><strong>Creator allocation:</strong> 431,853,058.75 43.36%</li>
-                            <li><strong>Airdropped:</strong> 502,666,946.25 50.47%</li>
-                            <li><strong>LP allocation:</strong> 61,451,578 6.17%</li>
-                        </ul>
-                        <p class="mt-2">For full vesting schedules and planned unlock dates, refer to the <a href="/litepaper.html" class="text-pink-400 hover:underline">Litepaper</a>.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">Is liquidity locked?</h3>
-                        <p>Core WETH liquidity is listed as locked, and the homepage links to the lock proof. You can use that “View Lock” link in the Tokenomics section to verify the lock status.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">What are $MESSYBASED and $MESSYFUND?</h3>
-                        <p>The ecosystem includes two complementary funds:</p>
-                        <ul class="mt-3 list-disc pl-6 space-y-1 text-gray-300">
-                            <li><strong>$MESSYBASED (Base):</strong> a fast-moving innovation lab to test strategies in a low-cost environment.</li>
-                            <li><strong>$MESSYFUND (Ethereum):</strong> an Ethereum-based fund whose value is linked to a portfolio of assets; it is the target vehicle for Phase 3 portfolio execution.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">What’s the roadmap in plain English?</h3>
-                        <ul class="mt-3 list-disc pl-6 space-y-1 text-gray-300">
-                            <li><strong>Phase 1 (LIVE):</strong> culture engine and identity.</li>
-                            <li><strong>Phase 2 (Q1 2026):</strong> agentic token due diligence engine (signal detection + structured analysis).</li>
-                            <li><strong>Phase 3 (Q3 2026+):</strong> autonomous trader for portfolio management under transparent constraints.</li>
-                            <li><strong>Phase 4 (2027):</strong> DAO transition—governance and treasury control shift toward $MESSY holders.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">Where should I verify information?</h3>
-                        <p>Use on-chain sources and official links:</p>
-                        <ul class="mt-3 list-disc pl-6 space-y-1 text-gray-300">
-                            <li><a class="text-pink-400 hover:underline" href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer">BaseScan token page</a> for contract verification, transfers, and holders.</li>
-                            <li><a class="text-pink-400 hover:underline" href="/treasury.html">Treasury page</a> for monthly movement summaries.</li>
-                            <li><a class="text-pink-400 hover:underline" href="/litepaper.html">Litepaper</a> for the detailed model, schedules, and roadmap.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-white mb-2">Why does “$MESSY” sometimes search poorly?</h3>
-                        <p>Many search engines ignore symbols like <strong>$</strong>. If needed, search for <strong>“Messy Virgo Coin”</strong>, <strong>“MESSY token Base”</strong>, or the contract address.</p>
+                </div>
+
+                <!-- Resources & Verification -->
+                <div>
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-6 text-left flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        Resources & Verification
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-green-400/30 transition">
+                            <h4 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <span class="text-green-400">•</span>
+                                Where should I verify information?
+                            </h4>
+                            <p class="text-gray-300 text-sm mb-2">Use on-chain sources and official links:</p>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li class="flex gap-2"><span class="text-green-400">→</span><span><a class="text-pink-400 hover:underline" href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer">BaseScan token page</a> for contract verification, transfers, and holders.</span></li>
+                                <li class="flex gap-2"><span class="text-green-400">→</span><span><a class="text-pink-400 hover:underline" href="/treasury.html">Treasury page</a> for monthly movement summaries.</span></li>
+                                <li class="flex gap-2"><span class="text-green-400">→</span><span><a class="text-pink-400 hover:underline" href="/litepaper.html">Litepaper</a> for the detailed model, schedules, and roadmap.</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
