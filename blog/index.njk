@@ -194,6 +194,41 @@ permalink: /blog/index.html
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
+    <script>
+        // Make entire article card clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            const articleCards = document.querySelectorAll('article.mv-card');
+            
+            articleCards.forEach(card => {
+                // Find the read-more link within the card
+                const readMoreLink = card.querySelector('.read-more-btn');
+                
+                if (readMoreLink) {
+                    const href = readMoreLink.href;
+                    
+                    // Make the entire card clickable
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', function(e) {
+                        // Don't navigate if clicking the read-more button itself
+                        if (e.target === readMoreLink || readMoreLink.contains(e.target)) {
+                            return;
+                        }
+                        window.location.href = href;
+                    });
+                    
+                    // Add keyboard support for accessibility
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                    card.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            window.location.href = href;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
     <style>
         /* Read More button style - matching founders page */
         .read-more-btn {
