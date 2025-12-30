@@ -252,6 +252,18 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 40;
 }
 
+/* Dropdown hover delay (was previously inlined on many pages) */
+.dropdown-menu {
+    transition: opacity 200ms ease-out, visibility 200ms ease-out;
+    transition-delay: 0ms;
+}
+.group:hover .dropdown-menu {
+    transition-delay: 0ms;
+}
+.group:not(:hover) .dropdown-menu {
+    transition-delay: 200ms;
+}
+
 /* Mobile Menu */
 #mobile-menu {
     background-color: rgba(0, 0, 0, 0.5);
