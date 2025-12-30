@@ -10,7 +10,6 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta name="author" content="Messy Virgo">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -31,34 +30,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.messyvirgo.com/">
     
-    <!-- Preconnect to Font Services -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- External Stylesheets -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/tailwind.css">
-    <link rel="stylesheet" href="/css/base.css">
-    
-    <!-- Dropdown hover delay fix -->
-    <style>
-        .dropdown-menu {
-            transition: opacity 200ms ease-out, visibility 200ms ease-out;
-            transition-delay: 0ms;
-        }
-        .group:hover .dropdown-menu {
-            transition-delay: 0ms;
-        }
-        .group:not(:hover) .dropdown-menu {
-            transition-delay: 200ms;
-        }
-    </style>
-    
-    <!-- Favicons -->
-    <link rel="shortcut icon" type="image/png" href="/favicons/messy-32x32.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
+    {% include "partials/head-common.njk" %}
     
     <!-- Structured Data (Schema.org JSON-LD) -->
     <script type="application/ld+json">
@@ -127,331 +99,406 @@
         </div>
         <div class="absolute inset-0 bg-black/40 z-10"></div>
         <div class="relative z-20 px-4">
-            <h1 class="text-4xl md:text-6xl font-bold font-serif text-gradient mb-6 leading-tight">Welcome to MESSY<br>DeFi &amp; AI, Simplified</h1>
-            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-white/90 leading-relaxed">The Messy Virgo Coin (MESSY) is an AI agent token on Base.<br>MESSY isn't just a token—she's your guide to smarter wealth creation.</p>
+            <h1 class="text-4xl md:text-6xl font-bold font-serif text-gradient mb-6 leading-tight">Welcome to Messy Virgo<br>DeFi &amp; AI, Simplified</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-white/90 leading-relaxed">Messy Virgo Coin ($MESSY) is an AI agent on Base, evolving from curious researcher to disciplined fund manager.</p>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-white/90 leading-relaxed">Today she's laying the foundation—by wiring data pipelines, building due‑diligence tooling, and running small, human‑managed test funds—that sharpen the fully autonomous engine we're building for 2026+.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20">Swap $MESSY Now</a>
-                <a href="/messy-virgo-coin.html" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Verify Contract</a>
-                <a href="litepaper.html" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Read the Litepaper ↓</a>
+                <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20">Swap $MESSY</a>
+                <a href="litepaper.html" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Read Litepaper</a>
+                <a href="/messy-virgo-coin.html" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Token & How to Buy</a>
             </div>
         </div>
     </header>
 
     <!-- Navigation -->
-    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
-                    <a href="/" class="text-gray-300 hover:text-pink-400 transition">Home</a>
-                    <a href="/messy-virgo-coin.html" class="text-gray-300 hover:text-pink-400 transition">Token</a>
-                    <a href="/litepaper.html" class="text-gray-300 hover:text-pink-400 transition">Litepaper</a>
-                    <div class="relative group">
-                        <button type="button" class="text-gray-300 hover:text-pink-400 transition inline-flex items-center gap-1" aria-haspopup="true" aria-label="dApps menu">
-                            dApps
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu absolute left-0 mt-2 pt-2 w-64 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
-                            <a href="/dapps/token-technical-analysis.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-lg">Token Technical Analysis</a>
-                        </div>
-                    </div>
-                    <a href="/buildlog.html" class="text-gray-300 hover:text-pink-400 transition">Build Log</a>
-                    <div class="relative group">
-                        <button type="button" class="text-gray-300 hover:text-pink-400 transition inline-flex items-center gap-1" aria-haspopup="true" aria-label="About menu">
-                            About
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu absolute right-0 mt-2 pt-2 w-44 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
-                            <a href="/founder-profiles.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-t-lg">Founders</a>
-                            <a href="/treasury.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition">Treasury</a>
-                            <a href="/blog/" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-b-lg">Blog</a>
-                        </div>
-                    </div>
-                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap $MESSY</a>
-                </div>
-                <!-- Mobile Nav Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
-            <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
-            <a href="/messy-virgo-coin.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Token</a>
-            <a href="/litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">dApps</div>
-            <a href="/dapps/token-technical-analysis.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Token Technical Analysis</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <a href="/buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">About</div>
-            <a href="/founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
-            <a href="/treasury.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Treasury</a>
-            <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
-            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
-        </div>
-    </nav>
+    {% include "partials/nav.njk" %}
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 space-y-24">
 
         <!-- What is Messy Virgo Coin (MESSY)? -->
         <section id="about" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">What is Messy Virgo Coin (MESSY)?</h2>
-            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Messy Virgo Coin (ticker: MESSY, commonly written as <strong>$MESSY</strong>) is about taking serious crypto and AI fund tools and making them feel human and approachable. Instead of asking you to understand all the tech, she translates it into a simple journey anyone can follow, from first-time degen to seasoned trader.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">What is Messy Virgo Coin ($MESSY)?</h2>
+            <div class="glassmorphism rounded-lg p-8 md:p-10 max-w-4xl mx-auto mb-12 transition-transform duration-300 hover:-translate-y-2">
+                <p class="text-xl md:text-2xl font-semibold text-gray-200 leading-relaxed">Messy Virgo Coin (<strong class="text-gradient">$MESSY</strong>) is the coordination layer for an AI agent that can learn and act across chains. The token lives on Base, but the rails we're building run wherever the opportunities are.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left max-w-7xl mx-auto">
                 <!-- Card 1 -->
-                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
-                    <div class="relative z-10">
-                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Audited & Secure</h3>
-                        <p class="text-sm text-gray-300">Created with CertiK-audited smart contract templates from Bitbond's Token Tool, ensuring security and reliability without custom code.</p>
-                    </div>
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Audited & Secure</h3>
+                    <p class="text-sm text-gray-300">Created with CertiK-audited smart contract templates from Bitbond's Token Tool, ensuring security and reliability without custom code.</p>
                 </div>
                  <!-- Card 2 -->
-                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
-                     <div class="relative z-10">
-                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Due Diligence Engine</h3>
-                        <p class="text-sm text-gray-300"><strong>Signal Detection (All-Hearing Ear)</strong>: Real-time social, news, and on-chain sentiment analysis, spotting trends before they become mainstream.</br></br></p>
-                        <p class="text-sm text-gray-300"><strong>AI Due Diligence (Crystal Lens)</strong>: Automated project analysis, fact-checking, and fundamentals scoring to reveal genuine opportunities.</p>
-                    </div>
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Due Diligence Engine</h3>
+                    <p class="text-sm text-gray-300"><strong>Signal Detection (All-Hearing Ear)</strong>: Real-time social, news, and on-chain sentiment analysis, spotting trends before they become mainstream.</br></br></p>
+                    <p class="text-sm text-gray-300"><strong>AI Due Diligence (Crystal Lens)</strong>: Automated project analysis, fact-checking, and fundamentals scoring to reveal genuine opportunities.</p>
                 </div>
                  <!-- Card 3 -->
-                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
-                     <div class="relative z-10">
-                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Autonomous Trader</h3>
-                        <p class="text-sm text-gray-300"><strong>Portfolio Optimization (Architect)</strong>: Mathematical algorithms construct efficient, risk-balanced portfolios—positioned for maximum results.</br></br></p>
-                        <p class="text-sm text-gray-300"><strong>Community Sovereignty (Human Heart)</strong>: Our “Human-in-the-Loop” model keeps final control in your hands. The AI suggests, the community decides.</p>
-                    </div>
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Autonomous Trader</h3>
+                    <p class="text-sm text-gray-300"><strong>Portfolio Optimization (Architect)</strong>: Mathematical algorithms construct efficient, risk-balanced portfolios—positioned for maximum results.</br></br></p>
+                    <p class="text-sm text-gray-300"><strong>Community Sovereignty (Human Heart)</strong>: Our "Human-in-the-Loop" model keeps final control in your hands. The AI suggests, the community decides.</p>
                 </div>
                  <!-- Card 4 -->
-                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2 card-glow-container">
-                     <div class="relative z-10">
-                        <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Proven Foundation</h3>
-                        <p class="text-sm text-gray-300">Developed by a team with a deep background in derivatives and automated trading platforms, providing a solid base for Messy's AI.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tokenomics Explained -->
-        <section id="tokenomics" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Tokenomics Explained</h2>
-            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Every trade strengthens the ecosystem. Messy Virgo Coin (MESSY) uses a 4.95% transaction tax to fund holder rewards and AI development—backed by CertiK-audited smart contract templates and transparent management.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Cards -->
-                <div class="glassmorphism rounded-lg p-6 text-left">
-                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">How Trading Grows the Ecosystem (4.95%)</h3>
-                    <p class="text-sm text-gray-300">Every swap contributes to the fund engine. <br>• <strong>1.25% Reflections:</strong> Shared with all holders passively. <br>• <strong>3.70% Treasury:</strong> Powers AI development, marketing, strategic burns, and buybacks.</p>
-                </div>
-                <div class="glassmorphism rounded-lg p-6 text-left">
-                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Liquidity Pools</h3>
-                    <p class="text-sm text-gray-300">Pairs with $VIRTUAL and $AERO for arbitrage. Core WETH liquidity is locked. <a href="https://www.team.finance/view-coin/0x09f87F948C88848363B124C9099CbB58E4Cc7cB6?name=Messy%20Virgo&symbol=MESSY&chainid=0x2105&_gl=1*6dl1n2*_gcl_au*MzY2ODA1NTcwLjE3NTI0ODI1NDg." target="_blank" class="text-pink-400 hover:underline">View Lock</a>.</p>
-                </div>
-                 <div class="glassmorphism rounded-lg p-6 text-left">
-                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">
-                        <div class="tooltip">Supply Burn 🔥
-                            <span class="tooltiptext">Messy explains: "Burning tokens is like taking them out of circulation forever! This makes the remaining tokens more scarce, which can help support their value over time."</span>
-                        </div>
-                    </h3>
-                    <p class="text-sm text-gray-300"><span id="burn-counter" class="font-bold text-lg">8,767,934.07</span> $MESSY sent to a dead address. <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6?a=0x000000000000000000000000000000000000dEaD" target="_blank" class="text-pink-400 hover:underline">Track</a>.</p>
-                </div>
-                <div class="glassmorphism rounded-lg p-6 text-left md:col-span-2">
-                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Supply Breakdown</h3>
-                    <table class="w-full text-sm text-left">
-                        <tbody class="divide-y divide-white/10">
-                            <tr><td class="py-2">Total Supply</td><td class="text-right">995,971,583.00</td><td class="text-right text-gray-400">100%</td></tr>
-                            <tr><td class="py-2">Creator Wallet</td><td class="text-right">431,853,058.75</td><td class="text-right text-gray-400">43.36%</td></tr>
-                            <tr><td class="py-2">Airdropped</td><td class="text-right">502,666,946.25</td><td class="text-right text-gray-400">50.47%</td></tr>
-                            <tr><td class="py-2">LP Allocation</td><td class="text-right">61,451,578.00</td><td class="text-right text-gray-400">6.17%</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="glassmorphism rounded-lg p-6 text-left">
-                     <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Community Airdrop</h3>
-                     <p class="text-sm text-gray-300">Messy Virgo Coin’s origins trace back to MESSY V1 on Ethereum: a bonding-curve fair launch — no insiders, no hidden wallets, no presale. Everyone played by the same rules. To unlock momentum, <strong>$MESSY</strong> expanded to Base from her Ethereum roots. A voluntary airdrop was offered to original ETH holders, bridging our foundational community to a faster, more scalable network.</p>
-                </div>
-                <div class="glassmorphism rounded-lg p-6 text-left md:col-span-3">
-                    <h4 class="text-xl font-bold font-serif text-pink-400 mb-2">Creator Wallet Security & Transparency</h4>
-                    <p class="text-sm text-gray-300 mb-4">The original creator allocation (431.85M $MESSY) has been transferred from a single externally owned address into six Safe smart wallets. This was necessary because MESSY's 1.25% reflection mechanic does not work with standard third-party locking services, which would either fail or mishandle the reflection tax on transfers.</p>
-                    <p class="text-sm text-gray-300 mb-6">These six Safe wallets collectively hold all team and treasury allocations -- there are no undisclosed team wallets. Every transfer from these wallets is taxed at 1.25% and movements are reported in monthly "State of the Treasury" updates so anyone can verify activity on-chain. Full vesting schedules, CTO allocations, and all planned unlock dates are in the <a href="litepaper.html" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Litepaper</a>.</p>
-                    <table class="w-full text-sm text-left">
-                        <thead class="text-xs text-gray-400 uppercase">
-                            <tr>
-                                <th>Allocation</th>
-                                <th class="text-right">Amount</th>
-                                <th class="text-right">% of Supply</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-white/10">
-                            <tr>
-                                <td class="py-2">
-                                    Community &amp; Partners
-                                    <span class="text-gray-400 text-xs block space-x-2">
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xe2d37a6c20eb011a60dd412d22b3fdc587b71add#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xd513136620f06315bb8fc75345c402a2abbbc127ecabbebf1cfcec921cbb84a6" target="_blank" rel="noopener noreferrer">Tx</a>
-                                    </span>
-                                </td>
-                                <td class="text-right">248,992,895.75</td>
-                                <td class="text-right">13.81%</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">
-                                    Co-Founder &amp; CTO Upfront
-                                    <span class="text-gray-400 text-xs block">
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer">Tx</a>
-                                    </span>
-                                </td>
-                                <td class="text-right">20,000,000.00</td>
-                                <td class="text-right">2.01%</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">
-                                    Co-Founder &amp; CTO Vesting
-                                    <span class="text-gray-400 text-xs block space-x-2">
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x3f999a8d8e45794105c8f6bf16b6db34446fcce2#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x18e3e242a7552769d1f1c336fcdbde3d093ae3e4e2424c067babebcbd9fc08e3" target="_blank" rel="noopener noreferrer">Tx</a>
-                                    </span>
-                                </td>
-                                <td class="text-right">89,341,308.21</td>
-                                <td class="text-right">8.97%</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">
-                                    Protocol Liquidity
-                                    <span class="text-gray-400 text-xs block space-x-2">
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xf10938553264caf736a9cef55b5a15f63a280ce4#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x5973d025beb652d5ee890730690b647df4ef9d17afc57210d53bef9653364d21" target="_blank" rel="noopener noreferrer">Tx</a>
-                                    </span>
-                                </td>
-                                <td class="text-right">99,597,158.30</td>
-                                <td class="text-right">9.91%</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">
-                                    Contributors &amp; Advisors
-                                    <span class="text-gray-400 text-xs block space-x-2">
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x4e409ca20b173b2e23ac02b806484eea98afb085#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x30f2216ce0514919c691eb4114aad092f58c7abb47c22f999075f843603be472" target="_blank" rel="noopener noreferrer">Tx</a>
-                                    </span>
-                                </td>
-                                <td class="text-right">49,798,579.15</td>
-                                <td class="text-right">4.96%</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">
-                                    Treasury
-                                    <span class="text-gray-400 text-xs block space-x-2">
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xc4cb76f7f953f4489b3f04a258ec3f9ba8341e22#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xd2e90d026c7ccaf096d27de978f2f45b91c161f988ef3c3f69d8d492798c5320" target="_blank" rel="noopener noreferrer">Tx</a>
-                                    </span>
-                                </td>
-                                <td class="text-right">34,361,019.61</td>
-                                <td class="text-right">3.41%</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">
-                                    Liquidity
-                                    <span class="text-gray-400 text-xs block space-x-2">
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x2885c19dc9a95a81c6c381dc372258ab06347163#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                        <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x8795e28defe1cd5ccc000b6bd9e5dadbd03ce8b2380400aeeb4a785add9c1586" target="_blank" rel="noopener noreferrer">Tx</a>
-                                    </span>
-                                </td>
-                                <td class="text-right">3,914,647.15</td>
-                                <td class="text-right">0.39%</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Proven Foundation</h3>
+                    <p class="text-sm text-gray-300">Developed by a team with a deep background in derivatives and automated trading platforms, providing a solid base for Messy's AI.</p>
                 </div>
             </div>
         </section>
 
         <!-- The Evolution -->
         <section id="evolution" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">The Evolution</h2>
-            <p class="max-w-3xl mx-auto mb-12 text-gray-400">A staged journey toward autonomous fund management. From voice to intelligence to action to community governance.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">How Messy evolves</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">We're building toward autonomous, on‑chain fund management in deliberate stages.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 max-w-7xl mx-auto">
                 <!-- Phase 1 -->
-                <div class="glassmorphism rounded-lg p-6 text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full border border-pink-400/60 bg-pink-500/10 flex items-center justify-center text-xs font-semibold tracking-wide text-pink-300">
+                <div class="glassmorphism rounded-lg p-6 text-left transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-full border border-pink-400/50 bg-pink-500/15 flex items-center justify-center text-xs font-semibold tracking-wide text-pink-300 py-2">
                         PHASE 1
                     </div>
-                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Culture Engine</h3>
-                    <p class="text-sm text-gray-300">Establishing Messy's identity, voice, and community foundations through storytelling and cultural participation.</p>
-                    <span class="inline-block bg-green-500/20 text-green-300 text-xs font-bold px-3 py-1 rounded-full mt-4">LIVE</span>
+                    <h3 class="text-lg font-bold font-serif text-yellow-400 mb-2">Foundation</h3>
+                    <p class="text-sm text-gray-300 mb-3">Launch the token, treasuries, and initial test funds. Establish Messy's presence and process on‑chain.</p>
+                    <span class="inline-block bg-green-500/20 text-green-300 text-xs font-bold px-3 py-1 rounded-full border border-green-400/30">LIVE</span>
                 </div>
                  <!-- Phase 2 -->
-                <div class="glassmorphism rounded-lg p-6 text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full border border-purple-400/60 bg-purple-500/10 flex items-center justify-center text-xs font-semibold tracking-wide text-purple-200">
+                <div class="glassmorphism rounded-lg p-6 text-left transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-full border border-purple-400/50 bg-purple-500/15 flex items-center justify-center text-xs font-semibold tracking-wide text-purple-200 py-2">
                         PHASE 2
                     </div>
-                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Minimum Viable Intelligence</h3>
-                    <p class="text-sm text-gray-300">The Agentic Due Diligence Engine detects signals, analyzes tokens, and develops on-chain insights. Coming Q1 2026.</p>
-                    <span class="inline-block bg-yellow-500/20 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full mt-4">NEXT</span>
+                    <h3 class="text-lg font-bold font-serif text-yellow-400 mb-2">Research</h3>
+                    <p class="text-sm text-gray-300 mb-3">Turn playbooks into signals, dashboards, and due‑diligence tools. Messy learns from structured data and real market behavior.</p>
+                    <span class="inline-block bg-yellow-500/20 text-yellow-300 text-xs font-bold px-3 py-1 rounded-full border border-yellow-400/30">Q1 2026</span>
                 </div>
                  <!-- Phase 3 -->
-                <div class="glassmorphism rounded-lg p-6 text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full border border-indigo-400/60 bg-indigo-500/10 flex items-center justify-center text-xs font-semibold tracking-wide text-indigo-200">
+                <div class="glassmorphism rounded-lg p-6 text-left transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-full border border-indigo-400/50 bg-indigo-500/15 flex items-center justify-center text-xs font-semibold tracking-wide text-indigo-200 py-2">
                         PHASE 3
                     </div>
-                    <h3 class="text-xl font-bold font-serif text-pink-400 mb-2">Autonomous Trader</h3>
-                    <p class="text-sm text-gray-300">Active portfolio management for $MESSYFUND using math-driven optimization and real-time risk constraints. Q3 2026+.</p>
-                    <span class="inline-block bg-purple-500/20 text-purple-300 text-xs font-bold px-3 py-1 rounded-full mt-4">SOON</span>
+                    <h3 class="text-lg font-bold font-serif text-yellow-400 mb-2">Execution</h3>
+                    <p class="text-sm text-gray-300 mb-3">Route a controlled share of capital through on‑chain strategies powered by Messy's models, with human oversight and clear safeguards.</p>
+                    <span class="inline-block bg-purple-500/20 text-purple-300 text-xs font-bold px-3 py-1 rounded-full border border-purple-400/30">Q3 2026+</span>
+                </div>
+                <!-- Phase 4 -->
+                <div class="glassmorphism rounded-lg p-6 text-left transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-full border border-blue-400/50 bg-blue-500/15 flex items-center justify-center text-xs font-semibold tracking-wide text-blue-200 py-2">
+                        PHASE 4
+                    </div>
+                    <h3 class="text-lg font-bold font-serif text-yellow-400 mb-2">Governance</h3>
+                    <p class="text-sm text-gray-300 mb-3">Gradually hand more control over parameters and capital allocation to the community via on‑chain governance once the stack has proved itself.</p>
+                    <span class="inline-block bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">2027+</span>
                 </div>
             </div>
-            <p class="max-w-3xl mx-auto mt-8 text-sm text-gray-400">Phase 4: DAO Transition (2027) shifts treasury and governance to the community. <a href="litepaper.html#roadmap" class="text-pink-400 hover:underline">Read the full roadmap in our Litepaper</a>.</p>
+            <div class="flex justify-center mb-12">
+                <a href="litepaper.html#roadmap" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-flex items-center gap-2">
+                    Read the full roadmap in our Litepaper
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Details of Phase 2 -->
+            <div class="glassmorphism rounded-lg p-8 md:p-10 text-left mt-12 max-w-4xl mx-auto transition-transform duration-300 hover:-translate-y-2">
+                <h3 class="text-2xl md:text-3xl font-bold font-serif text-yellow-400 mb-6">Details of Phase 2 – Minimum Viable Intelligence (Q1 2026)</h3>
+                <p class="text-base text-gray-300 mb-6">To make Messy's future decisions tangible, we break Phase 2 into clear epics:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                        <h4 class="text-lg font-bold font-serif text-pink-400 mb-3">Market Data Hub</h4>
+                        <p class="text-sm text-gray-300">Robust pipelines for on‑chain and off‑chain data (prices, volume, liquidity, addresses, narratives) that continuously feed Messy's internal view of the market.</p>
+                    </div>
+                    <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                        <h4 class="text-lg font-bold font-serif text-pink-400 mb-3">Due Diligence Engine & Lenses</h4>
+                        <p class="text-sm text-gray-300">A modular engine made of focused analysis pipelines we call Lenses (Technical Analysis, Macro Economics, and more) that score projects and market regimes in a consistent way.</p>
+                    </div>
+                    <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                        <h4 class="text-lg font-bold font-serif text-pink-400 mb-3">Token & Project Scanner</h4>
+                        <p class="text-sm text-gray-300">Tools that turn contract checks, repo activity and tokenomics into structured scores instead of gut feeling.</p>
+                    </div>
+                    <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                        <h4 class="text-lg font-bold font-serif text-pink-400 mb-3">Signal & Scenario Dashboards</h4>
+                        <p class="text-sm text-gray-300">Interfaces that show which assets or narratives Messy would currently prioritize, and how those choices perform in backtests versus simple ETH/BTC holds.</p>
+                    </div>
+                </div>
+                <div class="glassmorphism rounded-lg p-6 bg-pink-500/10 border border-pink-500/20 transition-transform duration-300 hover:-translate-y-2">
+                    <p class="text-sm text-gray-300 mb-2">The Technical Analysis Lens <a href="https://app.messyvirgo.com/technical-analyses" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:underline">[dApp]</a> <a href="/dapps/token-technical-analysis.html" class="text-pink-400 hover:underline">[Doc]</a> is already live in alpha and available for the community to use via our TA app, with additional lenses (including Macro Economics) rolling out through Q1 2026.</p>
+                </div>
+            </div>
+            <div class="flex justify-center mt-12">
+                <a href="/buildlog.html" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-flex items-center gap-2">
+                    Track progress in Build Log
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
         </section>
 
         <!-- Long-Term Vision -->
-        <section id="vision" class="text-center fade-in">
-             <div class="glassmorphism rounded-lg py-12 px-8">
-                <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Long-Term Vision</h2>
-                <p class="max-w-3xl mx-auto text-lg text-gray-300">Messy's long-term vision is to build the first truly accessible, community-governed alpha-hunting engine. We're creating a new model of decentralized investment: an autonomous AI operating under human-defined constraints, guided by collective community wisdom, and rewarding all who hold $MESSY with its success.</p>
+        <section id="vision" class="fade-in">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">Long-Term Vision</h2>
+                <p class="max-w-3xl mx-auto mb-12 text-gray-400">We're not building just another AI bot. We're training an on‑chain fund agent that can stand alongside human managers and be measured in real time.</p>
             </div>
-        </section>
-        
-        <!-- Our Funds -->
-        <section id="funds" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Our Funds</h2>
-            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Two complementary funds powering Messy's AI development: a fast-moving innovation lab and a real-asset-backed investable vehicle.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- $MESSYBASED -->
-                <div class="glassmorphism rounded-lg p-6 text-left">
-                    <h3 class="text-2xl font-bold font-serif text-pink-400 mb-2">$MESSYBASED <span class="text-lg text-gray-400 font-normal">(Base)</span></h3>
-                    <p class="text-sm text-gray-300 mb-4">Our flagship innovation lab on Base. A fast-moving testing ground where Messy's AI strategies and narrative analysis are refined, benefiting from Base's speed and low fees.</p>
-                    <a href="https://guru.fund/$MESSYBASED" target="_blank" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-lg text-sm hover:bg-pink-600 transition-transform duration-300 inline-block transform hover:scale-105">View on Guru Fund</a>
-                </div>
-                 <!-- $MESSYFUND -->
-                <div class="glassmorphism rounded-lg p-6 text-left">
-                    <h3 class="text-2xl font-bold font-serif text-pink-400 mb-2">$MESSYFUND <span class="text-lg text-gray-400 font-normal">(Ethereum)</span></h3>
-                    <p class="text-sm text-gray-300 mb-4">Our Ethereum-based fund backed by a portfolio of real micro-cap tokens ($M87, $GURU, and others). The future investable vehicle where Messy's autonomous AI strategies will operate at scale.</p>
-                    <a href="https://guru.fund/$MESSYFUND" target="_blank" class="bg-pink-500 text-white font-bold py-2 px-6 rounded-lg text-sm hover:bg-pink-600 transition-transform duration-300 inline-block transform hover:scale-105">View on Guru Fund</a>
-                </div>
-            </div>
-            <!-- Path to Autonomy -->
-            <div class="glassmorphism rounded-lg p-8 md:p-10 text-left mt-8">
-                <h3 class="text-2xl md:text-3xl font-bold font-serif text-pink-400 mb-4">The Path to Autonomy</h3>
-                <p class="text-base text-gray-300 mb-8 leading-relaxed">Both funds follow a staged evolution: $MESSYBASED currently tests strategies under manual oversight (Phase 2 prep), while $MESSYFUND will become the primary autonomous vehicle in Phase 3 (Q3 2026+). Our AI's daily analyses are manually verified to ensure it learns from real conditions before autonomy. <a href="litepaper.html#ecosystem" class="text-pink-400 hover:underline">See the full fund strategy in the Litepaper</a>.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <blockquote class="border-l-4 border-pink-400/50 pl-6 pr-2 py-2 italic text-base text-gray-300 leading-relaxed">
-                        <p>"Narrative momentum in Crypto AI/DePIN favors agents for verifiable data/compute (e.g., M87's P2P), suggesting MESSYFUND rotate more into DePIN-heavy infra like 0xShadow for edge in scalability."</p>
-                        <footer class="text-sm text-pink-400/60 mt-3">An Insight from Messy's AI</footer>
-                    </blockquote>
-                     <blockquote class="border-l-4 border-yellow-400/50 pl-6 pr-2 py-2 italic text-base text-gray-300 leading-relaxed">
-                        <p>"Spikes in wallet creation and transaction volume for `$TRENDY` token on Base correlate with a 92% probability of a social sentiment upswing within 12 hours. MESSYFUND can preemptively scale into this position."</p>
-                        <footer class="text-sm text-yellow-400/60 mt-3">Insight Generated: Sep 20, 2025</footer>
-                    </blockquote>
+            <div class="glassmorphism rounded-lg py-12 px-8 max-w-4xl mx-auto transition-transform duration-300 hover:-translate-y-2">
+                <div class="max-w-3xl mx-auto text-left space-y-6">
+                    <p class="text-lg text-gray-300">Messy's long‑term vision is an AI that can <strong>scan the noise, surface real opportunities</strong>, and execute disciplined on‑chain strategies within parameters the community can see and shape.</p>
+                    <p class="text-lg text-gray-300">Today that looks like rails: data, tools, and test funds. Over time, the goal is a live engine where performance, risk, and decision‑making are <strong>visible on‑chain</strong>, with <strong>$MESSY</strong> as the asset that connects users to the agent's trajectory and the ecosystem around her.</p>
+                    <p class="text-lg text-gray-300">Messy focuses on the part of the market where human attention and on‑chain microstructure matter most: <strong>small and mid‑cap tokens</strong> across Base, Ethereum and other chains. By wiring real‑time technical analyses, macro context, and project‑level due diligence into a single view and publishing the outputs as dashboards anyone can see, our agent can specialize where traditional quant funds and previous AI tokens rarely go: <strong>transparent, data‑driven rotation in high‑beta assets</strong>.</p>
                 </div>
             </div>
         </section>
         
+        <!-- The Stack Behind Messy -->
+        <section id="stack" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">The stack behind Messy</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Before autonomy, we focus on the platform that lets her analyse markets in a repeatable, testable way: a Market Data Hub, a modular Due Diligence Engine built from Lenses, and the execution rails that will eventually route capital.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-7xl mx-auto">
+                <!-- Market Data Hub -->
+                <div class="glassmorphism rounded-lg p-8 text-left border border-pink-400/20 hover:border-pink-400/40 transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-12 h-12 mb-4 rounded-lg bg-pink-500/15 border border-pink-400/50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-serif text-yellow-400 mb-2">Market Data Hub</h3>
+                    <p class="text-xs uppercase tracking-wide text-gray-400 mb-3">Data & Signals</p>
+                    <p class="text-sm text-gray-300">Pipelines that aggregate on‑chain and off‑chain data—prices, volume, liquidity, addresses, and narratives—into a unified data plane that feeds every lens and dashboard Messy uses.</p>
+                </div>
+                
+                <!-- Due Diligence Engine & Lenses -->
+                <div class="glassmorphism rounded-lg p-8 text-left border border-purple-400/20 hover:border-purple-400/40 transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-12 h-12 mb-4 rounded-lg bg-purple-500/15 border border-purple-400/50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-serif text-yellow-400 mb-2">Due Diligence Engine & Lenses</h3>
+                    <p class="text-xs uppercase tracking-wide text-gray-400 mb-3">Analysis & Risk</p>
+                    <p class="text-sm text-gray-300">A modular engine made of Lenses (such as Technical Analysis and Macro Economics) that follow a shared pipeline: input → data → information → insight → output. Each lens can be shipped as its own mini‑product and later composed into Messy's higher‑level decisions.</p>
+                </div>
+                
+                <!-- Execution & Portfolio Infrastructure -->
+                <div class="glassmorphism rounded-lg p-8 text-left border border-indigo-400/20 hover:border-indigo-400/40 transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-12 h-12 mb-4 rounded-lg bg-indigo-500/15 border border-indigo-400/50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-serif text-yellow-400 mb-2">Execution & Portfolio Infrastructure</h3>
+                    <p class="text-xs uppercase tracking-wide text-gray-400 mb-3">Deployment & Composability</p>
+                    <p class="text-sm text-gray-300">Contracts and tooling that start as simulated strategies and later become the rails Messy will use to move capital transparently on‑chain—only after the research and scoring layer has proved itself.</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/buildlog.html" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                    Build Log
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <a href="/blog/2025/12/messy-virgo-platform-architecture-a-modular-stack-for-aiassisted-crypto-research-fund-operations/" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                    Platform Architecture (Blog)
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Our Funds – Who They're For -->
+        <section id="funds-intro" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">The $MESSY funds</h2>
+            <div class="max-w-3xl mx-auto mb-12 text-gray-400">
+                <p>Our current funds on Guru are human‑managed test portfolios. They exist to diversify and park assets, trial ideas and filters on different chains, and generate the data and context Messy will eventually learn from. They are not marketed as finished investment products or as AI‑run portfolios today.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <!-- Who Our Funds Are For -->
+                <div class="glassmorphism rounded-lg p-6 text-left transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold font-serif text-pink-400 mb-6">Who our funds are for</h3>
+                    <p class="text-base text-gray-300 mb-6">Our current funds on Guru are small, human‑managed test portfolios designed for people who:</p>
+                    <ul class="text-base text-gray-300 space-y-4 mb-6">
+                        <li class="flex gap-3">
+                            <span class="text-pink-400 font-bold mt-1">•</span>
+                            <span>Want to allocate a slice of their crypto portfolio into higher‑growth assets,</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-pink-400 font-bold mt-1">•</span>
+                            <span>But don't want to chase every new narrative, token, and rotation themselves.</span>
+                        </li>
+                    </ul>
+                    <p class="text-base text-gray-300">Instead of managing dozens of individual positions and transactions, you hold a single fund token that represents a share of the underlying basket. When the fund adjusts its positions, your exposure updates automatically without you having to trade every leg.</p>
+                    <p class="text-base text-gray-300 mt-4">These funds are experimental and small by design. They help us test ideas in real markets and generate data for Messy's future strategies, rather than being the final product.</p>
+                </div>
+
+                <!-- Fund Links -->
+                <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-2xl font-bold font-serif text-pink-400 mb-6">View Funds on Guru</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-2 font-semibold">Base</p>
+                            <a href="https://guru.fund/$MESSYINFRA" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-2">
+                                guru.fund/$MESSYINFRA
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-2 font-semibold">BNB</p>
+                            <a href="https://guru.fund/$MESSYBNB" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-2">
+                                guru.fund/$MESSYBNB
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-2 font-semibold">ETH – AI Focus</p>
+                            <a href="https://guru.fund/$MESSYAI" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-2">
+                                guru.fund/$MESSYAI
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                            <p class="text-xs uppercase tracking-wide text-gray-400 mb-2 font-semibold">ETH – DeFi Focus</p>
+                            <a href="https://guru.fund/$MESSYDEFI" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-2">
+                                guru.fund/$MESSYDEFI
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Historical Note -->
+            <div class="mt-8 p-4 bg-gray-800/50 border border-gray-700/50 rounded-lg max-w-3xl mx-auto">
+                <p class="text-xs text-gray-400"><strong>Note:</strong> Earlier $MESSYFUND / $MESSYBASED contracts were v1 PAMM and diversification tests. They remain on‑chain as part of Messy's history but are not positioned as flagship products.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5 – TOKENOMICS (HIGH‑LEVEL) -->
+        <section id="tokenomics" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">$MESSY at a glance</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Here are the key facts about $MESSY: where it lives, how it's structured, and what makes it different from other tokens.</p>
+            <div class="max-w-4xl mx-auto">
+                <div class="glassmorphism rounded-lg p-8 md:p-10 text-left mb-8 transition-transform duration-300 hover:-translate-y-2">
+                    <div class="space-y-6">
+                        <!-- Bullet 1: Anchored on Base -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pink-500/20 border border-pink-400/50 flex items-center justify-center mt-1">
+                                <svg class="w-5 h-5 text-pink-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-400 mb-2">Anchored on Base</h3>
+                                <p class="text-gray-300">$MESSY lives on Base and ties together the agent, treasuries, and ecosystem.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Bullet 2: R&D and ecosystem funding -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-400/50 flex items-center justify-center mt-1">
+                                <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-400 mb-2">R&D and ecosystem funding</h3>
+                                <p class="text-gray-300">A 4.95% tax on $MESSY trades funds development, operations, and community incentives. This is a token‑level mechanism on $MESSY trades and does not apply to the assets inside our funds.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Bullet 3: Fixed supply and reflection-based mechanism -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500/20 border border-indigo-400/50 flex items-center justify-center mt-1">
+                                <svg class="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-400 mb-2">Fixed supply and reflection‑based mechanism</h3>
+                                <p class="text-gray-300">A portion of the tax is redistributed to holders via reflections. Reflections are a redistribution, not guaranteed yield, and do not remove market risk.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Bullet 4: Creator Wallet Security & Transparency -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-400/50 flex items-center justify-center mt-1">
+                                <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-400 mb-2">Creator Wallet Security & Transparency</h3>
+                                <p class="text-gray-300">The original creator allocation (43.36%) is held in Safe smart wallets with public vesting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/messy-virgo-coin.html" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                        Token & How to Buy
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="/treasury.html" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                        Treasury & Safes
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 – WHY INVEST IN MESSY -->
+        <section id="why-invest" class="fade-in">
+            <div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">Why invest in Messy Virgo Coin ($MESSY) now</h2>
+            <p class="max-w-3xl mx-auto mb-12 text-gray-400">Messy Virgo Coin ($MESSY) powers a long‑term attempt to build an on‑chain AI agent that can manage capital with structure, discipline, and transparency. Today you can already see the foundations—token, treasuries, tools, and test funds—being built in public.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 max-w-7xl mx-auto">
+                <!-- Why this agent? -->
+                <div class="glassmorphism rounded-lg p-6 md:p-8 flex flex-col h-full transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-xl md:text-2xl font-bold text-pink-400 mb-4">The opportunity</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">If the stack proves itself and autonomous strategies work, $MESSY is the native way to participate in that system's growth; if it doesn't, you've backed a clearly defined experiment, not a black‑box promise.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-pink-400 mb-6">Why this agent?</h3>
+                    <p class="text-gray-300 leading-relaxed">Messy is built in the open: from the Technical Analysis engine you can test today to future macro dashboards and on‑chain strategies, the aim is an AI fund agent you can actually inspect and measure, not a black‑box claim.</p>
+                </div>
+
+                <!-- Why this token model? -->
+                <div class="glassmorphism rounded-lg p-6 md:p-8 flex flex-col h-full transition-transform duration-300 hover:-translate-y-2">
+                    <h3 class="text-xl md:text-2xl font-bold text-pink-400 mb-6">Why this token model?</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">$MESSY is designed for one thing: to keep Messy's development and tooling funded and aligned with the people who care about her long‑term success. Every token trade either:</p>
+                    <ul class="space-y-3 mb-6 list-none pl-0">
+                        <li class="flex items-start gap-3 text-gray-300 leading-relaxed">
+                            <span class="text-pink-400 font-bold flex-shrink-0 mt-0.5">→</span>
+                            <span>returns value to holders via reflections, or</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300 leading-relaxed">
+                            <span class="text-pink-400 font-bold flex-shrink-0 mt-0.5">→</span>
+                            <span>extends the runway of the TA engine, macro dashboards, and agent research via the treasury— all on‑chain in Safes.</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-300 leading-relaxed mb-4">On top of that, our Base funds hold a portion of $MESSY inside the portfolios, creating a flywheel where successful strategies directly reinforce the ecosystem that powers them.</p>
+                    <p class="text-gray-300 leading-relaxed">That's the trade‑off: higher friction for short‑term traders, in exchange for a self‑funded, openly measurable AI agent instead of an off‑chain, black‑box hedge fund.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Live On-Chain Data -->
         <section id="data" class="fade-in">
              <div class="w-full h-[600px] rounded-lg overflow-hidden glassmorphism p-2">
@@ -467,24 +514,24 @@
                     title="MESSY Token Chart - GeckoTerminal">
                 </iframe>
             </div>
-             <div class="text-center mt-4">
-                 <a href="https://www.dextools.io/app/en/token/messy" target="_blank" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-block">View full analytics on DEXTools</a>
+             <div class="text-center mt-8">
+                 <a href="https://www.dextools.io/app/en/token/messy" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-block">View full analytics on DEXTools</a>
              </div>
         </section>
 
         <!-- Swap -->
         <section id="swap" class="text-center fade-in">
-             <div class="glassmorphism rounded-lg py-12 px-8">
-                <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Get Messy Virgo Coin</h2>
-                <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-300">Swap MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the <a href="/messy-virgo-coin.html" class="text-pink-400 hover:text-pink-300 underline transition">contract address</a> before trading.</p>
+             <div class="glassmorphism rounded-lg py-12 px-8 max-w-4xl mx-auto transition-transform duration-300 hover:-translate-y-2">
+                <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">Get Messy Virgo Coin</h2>
+                <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-300">Swap $MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the <a href="/messy-virgo-coin.html" class="text-pink-400 hover:text-pink-300 underline transition">contract address</a> before trading.</p>
                 <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20 text-xl">Swap Now</a>
             </div>
         </section>
         
         <!-- Join the Alpha -->
         <section id="alpha" class="fade-in">
-            <div class="glassmorphism bg-gradient-to-br from-white/10 to-white/5 rounded-lg py-12 px-8 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-4">Join the Alpha</h2>
+            <div class="glassmorphism bg-gradient-to-br from-white/10 to-white/5 rounded-lg py-12 px-8 text-center max-w-4xl mx-auto transition-transform duration-300 hover:-translate-y-2">
+                 <h2 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">Join the Alpha</h2>
                  <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-300">Messy's journey is driven by her community. Follow her latest findings on X and join our Telegram for real-time discussions.</p>
                  <div class="flex flex-col sm:flex-row gap-4 justify-center">
                      <a href="https://x.com/MessyVirgoCoin" target="_blank" class="bg-white/10 text-white font-bold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105">Follow on X</a>
@@ -496,16 +543,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/20 border-t border-white/10">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
-            <p>&copy; 2025 $MESSY. All rights reserved.</p>
-            <div class="mt-4 flex justify-center flex-wrap gap-x-6 gap-y-2">
-                <a href="/messy-virgo-coin.html" class="hover:text-pink-400 transition">Token / Contract</a>
-                <a href="https://x.com/MessyVirgoCoin" target="_blank" class="hover:text-pink-400 transition">X (Twitter)</a>
-                <a href="https://t.me/messyvirgo" target="_blank" class="hover:text-pink-400 transition">Telegram</a>
-            </div>
-        </div>
-    </footer>
+    {% include "partials/footer.njk" %}
 
 <!-- External JavaScript Files -->
 <script src="/js/main.js" defer></script>

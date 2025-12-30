@@ -29,36 +29,10 @@ permalink: /litepaper.html
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.messyvirgo.com/litepaper.html">
     
-    <!-- Fonts & External Scripts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/tailwind.css">
-    <link rel="stylesheet" href="/css/base.css">
+    {% include "partials/head-common.njk" %}
     <link rel="stylesheet" href="/css/litepaper.css">
-    
-    <!-- Dropdown hover delay fix -->
-    <style>
-        .dropdown-menu {
-            transition: opacity 200ms ease-out, visibility 200ms ease-out;
-            transition-delay: 0ms;
-        }
-        .group:hover .dropdown-menu {
-            transition-delay: 0ms;
-        }
-        .group:not(:hover) .dropdown-menu {
-            transition-delay: 200ms;
-        }
-    </style>
-    
-    <!-- Favicons -->
-    <link rel="shortcut icon" type="image/png" href="/favicons/messy-32x32.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -75,73 +49,12 @@ permalink: /litepaper.html
     }
     </script>
 </head>
-<body class="litepaper-page">
+<body class="litepaper-page bg-gray-900 text-gray-200">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
-                    <a href="/" class="text-gray-300 hover:text-pink-400 transition">Home</a>
-                    <a href="/messy-virgo-coin.html" class="text-gray-300 hover:text-pink-400 transition">Token</a>
-                    <a href="/litepaper.html" class="text-gray-300 hover:text-pink-400 transition">Litepaper</a>
-                    <div class="relative group">
-                        <button type="button" class="text-gray-300 hover:text-pink-400 transition inline-flex items-center gap-1" aria-haspopup="true" aria-label="dApps menu">
-                            dApps
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu absolute left-0 mt-2 pt-2 w-64 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
-                            <a href="/dapps/token-technical-analysis.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-lg">Token Technical Analysis</a>
-                        </div>
-                    </div>
-                    <a href="/buildlog.html" class="text-gray-300 hover:text-pink-400 transition">Build Log</a>
-                    <div class="relative group">
-                        <button type="button" class="text-gray-300 hover:text-pink-400 transition inline-flex items-center gap-1" aria-haspopup="true" aria-label="About menu">
-                            About
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu absolute right-0 mt-2 pt-2 w-44 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
-                            <a href="/founder-profiles.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-t-lg">Founders</a>
-                            <a href="/treasury.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition">Treasury</a>
-                            <a href="/blog/" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-b-lg">Blog</a>
-                        </div>
-                    </div>
-                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap $MESSY</a>
-                </div>
-                <!-- Mobile Nav Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
-            <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
-            <a href="/messy-virgo-coin.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Token</a>
-            <a href="/litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">dApps</div>
-            <a href="/dapps/token-technical-analysis.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Token Technical Analysis</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <a href="/buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">About</div>
-            <a href="/founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
-            <a href="/treasury.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Treasury</a>
-            <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
-            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
-        </div>
-    </nav>
+    {% include "partials/nav.njk" %}
 
     <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
         
@@ -197,26 +110,54 @@ permalink: /litepaper.html
             <div class="ecosystem-grid">
                 <div>
                     <div class="mv-card litepaper-box">
-                        <h3 class="text-xl font-bold text-yellow-400 mb-4">Investment Vehicles</h3>
-                        <div class="space-y-4">
-                            <div class="fund-box">
-                                <h4 class="font-bold">$MESSYBASED (Base)</h4>
-                                <p class="text-gray-400 text-sm mt-2">The flagship fund on the Base network, serving as our fast-moving innovation lab to test AI strategies in a low-cost environment.</p>
+                        <h3 class="text-xl font-bold text-pink-400 mb-4">Investment Vehicles</h3>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                                <p class="text-xs uppercase tracking-wide text-gray-400 mb-1 font-semibold">Base</p>
+                                <a href="https://guru.fund/$MESSYINFRA" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-1">
+                                    guru.fund/$MESSYINFRA
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </a>
                             </div>
-                            <div class="fund-box">
-                                <h4 class="font-bold">$MESSYFUND (Ethereum)</h4>
-                                <p class="text-gray-400 text-sm mt-2">An Ethereum-based fund whose value is linked to a portfolio of tangible assets (e.g., $M87, $GURU), like a traditional investment fund.</p>
+                            <div class="p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                                <p class="text-xs uppercase tracking-wide text-gray-400 mb-1 font-semibold">BNB</p>
+                                <a href="https://guru.fund/$MESSYBNB" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-1">
+                                    guru.fund/$MESSYBNB
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                                <p class="text-xs uppercase tracking-wide text-gray-400 mb-1 font-semibold">ETH – AI Focus</p>
+                                <a href="https://guru.fund/$MESSYAI" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-1">
+                                    guru.fund/$MESSYAI
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-pink-400/30 transition">
+                                <p class="text-xs uppercase tracking-wide text-gray-400 mb-1 font-semibold">ETH – DeFi Focus</p>
+                                <a href="https://guru.fund/$MESSYDEFI" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-pink-400 hover:text-pink-300 transition inline-flex items-center gap-1">
+                                    guru.fund/$MESSYDEFI
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="mv-card litepaper-box">
-                        <h3 class="text-xl font-bold text-yellow-400 mb-2">Security Foundation</h3>
+                        <h3 class="text-xl font-bold text-pink-400 mb-2">Security Foundation</h3>
                         <p>The $MESSY smart contract was created using <strong>CertiK-audited</strong> templates via Bitbond's Token Tool, ensuring a foundation of proven security. The contract is publicly verified on BaseScan.</p>
                     </div>
                 </div>
                 <div>
                     <div class="mv-card litepaper-box">
-                        <h3 class="text-xl font-bold text-yellow-400 mb-4">How Trading Grows the Ecosystem</h3>
+                        <h3 class="text-xl font-bold text-pink-400 mb-4">How Trading Grows the Ecosystem</h3>
                         <div class="chart-container">
                             <canvas id="taxChart"></canvas>
                         </div>
@@ -243,7 +184,7 @@ permalink: /litepaper.html
                     <p class="text-sm text-gray-400 mb-3">The original creator wallet that holds the team and treasury allocations has been fully transferred into six designated Safe smart wallets on Base. These Safe wallets together reflect the same allocation percentages shown in the token distribution table; no additional team wallets exist outside this set.</p>
                     <p class="text-sm text-gray-400 mb-3">Because of MESSY's 1.25% reflection tax, traditional locking services are not compatible with the token, as they cannot safely manage automatically changing amounts. Instead of relying on a third-party locker, custody is maintained through public Safe smart wallets, a published two-year vesting schedule starting in November 2025, and ongoing "State of the Treasury" disclosures, all verifiable on-chain.</p>
                     <p class="text-sm text-gray-400 mb-4">All transfers from the six Safe wallets are subject to the same 1.25% reflection tax, so team movements cannot bypass or reduce the fee structure applied to regular holders.</p>
-                    <h4 class="text-base font-bold text-yellow-400 mb-2">Co-Founder Allocation & Vesting</h4>
+                    <h4 class="text-base font-bold text-pink-400 mb-2">Co-Founder Allocation & Vesting</h4>
                     <p class="text-sm text-gray-400 mb-3">Michael ("Technical Co-Founder & CTO") will receive <strong>110,000,000 $MESSY tokens (11% of the total supply)</strong> from the Creator Wallet in recognition of his pivotal role and contributions as Co-Founder and CTO. This allocation includes estimated transactional taxes, resulting in a net effective payment of approximately 10%+ of the total supply after tax deductions.</p>
                     <p class="text-sm text-gray-400">All transactions, including CTO vesting, will be detailed in a monthly "State of the Treasury" report for full transparency.</p>
                 </div>
@@ -358,16 +299,7 @@ permalink: /litepaper.html
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/20 border-t border-white/10">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
-            <p>&copy; 2025 $MESSY. All rights reserved.</p>
-            <div class="mt-4 flex justify-center flex-wrap gap-x-6 gap-y-2">
-                <a href="/messy-virgo-coin.html" class="hover:text-pink-400 transition">Token / Contract</a>
-                <a href="https://x.com/MessyVirgoCoin" target="_blank" class="hover:text-pink-400 transition">X (Twitter)</a>
-                <a href="https://t.me/messyvirgo" target="_blank" class="hover:text-pink-400 transition">Telegram</a>
-            </div>
-        </div>
-    </footer>
+    {% include "partials/footer.njk" %}
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>

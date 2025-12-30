@@ -29,35 +29,7 @@ permalink: /blog/index.html
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.messyvirgo.com/blog/">
-    
-    <!-- Fonts & External Scripts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/tailwind.css">
-    <link rel="stylesheet" href="/css/base.css">
-    
-    <!-- Dropdown hover delay fix -->
-    <style>
-        .dropdown-menu {
-            transition: opacity 200ms ease-out, visibility 200ms ease-out;
-            transition-delay: 0ms;
-        }
-        .group:hover .dropdown-menu {
-            transition-delay: 0ms;
-        }
-        .group:not(:hover) .dropdown-menu {
-            transition-delay: 200ms;
-        }
-    </style>
-    
-    <!-- Favicons -->
-    <link rel="shortcut icon" type="image/png" href="/favicons/messy-32x32.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/messy-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/messy-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/messy-apple-touch.png">
+    {% include "partials/head-common.njk" %}
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -74,73 +46,12 @@ permalink: /blog/index.html
     }
     </script>
 </head>
-<body class="blog-page flex flex-col min-h-screen">
+<body class="blog-page bg-gray-900 text-gray-200 flex flex-col min-h-screen">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
-                    <a href="/" class="text-gray-300 hover:text-pink-400 transition">Home</a>
-                    <a href="/messy-virgo-coin.html" class="text-gray-300 hover:text-pink-400 transition">Token</a>
-                    <a href="/litepaper.html" class="text-gray-300 hover:text-pink-400 transition">Litepaper</a>
-                    <div class="relative group">
-                        <button type="button" class="text-gray-300 hover:text-pink-400 transition inline-flex items-center gap-1" aria-haspopup="true" aria-label="dApps menu">
-                            dApps
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu absolute left-0 mt-2 pt-2 w-64 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
-                            <a href="/dapps/token-technical-analysis.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-lg">Token Technical Analysis</a>
-                        </div>
-                    </div>
-                    <a href="/buildlog.html" class="text-gray-300 hover:text-pink-400 transition">Build Log</a>
-                    <div class="relative group">
-                        <button type="button" class="text-gray-300 hover:text-pink-400 transition inline-flex items-center gap-1" aria-haspopup="true" aria-label="About menu">
-                            About
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="dropdown-menu absolute right-0 mt-2 pt-2 w-44 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
-                            <a href="/founder-profiles.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-t-lg">Founders</a>
-                            <a href="/treasury.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition">Treasury</a>
-                            <a href="/blog/" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-b-lg">Blog</a>
-                        </div>
-                    </div>
-                    <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap $MESSY</a>
-                </div>
-                <!-- Mobile Nav Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-black/50">
-            <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
-            <a href="/messy-virgo-coin.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Token</a>
-            <a href="/litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">dApps</div>
-            <a href="/dapps/token-technical-analysis.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Token Technical Analysis</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <a href="/buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
-            <div class="border-t border-white/10 my-1"></div>
-            <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">About</div>
-            <a href="/founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
-            <a href="/treasury.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Treasury</a>
-            <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
-            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
-        </div>
-    </nav>
+    {% include "partials/nav.njk" %}
 
     <main class="max-w-7xl mx-auto px-4 py-16 md:py-24 flex-1">
         
@@ -155,7 +66,7 @@ permalink: /blog/index.html
             {% if collections.blog.length > 0 %}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {% for post in collections.blog %}
-                        <article class="mv-card glassmorphism rounded-lg p-6 hover:shadow-lg hover:shadow-pink-500/20 transition fade-in group">
+                        <article class="mv-card glassmorphism rounded-lg p-6 hover:shadow-lg hover:shadow-pink-500/20 fade-in group">
                             <div class="mb-4">
                                 <time datetime="{{ post.date | htmlDateString }}" class="text-gray-400 text-sm">{{ post.date | readableDate }}</time>
                             </div>
@@ -181,19 +92,46 @@ permalink: /blog/index.html
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black/20 border-t border-white/10 mt-24">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
-            <p>&copy; 2025 $MESSY. All rights reserved.</p>
-            <div class="mt-4 flex justify-center flex-wrap gap-x-6 gap-y-2">
-                <a href="/messy-virgo-coin.html" class="hover:text-pink-400 transition">Token / Contract</a>
-                <a href="https://x.com/MessyVirgoCoin" target="_blank" class="hover:text-pink-400 transition">X (Twitter)</a>
-                <a href="https://t.me/messyvirgo" target="_blank" class="hover:text-pink-400 transition">Telegram</a>
-            </div>
-        </div>
-    </footer>
+    {% set footerClass = 'mt-24' %}
+    {% include "partials/footer.njk" %}
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
+    <script>
+        // Make entire article card clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            const articleCards = document.querySelectorAll('article.mv-card');
+            
+            articleCards.forEach(card => {
+                // Find the read-more link within the card
+                const readMoreLink = card.querySelector('.read-more-btn');
+                
+                if (readMoreLink) {
+                    const href = readMoreLink.href;
+                    
+                    // Make the entire card clickable
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', function(e) {
+                        // Don't navigate if clicking the read-more button itself
+                        if (e.target === readMoreLink || readMoreLink.contains(e.target)) {
+                            return;
+                        }
+                        window.location.href = href;
+                    });
+                    
+                    // Add keyboard support for accessibility
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('tabindex', '0');
+                    card.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            window.location.href = href;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
     <style>
         /* Read More button style - matching founders page */
         .read-more-btn {

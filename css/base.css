@@ -54,6 +54,8 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.3;
+    padding-bottom: 0.1em;
 }
 
 /* Glassmorphism Effect */
@@ -152,12 +154,13 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--mv-glass-border);
     border-radius: var(--mv-border-radius);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, transform 0.3s ease-out;
 }
 
 .mv-card:hover {
     background: var(--mv-glass-bg-hover);
     border-color: var(--mv-glass-border-hover);
+    transform: translateY(-8px) !important;
 }
 
 /* ========================================
@@ -248,6 +251,18 @@ h1, h2, h3, h4, h5, h6 {
     position: sticky;
     top: 0;
     z-index: 40;
+}
+
+/* Dropdown hover delay (was previously inlined on many pages) */
+.dropdown-menu {
+    transition: opacity 200ms ease-out, visibility 200ms ease-out;
+    transition-delay: 0ms;
+}
+.group:hover .dropdown-menu {
+    transition-delay: 0ms;
+}
+.group:not(:hover) .dropdown-menu {
+    transition-delay: 200ms;
 }
 
 /* Mobile Menu */
