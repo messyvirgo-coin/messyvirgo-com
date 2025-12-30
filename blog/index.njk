@@ -66,7 +66,7 @@ permalink: /blog/index.html
             {% if collections.blog.length > 0 %}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {% for post in collections.blog %}
-                        <article class="mv-card glassmorphism rounded-lg p-6 hover:shadow-lg hover:shadow-pink-500/20 transition fade-in group">
+                        <article class="mv-card glassmorphism rounded-lg p-6 hover:shadow-lg hover:shadow-pink-500/20 fade-in group">
                             <div class="mb-4">
                                 <time datetime="{{ post.date | htmlDateString }}" class="text-gray-400 text-sm">{{ post.date | readableDate }}</time>
                             </div>

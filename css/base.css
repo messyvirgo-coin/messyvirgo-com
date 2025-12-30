@@ -154,12 +154,13 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--mv-glass-border);
     border-radius: var(--mv-border-radius);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, transform 0.3s ease-out;
 }
 
 .mv-card:hover {
     background: var(--mv-glass-bg-hover);
     border-color: var(--mv-glass-border-hover);
+    transform: translateY(-8px) !important;
 }
 
 /* ========================================
