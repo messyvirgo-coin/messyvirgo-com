@@ -4,10 +4,20 @@ Static website for $MESSY, an AI-powered fund management token on the Base netwo
 
 **Live Site:** https://www.messyvirgo.com
 
+## Contributing & community
+
+This repo is public for transparency and collaboration, but it is also an **official public-facing website**, so maintainers retain editorial control over what gets merged.
+
+- **Contributing**: see [CONTRIBUTING.md](./CONTRIBUTING.md)
+- **Code of Conduct**: see [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
+- **Governance**: see [GOVERNANCE.md](./GOVERNANCE.md)
+- **Brand usage**: see [BRAND.md](./BRAND.md)
+
 ## Local Preview
 
 ### Development Server (Recommended)
 ```bash
+npm ci
 npm run watch:css  # Terminal 1: Watch CSS changes
 npm run serve      # Terminal 2: Eleventy dev server at http://localhost:8080
 ```
@@ -65,7 +75,7 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 
 - **HTML5** with semantic markup
 - **Eleventy** (11ty) for blog static site generation
-- **Tailwind CSS** via CDN for styling
+- **Tailwind CSS** (compiled) for styling
 - **Vanilla JavaScript** for interactivity
 - **Chart.js** (litepaper only) for data visualization
 - **Google Fonts** (Inter & Playfair Display)
@@ -92,3 +102,8 @@ Build and test: `npm run build && npm run serve` → visit `http://localhost:808
 ## Deployment
 
 Static site deployable to GitHub Pages, Netlify, Vercel, or any static host. The `CNAME` file configures the custom domain (www.messyvirgo.com). GitHub Actions automatically builds and deploys on push to `main`. All JavaScript runs client-side—no server required.
+
+## License
+
+- **Code**: MIT (see [LICENSE](./LICENSE))
+- **Content & brand assets**: CC BY-NC 4.0 (see [NOTICE](./NOTICE.md) and [CONTENT_LICENSE](./CONTENT_LICENSE.md))
