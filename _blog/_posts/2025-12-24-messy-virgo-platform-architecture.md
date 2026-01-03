@@ -9,7 +9,7 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 
 Messy Virgo is a platform for building a suite of tools that help crypto teams move from “gut feel” to **structured, testable decisions**—with humans in the loop. One major part of that suite is our **Due Diligence Engine**, which is built from focused, composable analysis modules we call **Lenses**.
 
-Today, the **Technical Analysis Lens** is in an alpha release available for the community for free and already delivering value. Right now, we're building the **Macro Economics Lens** (global macro signals that don’t depend on a token contract) and planning additional lenses that will complete our Due Diligence Engine which is due in Q1/26.
+Today, the **[Technical Analysis Lens](/dapps/token-technical-analysis.html)** is in an alpha release available for the community for free and already delivering value. Right now, we're building the **Macro Economics Lens** (global macro signals that don't depend on a token contract) and planning additional lenses that will complete our Due Diligence Engine which is due in Q1/26.
 
 This post is a level‑200 overview of key building blocks, patterns, core tech, testing, and deployment.
 
@@ -170,7 +170,7 @@ This pipeline gives us two big wins:
 
 ## Today: Technical Analysis Lens (working end‑to‑end)
 
-The Technical Analysis Lens is our first complete “vertical slice”. It demonstrates the platform’s core capabilities:
+The [Technical Analysis Lens](/dapps/token-technical-analysis.html) is our first complete "vertical slice". It demonstrates the platform's core capabilities:
 
 - **Token identity resolution** and enrichment (best‑effort, multi‑source).
 - **Multi‑provider data synthesis** for TA‑relevant signals.
