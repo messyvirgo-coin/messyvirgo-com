@@ -4,7 +4,7 @@
 {% set isToken = currentUrl == '/messy-virgo-coin.html' %}
 {% set isLitepaper = currentUrl == '/litepaper.html' %}
 {% set isBuildlog = currentUrl == '/buildlog.html' %}
-{% set isDapps = currentUrl.startsWith('/dapps/') %}
+{% set isDapps = currentUrl.startsWith('/dapps/') or currentUrl == '/crypto-token-technical-analysis.html' or currentUrl == '/crypto-macro-economics-report.html' %}
 {% set isAbout = (currentUrl == '/founder-profiles.html') or (currentUrl == '/treasury.html') or (currentUrl == '/blog/') or (currentUrl.startsWith('/blog/')) %}
 {% set swapUrl = 'https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453' %}
 
@@ -27,7 +27,8 @@
             </svg>
           </button>
           <div class="dropdown-menu absolute left-0 mt-2 pt-2 w-64 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
-            <a href="/dapps/token-technical-analysis.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-lg{% if currentUrl == '/dapps/token-technical-analysis.html' %} text-pink-400 font-semibold{% endif %}">Automated TA Lens</a>
+            <a href="/crypto-token-technical-analysis.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-t-lg{% if currentUrl == '/crypto-token-technical-analysis.html' %} text-pink-400 font-semibold{% endif %}">Crypto Token Technical Analysis</a>
+            <a href="/crypto-macro-economics-report.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-b-lg{% if currentUrl == '/crypto-macro-economics-report.html' %} text-pink-400 font-semibold{% endif %}">Crypto Macro Economics Report</a>
           </div>
         </div>
 
@@ -68,7 +69,8 @@
     <a href="/litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
     <div class="border-t border-white/10 my-1"></div>
     <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">dApps</div>
-    <a href="/dapps/token-technical-analysis.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800{% if currentUrl == '/dapps/token-technical-analysis.html' %} text-pink-400 font-semibold{% endif %}">Automated TA Lens</a>
+    <a href="/crypto-token-technical-analysis.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800{% if currentUrl == '/crypto-token-technical-analysis.html' %} text-pink-400 font-semibold{% endif %}">Crypto Token Technical Analysis</a>
+    <a href="/crypto-macro-economics-report.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800{% if currentUrl == '/crypto-macro-economics-report.html' %} text-pink-400 font-semibold{% endif %}">Crypto Macro Economics Report</a>
     <div class="border-t border-white/10 my-1"></div>
     <a href="/buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
     <div class="border-t border-white/10 my-1"></div>
