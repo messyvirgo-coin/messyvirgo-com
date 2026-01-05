@@ -1,7 +1,7 @@
 # Add Weekly Build Log Entry (messyvirgo-com)
 
 ## Goal
-Add a **new weekly build log entry** to `buildlog.html` at the **top of the timeline**, and ensure the **Community CTA section** appears **immediately after the newest entry**.
+Add a **new weekly build log entry** to `buildlog.html` at the **top of the timeline**, ensure the **Community CTA section** appears **immediately after the newest entry**, and update the sitemap to reflect the buildlog page modification date.
 
 ## Input (you must ask me for this first)
 Ask the user to paste a weekly summary in this structure (freeform text is ok as long as the sections are clear):
@@ -44,11 +44,15 @@ If the user doesn’t provide the week range in both forms, ask:
 4. Move the **Community CTA Section** so it appears **right after** the newly inserted entry (between the newest entry and the next entry).
    - Do not change CTA content, only its position.
 5. Verify the next entry after CTA is the previous newest buildlog entry (the one that used to be at the top).
+6. Update the sitemap (`sitemap.xml.njk`) to reflect the buildlog page update:
+   - Find the buildlog.html entry in the sitemap
+   - Update the `<lastmod>` date to the end date of the week being added (format: `YYYY-MM-DD`, e.g., `2026-01-04` for the week ending January 4, 2026)
 
 ## Done criteria
 - The newest week is the **first** `.buildlog-entry` in the timeline.
 - The CTA section is placed **directly after** the newest entry.
 - No duplicate CTA sections.
 - HTML remains valid and consistent with existing entries.
+- The sitemap's buildlog.html entry has been updated with the correct `<lastmod>` date (end date of the week being added).
 
 
