@@ -1,0 +1,9 @@
+# Default reviewers/owners for this repository.
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @messy-michael @MessyFranco
+
+# Extra focus areas
+/_blog/_posts/ @messy-michael @MessyFranco
+/images/ @messy-michael @MessyFranco
+/favicons/ @messy-michael @MessyFranco

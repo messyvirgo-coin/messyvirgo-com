@@ -105,5 +105,6 @@ Static site deployable to GitHub Pages, Netlify, Vercel, or any static host. The
 
 ## License
 
-- **Code**: MIT (see [LICENSE](./LICENSE))
-- **Content & brand assets**: CC BY-NC 4.0 (see [NOTICE](./NOTICE.md) and [CONTENT_LICENSE](./CONTENT_LICENSE.md))
+- **Code**: Apache-2.0 (see [LICENSE](./LICENSE))
+- **Content & brand assets**: reserved (all rights reserved), including site copy and blog posts (see [NOTICE](./NOTICE.md))
+- **Trademarks/brand usage**: see [BRAND.md](./BRAND.md)

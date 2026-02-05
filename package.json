@@ -2,7 +2,7 @@
   "name": "messyvirgo-com",
   "version": "1.0.0",
   "description": "Messy Virgo website",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "build:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify",
     "watch:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --watch",

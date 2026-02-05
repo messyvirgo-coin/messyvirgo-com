@@ -13,12 +13,13 @@ This repository includes Messy Virgo brand assets (e.g. logos, icons, mascots, i
 
 ## Allowed (typically OK)
 
-- Sharing assets for **non-commercial** community use with attribution (where applicable)
-- Using assets in **news, education, or community discussions** (non-commercial), without implying affiliation
 - Linking to the official website and repos
+- Referencing Messy Virgo by name to describe the origin of the project (nominative use), without implying affiliation or endorsement
+- Sharing **links** to brand assets in this repository for discussion/review (without redistributing them as your own)
 
 ## Not allowed without permission
 
+- Copying, redistributing, or modifying Messy Virgo brand assets (logos, icons, mascots, imagery) except where permitted by applicable law or with written permission
 - Using assets **commercially** (ads, paid products/services, resale, paid token promotions, etc.)
 - Using Messy Virgo name/logo/mascot in a way that **confuses people** about affiliation or endorsement
 - Registering confusingly similar names/domains/social handles

@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a problem with the website/repo
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve `messyvirgo.com`.
+
+        Please avoid including secrets, private links, or personal data.
+  - type: input
+    id: affected_page
+    attributes:
+      label: Affected page/URL
+      placeholder: e.g. /litepaper.html
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: What did you expect to happen, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See error ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: |
+        - OS:
+        - Browser:
+        - Screen size:
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I verified this is not a security issue (if it is, I will email `contact@messyvirgo.com` instead).
+          required: true

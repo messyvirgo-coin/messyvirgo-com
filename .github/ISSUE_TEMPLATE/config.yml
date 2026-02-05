@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: General questions
+    url: https://www.messyvirgo.com
+    about: Please check the website first for general information.
+  - name: Security reports
+    url: mailto:contact@messyvirgo.com
+    about: Please report suspected vulnerabilities privately.
