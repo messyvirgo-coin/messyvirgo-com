@@ -58,6 +58,7 @@ flowchart LR
     API["API service\n(FastAPI)"]
     W["Worker service\n(Queue consumer)"]
     WEB["Web UI\n(React)"]
+    SCH["Scheduler\n(cron trigger)"]
   end
 
   subgraph DataPlane["Data plane"]
@@ -77,6 +78,7 @@ flowchart LR
   API --> Q
   W --> Q
   W --> DB
+  SCH --> DB
   API --> External
   W --> External
 ```
@@ -84,7 +86,8 @@ flowchart LR
 **What to notice:**
 
 - The **API service** is the public entry point for running analyses, retrieving results, and generating artifacts.
-- The **worker** handles long‑running or queued work, scaling with demand.
+- The **worker** handles long‑running or queued work (lens execution, variant generation, scheduled refresh), scaling with demand.
+- An **external scheduler** (a lightweight cron job) periodically triggers a single database RPC that claims due work and enqueues it—keeping scheduling logic in the database, not in application code.
 - **Managed Postgres (Supabase)** stores persisted analysis results and supports safe, atomic operations.
 - A **Postgres‑backed queue** (via `pgmq`) allows reliable async processing without introducing a separate message broker at this stage.
 
@@ -150,7 +153,8 @@ flowchart LR
   I["Input\nValidate & normalize"] --> D["Data\nFetch raw data"]
   D --> F["Info\nCompute facts/KPIs"]
   F --> S["Insight\nInterpretation (optional AI)"]
-  S --> O["Output\nArtifacts (Markdown/JSON/PDF…)"]
+  S --> O["Output\nBase artifact"]
+  O --> V["Variants\nLanguage × audience\n(async)"]
 ```
 
 **What each stage means (in plain terms):**
@@ -159,12 +163,16 @@ flowchart LR
 - **Data**: fetch and cache raw data from external sources; tolerate partial failures.
 - **Info**: compute deterministic facts and metrics (KPIs, derived values, summaries).
 - **Insight**: optional narrative or higher‑level interpretation (sometimes AI‑assisted, always provenance‑aware).
-- **Output**: generate consumable artifacts for humans (reports) and machines (structured JSON).
+- **Output**: generate the base artifact—a structured report for humans and machines.
+- **Variants**: the base output is adapted into multiple variants along two dimensions—**language** (12+ languages via LLM translation) and **audience** (e.g., allocator, trader, degen)—each generated asynchronously without re‑running the pipeline.
 
-This pipeline gives us two big wins:
+All client‑facing reports are served from variants, not directly from the base output. The default variant (English, full report) is a zero‑cost passthrough copy; non‑default variants use LLM‑based translation and audience adaptation.
+
+This pipeline gives us three big wins:
 
 1. **Repeatability**: deterministic computation lives in the Info stage, separate from flaky upstream calls.
 2. **Extensibility**: new lenses reuse the same scaffolding (persistence, caching, exports, async jobs).
+3. **Multi‑audience delivery**: one pipeline execution produces reports tailored to different reader profiles and languages, without repeating upstream data fetches or computation.
 
 ---
 
@@ -201,6 +209,35 @@ Our data strategy is pragmatic: store what we need to make results **reproducibl
 - **On-demand artifacts**: we can build outputs (reports/exports) on-demand—or regenerate them on-demand—using the persisted process state plus cached provider/response data.
 
 We also lean on database‑side atomic operations (via safe API patterns) to avoid race conditions when multiple workers or requests touch the same logical “process”.
+
+---
+
+## Published artifacts: always‑ready endpoints
+
+Some lens outputs should be **always available**—partner integrations and public dashboards shouldn’t have to trigger an execution and poll for results. The platform solves this with a **published artifact** pattern:
+
+- **Published pointers**: a stable key (e.g., `macro_economics:report:en:allocator_daily`) points to the “currently active” completed variant. Dedicated API endpoints return the published artifact immediately with a `200 OK`—no execution, no polling.
+- **Stale‑but‑serveable**: if a scheduled refresh fails, the endpoint continues serving the last known good artifact (with staleness metadata) rather than returning an error.
+- **DB‑driven scheduling**: refresh and publish schedules live in the database, not in application code. A lightweight external scheduler (a cron job) periodically calls a single database RPC that claims due work and atomically enqueues queue messages—the worker then picks them up.
+- **Group publish**: for lenses like Macro Economics, a single base execution produces an entire “edition” of variants (multiple audiences × languages). The group publish mechanism ensures exactly one base run per cycle, then fans out to generate and publish all configured variants from that shared base.
+
+```mermaid
+flowchart LR
+  SCH["Scheduler tick\n(cron)"] --> DB["DB claims due work\n& enqueues"]
+  DB --> Q["Queue"]
+  Q --> W["Worker"]
+  W --> BASE["Base lens\nexecution"]
+  BASE --> V1["Variant A\n(en / allocator)"]
+  BASE --> V2["Variant B\n(en / trader)"]
+  BASE --> V3["Variant C\n(zh / allocator)"]
+  BASE --> VN["…"]
+  V1 --> PUB["Published\npointers updated"]
+  V2 --> PUB
+  V3 --> PUB
+  VN --> PUB
+```
+
+This means partner integrations and public‑facing surfaces can query a stable endpoint and always get a response—while the platform handles refresh timing, variant generation, and failure recovery behind the scenes.
 
 ---
 
