@@ -1,7 +1,7 @@
 # Add Weekly Build Log Entry (messyvirgo-com)
 
 ## Goal
-Add a **new weekly build log entry** to `buildlog.html` at the **top of the timeline**, ensure the **Community CTA section** appears **immediately after the newest entry**, and update the sitemap to reflect the buildlog page modification date.
+Add a **new weekly build log entry** to `about/buildlog.html` (outputs `/buildlog.html`) at the **top of the timeline**, ensure the **Community CTA section** appears **immediately after the newest entry**, and update the sitemap to reflect the buildlog page modification date.
 
 ## Input (you must ask me for this first)
 Ask the user to paste a weekly summary in this structure (freeform text is ok as long as the sections are clear):
@@ -22,11 +22,11 @@ If the user doesn’t provide the week range in both forms, ask:
 - Keep **exactly** the existing HTML structure and Tailwind classes used by other entries.
 - Use an **en dash** in the displayed week line: `December 15–21, 2025`.
 - Keep the `data-week` attribute format consistent with other entries, e.g. `Dec 15-21, 2025`.
-- Preserve indentation style used in `buildlog.html`.
+- Preserve indentation style used in `about/buildlog.html`.
 - Bullet lists must be `<ul><li>...</li></ul>` under each section.
 
 ## Steps
-1. Open `buildlog.html` and find the buildlog timeline container:
+1. Open `about/buildlog.html` and find the buildlog timeline container:
    - `      <div class="buildlog-timeline text-left">`
 2. Ensure the **Community CTA Section** exists only once:
    - It starts with `<!-- Community CTA Section -->`
