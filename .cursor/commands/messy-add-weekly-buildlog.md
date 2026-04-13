@@ -55,4 +55,10 @@ If the user doesn’t provide the week range in both forms, ask:
 - HTML remains valid and consistent with existing entries.
 - The sitemap's buildlog.html entry has been updated with the correct `<lastmod>` date (end date of the week being added).
 
+## Verify in the browser (do this last)
 
+After the HTML and sitemap edits are complete:
+
+1. **Start the dev server** from the repo root with `npm run serve` (skip if one is already running for this project).
+2. **Read the server URL** from the terminal output (Eleventy prints it, e.g. `http://localhost:8080/` — the port may differ).
+3. **Reply with a clickable link** for the user: that URL plus `buildlog.html` (no double slash if the printed URL already ends with `/`). Example: `http://localhost:8080/buildlog.html`. The user opens it in their browser to confirm layout and copy.
