@@ -9,6 +9,18 @@ body.buildlog-page {
     color: #e5e7eb;
 }
 
+/* Treasury month cards (about/treasury.html): spacing around section rules.
+   Border + padding on one box avoids margin-collapsing between a bare rule line and the next block. */
+body.buildlog-page .mv-treasury-sep {
+    margin-top: 2rem;
+}
+
+body.buildlog-page .mv-treasury-sep-inner {
+    display: flow-root;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2.5rem;
+}
+
 /* Hero Section */
 .buildlog-hero {
     max-width: 900px;

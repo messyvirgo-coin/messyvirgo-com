@@ -2,6 +2,8 @@
 module.exports = {
   content: [
     "./*.html",
+    "./about/**/*.html",
+    "./legal/**/*.html",
     "./dapps/**/*.html",
     "./blog/**/*.njk",
     "./_blog/**/*.md",
