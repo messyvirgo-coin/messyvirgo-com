@@ -10,20 +10,20 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.messyvirgo.com/blog/{{ page.date | dateFilter }}/{{ title | slugify }}/">
+    <meta property="og:url" content="https://www.messyvirgo.com{{ page.url }}">
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description or 'Read this post on the MESSY blog' }}">
     <meta property="og:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.messyvirgo.com/blog/{{ page.date | dateFilter }}/{{ title | slugify }}/">
+    <meta property="twitter:url" content="https://www.messyvirgo.com{{ page.url }}">
     <meta property="twitter:title" content="{{ title }}">
     <meta property="twitter:description" content="{{ description or 'Read this post on the MESSY blog' }}">
     <meta property="twitter:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.messyvirgo.com/blog/{{ page.date | dateFilter }}/{{ title | slugify }}/">
+    <link rel="canonical" href="https://www.messyvirgo.com{{ page.url }}">
     {% include "partials/head-common.njk" %}
     
     <!-- Structured Data -->
