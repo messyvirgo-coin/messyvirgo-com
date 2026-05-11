@@ -1,0 +1,29 @@
+---
+description: Project-wide workflow rules for editing the Messy Virgo public website.
+alwaysApply: true
+---
+
+# Messy Virgo Website Workflow
+
+Public static Eleventy + Tailwind site. Always follow these boundaries and steps.
+
+## Source Boundaries
+- Edit **only** source files: `*.html`, `about/**/*.html`, `legal/**/*.html`, `dapps/**/*.html`, `blog/**/*.njk`, `_blog/_posts/**/*.md`, `_includes/**/*.njk`, `css/**/*.css`, `js/**/*.js`, config/docs.
+- Never hand-edit `_site/` (generated, gitignored) or `css/tailwind.css` (generated; always rebuild).
+- Do not add dependencies unless explicitly requested and truly required.
+
+## Commands
+- `npm ci` — install
+- `npm run build:css` — Tailwind only
+- `npm run build` — full site (CSS + Eleventy)
+- Preview: `npm run watch:css` + `npm run serve` (separate terminals). `npm run dev` = Eleventy only (no Tailwind rebuild).
+
+## Required Verification (non-negotiable)
+- Any change to Tailwind classes (HTML/Nunjucks/MD/JS), `css/**/*.css`, or `tailwind.config.js` → run `npm run build:css`.
+- Before finishing any source change → run `npm run build`.
+- Visual changes → preview the public URL at both mobile and desktop widths.
+
+## Specialized Skills
+- Blog posts → `publish-blog-post`
+- Weekly build logs → `messyvirgo-weekly-buildlog`
+- General page edits → `messyvirgo-edit-webpage`

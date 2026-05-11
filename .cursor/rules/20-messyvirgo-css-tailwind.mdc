@@ -1,0 +1,44 @@
+---
+description: Tailwind and CSS build rules for the Messy Virgo website.
+globs:
+  - "css/**/*.css"
+  - "tailwind.config.js"
+  - "*.html"
+  - "about/**/*.html"
+  - "legal/**/*.html"
+  - "dapps/**/*.html"
+  - "blog/**/*.njk"
+  - "_blog/_posts/**/*.md"
+  - "_includes/**/*.njk"
+  - "js/**/*.js"
+alwaysApply: false
+---
+
+# CSS and Tailwind Rules
+
+Follow project workflow (rule 00) and page editing rules (rule 10). These rules own CSS/Tailwind specifics.
+
+## Build System
+- Input: `css/input.css` (Tailwind directives only — keep clean).
+- Output: `css/tailwind.css` (generated; tracked but never hand-edit).
+- `npm run build:css` — Tailwind only.
+- `npm run build` — full verification.
+
+## Where Styles Live
+- **Tailwind utilities** in markup for layout, spacing, typography, responsive.
+- **Shared/reusable** → `css/base.css` (tokens, nav, buttons, cards, links, footer, effects).
+- **Page-local only** → the existing page-specific files (`litepaper.css`, `buildlog.css`, `founder-profiles.css`). Create a new one only if truly justified.
+- Never put site-wide styles in `input.css` or inline `<style>` unless matching an existing local pattern.
+
+## Tailwind Scanning
+- Content paths live in `tailwind.config.js`. Adding new directories/templates that use Tailwind classes requires updating `content` + running `npm run build:css`.
+
+## Rebuild Triggers (mandatory)
+- Tailwind class changes in HTML/Nunjucks/Markdown/JS (including generated strings).
+- Any `css/**/*.css` or `tailwind.config.js` edit.
+- Always run `npm run build:css` then `npm run build` before finishing.
+
+## Guardrails
+- Align `--mv-*` tokens in `base.css` with existing values.
+- Prefer existing classes (`.mv-*`, `.glassmorphism`, `.text-gradient`, etc.).
+- Hover effects: subtle, consistent with current translate/border/glow/glass patterns.

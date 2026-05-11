@@ -1,0 +1,37 @@
+---
+description: Page structure, content, SEO, accessibility, and consistency rules for Messy Virgo website source files.
+globs:
+  - "*.html"
+  - "about/**/*.html"
+  - "legal/**/*.html"
+  - "dapps/**/*.html"
+  - "blog/**/*.njk"
+  - "_blog/_posts/**/*.md"
+  - "_includes/**/*.njk"
+alwaysApply: false
+---
+
+# Page Editing Rules
+
+Follow the project workflow (rule 00) and CSS/Tailwind rules (rule 20). These rules add page-specific guardrails.
+
+## Structure
+- Preserve Eleventy front matter + existing `permalink` (unless explicitly moving a page).
+- Use shared includes on full HTML pages: `partials/head-common.njk`, `partials/nav.njk`, `partials/footer.njk`.
+- Keep `#scroll-progress`, `.aurora-bg`, and `/js/main.js` unless deliberately omitting.
+- Reuse nearby sections/cards/markup before inventing new patterns.
+
+## Visual Consistency (see AGENTS.md for full system)
+- Default shell: `bg-gray-900 text-gray-200`.
+- Headers: `.mv-page-header` + `.text-gradient`.
+- Sections: `.mv-section`.
+- Cards: `.mv-card` and/or `.glassmorphism` (existing padding/rounded/border/hover).
+- Fonts: Inter (body), Playfair Display (headings). No new fonts.
+- Accents: pink/gold primary; others only for status/category.
+
+## Content, Safety, SEO, Accessibility
+- Keep copy factual, concise, public-safe. No secrets, private data, financial advice, performance promises, or "buy/sell/hold" language.
+- External links: `target="_blank" rel="noopener noreferrer"`.
+- New/major pages: match title, meta description, OG/Twitter, canonical (`https://www.messyvirgo.com/`), and structured data of nearby pages. Update `sitemap.xml.njk` when needed.
+- Images: meaningful `alt` (unless purely decorative). Interactive elements need accessible text/`aria-label`.
+- Responsive: mobile-first, no overflow/overlap/clipped text.
