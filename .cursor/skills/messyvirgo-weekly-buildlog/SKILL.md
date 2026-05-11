@@ -73,6 +73,3 @@ In `sitemap.xml.njk`, set `<lastmod>` for the buildlog URL to the **week’s end
 - [ ] `data-week` and display line match repo conventions and use en dashes in the visible week line.
 - [ ] Build log `lastmod` in `sitemap.xml.njk` matches the week end date.
 
-## Related
-
-- Slash command: `.cursor/commands/messy-add-weekly-buildlog.md` (same workflow; file path is `about/buildlog.html`).
