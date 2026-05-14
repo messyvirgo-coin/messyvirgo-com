@@ -1,5 +1,5 @@
 ---
-title: "Messy Virgo May Raffle — Rules, Prizes & Terms"
+title: "Messy Virgo May Raffle – Rules, Prizes & Terms"
 date: 2026-05-04
 description: "Official rules and terms for the May 2026 Messy Virgo raffle and holder loyalty tiers: 3M $MESSY prize pool, DEX and postcard entry, June 15 snapshot, eligibility, exclusions, and Swiss governing law."
 tags: [messy-virgo, raffle, dao, messy-token, legal]
@@ -71,7 +71,7 @@ You can participate for free without making any DEX buy.
 
 Postcard entries receive **10 free raffle tickets.**
 
-Both entry routes (DEX Buy and Postcard) are treated equally for the raffle draw — the winning chances are identical.
+Both entry routes (DEX Buy and Postcard) are treated equally for the raffle draw – the winning chances are identical.
 
 ***
 
@@ -150,11 +150,11 @@ May 2026 is **Cohort 1**.
 The following are not eligible to participate:
 
 - Employees, co-founders, contractors, or agents of Messy Virgo DAO and their immediate family members (for raffle prizes only)
-- **U.S. persons** — residents, citizens, or entities organized under U.S. law
-- **Sanctioned individuals or entities** — OFAC, UN, EU, or Swiss SECO
+- **U.S. persons** – residents, citizens, or entities organized under U.S. law
+- **Sanctioned individuals or entities** – OFAC, UN, EU, or Swiss SECO
 - **Residents of crypto-banned jurisdictions**
-- **EU/EEA residents** — does not target EU users; participation is via reverse solicitation only; participants from EU/EEA are solely responsible for their own MiCA compliance
-- **Under 18** — must be 18 or older
+- **EU/EEA residents** – does not target EU users; participation is via reverse solicitation only; participants from EU/EEA are solely responsible for their own MiCA compliance
+- **Under 18** – must be 18 or older
 - Any wallet engaging in **wash-trading, sybil attacks, or manipulation** (at sole discretion of Messy Virgo DAO)
 
 ***
@@ -177,7 +177,7 @@ By participating, you consent to the processing of your wallet address and (if p
 
 - We do not guarantee any particular prize outcome for any participant
 - Messy Virgo DAO is not responsible for technical failures, blockchain issues, DEX outages, or other technical problems
-- Messy Virgo DAO is not responsible for the market price of $MESSY — prizes are in $MESSY, not USD
+- Messy Virgo DAO is not responsible for the market price of $MESSY – prizes are in $MESSY, not USD
 - $MESSY is a cryptocurrency carrying significant market risk
 
 ***

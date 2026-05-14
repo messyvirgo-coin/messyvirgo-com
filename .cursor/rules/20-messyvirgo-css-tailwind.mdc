@@ -19,10 +19,10 @@ alwaysApply: false
 Follow project workflow (rule 00) and page editing rules (rule 10). These rules own CSS/Tailwind specifics.
 
 ## Build System
-- Input: `css/input.css` (Tailwind directives only — keep clean).
+- Input: `css/input.css` (Tailwind directives only – keep clean).
 - Output: `css/tailwind.css` (generated; tracked but never hand-edit).
-- `npm run build:css` — Tailwind only.
-- `npm run build` — full verification.
+- `npm run build:css` – Tailwind only.
+- `npm run build` – full verification.
 
 ## Where Styles Live
 - **Tailwind utilities** in markup for layout, spacing, typography, responsive.

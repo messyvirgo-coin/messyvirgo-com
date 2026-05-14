@@ -23,12 +23,12 @@ It answers: given today's evidence and this sleeve's rules, which candidates sho
 
 The report contains:
 
-- **Candidates of the day** — the shortlist to review
-- **Reasons** — why each token qualified under the current playbook
-- **Process narrative** — how the screen was executed
-- **Coverage context** — completeness of the underlying evidence
-- **Evidence snapshot** — reference to the exact prepared data used
-- **Fund trace** — a durable artifact that other fund surfaces can reference
+- **Candidates of the day** – the shortlist to review
+- **Reasons** – why each token qualified under the current playbook
+- **Process narrative** – how the screen was executed
+- **Coverage context** – completeness of the underlying evidence
+- **Evidence snapshot** – reference to the exact prepared data used
+- **Fund trace** – a durable artifact that other fund surfaces can reference
 
 This report is the primary, reviewable record for the sleeve on that day.
 
@@ -70,11 +70,11 @@ Every sleeve uses its own playbook. This lets different strategies screen differ
 
 A playbook includes:
 
-- Library queries — reusable screening patterns available to all sleeves
-- Custom queries — sleeve-specific logic for its mandate
-- Workflow order — the saved sequence of steps
-- Interpretation instructions — guidance for operators or assistants reading the output
-- Aggregation rules — how recent daily runs should be summarized into the aggregate view
+- Library queries – reusable screening patterns available to all sleeves
+- Custom queries – sleeve-specific logic for its mandate
+- Workflow order – the saved sequence of steps
+- Interpretation instructions – guidance for operators or assistants reading the output
+- Aggregation rules – how recent daily runs should be summarized into the aggregate view
 
 Playbooks are edited independently. Changing one updates future behavior but does not create, modify, or delete existing daily or aggregate reports. This keeps experimentation separate from the official fund record.
 
@@ -109,7 +109,7 @@ Gaps remain part of the record, supporting more honest decisions.
 
 ## On the roadmap
 
-Part 1 described market preparation. This post completes the screening side: from prepared evidence through daily runs and aggregates to committee-ready artifacts. The pipeline stops short of portfolio construction, custody, or execution—those come later.
+Part 1 described market preparation. This post completes the screening side: from prepared evidence through daily runs and aggregates to committee-ready artifacts. The pipeline stops short of portfolio construction, custody, or execution–those come later.
 
 The near-term focus is making daily reports immediately useful, strengthening the aggregates, and ensuring every step remains inspectable by both humans and assistants.
 

@@ -21,7 +21,7 @@ On this blog, you can expect regular updates covering:
 
 ## Why Messy Virgo Coin ($MESSY) Blogs
 
-At Messy Virgo, we believe in transparency and education. Our blog isn't just about sharing news—it's about helping our community understand the "why" behind our decisions, the "how" of our technology, and the "where" we're headed.
+At Messy Virgo, we believe in transparency and education. Our blog isn't just about sharing news–it's about helping our community understand the "why" behind our decisions, the "how" of our technology, and the "where" we're headed.
 
 Whether you're a seasoned DeFi enthusiast, an AI researcher, or just curious about the future of autonomous fund management, there's something here for you.
 

@@ -7,7 +7,7 @@ description: Creates a new MESSY blog post from textual input in _blog/_posts wi
 
 ## When this applies
 
-The user supplies (or you infer) post content—notes, a draft, bullet outline, or full prose. Your job is to add **one new file** under `_blog/_posts/` that matches existing posts and `_blog/README.md`.
+The user supplies (or you infer) post content–notes, a draft, bullet outline, or full prose. Your job is to add **one new file** under `_blog/_posts/` that matches existing posts and `_blog/README.md`.
 
 ## File naming
 
@@ -30,7 +30,7 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 ---
 ```
 
-- **title**: Quoted string; can include punctuation (e.g. `%`, em dash) in the title itself—filename slug stays ASCII-safe.
+- **title**: Quoted string; can include punctuation (e.g. `%`, em dash) in the title itself–filename slug stays ASCII-safe.
 - **description**: Concrete summary of the post; not clickbait; matches opening sections.
 - **tags**: Lowercase, hyphenated topics consistent with recent posts (e.g. `messy-virgo`, product areas). Omit or use `[]` only if the user explicitly wants no tags; otherwise infer 2–5 tags from content.
 

@@ -33,7 +33,7 @@ Follow AGENTS.md + the three `.cursor/rules/` files. This skill provides the act
 
 ## Verification (mandatory before handoff)
 1. `npm run build`
-2. Visual change? → `npm run serve` + check mobile/desktop widths on the public URL.
+2. Visual change? → `npm run dev` (or `npm run serve` if Tailwind is already watching) + check mobile/desktop widths on the local URL.
 3. `git status --short` should show only intentional source changes (+ generated `css/tailwind.css` if applicable).
 
 ## Done Criteria

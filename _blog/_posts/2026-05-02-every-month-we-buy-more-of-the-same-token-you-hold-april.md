@@ -1,7 +1,7 @@
 ---
 title: "Every Month, We Buy More Of The Same Token You Hold (April)"
 date: 2026-05-02
-description: "April infra was 1,300 USD. Here is how we settled books so vendors got fiat, the DAO did not dump MESSY, and both co-founders ended the month with more MESSY exposure—not less."
+description: "April infra was 1,300 USD. Here is how we settled books so vendors got fiat, the DAO did not dump MESSY, and both co-founders ended the month with more MESSY exposure–not less."
 tags: [messy-virgo, treasury, dao, transparency]
 layout: post.njk
 permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html

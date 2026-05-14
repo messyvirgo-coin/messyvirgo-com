@@ -7,8 +7,8 @@ description: Adds a new weekly build log entry to the Messy Virgo site at the to
 
 ## Files
 
-- **Build log source**: `about/buildlog.html` (Eleventy `permalink: /buildlog.html` — not a root-level `buildlog.html`).
-- **Sitemap**: `sitemap.xml.njk` — update the `<url>` whose `<loc>` is `https://www.messyvirgo.com/buildlog.html`.
+- **Build log source**: `about/buildlog.html` (Eleventy `permalink: /buildlog.html` – not a root-level `buildlog.html`).
+- **Sitemap**: `sitemap.xml.njk` – update the `<url>` whose `<loc>` is `https://www.messyvirgo.com/buildlog.html`.
 
 ## Input from the user
 
@@ -22,17 +22,17 @@ If unclear, ask for:
 - **Display**: `Week of March 2–8, 2026` (en dash between day numbers).
 - **`data-week`**: short month, hyphen between days, e.g. `Mar 2-8, 2026`.
 
-**Cross-month weeks**: match existing entries — e.g. `data-week="Feb 23-Mar 1, 2026"` and display `Week of February 23, 2026 – March 1, 2026` (spelled month + en dash around the year break).
+**Cross-month weeks**: match existing entries – e.g. `data-week="Feb 23-Mar 1, 2026"` and display `Week of February 23, 2026 – March 1, 2026` (spelled month + en dash around the year break).
 
 ## Section order inside each entry
 
 Always this order (reorder user bullets if they paste sections out of order):
 
-1. Marketing — `text-pink-400` heading, `mb-6` wrapper.
-2. Business & Operations — `text-orange-400`, `Business &amp; Operations` in the heading, `mb-6` wrapper.
-3. Product Development — `text-blue-400`, last block uses `<div>` without `mb-6` on the outer section (same as existing entries).
+1. Marketing – `text-pink-400` heading, `mb-6` wrapper.
+2. Business & Operations – `text-orange-400`, `Business &amp; Operations` in the heading, `mb-6` wrapper.
+3. Product Development – `text-blue-400`, last block uses `<div>` without `mb-6` on the outer section (same as existing entries).
 
-Copy structure, classes, and nesting from the **current newest** `.buildlog-entry` — do not invent new markup.
+Copy structure, classes, and nesting from the **current newest** `.buildlog-entry` – do not invent new markup.
 
 ## HTML snippet pattern
 
@@ -52,13 +52,13 @@ Each week is one `.buildlog-entry`:
   2. CTA `section`
   3. All older `.buildlog-entry` blocks (newest-first)
 
-**Do not** change CTA inner content when moving it — only position.
+**Do not** change CTA inner content when moving it – only position.
 
 ## Insert workflow (avoid dropping a week)
 
 1. Open `about/buildlog.html`, find `      <div class="buildlog-timeline text-left">`.
 2. **Preferred**: Insert the new complete `.buildlog-entry` **immediately after** the opening timeline div, then move the CTA to sit **between** the new entry and the **former** top entry.
-3. **Or** replace only the former top entry’s opening tag through its closing `</div>` with: `new entry` + `CTA` + `same former top entry` — never delete the previous week’s full block unless intentionally archiving.
+3. **Or** replace only the former top entry’s opening tag through its closing `</div>` with: `new entry` + `CTA` + `same former top entry` – never delete the previous week’s full block unless intentionally archiving.
 4. Confirm with search: `Community CTA Section` count is **1**.
 5. Confirm order: first `.buildlog-entry` is the new week; entry after `</section>` is the previous week.
 

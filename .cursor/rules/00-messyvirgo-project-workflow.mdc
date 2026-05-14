@@ -13,10 +13,10 @@ Public static Eleventy + Tailwind site. Always follow these boundaries and steps
 - Do not add dependencies unless explicitly requested and truly required.
 
 ## Commands
-- `npm ci` — install
-- `npm run build:css` — Tailwind only
-- `npm run build` — full site (CSS + Eleventy)
-- Preview: `npm run watch:css` + `npm run serve` (separate terminals). `npm run dev` = Eleventy only (no Tailwind rebuild).
+- `npm ci` – install
+- `npm run build:css` – Tailwind only
+- `npm run build` – full site (CSS + Eleventy)
+- Preview: `npm run dev` (Tailwind watch + Eleventy), or `npm run watch:css` + `npm run serve` in separate terminals.
 
 ## Required Verification (non-negotiable)
 - Any change to Tailwind classes (HTML/Nunjucks/MD/JS), `css/**/*.css`, or `tailwind.config.js` → run `npm run build:css`.

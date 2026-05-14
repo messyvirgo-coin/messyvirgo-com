@@ -18,8 +18,16 @@ This repo is public for transparency and collaboration, but it is also an **offi
 ### Development Server (Recommended)
 ```bash
 npm ci
-npm run watch:css  # Terminal 1: Watch CSS changes
-npm run serve      # Terminal 2: Eleventy dev server at http://localhost:8080
+npm run dev
+```
+
+This runs **Tailwind in watch mode** and the **Eleventy dev server** together (default **http://localhost:8080**). Press `Ctrl+C` once to stop both.
+
+To run them in separate terminals instead:
+
+```bash
+npm run watch:css  # Terminal 1
+npm run serve      # Terminal 2
 ```
 
 ### Static Server (Alternative)
@@ -97,11 +105,11 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 Your markdown content here...
 ```
 
-Build and test: `npm run build && npm run serve` → visit `http://localhost:8080/blog/`
+While editing: keep `npm run dev` running and visit `http://localhost:8080/blog/`. Before a PR, run `npm run build`.
 
 ## Deployment
 
-Static site deployable to GitHub Pages, Netlify, Vercel, or any static host. The `CNAME` file configures the custom domain (www.messyvirgo.com). GitHub Actions automatically builds and deploys on push to `main`. All JavaScript runs client-side—no server required.
+Static site deployable to GitHub Pages, Netlify, Vercel, or any static host. The `CNAME` file configures the custom domain (www.messyvirgo.com). GitHub Actions automatically builds and deploys on push to `main`. All JavaScript runs client-side–no server required.
 
 ## License
 

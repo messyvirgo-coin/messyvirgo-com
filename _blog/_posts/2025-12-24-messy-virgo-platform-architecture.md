@@ -7,7 +7,7 @@ layout: post.njk
 permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 ---
 
-Messy Virgo is a platform for building a suite of tools that help crypto teams move from “gut feel” to **structured, testable decisions**—with humans in the loop. One major part of that suite is our **Due Diligence Engine**, which is built from focused, composable analysis modules we call **Lenses**.
+Messy Virgo is a platform for building a suite of tools that help crypto teams move from “gut feel” to **structured, testable decisions**–with humans in the loop. One major part of that suite is our **Due Diligence Engine**, which is built from focused, composable analysis modules we call **Lenses**.
 
 Today, the **[Technical Analysis Lens](/dapps/crypto-token-technical-analysis.html)** is in an alpha release available for the community for free and already delivering value. Right now, we're building the **Macro Economics Lens** (global macro signals that don't depend on a token contract) and planning additional lenses that will complete our Due Diligence Engine which is due in Q1/26.
 
@@ -87,7 +87,7 @@ flowchart LR
 
 - The **API service** is the public entry point for running analyses, retrieving results, and generating artifacts.
 - The **worker** handles long‑running or queued work (lens execution, variant generation, scheduled refresh), scaling with demand.
-- An **external scheduler** (a lightweight cron job) periodically triggers a single database RPC that claims due work and enqueues it—keeping scheduling logic in the database, not in application code.
+- An **external scheduler** (a lightweight cron job) periodically triggers a single database RPC that claims due work and enqueues it–keeping scheduling logic in the database, not in application code.
 - **Managed Postgres (Supabase)** stores persisted analysis results and supports safe, atomic operations.
 - A **Postgres‑backed queue** (via `pgmq`) allows reliable async processing without introducing a separate message broker at this stage.
 
@@ -163,8 +163,8 @@ flowchart LR
 - **Data**: fetch and cache raw data from external sources; tolerate partial failures.
 - **Info**: compute deterministic facts and metrics (KPIs, derived values, summaries).
 - **Insight**: optional narrative or higher‑level interpretation (sometimes AI‑assisted, always provenance‑aware).
-- **Output**: generate the base artifact—a structured report for humans and machines.
-- **Variants**: the base output is adapted into multiple variants along two dimensions—**language** (12+ languages via LLM translation) and **audience** (e.g., allocator, trader, degen)—each generated asynchronously without re‑running the pipeline.
+- **Output**: generate the base artifact–a structured report for humans and machines.
+- **Variants**: the base output is adapted into multiple variants along two dimensions–**language** (12+ languages via LLM translation) and **audience** (e.g., allocator, trader, degen)–each generated asynchronously without re‑running the pipeline.
 
 All client‑facing reports are served from variants, not directly from the base output. The default variant (English, full report) is a zero‑cost passthrough copy; non‑default variants use LLM‑based translation and audience adaptation.
 
@@ -206,7 +206,7 @@ Our data strategy is pragmatic: store what we need to make results **reproducibl
 - **Persisted lens processes**: each lens execution stores a structured record of stages and outputs. This makes analyses shareable, exportable, and auditable at a high level.
 - **Provider caches (raw responses)**: we cache upstream provider fetch results to reduce cost, avoid rate limits, and improve latency. This is especially valuable for repeat analysis and for new lenses that reuse the same underlying data.
 - **Response caching (normalized outputs)**: we also cache lens-ready, normalized responses (not just raw provider payloads) so repeated runs can skip recomputation when inputs and freshness constraints allow.
-- **On-demand artifacts**: we can build outputs (reports/exports) on-demand—or regenerate them on-demand—using the persisted process state plus cached provider/response data.
+- **On-demand artifacts**: we can build outputs (reports/exports) on-demand–or regenerate them on-demand–using the persisted process state plus cached provider/response data.
 
 We also lean on database‑side atomic operations (via safe API patterns) to avoid race conditions when multiple workers or requests touch the same logical “process”.
 
@@ -214,11 +214,11 @@ We also lean on database‑side atomic operations (via safe API patterns) to avo
 
 ## Published artifacts: always‑ready endpoints
 
-Some lens outputs should be **always available**—partner integrations and public dashboards shouldn’t have to trigger an execution and poll for results. The platform solves this with a **published artifact** pattern:
+Some lens outputs should be **always available**–partner integrations and public dashboards shouldn’t have to trigger an execution and poll for results. The platform solves this with a **published artifact** pattern:
 
-- **Published pointers**: a stable key (e.g., `macro_economics:report:en:allocator_daily`) points to the “currently active” completed variant. Dedicated API endpoints return the published artifact immediately with a `200 OK`—no execution, no polling.
+- **Published pointers**: a stable key (e.g., `macro_economics:report:en:allocator_daily`) points to the “currently active” completed variant. Dedicated API endpoints return the published artifact immediately with a `200 OK`–no execution, no polling.
 - **Stale‑but‑serveable**: if a scheduled refresh fails, the endpoint continues serving the last known good artifact (with staleness metadata) rather than returning an error.
-- **DB‑driven scheduling**: refresh and publish schedules live in the database, not in application code. A lightweight external scheduler (a cron job) periodically calls a single database RPC that claims due work and atomically enqueues queue messages—the worker then picks them up.
+- **DB‑driven scheduling**: refresh and publish schedules live in the database, not in application code. A lightweight external scheduler (a cron job) periodically calls a single database RPC that claims due work and atomically enqueues queue messages–the worker then picks them up.
 - **Group publish**: for lenses like Macro Economics, a single base execution produces an entire “edition” of variants (multiple audiences × languages). The group publish mechanism ensures exactly one base run per cycle, then fans out to generate and publish all configured variants from that shared base.
 
 ```mermaid
@@ -237,7 +237,7 @@ flowchart LR
   VN --> PUB
 ```
 
-This means partner integrations and public‑facing surfaces can query a stable endpoint and always get a response—while the platform handles refresh timing, variant generation, and failure recovery behind the scenes.
+This means partner integrations and public‑facing surfaces can query a stable endpoint and always get a response–while the platform handles refresh timing, variant generation, and failure recovery behind the scenes.
 
 ---
 
@@ -262,7 +262,7 @@ We intentionally keep the public surface area small and the sensitive details pr
 - We follow **least‑privilege** access patterns between services, storage, and providers.
 - The system includes **rate limiting and usage tracking** as first‑class platform concerns.
 
-We avoid publishing implementation details that would meaningfully help an attacker (exact endpoints, internal toggles, schema internals, or operational runbooks). The goal is transparency about architecture—not a blueprint for exploitation.
+We avoid publishing implementation details that would meaningfully help an attacker (exact endpoints, internal toggles, schema internals, or operational runbooks). The goal is transparency about architecture–not a blueprint for exploitation.
 
 ---
 
@@ -274,7 +274,7 @@ We optimize tests around what breaks most often in platforms like this:
 - **Provider parsing tests**: validate that provider responses (or fixtures) map correctly into our internal schemas.
 - **API‑level tests**: validate core flows (execute, retrieve, export) without “testing the framework”.
 
-The end result is a suite that catches regressions early while keeping iteration speed high—especially important when adding new lenses or providers.
+The end result is a suite that catches regressions early while keeping iteration speed high–especially important when adding new lenses or providers.
 
 ---
 
@@ -310,7 +310,7 @@ This post focuses on the “Research” layer of the stack (and the plumbing tha
 
 ## Why this architecture matters for AI‑assisted fund operations
 
-AI‑assisted workflows need more than “an answer”—they need:
+AI‑assisted workflows need more than “an answer”–they need:
 
 - **Repeatable pipelines** (so results are explainable),
 - **provenance and confidence** (so agents can reason),

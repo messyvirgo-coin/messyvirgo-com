@@ -2,7 +2,7 @@
 
 Thanks for your interest in contributing to Messy Virgo.
 
-This repo is the **public website** for `messyvirgo.com`. It’s public for transparency and collaboration, but it is also an **official communication channel**—so the maintainers retain editorial control over what gets merged.
+This repo is the **public website** for `messyvirgo.com`. It’s public for transparency and collaboration, but it is also an **official communication channel**–so the maintainers retain editorial control over what gets merged.
 
 ## Ground rules
 
@@ -40,8 +40,14 @@ npm ci
 Run the recommended dev workflow:
 
 ```bash
+npm run dev
+```
+
+This starts Tailwind in watch mode and the Eleventy dev server together (default **http://localhost:8080**). To run them in two terminals instead:
+
+```bash
 npm run watch:css  # Terminal 1
-npm run serve      # Terminal 2 (Eleventy at http://localhost:8080)
+npm run serve      # Terminal 2
 ```
 
 ### Important: don’t edit generated output

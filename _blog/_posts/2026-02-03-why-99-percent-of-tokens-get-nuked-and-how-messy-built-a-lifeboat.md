@@ -1,5 +1,5 @@
 ---
-title: "Why 99% of Tokens Get Nuked—And How Messy Built a Lifeboat"
+title: "Why 99% of Tokens Get Nuked–And How Messy Built a Lifeboat"
 date: 2026-02-03
 description: "Why Messy Virgo engineered transparent defenses to survive the 2025 token extinction event that destroyed millions of projects."
 tags: [messy-virgo, survival, treasury, dao]
@@ -11,7 +11,7 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 
 Around **11.6 million tokens failed in a single year, and more than half of all tokens launched since 2021 are already dead.** Most followed the same tired script: Launch fast, pump the chart, vanish into the abyss. It’s a 24/7 PvP bloodbath where the default outcome is zero.
 
-**Messy didn't just launch into this extinction era—it was designed to survive it.** Here’s how we’re flipping the script.
+**Messy didn't just launch into this extinction era–it was designed to survive it.** Here’s how we’re flipping the script.
 
 ### **The Death Peak Context**
 
@@ -42,7 +42,7 @@ The standard playbook is: Launch in minutes, pray for a vertical chart, and ghos
 
 ### **The DAO: Governance as an Upgrade, Not a Hook**
 
-Most DAOs are just "dead tokens in a trench coat"—a Discord server and a multisig with no purpose. **Messy Virgo DAO** flips the order:
+Most DAOs are just "dead tokens in a trench coat"–a Discord server and a multisig with no purpose. **Messy Virgo DAO** flips the order:
 
 1. **Prove the tech:** The Market Data Hub and AI agents have to work on-chain first.  
 2. **Secure the bag:** The treasury is anchored in Safe Wallets with a real Swiss legal wrapper.  
@@ -50,6 +50,6 @@ Most DAOs are just "dead tokens in a trench coat"—a Discord server and a multi
 
 ### **Survival is the Ultimate Flex**
 
-We won’t pretend we’re invincible—crypto is volatile and drawdowns happen. But the bet is simple:
+We won’t pretend we’re invincible–crypto is volatile and drawdowns happen. But the bet is simple:
 
 In a market addicted to opacity and hype, the winners will be the ones who are **inspectable, audited, and useful.** While 99% of tokens are heading for the bin, $MESSY is built to be the 1% that’s still here, still building, and still on-chain years from now.

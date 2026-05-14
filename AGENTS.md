@@ -11,13 +11,13 @@ This is the public Messy Virgo website: a static Eleventy site using Tailwind CS
 - Install: `npm ci`
 - Build CSS only: `npm run build:css`
 - Full build: `npm run build`
-- Preview: run `npm run watch:css` and `npm run serve` in separate terminals (`npm run dev` is Eleventy-only and does not rebuild Tailwind)
+- Preview: `npm run dev` (Tailwind watch + Eleventy at http://localhost:8080), or run `npm run watch:css` and `npm run serve` in separate terminals
 
 ## Required Workflow (always follow)
 1. Read the relevant source file(s) and nearby examples first.
 2. Edit source only.
 3. After any Tailwind class, CSS, or config change, run `npm run build:css`.
 4. Before handing off, always run `npm run build`.
-5. For visual changes, preview with `npm run serve` (mobile + desktop).
+5. For visual changes, preview with `npm run dev` (or `npm run serve` if CSS is already built) at mobile + desktop widths.
 
 Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.

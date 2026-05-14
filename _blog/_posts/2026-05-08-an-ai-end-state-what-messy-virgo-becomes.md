@@ -33,7 +33,7 @@ Messy Virgo already has the foundations of this architecture: a Market Data Hub,
 
 The end-state is what those pieces become once fully integrated.
 
-![Messy Virgo in the AI-native command center — the Market Data Hub and Due Diligence Engine visualized as a living, transparent intelligence layer.](/images/blog/messy-ai-endstate-1.png)
+![Messy Virgo in the AI-native command center – the Market Data Hub and Due Diligence Engine visualized as a living, transparent intelligence layer.](/images/blog/messy-ai-endstate-1.png)
 
 *The Market Data Hub and Due Diligence Engine as one living, transparent intelligence layer.*
 
@@ -69,7 +69,7 @@ When fully realized, that system runs a continuous loop:
 
 At that point, the agent is neither a gimmick nor a black box. It is an operating system for disciplined, repeatable capital deployment.
 
-![The Autonomous Fund Agent in action — the continuous loop of universe definition, lens scoring, simulation, position sizing, on-chain execution, and reassessment.](/images/blog/messy-ai-endstate-2.png)
+![The Autonomous Fund Agent in action – the continuous loop of universe definition, lens scoring, simulation, position sizing, on-chain execution, and reassessment.](/images/blog/messy-ai-endstate-2.png)
 
 *The continuous loop of an AI-native fund agent: define, score, simulate, size, execute, reassess.*
 
