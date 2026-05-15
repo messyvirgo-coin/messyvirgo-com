@@ -1,3 +1,7 @@
+const fs = require("fs");
+const path = require("path");
+const { fetchFundUpdateData } = require("./scripts/lib/fetch-fund-update-data");
+
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-syntaxhighlight"));
@@ -79,6 +83,34 @@ module.exports = function (eleventyConfig) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     return `${year}/${month}`;
+  });
+
+  // Frozen snapshot for archived Fund / Signal blog posts
+  eleventyConfig.addGlobalData("eleventyComputed", {
+    fu: async (data) => {
+      const snapId = data.fundUpdateSnapshot;
+      if (!snapId) return null;
+
+      const snapPath = path.join(
+        __dirname,
+        "_blog",
+        "_snapshots",
+        `${snapId}-messy-fund-update.snapshot.json`
+      );
+      if (fs.existsSync(snapPath)) {
+        return JSON.parse(fs.readFileSync(snapPath, "utf8"));
+      }
+
+      console.warn(`[fundUpdate] Snapshot missing: ${snapPath} — fetching live fallback`);
+      return fetchFundUpdateData({
+        useCli: false,
+        snapshotDate: new Date(`${snapId}T12:00:00Z`).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }),
+      });
+    },
   });
 
   return {

@@ -89,11 +89,26 @@ npm run build
 
 Generates the static site in `_site/` directory.
 
+## Fund / Signal updates (automated)
+
+Weekly Fund updates use a **snapshot + stub** pattern (not hand-written HTML):
+
+```bash
+npm run fund-update:publish -- --date YYYY-MM-DD [--update-nav] [--no-cli]
+```
+
+- Stub: `_posts/YYYY-MM-DD-messy-fund-update-week-of-YYYY-MM-DD.md` with `layout: fund-update-post.njk` and `fundUpdateSnapshot: "YYYY-MM-DD"`
+- Snapshot: `_snapshots/YYYY-MM-DD-messy-fund-update.snapshot.json`
+- Skill: `.cursor/skills/messyvirgo-publish-fund-update/SKILL.md`
+
+Do not replace these with a normal `post.njk` + manual body unless intentionally reverting automation.
+
 ## File Structure
 ```
 _blog/
 ├── _posts/              # Your markdown blog posts go here
 │   └── 2024-12-15-welcome-to-messy-blog.md
+├── _snapshots/          # Frozen JSON for Fund / Signal update weeks
 └── README.md           # This file
 
 _includes/

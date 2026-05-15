@@ -26,4 +26,4 @@ This is the public Messy Virgo website: a static Eleventy site using Tailwind CS
 - **Marketing / gradient titles:** use **`font-bold font-sans tracking-tight`** with **`text-gradient`** (see `index.html` hero and section `h2` patterns).
 - **`.font-serif`** (Playfair) exists for edge cases only; do not revert section titles to Playfair without an explicit product decision.
 
-Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.
+Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts, **Fund / Signal updates** (`messyvirgo-publish-fund-update`), and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.

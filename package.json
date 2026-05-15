@@ -10,7 +10,8 @@
     "serve": "eleventy --serve",
     "watch:eleventy": "eleventy --watch",
     "build": "npm run build:css && npm run build:eleventy",
-    "dev": "concurrently -n css,11ty -c cyan,magenta npm:watch:css npm:serve"
+    "dev": "concurrently -n css,11ty -c cyan,magenta npm:watch:css npm:serve",
+    "fund-update:publish": "node scripts/publish-fund-update.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

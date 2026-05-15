@@ -57,7 +57,12 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 ├── about/                 (Treasury, association, imprint, etc.)
 ├── _includes/partials/    (Shared nav, footer, etc.)
 ├── _blog/
-│   └── _posts/            (Blog post markdown files: YYYY-MM-DD-title.md)
+│   ├── _posts/            (Blog post markdown files: YYYY-MM-DD-title.md)
+│   └── _snapshots/        (Frozen JSON for Fund / Signal update weeks)
+├── scripts/
+│   ├── publish-fund-update.js
+│   └── lib/fetch-fund-update-data.js
+├── fund-update.njk        (Live /fund-update/ page)
 ├── blog/
 │   └── index.njk          (Blog listing page)
 ├── css/
@@ -99,6 +104,21 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 - **Gradient section titles** (and similar): use **`font-bold font-sans tracking-tight text-gradient`** in markup (same treatment as the homepage hero headline).
 - **Optional serif:** the Tailwind **`.font-serif`** utility still maps to **Playfair Display** for rare intentional use; do not use it for standard page titles unless there is a specific reason.
 - After changing Tailwind classes in HTML/NJK/MD, run **`npm run build:css`** (see [CONTRIBUTING.md](./CONTRIBUTING.md)).
+
+## Fund / Signal updates (weekly)
+
+Automated weekly posts from Messy Virgo live data:
+
+```bash
+npm run fund-update:publish -- --date 2026-05-22 --update-nav   # new week + latest links
+npm run fund-update:publish -- --no-cli                          # API-only (CI)
+npm run build
+```
+
+- **Archived week:** `/blog/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/` (snapshot in `_blog/_snapshots/`)
+- **Live mirror:** `/fund-update/` (always current at build time)
+
+Agent skill: `.cursor/skills/messyvirgo-publish-fund-update/SKILL.md`
 
 ## Blog Posts
 

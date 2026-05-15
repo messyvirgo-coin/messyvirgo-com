@@ -1,0 +1,525 @@
+{
+  "snapshotDate": "15 May 2026",
+  "publishedAt": "2026-05-15T11:28:00.563Z",
+  "funds": [
+    {
+      "id": "mvf-messybased",
+      "name": "messybased",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-messybased",
+      "nav": "$31.7k",
+      "ret1d": {
+        "value": "+8.0%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "-4.3%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "+32.7%",
+        "cls": "pos"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "64.7",
+          "pnl": 9865.694434272787,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "ETHY",
+          "weight": "13.4",
+          "pnl": 1859.62,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "FACY",
+          "weight": "6.7",
+          "pnl": 359.959667598104,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "WIRE",
+          "weight": "5.8",
+          "pnl": 1214.2677896099133,
+          "color": "#34d399",
+          "warning": false
+        },
+        {
+          "symbol": "CAP",
+          "weight": "5.7",
+          "pnl": 441.4758711137787,
+          "color": "#a78bfa",
+          "warning": false
+        },
+        {
+          "symbol": "VPAY",
+          "weight": "3.8",
+          "pnl": -111.6919999999999,
+          "color": "#f87171",
+          "warning": true
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": "+$0"
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change",
+        "date": "15 May 2026",
+        "shortDate": "15 May",
+        "riskNotes": "Consensus across PM roles endorses full candidate_rotation within high-beta sleeve (100% allocation maintained per 'N' macro regime and preparation brief). Screening aggregates fresh (7-day, 7 runs, full coverage) with persistent leaders (e.g., MUTE 7/7 apps). No policy violations: all capabilities allowed, evidence fresh within thresholds. Bucket weights unchanged (respects 5% session limits)",
+        "certified": true,
+        "executionStatus": "resolved"
+      },
+      "screening": {
+        "runDate": "15 May 2026",
+        "aggDate": "15 May 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "MUTE",
+            "name": "MUTE SWAP by Virtuals",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 6.29 and best rank 4."
+          },
+          {
+            "rank": 2,
+            "symbol": "SHEKEL",
+            "name": "Rabbi Schlomo by Virtuals",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 2.67 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "CRED",
+            "name": "Helixa Cred",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.50 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "HEU",
+            "name": "Heurist",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 7.00 and best rank 3."
+          },
+          {
+            "rank": 5,
+            "symbol": "PR",
+            "name": "Primer",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.40 and best rank 1."
+          },
+          {
+            "rank": 6,
+            "symbol": "ROBA",
+            "name": "ROBA",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 5.40 and best rank 4."
+          },
+          {
+            "rank": 7,
+            "symbol": "DICKBUTT",
+            "name": "Dickbutt",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 2."
+          },
+          {
+            "rank": 8,
+            "symbol": "CPHY",
+            "name": "Cypher Tempre",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.50 and best rank 3."
+          }
+        ]
+      },
+      "positionCount": 6,
+      "pricedAt": "2026-05-15T11:27:59.353373Z"
+    },
+    {
+      "id": "mvf-base-sub3m",
+      "name": "Base Sub 3M",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base-sub3m",
+      "nav": "$11.3k",
+      "ret1d": {
+        "value": "-0.4%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-1.3%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-3.4%",
+        "cls": "neg"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$11,291",
+          "pnl": "+$436"
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change",
+        "date": "15 May 2026",
+        "shortDate": "15 May",
+        "riskNotes": "No hard blocks or policy violations",
+        "certified": true,
+        "executionStatus": "resolved"
+      },
+      "screening": {
+        "runDate": "15 May 2026",
+        "aggDate": "15 May 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "PR",
+            "name": "Primer",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 3.83 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "MOCHI",
+            "name": "Mochi",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 5.20 and best rank 2."
+          },
+          {
+            "rank": 3,
+            "symbol": "DICKBUTT",
+            "name": "Dickbutt",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 5.40 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "SHEKEL",
+            "name": "Rabbi Schlomo by Virtuals",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 1.25 and best rank 1."
+          },
+          {
+            "rank": 5,
+            "symbol": "CRED",
+            "name": "Helixa Cred",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.00 and best rank 3."
+          },
+          {
+            "rank": 6,
+            "symbol": "$BV7X",
+            "name": "BitVault Signal",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.00 and best rank 1."
+          },
+          {
+            "rank": 7,
+            "symbol": "ROBA",
+            "name": "ROBA",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.25 and best rank 6."
+          },
+          {
+            "rank": 8,
+            "symbol": "MIROSHARK",
+            "name": "MiroShark",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.25 and best rank 3."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-05-15T11:27:58.600656Z"
+    },
+    {
+      "id": "mvf-ccl-may05",
+      "name": "Pre-Alpha Council Play",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-ccl-may05",
+      "nav": "$9.6k",
+      "ret1d": {
+        "value": "-6.4%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-1.1%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "SHEKEL",
+          "weight": "14.4",
+          "pnl": 406.6944776,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "BETTER",
+          "weight": "11.1",
+          "pnl": 62.65369368,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "DICKBUTT",
+          "weight": "10.8",
+          "pnl": 32.1842956200001,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "CAP",
+          "weight": "10.5",
+          "pnl": 7.6813836500001,
+          "color": "#34d399",
+          "warning": false
+        },
+        {
+          "symbol": "SIBYL",
+          "weight": "10.4",
+          "pnl": -7.61596501,
+          "color": "#a78bfa",
+          "warning": false
+        },
+        {
+          "symbol": "BENI",
+          "weight": "10.2",
+          "pnl": -24.4908558399999,
+          "color": "#f87171",
+          "warning": false
+        },
+        {
+          "symbol": "1000X",
+          "weight": "9.4",
+          "pnl": -85.5296015999999,
+          "color": "#fb923c",
+          "warning": true
+        },
+        {
+          "symbol": "ANDY",
+          "weight": "8.5",
+          "pnl": -188.1271139999999,
+          "color": "#e879f9",
+          "warning": true
+        },
+        {
+          "symbol": "CRED",
+          "weight": "8.4",
+          "pnl": -197.0582306599999,
+          "color": "#ff69b4",
+          "warning": true
+        },
+        {
+          "symbol": "SEAM",
+          "weight": "6.3",
+          "pnl": -399.6915999999999,
+          "color": "#fbbf24",
+          "warning": true
+        }
+      ],
+      "basePositions": [],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change",
+        "date": "15 May 2026",
+        "shortDate": "15 May",
+        "riskNotes": "All evidence fresh within thresholds (screening 7-day aggregate, holdings, macros 'N' regime, neutral narratives). No hard blocks",
+        "certified": true,
+        "executionStatus": "resolved"
+      },
+      "screening": {
+        "runDate": "15 May 2026",
+        "aggDate": "15 May 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "MUTE",
+            "name": "MUTE SWAP by Virtuals",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 6.14 and best rank 4."
+          },
+          {
+            "rank": 2,
+            "symbol": "SHEKEL",
+            "name": "Rabbi Schlomo by Virtuals",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 2.83 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "CRED",
+            "name": "Helixa Cred",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.33 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "HEU",
+            "name": "Heurist",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 6.67 and best rank 3."
+          },
+          {
+            "rank": 5,
+            "symbol": "PR",
+            "name": "Primer",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.40 and best rank 1."
+          },
+          {
+            "rank": 6,
+            "symbol": "ROBA",
+            "name": "ROBA",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 5.40 and best rank 3."
+          },
+          {
+            "rank": 7,
+            "symbol": "DICKBUTT",
+            "name": "Dickbutt",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.25 and best rank 2."
+          },
+          {
+            "rank": 8,
+            "symbol": "CPHY",
+            "name": "Cypher Tempre",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.50 and best rank 4."
+          }
+        ]
+      },
+      "positionCount": 10,
+      "pricedAt": "2026-05-15T11:27:58.599538Z"
+    }
+  ],
+  "macro": {
+    "score": 57.8,
+    "regime": "Neutral",
+    "summary": "Effective Score: 57.8 (Neutral). This implies a cautiously balanced posture with elevated tail risks offsetting near-term institutional support, warranting defensive positioning and elevated stablecoin allocation as dry powder. The base tailwind is robust institutional adoption: U.S.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "+23.7%",
+      "chg30": "+26.4%",
+      "chg60": "+10.1%",
+      "vsBtc15": "-16.0pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "hot",
+      "pillLabel": "Leading",
+      "rawChg15": 23.6772
+    }
+  },
+  "narratives": [
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "+32.9%",
+      "chg30": "+33.9%",
+      "chg60": "+55.4%",
+      "vsBtc15": "+12.0pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Leading",
+      "rawChg15": 32.8597
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "+25.0%",
+      "chg30": "+74.1%",
+      "chg60": "+58.5%",
+      "vsBtc15": "+21.8pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Leading",
+      "rawChg15": 25.0364
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "+23.7%",
+      "chg30": "+26.4%",
+      "chg60": "+10.1%",
+      "vsBtc15": "-16.0pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "hot",
+      "pillLabel": "Leading",
+      "rawChg15": 23.6772
+    },
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "+11.4%",
+      "chg30": "+13.1%",
+      "chg60": "+12.6%",
+      "vsBtc15": "-3.9pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 11.4449
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "+10.5%",
+      "chg30": "+16.4%",
+      "chg60": "+20.6%",
+      "vsBtc15": "+4.1pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 10.4916
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "+3.8%",
+      "chg30": "-20.1%",
+      "chg60": "-24.1%",
+      "vsBtc15": "-31.9pp",
+      "chg15Pos": true,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": 3.7859
+    }
+  ],
+  "signalExample": {
+    "symbol": "MUTE",
+    "name": "MUTE SWAP by Virtuals",
+    "body": "Appeared in <strong>7/7 daily runs</strong> across messybased and Pre-Alpha Council Play over the 7-day lookback. Appeared in 7/7 source run(s) with avg rank 6.29 and best rank 4.",
+    "tags": [
+      "7/7 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": {
+    "symbol": "VPAY",
+    "name": "VPAY",
+    "fundName": "messybased",
+    "body": "Held in book with unrealized ~$-111.6919999999999. Flagged in council rotation — no longer passes aggregate screening discipline. Price alone does not override a failed screen.",
+    "tags": [
+      "not screened",
+      "$-111.6919999999999 pnl",
+      "rotate out"
+    ]
+  }
+}

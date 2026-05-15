@@ -1,0 +1,220 @@
+{% set fu = fu or fundUpdate %}
+{% if not fu %}
+<p class="fu-lead">Fund update data unavailable — rebuild after API is reachable.</p>
+{% else %}
+
+<div class="fu-badge">📡 Fund / Signal update · {{ fu.snapshotDate }}</div>
+
+{% if showAutogenNotice %}
+<div class="fu-autogen">⚡ Auto-generated at build time from <a href="https://api.messyvirgo.com" style="color:#ff69b4">api.messyvirgo.com</a> — data reflects latest available.</div>
+{% endif %}
+
+<p class="fu-lead">Each week: what changed in pre-live testing of Funds on Base, which research inputs drove decisions, what was passed on, and what the process teaches about the path toward AI-managed Funds. Paper trading only — human-reviewed, no automatic rotations based on council decisions, not live autonomous capital.</p>
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Funds — live in the app</div>
+
+<div class="fu-fund-grid">
+{% for fund in fu.funds %}
+  <a class="fu-fund-card" href="{{ fund.appUrl }}" target="_blank" rel="noopener">
+    <div class="fc-name">{{ fund.name }}</div>
+    <div class="fc-nav">{{ fund.nav }} NAV</div>
+    <div class="fc-returns">
+      <span class="fc-ret {{ fund.ret1d.cls }}">{{ fund.ret1d.value }} 1d</span>
+      <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
+      <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} 30d</span>
+    </div>
+    <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %}{% if fund.screening.aggDate %} · agg {{ fund.screening.aggDate }}{% endif %}</div>
+  </a>
+{% endfor %}
+</div>
+
+<hr class="fu-divider">
+
+{% for fund in fu.funds %}
+<div class="fu-section-label">{{ fund.name }} — screening &amp; council</div>
+
+{% if fund.holdingsBar.length %}
+<div class="fu-holdings">
+  <div class="fu-holdings-label">Current book</div>
+  <div class="fu-bar">
+    {% for seg in fund.holdingsBar %}
+    <div class="fu-bar-seg" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.85" title="{{ seg.symbol }} {{ seg.weight }}%"></div>
+    {% endfor %}
+  </div>
+  <div class="fu-bar-legend">
+    {% for seg in fund.holdingsBar %}
+    <span class="fu-leg">
+      <span class="fu-leg-dot" style="background:{{ seg.color }}"></span>
+      {{ seg.symbol }} {{ seg.weight }}%{% if seg.warning %} ⚠️{% endif %}
+    </span>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if fund.basePositions.length %}
+<p style="font-size:.85rem;color:#d1d5db;margin-bottom:1rem;">
+  {% for p in fund.basePositions %}
+    <strong>{{ p.symbol }}</strong> {{ p.value }}{% if p.pnl %} ({{ p.pnl }} PnL){% endif %}{% if not loop.last %}, {% endif %}
+  {% endfor %}
+</p>
+{% endif %}
+
+{% if fund.screening.aggCandidates.length %}
+<p style="font-size:.8rem;color:#6b7280;margin-bottom:.5rem;">
+  <strong style="color:#9ca3af;">{{ fund.screening.aggLookback }}-day aggregate</strong> — {{ fund.screening.aggSourceRuns }} source runs, as of {{ fund.screening.aggDate or "–" }}
+</p>
+<div class="fu-candidates">
+  {% for c in fund.screening.aggCandidates %}
+  <div class="fu-cand-row">
+    <span class="fu-cand-rank">#{{ c.rank }}</span>
+    <span class="fu-cand-sym">{{ c.symbol }}</span>
+    <span class="fu-cand-reason">{{ c.reason }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if fund.council %}
+<div class="fu-council">
+  <div class="fu-council-icon">{% if fund.council.outcome == "maintain_current" %}🔒{% elif fund.council.outcome == "target_change" %}🔄{% else %}⚖️{% endif %}</div>
+  <div class="fu-council-body">
+    <div class="fu-council-outcome">
+      Council{% if fund.council.certified != false %} certified{% endif %} · {{ fund.council.outcomeLabel }}{% if fund.council.date %} · {{ fund.council.date }}{% endif %}
+    </div>
+    <p>{{ fund.council.riskNotes or fund.council.headline or "See app for full council protocol." }}</p>
+  </div>
+</div>
+{% endif %}
+
+{% if not loop.last %}<hr class="fu-divider">{% endif %}
+{% endfor %}
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Market regime — macro economics</div>
+
+{% if fu.macro %}
+<div class="fu-macro">
+  <div class="fu-macro-score">
+    <div class="ms-val">{{ fu.macro.score }}</div>
+    <div class="ms-label">{{ fu.macro.regime }}</div>
+  </div>
+  <div class="fu-macro-summary">{{ fu.macro.summary }}</div>
+</div>
+{% endif %}
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Narrative momentum — {{ fu.snapshotDate }}</div>
+
+{% if fu.narratives.length %}
+<div class="fu-narr-wrap">
+<table class="fu-narr-table" style="margin:0;width:100%">
+  <thead>
+    <tr>
+      <th>Narrative</th>
+      <th>15d</th>
+      <th>30d</th>
+      <th>60d</th>
+      <th title="Percentage points above or below BTC over 15 days">vs BTC 15d</th>
+      <th>Read</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for n in fu.narratives %}
+    <tr>
+      <td>{{ n.label }}</td>
+      <td class="{{ 'narr-chg-pos' if n.chg15Pos else 'narr-chg-neg' }}">{{ n.chg15 }}</td>
+      <td class="{{ 'narr-chg-pos' if n.chg30Pos else 'narr-chg-neg' }}">{{ n.chg30 }}</td>
+      <td class="{{ 'narr-chg-pos' if n.chg60Pos else 'narr-chg-neg' }}">{{ n.chg60 }}</td>
+      <td class="{{ 'narr-chg-pos' if n.vsBtc15Pos else 'narr-chg-neg' }}">{{ n.vsBtc15 }}</td>
+      <td><span class="narr-pill {{ n.pill }}">{{ n.pillLabel }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% if fu.macro and fu.macro.aiAgentsNote %}
+<p style="font-size:.85rem;color:#9ca3af;line-height:1.65;margin-top:1rem;">
+  <strong style="color:#e5e7eb;">{{ fu.macro.aiAgentsNote.label }}</strong> is {{ fu.macro.aiAgentsNote.chg15 }} over 15d but {{ fu.macro.aiAgentsNote.vsBtc15 }} vs BTC — absolute strength does not always mean allocation-worthy beta.
+</p>
+{% endif %}
+{% endif %}
+
+{% if fu.signalExample or fu.riskReject %}
+<hr class="fu-divider">
+<div class="fu-section-label">Aggregate signal · Risk reject</div>
+<div class="fu-signal-grid">
+  {% if fu.signalExample %}
+  <div class="fu-signal-card candidate">
+    <div class="fu-signal-eyebrow">✅ Aggregate signal</div>
+    <div class="fu-signal-token">{{ fu.signalExample.symbol }}</div>
+    <div class="fu-signal-name">{{ fu.signalExample.name }}</div>
+    <div class="fu-signal-body">{{ fu.signalExample.body | safe }}</div>
+    <div class="fu-signal-meta">
+      {% for tag in fu.signalExample.tags %}
+      <span class="fu-signal-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  {% if fu.riskReject %}
+  <div class="fu-signal-card reject">
+    <div class="fu-signal-eyebrow">❌ Risk reject</div>
+    <div class="fu-signal-token">{{ fu.riskReject.symbol }}</div>
+    <div class="fu-signal-name">{{ fu.riskReject.name }} · {{ fu.riskReject.fundName }}</div>
+    <div class="fu-signal-body">{{ fu.riskReject.body }}</div>
+    <div class="fu-signal-meta">
+      {% for tag in fu.riskReject.tags %}
+      <span class="fu-signal-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<hr class="fu-divider">
+
+<div class="fu-agent-box">
+  <h3>What this teaches the future Fund Agent</h3>
+  <div class="fu-agent-patterns">
+    <div class="fu-pattern">
+      <div class="fu-pattern-num">1</div>
+      <div class="fu-pattern-text"><strong>Macro gates gross exposure.</strong> {% if fu.macro %}Neutral regime ({{ fu.macro.score }} {{ fu.macro.regime }}){% else %}Regime context{% endif %} → defensive funds stay in core; beta funds rotate within the book, not expand it blindly.</div>
+    </div>
+    <div class="fu-pattern">
+      <div class="fu-pattern-num">2</div>
+      <div class="fu-pattern-text"><strong>Daily screen ≠ automatic trade.</strong> The day's #1 candidate and the {{ fu.funds[0].screening.aggLookback or 7 }}-day aggregate leader can differ — the agent needs both horizons, not just the latest signal.</div>
+    </div>
+    <div class="fu-pattern">
+      <div class="fu-pattern-num">3</div>
+      <div class="fu-pattern-text"><strong>Council is the constraint layer.</strong> Certified outcomes encode PM conflict, guardrail breaches, and explicit rotate-out lists. This is training data for autonomous Funds — not marketing copy.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Run the same workflow</div>
+
+<div class="fu-links-grid">
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener"><span class="fu-link-icon">🏦</span> All Funds</a>
+  {% for fund in fu.funds %}
+  <a class="fu-link-pill" href="{{ fund.appUrl }}" target="_blank" rel="noopener"><span class="fu-link-icon">📊</span> {{ fund.name }}</a>
+  {% endfor %}
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener"><span class="fu-link-icon">🌐</span> Macro Economics</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener"><span class="fu-link-icon">📈</span> Narrative Momentum</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener"><span class="fu-link-icon">⚡</span> Performance Signals</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/social" target="_blank" rel="noopener"><span class="fu-link-icon">💬</span> Social Signals</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener"><span class="fu-link-icon">🔒</span> Security Signals</a>
+</div>
+
+<p style="margin-top:2rem;font-size:.82rem;color:#6b7280;text-align:center">
+  {% if showAutogenNotice %}Data auto-fetched at build time · {% endif %}<a href="/blog/" style="color:#ff69b4">← All updates</a>
+</p>
+
+{% endif %}
