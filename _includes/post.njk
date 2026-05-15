@@ -184,6 +184,26 @@
             color: #ff69b4;
         }
 
+        /* Fund update status pill */
+        .fund-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 105, 180, 0.08);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            border-radius: 9999px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            color: #ff69b4;
+            margin: 0.5rem 0 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        /* Positive / negative colours (also used by table JS) */
+        .positive { color: #4ade80 !important; font-weight: 600; }
+        .negative { color: #f87171 !important; font-weight: 600; }
+
         /* Mermaid diagram container styling */
         .prose .mermaid {
             background: rgba(17, 24, 39, 0.6);
@@ -250,6 +270,27 @@
                 proseContent.querySelectorAll('blockquote').forEach(blockquote => {
                     // Remove any conflicting margin classes
                     blockquote.classList.remove('my-6');
+                });
+
+                // Style tables
+                proseContent.querySelectorAll('table').forEach(table => {
+                    table.classList.add('rounded-lg', 'overflow-hidden');
+                    // Wrap in a scroll container so it doesn't overflow on mobile
+                    const wrapper = document.createElement('div');
+                    wrapper.style.overflowX = 'auto';
+                    wrapper.style.borderRadius = '0.5rem';
+                    wrapper.style.border = '1px solid rgba(255,255,255,0.08)';
+                    wrapper.style.marginBottom = '2rem';
+                    table.parentNode.insertBefore(wrapper, table);
+                    wrapper.appendChild(table);
+                    table.style.display = 'table';
+                    table.style.width = '100%';
+                    // Colour cells that look like pnl values
+                    table.querySelectorAll('td').forEach(td => {
+                        const text = td.textContent.trim();
+                        if (/^\+[\d.]/.test(text)) td.classList.add('positive');
+                        else if (/^−[\d.]|^-[\d.]/.test(text)) td.classList.add('negative');
+                    });
                 });
 
                 // Style code blocks

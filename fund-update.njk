@@ -1,0 +1,263 @@
+---
+layout: post.njk
+title: "Messy Fund Update"
+description: "Live pre-live testing Fund status, macro regime, narrative momentum, screening candidates, and council decisions — auto-generated from the Messy Virgo research engine."
+permalink: /fund-update/
+---
+
+<style>
+/* ── Fund Update dynamic page styles ── */
+.fu-lead { font-size:1.1rem; color:#9ca3af; line-height:1.75; margin-bottom:2.5rem; border-left:3px solid rgba(255,105,180,0.4); padding-left:1.25rem; }
+.fu-badge { display:inline-flex; align-items:center; gap:.35rem; background:rgba(255,105,180,.08); border:1px solid rgba(255,105,180,.22); border-radius:9999px; padding:.3rem .85rem; font-size:.75rem; color:#ff69b4; font-weight:600; letter-spacing:.04em; text-transform:uppercase; margin-bottom:2rem; }
+.fu-section-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#ff69b4; margin-bottom:1rem; display:flex; align-items:center; gap:.5rem; }
+.fu-section-label::after { content:''; flex:1; height:1px; background:rgba(255,105,180,.15); }
+.fu-divider { border:none; border-top:1px solid rgba(255,255,255,.06); margin:3rem 0; }
+
+/* Fund cards */
+.fu-fund-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-bottom:2.5rem; }
+@media(min-width:640px){ .fu-fund-grid{ grid-template-columns:repeat(3,1fr); } }
+.fu-fund-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:1.25rem; transition:border-color .2s,background .2s; text-decoration:none; display:block; }
+.fu-fund-card:hover { border-color:rgba(255,105,180,.3); background:rgba(255,105,180,.04); }
+.fc-name { font-size:.85rem; font-weight:700; color:#e5e7eb; margin-bottom:.25rem; }
+.fc-nav  { font-size:1.3rem; font-weight:700; color:#fff; margin-bottom:.75rem; }
+.fc-returns { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:.85rem; }
+.fc-ret { font-size:.75rem; font-weight:600; padding:.15rem .55rem; border-radius:9999px; }
+.fc-ret.pos { background:rgba(74,222,128,.12); color:#4ade80; }
+.fc-ret.neg { background:rgba(248,113,113,.12); color:#f87171; }
+.fc-ret.neu { background:rgba(156,163,175,.12); color:#9ca3af; }
+.fc-desc { font-size:.75rem; color:#9ca3af; line-height:1.5; }
+
+/* Holdings bar */
+.fu-holdings { margin:1.25rem 0 1.75rem; }
+.fu-holdings-label { font-size:.75rem; color:#6b7280; margin-bottom:.5rem; font-weight:500; }
+.fu-bar { display:flex; height:10px; border-radius:9999px; overflow:hidden; gap:2px; margin-bottom:.65rem; }
+.fu-bar-seg { height:100%; border-radius:2px; }
+.fu-bar-legend { display:flex; flex-wrap:wrap; gap:.6rem; }
+.fu-leg { display:flex; align-items:center; gap:.3rem; font-size:.72rem; color:#9ca3af; }
+.fu-leg-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+/* Council box */
+.fu-council { background:rgba(255,215,0,.04); border:1px solid rgba(255,215,0,.15); border-radius:10px; padding:1rem 1.25rem; margin:1.5rem 0; display:flex; gap:1rem; align-items:flex-start; }
+.fu-council-icon { font-size:1.4rem; flex-shrink:0; margin-top:.1rem; }
+.fu-council-body { flex:1; }
+.fu-council-outcome { font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fbbf24; margin-bottom:.35rem; }
+.fu-council-body p { font-size:.85rem; color:#d1d5db; line-height:1.6; margin:0; }
+
+/* Candidates list */
+.fu-candidates { margin:.75rem 0 1.25rem; }
+.fu-cand-row { display:flex; gap:.5rem; align-items:baseline; padding:.35rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.83rem; }
+.fu-cand-row:last-child { border-bottom:none; }
+.fu-cand-rank { width:1.25rem; color:#6b7280; font-size:.75rem; flex-shrink:0; }
+.fu-cand-sym { font-weight:700; color:#e5e7eb; min-width:3.5rem; }
+.fu-cand-reason { color:#9ca3af; font-size:.78rem; }
+
+/* Macro panel */
+.fu-macro { display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1.75rem; }
+.fu-macro-score { text-align:center; min-width:90px; }
+.ms-val   { font-size:2.5rem; font-weight:800; color:#fbbf24; line-height:1; }
+.ms-label { font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#9ca3af; margin-top:.25rem; }
+.fu-macro-summary { flex:1; min-width:200px; font-size:.85rem; color:#d1d5db; line-height:1.65; }
+
+/* Narrative table */
+.fu-narr-table { width:100%; border-collapse:collapse; font-size:.83rem; margin-bottom:1.5rem; }
+.fu-narr-table th { text-align:left; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#6b7280; padding:.5rem .75rem; border-bottom:1px solid rgba(255,255,255,.07); }
+.fu-narr-table td { padding:.65rem .75rem; border-bottom:1px solid rgba(255,255,255,.04); color:#d1d5db; vertical-align:middle; }
+.fu-narr-table tr:last-child td { border-bottom:none; }
+.fu-narr-table td:first-child { font-weight:600; color:#e5e7eb; }
+.narr-chg-pos { color:#4ade80; font-weight:700; }
+.narr-chg-neg { color:#f87171; font-weight:700; }
+.narr-pill { display:inline-block; font-size:.68rem; font-weight:600; padding:.15rem .5rem; border-radius:9999px; }
+.narr-pill.hot  { background:rgba(255,105,180,.12); color:#ff69b4; }
+.narr-pill.watch{ background:rgba(251,191,36,.1);  color:#fbbf24; }
+.narr-pill.fade { background:rgba(248,113,113,.1); color:#f87171; }
+
+/* Agent learning box */
+.fu-agent-box { background:linear-gradient(135deg,rgba(255,105,180,.05),rgba(255,215,0,.03)); border:1px solid rgba(255,105,180,.2); border-radius:12px; padding:1.5rem; margin-bottom:2rem; }
+.fu-agent-box h3 { font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#ff69b4; margin:0 0 1rem; }
+.fu-agent-patterns { display:flex; flex-direction:column; gap:.75rem; }
+.fu-pattern { display:flex; gap:.75rem; align-items:flex-start; }
+.fu-pattern-num { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:rgba(255,105,180,.15); color:#ff69b4; font-size:.7rem; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:.1rem; }
+.fu-pattern-text { font-size:.85rem; color:#d1d5db; line-height:1.6; }
+.fu-pattern-text strong { color:#e5e7eb; }
+
+/* Links grid */
+.fu-links-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:.65rem; margin-top:1rem; }
+.fu-link-pill { display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:8px; padding:.6rem .85rem; font-size:.78rem; font-weight:500; color:#9ca3af; text-decoration:none; transition:border-color .2s,color .2s; }
+.fu-link-pill:hover { border-color:rgba(255,105,180,.35); color:#ff69b4; text-decoration:none; }
+.fu-link-icon { font-size:.85rem; }
+
+/* Auto-generated notice */
+.fu-autogen { font-size:.73rem; color:#4b5563; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:8px; padding:.6rem 1rem; margin-bottom:2rem; display:flex; align-items:center; gap:.5rem; }
+</style>
+
+<div class="fu-badge">📡 Fund / Signal update · {{ fundUpdate.snapshotDate }}</div>
+
+<div class="fu-autogen">⚡ Auto-generated at build time from <a href="https://api.messyvirgo.com" style="color:#ff69b4">api.messyvirgo.com</a> public endpoints — data reflects latest available.</div>
+
+<p class="fu-lead">Each week: what changed in pre-live testing of Funds on Base, which research inputs drove decisions, what was passed on, and what the process teaches about the path toward AI-managed Funds. Paper trading only — human-reviewed, no automatic rotations based on council decisions, not live autonomous capital.</p>
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Funds — live in the app</div>
+
+<div class="fu-fund-grid">
+{% for fund in fundUpdate.funds %}
+  <a class="fu-fund-card" href="{{ fund.appUrl }}" target="_blank" rel="noopener">
+    <div class="fc-name">{{ fund.name }}</div>
+    <div class="fc-nav">{{ fund.nav }} NAV</div>
+    <div class="fc-returns">
+      <span class="fc-ret {{ fund.ret1d.cls }}">{{ fund.ret1d.value }} 1d</span>
+      <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
+      <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} 30d</span>
+    </div>
+    <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %} · {{ fund.screening.runDate or "–" }}</div>
+  </a>
+{% endfor %}
+</div>
+
+<hr class="fu-divider">
+
+{% for fund in fundUpdate.funds %}
+<div class="fu-section-label">{{ fund.name }} — screening &amp; council</div>
+
+{% if fund.holdingsBar.length %}
+<div class="fu-holdings">
+  <div class="fu-holdings-label">Current book</div>
+  <div class="fu-bar">
+    {% for seg in fund.holdingsBar %}
+    <div class="fu-bar-seg" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.85" title="{{ seg.symbol }} {{ seg.weight }}%"></div>
+    {% endfor %}
+  </div>
+  <div class="fu-bar-legend">
+    {% for seg in fund.holdingsBar %}
+    <span class="fu-leg">
+      <span class="fu-leg-dot" style="background:{{ seg.color }}"></span>
+      {{ seg.symbol }} {{ seg.weight }}%{% if seg.warning %} ⚠️{% endif %}
+    </span>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if fund.basePositions.length %}
+<p style="font-size:.85rem;color:#d1d5db;margin-bottom:1rem;">
+  {% for p in fund.basePositions %}
+    <strong>{{ p.symbol }}</strong> {{ p.value }}{% if p.pnl %} ({{ p.pnl }} PnL){% endif %}{% if not loop.last %}, {% endif %}
+  {% endfor %}
+</p>
+{% endif %}
+
+{% if fund.screening.aggCandidates.length %}
+<p style="font-size:.8rem;color:#6b7280;margin-bottom:.5rem;">
+  <strong style="color:#9ca3af;">{{ fund.screening.aggLookback }}-day aggregate</strong> — {{ fund.screening.aggSourceRuns }} source runs, as of {{ fund.screening.aggDate or "–" }}
+</p>
+<div class="fu-candidates">
+  {% for c in fund.screening.aggCandidates %}
+  <div class="fu-cand-row">
+    <span class="fu-cand-rank">#{{ c.rank }}</span>
+    <span class="fu-cand-sym">{{ c.symbol }}</span>
+    <span class="fu-cand-reason">{{ c.reason }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if fund.council %}
+<div class="fu-council">
+  <div class="fu-council-icon">{% if fund.council.outcome == "maintain_current" %}🔒{% elif fund.council.outcome == "target_change" %}🔄{% else %}⚖️{% endif %}</div>
+  <div class="fu-council-body">
+    <div class="fu-council-outcome">
+      Council certified · {{ fund.council.outcomeLabel }}{% if fund.council.date %} · {{ fund.council.date }}{% endif %}
+    </div>
+    <p>{{ fund.council.riskNotes or "See app for full council protocol." }}</p>
+  </div>
+</div>
+{% endif %}
+
+{% if not loop.last %}<hr class="fu-divider">{% endif %}
+{% endfor %}
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Market regime — macro economics</div>
+
+{% if fundUpdate.macro %}
+<div class="fu-macro">
+  <div class="fu-macro-score">
+    <div class="ms-val">{{ fundUpdate.macro.score }}</div>
+    <div class="ms-label">{{ fundUpdate.macro.regime }}</div>
+  </div>
+  <div class="fu-macro-summary">{{ fundUpdate.macro.summary }}</div>
+</div>
+{% endif %}
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Narrative momentum — {{ fundUpdate.snapshotDate }}</div>
+
+{% if fundUpdate.narratives.length %}
+<table class="fu-narr-table">
+  <thead>
+    <tr>
+      <th>Narrative</th>
+      <th>15d</th>
+      <th>30d</th>
+      <th>60d</th>
+      <th title="Percentage points above or below BTC over 15 days">vs BTC 15d</th>
+      <th>Read</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for n in fundUpdate.narratives %}
+    <tr>
+      <td>{{ n.label }}</td>
+      <td class="{{ 'narr-chg-pos' if n.chg15Pos else 'narr-chg-neg' }}">{{ n.chg15 }}</td>
+      <td class="{{ 'narr-chg-pos' if n.chg30Pos else 'narr-chg-neg' }}">{{ n.chg30 }}</td>
+      <td class="{{ 'narr-chg-pos' if n.chg60Pos else 'narr-chg-neg' }}">{{ n.chg60 }}</td>
+      <td class="{{ 'narr-chg-pos' if n.vsBtc15Pos else 'narr-chg-neg' }}">{{ n.vsBtc15 }}</td>
+      <td><span class="narr-pill {{ n.pill }}">{{ n.pillLabel }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<hr class="fu-divider">
+
+<div class="fu-agent-box">
+  <h3>What this teaches the future Fund Agent</h3>
+  <div class="fu-agent-patterns">
+    <div class="fu-pattern">
+      <div class="fu-pattern-num">1</div>
+      <div class="fu-pattern-text"><strong>Macro gates gross exposure.</strong> Neutral regime → defensive funds stay in core; beta funds rotate within the book, not expand it blindly.</div>
+    </div>
+    <div class="fu-pattern">
+      <div class="fu-pattern-num">2</div>
+      <div class="fu-pattern-text"><strong>Daily screen ≠ automatic trade.</strong> The day's #1 candidate and the 7-day aggregate leader can differ — the agent needs both horizons, not just the latest signal.</div>
+    </div>
+    <div class="fu-pattern">
+      <div class="fu-pattern-num">3</div>
+      <div class="fu-pattern-text"><strong>Council is the constraint layer.</strong> Certified outcomes encode PM conflict, guardrail breaches, and explicit rotate-out lists. This is training data for autonomous Funds — not marketing copy.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="fu-divider">
+
+<div class="fu-section-label">Run the same workflow</div>
+
+<div class="fu-links-grid">
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener"><span class="fu-link-icon">🏦</span> All Funds</a>
+  {% for fund in fundUpdate.funds %}
+  <a class="fu-link-pill" href="{{ fund.appUrl }}" target="_blank" rel="noopener"><span class="fu-link-icon">📊</span> {{ fund.name }}</a>
+  {% endfor %}
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener"><span class="fu-link-icon">🌐</span> Macro Economics</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener"><span class="fu-link-icon">📈</span> Narrative Momentum</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener"><span class="fu-link-icon">⚡</span> Performance Signals</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/social" target="_blank" rel="noopener"><span class="fu-link-icon">💬</span> Social Signals</a>
+  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener"><span class="fu-link-icon">🔒</span> Security Signals</a>
+</div>
+
+<p style="margin-top:2rem;font-size:.82rem;color:#6b7280;text-align:center">
+  Data auto-fetched at build time · <a href="/blog/" style="color:#ff69b4">← All updates</a>
+</p>

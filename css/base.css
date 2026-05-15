@@ -471,6 +471,75 @@ footer a:hover {
 }
 
 /* ========================================
+   11b. BLOG PROSE — tables, hr, status badges
+   ======================================== */
+
+/* Tables */
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    display: block;
+}
+
+.prose thead {
+    background: rgba(255, 105, 180, 0.08);
+    border-bottom: 1px solid rgba(255, 105, 180, 0.25);
+}
+
+.prose thead th {
+    padding: 0.65rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #ff69b4;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.prose tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.15s ease;
+}
+
+.prose tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.prose tbody td {
+    padding: 0.7rem 1rem;
+    color: #d1d5db;
+    vertical-align: top;
+    line-height: 1.55;
+}
+
+.prose tbody td:first-child {
+    color: #e5e7eb;
+    font-weight: 500;
+}
+
+/* Positive/negative number colouring in tables */
+.prose tbody td.positive { color: #4ade80; }
+.prose tbody td.negative { color: #f87171; }
+
+/* Horizontal rules */
+.prose hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 2.5rem 0;
+}
+
+/* Strong inside prose */
+.prose strong {
+    color: #e5e7eb;
+    font-weight: 600;
+}
+
+/* ========================================
    12. ACCESSIBILITY
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
