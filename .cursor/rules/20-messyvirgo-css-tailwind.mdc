@@ -26,9 +26,15 @@ Follow project workflow (rule 00) and page editing rules (rule 10). These rules 
 
 ## Where Styles Live
 - **Tailwind utilities** in markup for layout, spacing, typography, responsive.
-- **Shared/reusable** → `css/base.css` (tokens, nav, buttons, cards, links, footer, effects).
+- **Shared/reusable** → `css/base.css` (tokens, nav, buttons, cards, links, footer, effects, **global heading font**: Inter + tight letter-spacing on `h1`–`h6`).
 - **Page-local only** → the existing page-specific files (`litepaper.css`, `buildlog.css`, `founder-profiles.css`). Create a new one only if truly justified.
-- Never put site-wide styles in `input.css` or inline `<style>` unless matching an existing local pattern.
+- Never put site-wide styles in `input.css` or inline `<style>` unless matching an existing local pattern (e.g. legal pages’ `.legal-content h2` gradient blocks).
+
+## Typography
+- **Default headings:** Inter from `base.css` (do not rely on Playfair for `h1`–`h6` unless a node has **`.font-serif`**).
+- **Gradient / marketing titles:** `font-bold font-sans tracking-tight text-gradient` (see `index.html`, dApps, litepaper).
+- **`tailwind.config.js`:** `fontFamily.serif` remains Playfair for the **`.font-serif`** utility only.
+- **Rebuild:** any new Tailwind font utilities in content → `npm run build:css`.
 
 ## Tailwind Scanning
 - Content paths live in `tailwind.config.js`. Adding new directories/templates that use Tailwind classes requires updating `content` + running `npm run build:css`.

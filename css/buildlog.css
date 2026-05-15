@@ -135,7 +135,8 @@ body.buildlog-page .mv-treasury-sep-inner {
 .buildlog-hero-title {
     font-size: 1.5rem;
     font-weight: 700;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.025em;
     background: linear-gradient(90deg, #ff69b4, #ffd700, #ff69b4);
     background-size: 200% auto;
     -webkit-background-clip: text;

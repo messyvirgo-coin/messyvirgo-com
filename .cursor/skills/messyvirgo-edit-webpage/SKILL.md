@@ -16,7 +16,7 @@ Follow AGENTS.md + the three `.cursor/rules/` files. This skill provides the act
 - Edit source only (never `_site/`).
 - Preserve shared includes (`head-common`, `nav`, `footer`).
 - Reuse patterns: `.mv-page-header`, `.mv-section`, `.mv-card`, `.glassmorphism`, `.text-gradient`, `.fade-in`, `.btn*`.
-- Maintain dark visual system, pink/gold accents, Playfair/Inter fonts.
+- Maintain dark visual system, pink/gold accents, Inter typography (including section titles; `font-sans tracking-tight` with `text-gradient` where used).
 - Copy: factual, public-safe. No financial advice, promises, secrets, or private data.
 - External links: `target="_blank" rel="noopener noreferrer"`.
 - Images: meaningful `alt` text.

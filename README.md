@@ -42,7 +42,10 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 ## Pages
 
 - **Home** (`index.html`) – Landing page with hero, tokenomics, evolution phases, and swap integration
-- **Litepaper** (`litepaper.html`) – Interactive documentation with charts, vesting schedules, and roadmap
+- **Litepaper** (`litepaper.html`) – Interactive documentation with charts and roadmap; **Trust & transparency** summarizes verification and links to **Treasury, Safes & Vesting** for canonical custody and vesting detail
+- **Treasury, Safes & Vesting** (`about/treasury.html` → `/treasury.html`) – Safe custody explainer, six-wallet table, interactive vesting chart and allocation schedule, monthly treasury movements
+- **Governance & association** (`about/association.html` → `/association.html`) – Association overview and how governance connects to treasury
+- **Token** (`messy-virgo-coin.html` → `/messy-virgo-coin`) – Token FAQ and links into treasury for verification
 - **Build Log** (`buildlog.html`) – Weekly progress tracker with searchable, filterable entries
 - **Founder Profiles** (`founder-profiles.html`) – Team member profiles and backgrounds
 - **Blog** (`blog/index.njk`) – Blog posts powered by Eleventy
@@ -51,6 +54,8 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 
 ```
 ├── index.html, litepaper.html, buildlog.html, founder-profiles.html
+├── about/                 (Treasury, association, imprint, etc.)
+├── _includes/partials/    (Shared nav, footer, etc.)
 ├── _blog/
 │   └── _posts/            (Blog post markdown files: YYYY-MM-DD-title.md)
 ├── blog/
@@ -86,7 +91,14 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 - **Tailwind CSS** (compiled) for styling
 - **Vanilla JavaScript** for interactivity
 - **Chart.js** (litepaper only) for data visualization
-- **Google Fonts** (Inter & Playfair Display)
+- **Google Fonts** (Inter; Playfair optional via `.font-serif` only if needed)
+
+## Typography
+
+- **Default:** **Inter** for body copy and for **all headings** (`h1`–`h6`) via `css/base.css` (`letter-spacing: -0.025em` on headings).
+- **Gradient section titles** (and similar): use **`font-bold font-sans tracking-tight text-gradient`** in markup (same treatment as the homepage hero headline).
+- **Optional serif:** the Tailwind **`.font-serif`** utility still maps to **Playfair Display** for rare intentional use; do not use it for standard page titles unless there is a specific reason.
+- After changing Tailwind classes in HTML/NJK/MD, run **`npm run build:css`** (see [CONTRIBUTING.md](./CONTRIBUTING.md)).
 
 ## Blog Posts
 

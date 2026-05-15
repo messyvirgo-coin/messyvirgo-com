@@ -6,24 +6,24 @@ permalink: /treasury.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treasury | Messy Virgo Coin ($MESSY) - Transfers & Allocations</title>
-    <meta name="title" content="Treasury | Messy Virgo Coin ($MESSY) - Transfers & Allocations">
-    <meta name="description" content="Transparent record of $MESSY treasury movements. Track allocations, transactions, and on-chain activity month by month.">
-    <meta name="keywords" content="MESSY treasury, treasury updates, token treasury, on-chain transparency, Messy Virgo treasury">
+    <title>Treasury, Safes & Vesting | Messy Virgo Coin ($MESSY)</title>
+    <meta name="title" content="Treasury, Safes & Vesting | Messy Virgo Coin ($MESSY)">
+    <meta name="description" content="Verify $MESSY Safe wallet custody, allocation amounts, vesting rules, unlock schedules, and monthly treasury movements on Base.">
+    <meta name="keywords" content="MESSY treasury, Safe wallets, vesting schedule, token treasury, on-chain transparency, Messy Virgo treasury">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.messyvirgo.com/treasury.html">
-    <meta property="og:title" content="Messy Virgo Coin ($MESSY) Treasury">
-    <meta property="og:description" content="Transparent record of $MESSY treasury movements.">
+    <meta property="og:title" content="Messy Virgo Coin ($MESSY) Treasury, Safes & Vesting">
+    <meta property="og:description" content="Verify Safe wallet custody, allocation amounts, vesting rules, and treasury movements.">
     <meta property="og:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.messyvirgo.com/treasury.html">
-    <meta property="twitter:title" content="Messy Virgo Coin ($MESSY) Treasury">
-    <meta property="twitter:description" content="Transparent record of $MESSY treasury movements.">
+    <meta property="twitter:title" content="Messy Virgo Coin ($MESSY) Treasury, Safes & Vesting">
+    <meta property="twitter:description" content="Verify Safe wallet custody, allocation amounts, vesting rules, and treasury movements.">
     <meta property="twitter:image" content="https://www.messyvirgo.com/images/messy-banner.jpg">
 
     <!-- Canonical URL -->
@@ -31,14 +31,15 @@ permalink: /treasury.html
 
     {% include "partials/head-common.njk" %}
     <link rel="stylesheet" href="/css/buildlog.css">
+    <link rel="stylesheet" href="/css/litepaper.css">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "$MESSY Treasury",
-        "description": "Transparent record of $MESSY treasury movements and allocations.",
+        "name": "$MESSY Treasury, Safes & Vesting",
+        "description": "Canonical record of $MESSY Safe wallet custody, allocation amounts, vesting rules, and treasury movements.",
         "url": "https://www.messyvirgo.com/treasury.html",
         "publisher": {
             "@type": "Organization",
@@ -58,120 +59,198 @@ permalink: /treasury.html
         
         <!-- Header Section -->
         <section class="mv-page-header mb-16 text-center">
-            <h1 class="text-gradient mb-4">Treasury & Safes</h1>
-            <p class="max-w-3xl mx-auto">Full transparency into creator wallet security, Safe smart wallet allocations, and all on-chain treasury movements. Verify vesting schedules, team allocations, and monthly activity on-chain.</p>
+            <h1 class="text-gradient mb-4">Treasury, Safes & Vesting</h1>
+            <p class="max-w-3xl mx-auto">The creator-side $MESSY allocation is documented through six Safe smart wallets and related BaseScan transactions on Base. This page brings together wallet addresses, allocation amounts, vesting rules, unlock schedules, and monthly treasury movements so holders can verify custody and activity in one place.</p>
         </section>
 
-        <!-- Creator Wallet Security & Transparency Section -->
+        <!-- How to Read This Page -->
         <section class="mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                <!-- Left Card: Overview -->
+            <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
+                <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6 text-center">How to read this page</h2>
+                <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed space-y-4">
+                    <p>The Safe wallets show where the tokens are held. The allocation table explains what each wallet is for. The vesting schedule explains when tokens may unlock. The monthly treasury updates show actual movements after setup. Together, these give holders one place to verify both planned allocation and real on-chain activity.</p>
+                    <p>Governance and execution are separate but connected: token holders steer major decisions, the Swiss association provides the real-world execution layer, the Safe wallets hold the tokens on-chain, and vesting controls when allocation buckets may move.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                        <h3 class="text-lg font-bold text-pink-400 mb-2">Governance decides</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">Token-holder governance is the intended path for major budgets, partnerships, protocol changes, and long-term treasury direction.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                        <h3 class="text-lg font-bold text-yellow-400 mb-2">Association executes</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">The Swiss association gives the project a legal execution layer for services, contracts, stewardship, and approved operational decisions.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                        <h3 class="text-lg font-bold text-blue-400 mb-2">Safes hold</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">The creator-side allocation buckets under ongoing custody are held in six Safe smart wallets on Base for public, verifiable custody.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                        <h3 class="text-lg font-bold text-emerald-400 mb-2">Vesting controls timing</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">Each allocation bucket follows a published unlock schedule. Transfers from the Safe wallets remain subject to the same 1.25% reflection tax.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safe Wallet Custody Section -->
+        <section class="mb-16">
+            <div class="grid grid-cols-1 gap-8 mt-8">
                 <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h4 class="text-2xl font-bold font-serif text-yellow-400 mb-6">Creator Wallet Security & Transparency</h4>
-                    <p class="text-base text-gray-300 mb-4">The original creator allocation (431.85M $MESSY) has been transferred from a single externally owned address into six Safe smart wallets.</p>
-                    <p class="text-base text-gray-300 mb-6">This was necessary because MESSY's 1.25% reflection mechanic does not work with standard third-party locking services, which would either fail or mishandle the reflection tax on transfers.</p>
-                    <p class="text-base text-gray-300">These six Safe wallets collectively hold all team and treasury allocations – there are no undisclosed team wallets. Every transfer from these wallets is taxed at 1.25% and movements are reported in monthly "State of the Treasury" updates so anyone can verify activity on-chain.</p>
-                    <p class="text-base text-gray-300 mt-4">Full vesting schedules, CTO allocations, and all planned unlock dates are in the <a href="litepaper.html" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Litepaper</a>.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6 text-center">Safe Wallet Custody</h2>
+                    <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed space-y-4">
+                        <p>The original creator-side allocation was split from a single externally owned address into public Safe wallets and related transfer transactions on Base. These Safes collectively hold the published team, contributor, liquidity, community, and treasury allocation buckets under ongoing custody; completed direct transfers, such as upfront tranches, are linked separately where applicable.</p>
+                        <p>We use Safe smart wallets instead of a standard third-party locker because $MESSY includes a 1.25% reflection mechanic. Traditional lockers can be incompatible with automatically changing token balances or can mishandle reflection-taxed transfers. Safe custody keeps the allocation buckets public and verifiable while preserving the token's normal transfer rules.</p>
+                        <p>All transfers from these Safes remain subject to the same 1.25% reflection tax applied to regular transfers. Movements are documented below in monthly State of the Treasury updates.</p>
+                    </div>
                 </div>
 
-                <!-- Right Card: Allocations Table -->
                 <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h4 class="text-2xl font-bold font-serif text-pink-400 mb-6">Allocations</h4>
-                    <table class="w-full text-sm text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">Six Safe Wallets</h2>
+                    <p class="max-w-3xl mx-auto text-center text-gray-400 mb-8">Each row links to the relevant Safe wallet or transfer transaction on BaseScan. The amounts reflect the creator-side allocation buckets before transfer taxes where applicable.</p>
+                    <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left" style="min-width: 900px;">
                     <thead class="text-xs text-gray-400 uppercase">
                         <tr>
                             <th>Allocation</th>
                             <th class="text-right">Amount</th>
                             <th class="text-right">% of Supply</th>
+                            <th>Safe / Tx</th>
+                            <th>Vesting Rule</th>
+                            <th>Unlock Start</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-white/10">
                         <tr>
-                            <td class="py-2">
-                                Community &amp; Partners
-                                <span class="text-gray-400 text-xs block space-x-2">
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xe2d37a6c20eb011a60dd412d22b3fdc587b71add#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xd513136620f06315bb8fc75345c402a2abbbc127ecabbebf1cfcec921cbb84a6" target="_blank" rel="noopener noreferrer">Tx</a>
-                                </span>
-                            </td>
+                            <td class="py-3 font-medium">Community &amp; Partners</td>
                             <td class="text-right">138,992,895.75</td>
                             <td class="text-right">13.81%</td>
+                            <td class="space-x-2"><a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xe2d37a6c20eb011a60dd412d22b3fdc587b71add#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a><a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xd513136620f06315bb8fc75345c402a2abbbc127ecabbebf1cfcec921cbb84a6" target="_blank" rel="noopener noreferrer">Tx</a></td>
+                            <td>6-month cliff</td>
+                            <td>Apr 1, 2026</td>
                         </tr>
                         <tr>
-                            <td class="py-2">
-                                Co-Founder &amp; CTO Upfront
-                                <span class="text-gray-400 text-xs block">
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer">Tx</a>
-                                </span>
-                            </td>
+                            <td class="py-3 font-medium">Co-Founder &amp; CTO Upfront</td>
                             <td class="text-right">20,000,000.00</td>
                             <td class="text-right">2.01%</td>
+                            <td><a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer">Tx</a></td>
+                            <td>1-month cliff</td>
+                            <td>Nov 1, 2025</td>
                         </tr>
                         <tr>
-                            <td class="py-2">
-                                Co-Founder &amp; CTO Vesting
-                                <span class="text-gray-400 text-xs block space-x-2">
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x3f999a8d8e45794105c8f6bf16b6db34446fcce2#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x18e3e242a7552769d1f1c336fcdbde3d093ae3e4e2424c067babebcbd9fc08e3" target="_blank" rel="noopener noreferrer">Tx</a>
-                                </span>
-                            </td>
+                            <td class="py-3 font-medium">Co-Founder &amp; CTO Vesting</td>
                             <td class="text-right">89,341,308.21</td>
                             <td class="text-right">8.97%</td>
+                            <td class="space-x-2"><a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x3f999a8d8e45794105c8f6bf16b6db34446fcce2#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a><a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x18e3e242a7552769d1f1c336fcdbde3d093ae3e4e2424c067babebcbd9fc08e3" target="_blank" rel="noopener noreferrer">Tx</a></td>
+                            <td>6-month cliff; paid quarterly at the beginning of each quarter</td>
+                            <td>Apr 1, 2026</td>
                         </tr>
                         <tr>
-                            <td class="py-2">
-                                Protocol Liquidity
-                                <span class="text-gray-400 text-xs block space-x-2">
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xf10938553264caf736a9cef55b5a15f63a280ce4#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x5973d025beb652d5ee890730690b647df4ef9d17afc57210d53bef9653364d21" target="_blank" rel="noopener noreferrer">Tx</a>
-                                </span>
-                            </td>
+                            <td class="py-3 font-medium">Protocol Liquidity</td>
                             <td class="text-right">99,597,158.30</td>
                             <td class="text-right">9.91%</td>
+                            <td class="space-x-2"><a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xf10938553264caf736a9cef55b5a15f63a280ce4#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a><a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x5973d025beb652d5ee890730690b647df4ef9d17afc57210d53bef9653364d21" target="_blank" rel="noopener noreferrer">Tx</a></td>
+                            <td>3-month cliff</td>
+                            <td>Jan 1, 2026</td>
                         </tr>
                         <tr>
-                            <td class="py-2">
-                                Contributors &amp; Advisors
-                                <span class="text-gray-400 text-xs block space-x-2">
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x4e409ca20b173b2e23ac02b806484eea98afb085#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x30f2216ce0514919c691eb4114aad092f58c7abb47c22f999075f843603be472" target="_blank" rel="noopener noreferrer">Tx</a>
-                                </span>
-                            </td>
+                            <td class="py-3 font-medium">Contributors &amp; Advisors</td>
                             <td class="text-right">49,798,579.15</td>
                             <td class="text-right">4.96%</td>
+                            <td class="space-x-2"><a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x4e409ca20b173b2e23ac02b806484eea98afb085#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a><a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x30f2216ce0514919c691eb4114aad092f58c7abb47c22f999075f843603be472" target="_blank" rel="noopener noreferrer">Tx</a></td>
+                            <td>12-month cliff</td>
+                            <td>Oct 1, 2026</td>
                         </tr>
                         <tr>
-                            <td class="py-2">
-                                Treasury
-                                <span class="text-gray-400 text-xs block space-x-2">
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xc4cb76f7f953f4489b3f04a258ec3f9ba8341e22#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xd2e90d026c7ccaf096d27de978f2f45b91c161f988ef3c3f69d8d492798c5320" target="_blank" rel="noopener noreferrer">Tx</a>
-                                </span>
-                            </td>
+                            <td class="py-3 font-medium">Treasury</td>
                             <td class="text-right">34,361,019.61</td>
                             <td class="text-right">3.41%</td>
+                            <td class="space-x-2"><a class="text-pink-400 hover:underline" href="https://basescan.org/address/0xc4cb76f7f953f4489b3f04a258ec3f9ba8341e22#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a><a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0xd2e90d026c7ccaf096d27de978f2f45b91c161f988ef3c3f69d8d492798c5320" target="_blank" rel="noopener noreferrer">Tx</a></td>
+                            <td>9-month cliff</td>
+                            <td>Jul 1, 2026</td>
                         </tr>
                         <tr>
-                            <td class="py-2">
-                                Liquidity
-                                <span class="text-gray-400 text-xs block space-x-2">
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x2885c19dc9a95a81c6c381dc372258ab06347163#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a>
-                                    <a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x8795e28defe1cd5ccc000b6bd9e5dadbd03ce8b2380400aeeb4a785add9c1586" target="_blank" rel="noopener noreferrer">Tx</a>
-                                </span>
-                            </td>
+                            <td class="py-3 font-medium">Liquidity</td>
                             <td class="text-right">3,914,647.15</td>
                             <td class="text-right">0.39%</td>
+                            <td class="space-x-2"><a class="text-pink-400 hover:underline" href="https://basescan.org/address/0x2885c19dc9a95a81c6c381dc372258ab06347163#tokentxns" target="_blank" rel="noopener noreferrer">Safe</a><a class="text-pink-400 hover:underline" href="https://basescan.org/tx/0x8795e28defe1cd5ccc000b6bd9e5dadbd03ce8b2380400aeeb4a785add9c1586" target="_blank" rel="noopener noreferrer">Tx</a></td>
+                            <td>Operational/liquidity allocation</td>
+                            <td>Verify movement on-chain</td>
                         </tr>
                     </tbody>
                     </table>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Vesting Schedule -->
+        <section class="mb-16">
+            <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
+                <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6 text-center">Vesting Schedule</h2>
+                <p class="max-w-3xl mx-auto text-center text-gray-400 mb-8">Vesting defines when each creator-side allocation bucket may begin to move. It does not override governance or treasury reporting: unlocks define timing, while actual movements are still visible on-chain and disclosed in the monthly State of the Treasury updates.</p>
+                <div id="vesting-chart-container" class="vesting-chart-container">
+                    <div class="absolute top-2 left-4 text-xs text-gray-500">Year 1</div>
+                    <div class="absolute top-2 left-1/2 -ml-4 text-xs text-gray-500">Year 2</div>
+                    <div class="absolute top-2 right-4 text-xs text-gray-500">End</div>
+                    <div class="absolute top-8 bottom-0 left-1/2 border-l border-dashed border-gray-600"></div>
+                </div>
+                <div id="vesting-details" class="vesting-details">
+                    Hover over a bar to see the cliff and vesting duration for each allocation.
+                </div>
+
+                <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mt-8 mb-3">Allocation Schedule</h3>
+                <p class="text-sm text-gray-400 mb-4">The schedule below summarizes the published unlock timing for the major creator-side allocation buckets.</p>
+                <div class="overflow-x-auto">
+                    <table class="litepaper-table">
+                        <thead>
+                            <tr>
+                                <th>Allocation</th>
+                                <th class="text-right">Cliff</th>
+                                <th class="text-right">Unlocks Begin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium">Protocol Liquidity</td>
+                                <td class="text-right">3 Months</td>
+                                <td class="text-right">Jan 1, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Community &amp; Partners</td>
+                                <td class="text-right">6 Months</td>
+                                <td class="text-right">Apr 1, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Contributors &amp; Advisors</td>
+                                <td class="text-right">12 Months</td>
+                                <td class="text-right">Oct 1, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Treasury (Strategic)</td>
+                                <td class="text-right">9 Months</td>
+                                <td class="text-right">Jul 1, 2026</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">CTO (Michael) - Upfront</td>
+                                <td class="text-right">1 Month</td>
+                                <td class="text-right">Nov 1, 2025</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">CTO (Michael) - Vesting</td>
+                                <td class="text-right">6 Months</td>
+                                <td class="text-right">Apr 1, 2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm text-gray-400 mt-4">Dates and amounts should be read together with the BaseScan links above. If an allocation moves, the transaction history on-chain and the monthly treasury updates are the verification source.</p>
             </div>
         </section>
 
         <!-- State of the Treasury Updates -->
         <section class="mb-16 text-center">
-            <h3 class="text-3xl md:text-4xl font-bold font-serif text-gradient mb-6">State of the Treasury</h3>
-            <p class="max-w-3xl mx-auto text-gray-400 mb-12">Monthly updates tracking all treasury movements and allocations.</p>
+            <h3 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">State of the Treasury</h3>
+            <p class="max-w-3xl mx-auto text-gray-400 mb-12">Monthly updates record actual movements from the Safe wallets after the original setup. These updates are separate from the vesting schedule: the schedule explains what may unlock; the monthly updates show what actually moved.</p>
             
             <div class="space-y-4 max-w-4xl mx-auto text-left">
                 <!-- April 2026 -->
@@ -240,7 +319,7 @@ permalink: /treasury.html
                         </div>
                         <div class="md:col-span-7 flex flex-col">
                             <div>
-                                <h4 class="text-lg font-bold text-gray-100 mb-4">Co-Founder &amp; CTO Vesting Q1/2026</h4>
+                                <h4 class="text-lg font-bold text-gray-100 mb-4">Co-Founder &amp; CTO Vesting Q2/2026</h4>
                                 <div class="grid grid-cols-3 gap-4 md:gap-6">
                                     <div>
                                         <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
@@ -405,5 +484,6 @@ permalink: /treasury.html
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
     <script src="/js/buildlog.js" defer></script>
+    <script src="/js/litepaper.js" defer></script>
 </body>
 </html>

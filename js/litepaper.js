@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Contributors & Advisors', cliff: 12, vesting: 12, color: '#805AD5' },
         { name: 'Treasury (Strategic)', cliff: 9, vesting: 15, color: '#D53F8C' },
         { name: 'CTO (Michael) - Upfront', cliff: 1, vesting: 1, color: '#F59E0B' },
-        { name: 'CTO (Michael) - Vesting', cliff: 6, vesting: 18, color: '#FBBF24' }
+        { name: 'CTO (Michael) - Vesting', cliff: 6, vesting: 18, color: '#FBBF24', cadence: 'Paid quarterly at the beginning of each quarter' }
     ];
 
     const chartContainer = document.getElementById('vesting-chart-container');
@@ -113,10 +113,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     detailsPanel.innerHTML = `
                         <strong style="color:${item.color}">${item.name}</strong><br>
                         Cliff: ${item.cliff} months, Vesting: ${item.vesting} months
+                        ${item.cadence ? `<br>${item.cadence}` : ''}
                     `;
                 });
                 el.addEventListener('mouseout', () => {
-                    detailsPanel.innerHTML = 'Hover over a bar to see vesting details.';
+                    detailsPanel.innerHTML = 'Hover over a bar to see the cliff and vesting duration for each allocation.';
                 });
             });
         });

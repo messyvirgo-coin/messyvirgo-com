@@ -26,7 +26,7 @@ Follow the project workflow (rule 00) and CSS/Tailwind rules (rule 20). These ru
 - Headers: `.mv-page-header` + `.text-gradient`.
 - Sections: `.mv-section`.
 - Cards: `.mv-card` and/or `.glassmorphism` (existing padding/rounded/border/hover).
-- Fonts: Inter (body), Playfair Display (headings). No new fonts.
+- Fonts: Inter (body and headings), `font-sans tracking-tight` on gradient titles. Optional Playfair only via `.font-serif` if explicitly needed. No new fonts.
 - Accents: pink/gold primary; others only for status/category.
 
 ## Content, Safety, SEO, Accessibility

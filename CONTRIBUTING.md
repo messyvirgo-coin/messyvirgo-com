@@ -69,6 +69,7 @@ Blog posts live in `_blog/_posts/`.
 - **Test locally**: confirm `npm run build` works and pages render in a browser.
 - **No secrets**: double-check you didn’t add keys, tokens, personal emails, or private URLs.
 - **Respect licensing/brand**: see [NOTICE](./NOTICE.md) and [BRAND](./BRAND.md).
+- **Typography**: new headings should follow existing patterns – **Inter** + **`font-sans tracking-tight`** for gradient titles (`text-gradient`), not Playfair, unless you deliberately use **`.font-serif`** and justify it in the PR.
 
 ## Maintainers
 

@@ -11,7 +11,7 @@
 <nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex justify-between items-center h-16">
-      <a href="/" class="text-2xl font-bold font-serif text-gradient">$MESSY</a>
+      <a href="/" class="text-2xl font-bold font-sans tracking-tight text-gradient">$MESSY</a>
 
       <!-- Desktop Nav -->
       <div class="hidden md:flex space-x-6 items-center text-sm font-semibold">
@@ -45,10 +45,10 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          <div class="dropdown-menu absolute right-0 mt-2 pt-2 w-44 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
+          <div class="dropdown-menu absolute right-0 mt-2 pt-2 w-52 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
             <a href="/founder-profiles.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-t-lg{% if currentUrl == '/founder-profiles.html' %} text-pink-400{% endif %}">Founders</a>
-            <a href="/treasury.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition{% if currentUrl == '/treasury.html' %} text-pink-400{% endif %}">Treasury</a>
-            <a href="/association.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition{% if currentUrl == '/association.html' %} text-pink-400{% endif %}">Association</a>
+            <a href="/treasury.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition{% if currentUrl == '/treasury.html' %} text-pink-400{% endif %}">Safes &amp; Vesting</a>
+            <a href="/association.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition{% if currentUrl == '/association.html' %} text-pink-400{% endif %}">Governance</a>
             <a href="/blog/" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-b-lg{% if currentUrl == '/blog/' or currentUrl.startsWith('/blog/') %} text-pink-400{% endif %}">Blog</a>
           </div>
         </div>
@@ -85,8 +85,8 @@
     <div class="border-t border-white/10 my-1"></div>
     <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">About</div>
     <a href="/founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
-    <a href="/treasury.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Treasury</a>
-    <a href="/association.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Association</a>
+    <a href="/treasury.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Safes &amp; Vesting</a>
+    <a href="/association.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Governance</a>
     <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
     <a href="{{ swapUrl }}" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
   </div>

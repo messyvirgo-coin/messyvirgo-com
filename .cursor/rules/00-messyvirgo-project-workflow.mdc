@@ -23,6 +23,12 @@ Public static Eleventy + Tailwind site. Always follow these boundaries and steps
 - Before finishing any source change → run `npm run build`.
 - Visual changes → preview the public URL at both mobile and desktop widths.
 
+## Typography (www)
+
+- **Inter** for body and all default headings (`css/base.css`).
+- **Gradient titles:** `font-bold font-sans tracking-tight` + `text-gradient` in templates; blog TOC injection matches this (`_includes/post.njk`).
+- **`.font-serif` (Playfair):** optional only; do not use for routine section titles.
+
 ## Specialized Skills
 - Blog posts → `publish-blog-post`
 - Weekly build logs → `messyvirgo-weekly-buildlog`

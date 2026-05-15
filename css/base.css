@@ -39,9 +39,13 @@ body {
     line-height: 1.6;
 }
 
-.font-serif,
-h1, h2, h3, h4, h5, h6 {
+.font-serif {
     font-family: 'Playfair Display', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.025em;
 }
 
 /* ========================================

@@ -110,7 +110,8 @@ body.founder-profiles-page {
     font-size: 5rem;
     font-weight: bold;
     color: #ff69b4;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.025em;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(255, 105, 180, 0.1);
 }
@@ -133,7 +134,8 @@ body.founder-profiles-page {
 .founder-name {
     font-size: 1.875rem;
     font-weight: bold;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.025em;
     color: #e5e7eb;
     margin: 0 0 0.5rem 0;
 }

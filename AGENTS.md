@@ -20,4 +20,10 @@ This is the public Messy Virgo website: a static Eleventy site using Tailwind CS
 4. Before handing off, always run `npm run build`.
 5. For visual changes, preview with `npm run dev` (or `npm run serve` if CSS is already built) at mobile + desktop widths.
 
+## Typography
+
+- **Inter** is the default for body and headings (`css/base.css` sets `h1`–`h6` to Inter with tight letter-spacing).
+- **Marketing / gradient titles:** use **`font-bold font-sans tracking-tight`** with **`text-gradient`** (see `index.html` hero and section `h2` patterns).
+- **`.font-serif`** (Playfair) exists for edge cases only; do not revert section titles to Playfair without an explicit product decision.
+
 Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.
