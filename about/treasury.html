@@ -30,7 +30,6 @@ permalink: /treasury.html
     <link rel="canonical" href="https://www.messyvirgo.com/treasury.html">
 
     {% include "partials/head-common.njk" %}
-    <link rel="stylesheet" href="/css/buildlog.css">
     <link rel="stylesheet" href="/css/litepaper.css">
 
     <!-- Structured Data -->
@@ -48,25 +47,25 @@ permalink: /treasury.html
     }
     </script>
 </head>
-<body class="buildlog-page bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        
+    <main class="max-w-content mx-auto px-4 py-16 md:py-24">
+
         <!-- Header Section -->
         <section class="mv-page-header mb-16 text-center">
-            <h1 class="text-gradient mb-4">Treasury, Safes & Vesting</h1>
-            <p class="max-w-3xl mx-auto">The creator-side $MESSY allocation is documented through six Safe smart wallets and related BaseScan transactions on Base. This page brings together wallet addresses, allocation amounts, vesting rules, unlock schedules, and monthly treasury movements so holders can verify custody and activity in one place.</p>
+            <h1 class="mv-h1 mb-4">Treasury, Safes & Vesting</h1>
+            <p class="mv-lead">The creator-side $MESSY allocation is documented through six Safe smart wallets and related BaseScan transactions on Base. This page brings together wallet addresses, allocation amounts, vesting rules, unlock schedules, and monthly treasury movements so holders can verify custody and activity in one place.</p>
         </section>
 
         <!-- How to Read This Page -->
         <section class="mb-16">
             <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6 text-center">How to read this page</h2>
+                <h2 class="mv-h2 mb-6 text-center">How to read this page</h2>
                 <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed space-y-4">
                     <p>The Safe wallets show where the tokens are held. The allocation table explains what each wallet is for. The vesting schedule explains when tokens may unlock. The monthly treasury updates show actual movements after setup. Together, these give holders one place to verify both planned allocation and real on-chain activity.</p>
                     <p>Governance and execution are separate but connected: token holders steer major decisions, the Swiss association provides the real-world execution layer, the Safe wallets hold the tokens on-chain, and vesting controls when allocation buckets may move.</p>
@@ -96,7 +95,7 @@ permalink: /treasury.html
         <section class="mb-16">
             <div class="grid grid-cols-1 gap-8 mt-8">
                 <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6 text-center">Safe Wallet Custody</h2>
+                    <h2 class="mv-h2 mb-6 text-center">Safe Wallet Custody</h2>
                     <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed space-y-4">
                         <p>The original creator-side allocation was split from a single externally owned address into public Safe wallets and related transfer transactions on Base. These Safes collectively hold the published team, contributor, liquidity, community, and treasury allocation buckets under ongoing custody; completed direct transfers, such as upfront tranches, are linked separately where applicable.</p>
                         <p>We use Safe smart wallets instead of a standard third-party locker because $MESSY includes a 1.25% reflection mechanic. Traditional lockers can be incompatible with automatically changing token balances or can mishandle reflection-taxed transfers. Safe custody keeps the allocation buckets public and verifiable while preserving the token's normal transfer rules.</p>
@@ -105,7 +104,7 @@ permalink: /treasury.html
                 </div>
 
                 <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">Six Safe Wallets</h2>
+                    <h2 class="mv-h2 mb-4 text-center">Six Safe Wallets</h2>
                     <p class="max-w-3xl mx-auto text-center text-gray-400 mb-8">Each row links to the relevant Safe wallet or transfer transaction on BaseScan. The amounts reflect the creator-side allocation buckets before transfer taxes where applicable.</p>
                     <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left" style="min-width: 900px;">
@@ -186,7 +185,7 @@ permalink: /treasury.html
         <!-- Vesting Schedule -->
         <section class="mb-16">
             <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6 text-center">Vesting Schedule</h2>
+                <h2 class="mv-h2 mb-6 text-center">Vesting Schedule</h2>
                 <p class="max-w-3xl mx-auto text-center text-gray-400 mb-8">Vesting defines when each creator-side allocation bucket may begin to move. It does not override governance or treasury reporting: unlocks define timing, while actual movements are still visible on-chain and disclosed in the monthly State of the Treasury updates.</p>
                 <div id="vesting-chart-container" class="vesting-chart-container">
                     <div class="absolute top-2 left-4 text-xs text-gray-500">Year 1</div>

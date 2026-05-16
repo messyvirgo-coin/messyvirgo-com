@@ -284,6 +284,18 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.08em;
 }
 
+/* Treasury page separator — small helper ported from former buildlog.css
+   so about/treasury.html can drop the per-page CSS load. */
+.mv-treasury-sep {
+    margin-top: 2rem;
+}
+
+.mv-treasury-sep-inner {
+    display: flow-root;
+    border-top: 1px solid var(--mv-glass-border);
+    padding-top: 2.5rem;
+}
+
 /* Legal page prose — D7 in design-system spec.
    Scopes to descendants of the legal content wrapper so it never leaks. */
 .prose-legal h2 {
