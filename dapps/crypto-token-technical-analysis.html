@@ -106,30 +106,30 @@ permalink: /dapps/crypto-token-technical-analysis.html
     ]
     </script>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        
+    <main class="max-w-content mx-auto px-4 py-16 md:py-24">
+
         <!-- Header Section -->
         <section class="mv-page-header mb-16 text-center">
-            <h1 class="text-gradient mb-4">Crypto Token Technical Analysis</h1>
-            <p class="max-w-3xl mx-auto text-lg">
+            <h1 class="mv-h1 mb-4">Crypto Token Technical Analysis</h1>
+            <p class="mv-lead">
                 Stop manual charting. Get a structured snapshot of <strong>trend, momentum, and volatility</strong>–powered by institutional-grade data and transparent indicators for any DeFi token.
             </p>
         </section>
 
         <div class="space-y-16">
-        
+
         <!-- TL;DR -->
         <section id="tldr" class="mv-section">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold font-sans tracking-tight text-pink-400 mb-4">TL;DR</h2>
-                <p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">TL;DR</h2>
+                <p class="mv-body">
                     The Technical Analysis Tool turns market activity into a structured snapshot of <strong>trend</strong>, <strong>momentum</strong>, <strong>volatility</strong>, <strong>market health</strong>, and <strong>key price levels</strong>. It combines multi-source market data, computes indicators and derived levels, and produces a report that highlights what could strengthen the setup and what could invalidate it.
                 </p>
             </div>
@@ -139,19 +139,19 @@ permalink: /dapps/crypto-token-technical-analysis.html
         <section id="why-ta" class="mv-section">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold font-sans tracking-tight text-pink-400 mb-4">Why Use Automated TA for Crypto?</h2>
-                    <p class="text-gray-300 mb-4">
+                    <h2 class="mv-h2 mb-4">Why Use Automated TA for Crypto?</h2>
+                    <p class="mv-body mb-4">
                         The crypto market never sleeps, and volatility is the only constant. Manual technical analysis is time-consuming and prone to emotional bias. Our <strong>Technical Analysis Tool</strong> removes the noise by processing thousands of data points to give you a cold, hard look at market reality.
                     </p>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><span class="text-yellow-400">✔</span> <strong>Eliminate Bias</strong>: No "hopium"–just data-driven signals.</li>
-                        <li><span class="text-yellow-400">✔</span> <strong>Multi-Timeframe Logic</strong>: Analyzes 4h and Daily trends simultaneously.</li>
-                        <li><span class="text-yellow-400">✔</span> <strong>Instant Fibonacci</strong>: Automatically detects swing highs/lows for key levels.</li>
+                    <ul class="space-y-2 mv-body">
+                        <li><strong>Eliminate Bias</strong>: No "hopium"–just data-driven signals.</li>
+                        <li><strong>Multi-Timeframe Logic</strong>: Analyzes 4h and Daily trends simultaneously.</li>
+                        <li><strong>Instant Fibonacci</strong>: Automatically detects swing highs/lows for key levels.</li>
                     </ul>
                 </div>
-                <div class="mv-card glassmorphism p-6 rounded-lg border border-pink-500/30">
-                     <h3 class="text-xl font-bold text-gradient mb-4">Core Indicators Explained</h3>
-                     <div class="space-y-4 text-sm">
+                <div class="mv-card p-6 fade-in">
+                     <h3 class="mv-h3 mb-4">Core Indicators Explained</h3>
+                     <div class="space-y-4 mv-body text-sm">
                         <p><strong>RSI:</strong> Identifies if a token is overextended (overbought) or due for a bounce (oversold).</p>
                         <p><strong>MACD:</strong> Tracks momentum shifts to catch trend reversals before they happen.</p>
                         <p><strong>OBV:</strong> Confirms if price moves are backed by real volume or just low-liquidity spikes.</p>
@@ -162,25 +162,25 @@ permalink: /dapps/crypto-token-technical-analysis.html
 
         <!-- How to use it -->
         <section id="how-to-use" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">How to use it (Web UI)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">How to use it (Web UI)</h2>
+            <p class="mv-lead text-center mb-12">
                 The Technical Analysis Tool provides a structured workflow: pick a token, generate a report, and read through the analysis top-down to understand the current setup and key levels.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <a href="https://app.messyvirgo.com/technical-analyses" target="_blank" rel="noopener noreferrer" class="block bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20 font-semibold text-center mb-6">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <a href="https://app.messyvirgo.com/technical-analyses" target="_blank" rel="noopener noreferrer" class="btn btn-primary block text-center mb-6">
                         Open dApp →
                     </a>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Pick a token</h3>
-                    <p class="text-gray-300 mb-4">Search or paste a contract address and select the chain/network.</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">2) Run the analysis</h3>
-                    <p class="text-gray-300 mb-4">Click "Generate" to produce a fresh report. The tool will automatically select a relevant venue/pool and gather the time-series data needed for analysis (when available).</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Share or revisit</h3>
-                    <p class="text-gray-300">Each run produces a shareable analysis link so you can return later or compare changes over time.</p>
+                    <h3 class="mv-h3 mb-3">1) Pick a token</h3>
+                    <p class="mv-body mb-4">Search or paste a contract address and select the chain/network.</p>
+                    <h3 class="mv-h3 mb-3">2) Run the analysis</h3>
+                    <p class="mv-body mb-4">Click "Generate" to produce a fresh report. The tool will automatically select a relevant venue/pool and gather the time-series data needed for analysis (when available).</p>
+                    <h3 class="mv-h3 mb-3">3) Share or revisit</h3>
+                    <p class="mv-body">Each run produces a shareable analysis link so you can return later or compare changes over time.</p>
                 </div>
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Read the report top-down</h3>
-                    <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Read the report top-down</h3>
+                    <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                         <li><strong>Summary</strong>: A plain-English overview of the current setup and the biggest opportunity vs. risk.</li>
                         <li><strong>Key Metrics</strong>: A compact table of the most important numbers and signals.</li>
                         <li><strong>Market Health</strong>: Liquidity depth, activity quality, and execution risk in context.</li>
@@ -194,64 +194,64 @@ permalink: /dapps/crypto-token-technical-analysis.html
 
         <!-- What it does -->
         <section id="what-it-does" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">What the Technical Analysis Tool does (high level)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">What the Technical Analysis Tool does (high level)</h2>
+            <p class="mv-lead text-center mb-12">
                 The tool combines multi-source market data, computes indicators and derived levels, and produces a report that highlights what could strengthen the setup and what could invalidate it.
             </p>
-            
+
             <div class="space-y-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Data ingestion (multi-source, normalized)</h3>
-                    <p class="text-gray-300 mb-3">We pull a best-effort blend of:</p>
-                    <ul class="list-disc list-outside pl-6 text-gray-300 space-y-2">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">1) Data ingestion (multi-source, normalized)</h3>
+                    <p class="mv-body mb-3">We pull a best-effort blend of:</p>
+                    <ul class="list-disc list-outside pl-6 mv-body space-y-2">
                         <li><strong>Spot context</strong>: current price and market context metrics (e.g., liquidity, market cap, fully diluted value when available).</li>
                         <li><strong>Time-series market activity</strong>: OHLCV candles (open/high/low/close/volume) on multiple timeframes, plus trade/volume activity stats when available.</li>
                     </ul>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">2) Reconciliation &amp; quality gating</h3>
-                    <p class="text-gray-300">Market data can disagree (different venues, different sampling, different coverage). We normalize fields into a consistent schema, reconcile overlaps into a "best available" view, and apply <strong>quality gating</strong> so indicators that need sufficient history aren't treated as reliable until there's enough data.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">2) Reconciliation &amp; quality gating</h3>
+                    <p class="mv-body">Market data can disagree (different venues, different sampling, different coverage). We normalize fields into a consistent schema, reconcile overlaps into a "best available" view, and apply <strong>quality gating</strong> so indicators that need sufficient history aren't treated as reliable until there's enough data.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-4">3) Indicators we compute (per timeframe)</h3>
-                    <p class="text-gray-300 mb-4">We compute a concise, interpretable indicator set on both a <strong>short-term timeframe</strong> (typically 4h; may fall back to 6h when needed) and a <strong>daily timeframe</strong> (24h) when coverage allows:</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-4">3) Indicators we compute (per timeframe)</h3>
+                    <p class="mv-body mb-4">We compute a concise, interpretable indicator set on both a <strong>short-term timeframe</strong> (typically 4h; may fall back to 6h when needed) and a <strong>daily timeframe</strong> (24h) when coverage allows:</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">RSI (Relative Strength Index)</div>
-                            <div class="text-sm text-gray-300">Current value, recent history, and a simple state label (oversold / neutral / overbought).</div>
+                            <div class="mv-eyebrow mb-2">RSI (Relative Strength Index)</div>
+                            <div class="mv-body text-sm">Current value, recent history, and a simple state label (oversold / neutral / overbought).</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">MACD (Moving Average Convergence Divergence)</div>
-                            <div class="text-sm text-gray-300">MACD line, signal line, histogram, plus crossover signal (bullish / bearish / none) and histogram trend (expanding / contracting).</div>
+                            <div class="mv-eyebrow mb-2">MACD (Moving Average Convergence Divergence)</div>
+                            <div class="mv-body text-sm">MACD line, signal line, histogram, plus crossover signal (bullish / bearish / none) and histogram trend (expanding / contracting).</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">EMA (Exponential Moving Averages)</div>
-                            <div class="text-sm text-gray-300">EMA20 (short-term baseline) and EMA60 (swing-trend filter), price vs EMA20, and EMA alignment (bullish / bearish) when there is sufficient history.</div>
+                            <div class="mv-eyebrow mb-2">EMA (Exponential Moving Averages)</div>
+                            <div class="mv-body text-sm">EMA20 (short-term baseline) and EMA60 (swing-trend filter), price vs EMA20, and EMA alignment (bullish / bearish) when there is sufficient history.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">ATR (Average True Range)</div>
-                            <div class="text-sm text-gray-300">ATR value and ATR as % of price, plus a simple volatility tier (low / medium / high).</div>
+                            <div class="mv-eyebrow mb-2">ATR (Average True Range)</div>
+                            <div class="mv-body text-sm">ATR value and ATR as % of price, plus a simple volatility tier (low / medium / high).</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4 md:col-span-2">
-                            <div class="font-bold text-pink-400 mb-2">OBV (On-Balance Volume)</div>
-                            <div class="text-sm text-gray-300">OBV value and trend (rising / falling / flat), plus divergence vs price (bullish / bearish / none) as a caution/confirmation signal.</div>
+                            <div class="mv-eyebrow mb-2">OBV (On-Balance Volume)</div>
+                            <div class="mv-body text-sm">OBV value and trend (rising / falling / flat), plus divergence vs price (bullish / bearish / none) as a caution/confirmation signal.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-4">4) Derived metrics &amp; key levels we compute</h3>
-                    <p class="text-gray-300 mb-4">On top of indicators, the tool derives price-action features that help explain "where we are" and "what levels matter":</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-4">4) Derived metrics &amp; key levels we compute</h3>
+                    <p class="mv-body mb-4">On top of indicators, the tool derives price-action features that help explain "where we are" and "what levels matter":</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+                        <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                             <li><strong>Performance (price change %)</strong>: 1d, 7d, 30d (and short-window changes when the timeframe supports it).</li>
                             <li><strong>Recent trading range</strong>: 7d, 30d, and (when enough daily history exists) up to ~180d ranges: high/low and range %.</li>
                             <li><strong>Swing points (local structure)</strong>: Most recent swing high and swing low.</li>
                             <li><strong>Pullback from swing high</strong>: Pullback % and a simple interpretation bucket (healthy retrace / deep retrace / breakdown).</li>
                         </ul>
-                        <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+                        <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                             <li><strong>Fibonacci levels (from the current swing range)</strong>: Retracements (0.236, 0.382, 0.5, 0.618, 0.786) and extensions (1.272, 1.618, 2.0), plus a current zone label.</li>
                             <li><strong>Market structure classification</strong>: Pattern (uptrend / downtrend / range), recent sequence of swing classifications (HH/HL/LH/LL), and a conservative confidence label.</li>
                             <li><strong>Invalidation level</strong>: The "thesis breaks here" line–a computed level and distance-to-price %, based on the active structure regime.</li>
@@ -260,41 +260,41 @@ permalink: /dapps/crypto-token-technical-analysis.html
                     </div>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">5) How we summarize it (without "black box" magic)</h3>
-                    <p class="text-gray-300">The report combines deterministic computations (indicators/levels above) with a structured narrative that explains market health, trend quality, and risk, then presents bull/base/bear scenarios with explicit conditions–while clearly stating limitations when coverage is incomplete.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">5) How we summarize it (without "black box" magic)</h3>
+                    <p class="mv-body">The report combines deterministic computations (indicators/levels above) with a structured narrative that explains market health, trend quality, and risk, then presents bull/base/bear scenarios with explicit conditions–while clearly stating limitations when coverage is incomplete.</p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
         <section id="faq" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-8 text-center">Frequently Asked Questions</h2>
+            <h2 class="mv-h2 mb-8 text-center">Frequently Asked Questions</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">Is this financial advice?</h3>
-                    <p class="text-gray-400">No. This is a data-processing tool designed for educational research. Always perform your own due diligence.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">Is this financial advice?</h3>
+                    <p class="mv-body">No. This is a data-processing tool designed for educational research. Always perform your own due diligence.</p>
                 </div>
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">Which chains are supported?</h3>
-                    <p class="text-gray-400">We support major EVM chains including Ethereum, Solana, and Base, pulling data from the most liquid venues available.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">Which chains are supported?</h3>
+                    <p class="mv-body">We support major EVM chains including Ethereum, Solana, and Base, pulling data from the most liquid venues available.</p>
                 </div>
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">How accurate are the indicators?</h3>
-                    <p class="text-gray-400">Indicators are computed using industry-standard formulas (RSI, MACD, EMA, ATR, OBV) with multi-source data reconciliation. Results include quality gating to indicate when sufficient history exists for reliable signals.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">How accurate are the indicators?</h3>
+                    <p class="mv-body">Indicators are computed using industry-standard formulas (RSI, MACD, EMA, ATR, OBV) with multi-source data reconciliation. Results include quality gating to indicate when sufficient history exists for reliable signals.</p>
                 </div>
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">Can I share my analysis reports?</h3>
-                    <p class="text-gray-400">Yes. Each analysis generates a shareable link that you can bookmark or share with others. Reports are persistent and can be revisited later.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">Can I share my analysis reports?</h3>
+                    <p class="mv-body">Yes. Each analysis generates a shareable link that you can bookmark or share with others. Reports are persistent and can be revisited later.</p>
                 </div>
             </div>
         </section>
 
         <!-- Disclaimer -->
         <section id="disclaimer" class="mb-8">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl font-bold font-sans tracking-tight text-gradient mb-4">Disclaimer</h2>
-                <p>The Technical Analysis Tool uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">Disclaimer</h2>
+                <p class="mv-body">The Technical Analysis Tool uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
             </div>
         </section>
 

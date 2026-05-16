@@ -95,19 +95,19 @@ permalink: /dapps/market-vibe-daily-base-app.html
     ]
     </script>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        
+    <main class="max-w-content mx-auto px-4 py-16 md:py-24">
+
         <!-- Header Section -->
         <section class="mv-page-header mb-16 text-center">
-            <h1 class="text-gradient mb-4">Market Vibe Daily Base App</h1>
-            <p class="max-w-3xl mx-auto text-lg">
+            <h1 class="mv-h1 mb-4">Market Vibe Daily Base App</h1>
+            <p class="mv-lead">
                 Daily crypto market intel: <strong>today's regime</strong> and <strong>risk context</strong>, plus what traders typically do next, summarized in about <strong>2 minutes</strong>. Full report included.
             </p>
             <p class="max-w-3xl mx-auto text-sm text-gray-400 mt-4">
@@ -119,15 +119,15 @@ permalink: /dapps/market-vibe-daily-base-app.html
         </section>
 
         <div class="space-y-16">
-        
+
         <!-- TL;DR -->
         <section id="tldr" class="mv-section">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold font-sans tracking-tight text-pink-400 mb-4">TL;DR</h2>
-                <p class="mb-4">
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">TL;DR</h2>
+                <p class="mv-body mb-4">
                     Market Vibe Daily turns macro and liquidity signals into a clear daily regime call and risk posture. You get the base score, qualitative adjustment, and effective score with a regime label (R++, R+, N, R-, D), plus a short briefing and a link to the full report.
                 </p>
-                <p class="text-gray-300">
+                <p class="mv-body">
                     It is powered by our existing <strong>Crypto Macro Economics Report</strong> API. See the underlying app documentation for the full framework and indicator details:
                     <a class="text-pink-400 hover:text-pink-300 underline" href="/dapps/crypto-macro-economics-report.html">messyvirgo.com/dapps/crypto-macro-economics-report.html</a>.
                 </p>
@@ -136,9 +136,9 @@ permalink: /dapps/market-vibe-daily-base-app.html
 
         <!-- Why use it -->
         <section id="why-use" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">Why use Market Vibe Daily?</h2>
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+            <h2 class="mv-h2 mb-4 text-center">Why use Market Vibe Daily?</h2>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                     <li>Save time with a daily briefing you can scan fast.</li>
                     <li>Know the risk with a clear regime label and score breakdown.</li>
                     <li>Get context for what usually works in this kind of regime.</li>
@@ -149,25 +149,25 @@ permalink: /dapps/market-vibe-daily-base-app.html
 
         <!-- How to use it -->
         <section id="how-to-use" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">How to use it (Web UI)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">How to use it (Web UI)</h2>
+            <p class="mv-lead text-center mb-12">
                 Open the Base Mini App, unlock the report, read the daily briefing, then open or download the full report when you want the details.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <a href="https://base.app/app/messyvirgo-base-macros.vercel.app/" target="_blank" rel="noopener noreferrer" class="block bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20 font-semibold text-center mb-6">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <a href="https://base.app/app/messyvirgo-base-macros.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary block text-center mb-6">
                         Open Base Mini App →
                     </a>
-                    <ol class="list-decimal list-outside pl-6 space-y-3 text-gray-300">
+                    <ol class="list-decimal list-outside pl-6 space-y-3 mv-body">
                         <li><strong>Acknowledge Terms and Privacy</strong> to unlock the report.</li>
                         <li><strong>Read the daily briefing</strong> (regime, scores, summary).</li>
                         <li><strong>Open the full report</strong> for detailed tables and annexes.</li>
                         <li><strong>Download the report</strong> if you want a desktop-friendly view.</li>
                     </ol>
                 </div>
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">What you get each day</h3>
-                    <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">What you get each day</h3>
+                    <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                         <li><strong>Regime label</strong>: R++, R+, N, R-, or D.</li>
                         <li><strong>Score breakdown</strong>: Base Score (BS), Qualitative Adjustment (QA), Effective Score (ES).</li>
                         <li><strong>Briefing</strong>: a fast read on the backdrop and risk posture.</li>
@@ -179,17 +179,17 @@ permalink: /dapps/market-vibe-daily-base-app.html
 
         <!-- What it does -->
         <section id="what-it-does" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">What Market Vibe Daily does (high level)</h2>
+            <h2 class="mv-h2 mb-4 text-center">What Market Vibe Daily does (high level)</h2>
             <div class="space-y-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Data ingestion (macro + liquidity context)</h3>
-                    <p class="text-gray-300">We pull the daily macro report output from the Messy Virgo pipeline and align it to a daily publish window. When available, the underlying signals are derived from trusted macro and liquidity sources (BIS, FRED, DeFiLlama, SoSoValue).</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">1) Data ingestion (macro + liquidity context)</h3>
+                    <p class="mv-body">We pull the daily macro report output from the Messy Virgo pipeline and align it to a daily publish window. When available, the underlying signals are derived from trusted macro and liquidity sources (BIS, FRED, DeFiLlama, SoSoValue).</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">2) Regime scoring and labels</h3>
-                    <p class="text-gray-300 mb-4">The report combines a weighted base score with a qualitative adjustment layer, then produces an effective score and a regime label:</p>
-                    <ul class="list-disc list-outside pl-6 text-gray-300 space-y-2">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">2) Regime scoring and labels</h3>
+                    <p class="mv-body mb-4">The report combines a weighted base score with a qualitative adjustment layer, then produces an effective score and a regime label:</p>
+                    <ul class="list-disc list-outside pl-6 mv-body space-y-2">
                         <li><strong>Base Score (BS)</strong>: weighted macro and liquidity indicator score.</li>
                         <li><strong>Qualitative Adjustment (QA)</strong>: current events overlay.</li>
                         <li><strong>Effective Score (ES)</strong>: BS + QA, clamped to a stable range.</li>
@@ -197,10 +197,10 @@ permalink: /dapps/market-vibe-daily-base-app.html
                     </ul>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Daily briefing + full report</h3>
-                    <p class="text-gray-300 mb-4">The mini app surfaces a concise summary for fast reading, then links to the full report for deep detail. The full report typically includes:</p>
-                    <ul class="list-disc list-outside pl-6 text-gray-300 space-y-2">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">3) Daily briefing + full report</h3>
+                    <p class="mv-body mb-4">The mini app surfaces a concise summary for fast reading, then links to the full report for deep detail. The full report typically includes:</p>
+                    <ul class="list-disc list-outside pl-6 mv-body space-y-2">
                         <li>Regime snapshot and effective score.</li>
                         <li>Indicator tables and base score breakdown.</li>
                         <li>Qualitative adjustments and key drivers.</li>
@@ -208,41 +208,41 @@ permalink: /dapps/market-vibe-daily-base-app.html
                     </ul>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Delivery and caching</h3>
-                    <p class="text-gray-300">Reports refresh daily and are cached briefly to speed up loading and avoid unnecessary re-fetches.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Delivery and caching</h3>
+                    <p class="mv-body">Reports refresh daily and are cached briefly to speed up loading and avoid unnecessary re-fetches.</p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
         <section id="faq" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-8 text-center">Frequently Asked Questions</h2>
+            <h2 class="mv-h2 mb-8 text-center">Frequently Asked Questions</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">Is this financial advice?</h3>
-                    <p class="text-gray-400">No. This is an educational data tool. Always do your own research.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">Is this financial advice?</h3>
+                    <p class="mv-body">No. This is an educational data tool. Always do your own research.</p>
                 </div>
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">How often is the report updated?</h3>
-                    <p class="text-gray-400">Daily. Each report reflects the most recent available data at publish time.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">How often is the report updated?</h3>
+                    <p class="mv-body">Daily. Each report reflects the most recent available data at publish time.</p>
                 </div>
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">Can I share the report?</h3>
-                    <p class="text-gray-400">Yes. You can link to the report or download it for offline reading.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">Can I share the report?</h3>
+                    <p class="mv-body">Yes. You can link to the report or download it for offline reading.</p>
                 </div>
-                <div class="mv-card glassmorphism p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-yellow-400 mb-2">Where do I open it?</h3>
-                    <p class="text-gray-400">Open the Base Mini App via the link on this page, or search the Base App for “Market Vibe Daily”.</p>
+                <div class="mv-card p-6 fade-in">
+                    <h3 class="mv-h3 mb-2">Where do I open it?</h3>
+                    <p class="mv-body">Open the Base Mini App via the link on this page, or search the Base App for “Market Vibe Daily”.</p>
                 </div>
             </div>
         </section>
 
         <!-- Disclaimer -->
         <section id="disclaimer" class="mb-8">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl font-bold font-sans tracking-tight text-gradient mb-4">Disclaimer</h2>
-                <p>Market Vibe Daily uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">Disclaimer</h2>
+                <p class="mv-body">Market Vibe Daily uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
             </div>
         </section>
 
