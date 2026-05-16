@@ -31,6 +31,10 @@
 /* ========================================
    2. BASE TYPOGRAPHY & RESETS
    ======================================== */
+html {
+    overflow-x: hidden; /* iOS Safari ignores overflow-x:hidden on body alone */
+}
+
 body {
     background-color: var(--mv-bg-dark);
     color: var(--mv-text-primary);

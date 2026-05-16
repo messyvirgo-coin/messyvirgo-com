@@ -49,14 +49,15 @@
     }
     </script>
 </head>
-<body class="blog-post-page bg-gray-900 text-gray-200 flex flex-col min-h-screen">
+<body class="blog-post-page bg-gray-900 text-gray-200">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
+    <div class="flex flex-col min-h-screen">
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-3xl mx-auto px-4 py-16 md:py-24 flex-1">
+    <main class="max-w-3xl mx-auto w-full px-4 py-16 md:py-24 flex-1 overflow-x-hidden">
         <!-- Post Header -->
         <article class="fade-in">
             <header class="mb-12 text-center">
@@ -81,6 +82,8 @@
     <!-- Footer -->
     {% set footerClass = 'mt-24' %}
     {% include "partials/footer.njk" %}
+
+    </div>{# end flex wrapper #}
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
@@ -274,6 +277,18 @@
 
                 // Style tables
                 proseContent.querySelectorAll('table').forEach(table => {
+                    // Skip fund-update tables — they have their own scroll wrapper (.fu-narr-wrap)
+                    // and adding overflow:hidden + a second wrapper breaks mobile scrolling.
+                    const parent = table.parentElement;
+                    if (parent && (parent.classList.contains('fu-narr-wrap') || table.className.includes('fu-'))) {
+                        // Still colour PnL cells, but don't touch layout
+                        table.querySelectorAll('td').forEach(td => {
+                            const text = td.textContent.trim();
+                            if (/^\+[\d.]/.test(text)) td.classList.add('positive');
+                            else if (/^−[\d.]|^-[\d.]/.test(text)) td.classList.add('negative');
+                        });
+                        return;
+                    }
                     table.classList.add('rounded-lg', 'overflow-hidden');
                     // Wrap in a scroll container so it doesn't overflow on mobile
                     const wrapper = document.createElement('div');

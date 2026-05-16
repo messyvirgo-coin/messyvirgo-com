@@ -26,22 +26,22 @@
 .fu-bar-legend { display:flex; flex-wrap:wrap; gap:.6rem; }
 .fu-leg { display:flex; align-items:center; gap:.3rem; font-size:.72rem; color:#9ca3af; }
 .fu-leg-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-.fu-council { background:rgba(255,215,0,.04); border:1px solid rgba(255,215,0,.15); border-radius:10px; padding:1rem 1.25rem; margin:1.5rem 0; display:flex; gap:1rem; align-items:flex-start; }
+.fu-council { background:rgba(255,215,0,.04); border:1px solid rgba(255,215,0,.15); border-radius:10px; padding:1rem 1.25rem; margin:1.5rem 0; display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-start; }
 .fu-council-icon { font-size:1.4rem; flex-shrink:0; margin-top:.1rem; }
-.fu-council-body { flex:1; }
+.fu-council-body { flex:1; min-width:0; }
 .fu-council-outcome { font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fbbf24; margin-bottom:.35rem; }
 .fu-council-body p { font-size:.85rem; color:#d1d5db; line-height:1.6; margin:0; }
 .fu-candidates { margin:.75rem 0 1.25rem; }
 .fu-cand-row { display:flex; gap:.5rem; align-items:baseline; padding:.35rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.83rem; }
 .fu-cand-row:last-child { border-bottom:none; }
 .fu-cand-rank { width:1.25rem; color:#6b7280; font-size:.75rem; flex-shrink:0; }
-.fu-cand-sym { font-weight:700; color:#e5e7eb; min-width:3.5rem; }
-.fu-cand-reason { color:#9ca3af; font-size:.78rem; }
+.fu-cand-sym { font-weight:700; color:#e5e7eb; min-width:3.5rem; flex-shrink:0; }
+.fu-cand-reason { color:#9ca3af; font-size:.78rem; flex:1; min-width:0; word-break:break-word; }
 .fu-macro { display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1.75rem; }
-.fu-macro-score { text-align:center; min-width:90px; }
-.ms-val   { font-size:2.5rem; font-weight:800; color:#fbbf24; line-height:1; }
+.fu-macro-score { text-align:center; min-width:80px; }
+.ms-val   { font-size:2.25rem; font-weight:800; color:#fbbf24; line-height:1; }
 .ms-label { font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#9ca3af; margin-top:.25rem; }
-.fu-macro-summary { flex:1; min-width:200px; font-size:.85rem; color:#d1d5db; line-height:1.65; }
+.fu-macro-summary { flex:1; min-width:0; font-size:.85rem; color:#d1d5db; line-height:1.65; word-break:break-word; }
 .fu-narr-table { width:100%; border-collapse:collapse; font-size:.83rem; margin-bottom:1.5rem; }
 .fu-narr-table th { text-align:left; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#6b7280; padding:.5rem .75rem; border-bottom:1px solid rgba(255,255,255,.07); }
 .fu-narr-table td { padding:.65rem .75rem; border-bottom:1px solid rgba(255,255,255,.04); color:#d1d5db; vertical-align:middle; }
@@ -78,5 +78,16 @@
 .fu-link-pill:hover { border-color:rgba(255,105,180,.35); color:#ff69b4; text-decoration:none; }
 .fu-link-icon { font-size:.85rem; }
 .fu-autogen { font-size:.73rem; color:#4b5563; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:8px; padding:.6rem 1rem; margin-bottom:2rem; display:flex; align-items:center; gap:.5rem; }
-.fu-narr-wrap { overflow-x:auto; border:1px solid rgba(255,255,255,.08); border-radius:10px; }
+.fu-narr-wrap { width:100%; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid rgba(255,255,255,.08); border-radius:10px; }
+/* Override base.css which sets display:block and width:100% on .prose table.
+   We need the table to use its natural content width so the wrapper can scroll it. */
+.fu-narr-table { display:table !important; width:auto !important; min-width:440px; }
+@media(max-width:639px){
+  .fu-narr-table th,.fu-narr-table td { padding:.45rem .5rem; }
+  .fu-narr-table { font-size:.78rem; }
+  .fu-links-grid { grid-template-columns:1fr 1fr; }
+  .fu-fund-grid { grid-template-columns:1fr; }
+  .fu-signal-grid { grid-template-columns:1fr; }
+  .fu-macro { gap:1rem; padding:1rem; }
+}
 </style>
