@@ -41,7 +41,7 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 
 ## Pages
 
-- **Home** (`index.html`) – Landing page with hero, tokenomics, evolution phases, and swap integration
+- **Home** (`index.html`) – Funds-first routing page: hero, research engine, pre-live testing Funds, proof/updates, verify path, live price chart, and swap (`_includes/partials/home-funds-first.njk`)
 - **Litepaper** (`litepaper.html`) – AI-native fund OS narrative, tokenomics chart, phased roadmap, and trust summary; **Investment Vehicles** lists Guru.fund links (independent of Phase 3 pre-live Funds); **Trust & transparency** links to **Treasury, Safes & Vesting** for custody and vesting detail
 - **Treasury, Safes & Vesting** (`about/treasury.html` → `/treasury.html`) – Safe custody explainer, six-wallet table, interactive vesting chart and allocation schedule, monthly treasury movements
 - **Governance & association** (`about/association.html` → `/association.html`) – Association overview and how governance connects to treasury

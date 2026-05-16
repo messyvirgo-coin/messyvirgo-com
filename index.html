@@ -122,41 +122,46 @@
 
         {% include "partials/home-funds-first.njk" %}
 
-        <!-- What is Messy Virgo Coin ($MESSY)? -->
         <!-- Live On-Chain Data -->
         <section id="data" class="fade-in">
-             <div class="w-full h-[600px] rounded-lg overflow-hidden glassmorphism p-2">
-                <iframe 
-                    id="geckoterminal-chart"
-                    src="https://www.geckoterminal.com/base/pools/0x09f87f948c88848363b124c9099cbb58e4cc7cb6?embed=1&info=0&swaps=0&light_chart=0&chart_type=price&resolution=4h&bg_color=111827"
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    allowfullscreen
-                    title="MESSY Token Chart - GeckoTerminal">
-                </iframe>
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">Live price</h2>
+                    <p class="max-w-3xl mx-auto text-gray-400">MESSY/WETH on Base — via GeckoTerminal.</p>
+                </div>
+                <div class="w-full h-[500px] rounded-lg overflow-hidden glassmorphism p-2">
+                    <iframe
+                        id="geckoterminal-chart"
+                        src="https://www.geckoterminal.com/base/pools/0x09f87f948c88848363b124c9099cbb58e4cc7cb6?embed=1&info=0&swaps=0&light_chart=0&chart_type=price&resolution=4h&bg_color=111827"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                        title="MESSY Token Chart - GeckoTerminal">
+                    </iframe>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="https://www.dextools.io/app/en/token/messy" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-400 hover:text-pink-400 transition underline">DEXTools</a>
+                </div>
             </div>
-             <div class="text-center mt-4">
-                 <a href="https://www.dextools.io/app/en/token/messy" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-400 hover:text-pink-400 transition underline">DEXTools</a>
-             </div>
         </section>
 
         <!-- Swap -->
         <section id="swap" class="text-center fade-in">
-             <div class="glassmorphism rounded-lg py-12 px-8 max-w-4xl mx-auto">
+             <div class="glassmorphism rounded-lg py-12 px-8 max-w-5xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">Get Messy Virgo Coin</h2>
-                <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-300">Swap $MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the <a href="/messy-virgo-coin.html" class="text-pink-400 hover:text-pink-300 underline transition">contract address</a> before trading.</p>
+                <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-400">Swap $MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the <a href="/messy-virgo-coin.html" class="text-pink-400 hover:text-pink-300 underline transition">contract address</a> before trading.</p>
                 <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap Now</a>
             </div>
         </section>
         
         <!-- Join the Alpha -->
         <section id="alpha" class="fade-in">
-            <div class="glassmorphism rounded-lg py-12 px-8 text-center max-w-4xl mx-auto">
+            <div class="glassmorphism rounded-lg py-12 px-8 text-center max-w-5xl mx-auto">
                  <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">Join the community</h2>
-                 <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-300">Follow the latest findings on X and join Telegram for real-time discussions.</p>
+                 <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-400">Follow the latest findings on X and join Telegram for real-time discussions.</p>
                  <div class="flex flex-col sm:flex-row gap-4 justify-center">
                      <a href="https://x.com/MessyVirgoCoin" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition">Follow on X</a>
                      <a href="https://t.me/messyvirgo" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-semibold py-3 px-8 rounded-lg hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Join Telegram</a>
