@@ -88,7 +88,7 @@
     }
     </script>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
@@ -107,9 +107,9 @@
                 Messy Virgo turns crypto noise into clear, followable rotations through AI-driven research, allocation, and execution for crypto funds.
             </p>
             <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
-                <a href="https://app.messyvirgo.com/" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-10 rounded-lg hover:bg-pink-600 transition shadow-lg shadow-pink-500/20 text-lg sm:text-xl order-first">Open App</a>
-                <a href="/blog/2026/05/messy-fund-update-week-of-2026-05-15/" class="bg-white/10 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition">Latest update</a>
-                <a href="/messy-virgo-coin.html" class="bg-white/10 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition">Verify $MESSY</a>
+                <a href="https://app.messyvirgo.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg sm:text-xl order-first">Open App</a>
+                <a href="/blog/2026/05/messy-fund-update-week-of-2026-05-15/" class="btn btn-secondary">Latest update</a>
+                <a href="/messy-virgo-coin.html" class="btn btn-secondary">Verify $MESSY</a>
             </div>
         </div>
         {% include "partials/trust-cluster.njk" %}
@@ -118,16 +118,16 @@
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 space-y-24">
+    <main class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 space-y-24">
 
         {% include "partials/home-funds-first.njk" %}
 
         <!-- Live On-Chain Data -->
         <section id="data" class="fade-in">
-            <div class="max-w-5xl mx-auto">
+            <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-6">
-                    <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">Live price</h2>
-                    <p class="max-w-3xl mx-auto text-gray-400">MESSY/WETH on Base — via GeckoTerminal.</p>
+                    <h2 class="mv-h2 mb-4">Live price</h2>
+                    <p class="mv-lead">MESSY/WETH on Base — via GeckoTerminal.</p>
                 </div>
                 <div class="w-full h-[500px] rounded-lg overflow-hidden glassmorphism p-2">
                     <iframe
@@ -150,22 +150,22 @@
 
         <!-- Swap -->
         <section id="swap" class="text-center fade-in">
-             <div class="glassmorphism rounded-lg py-12 px-8 max-w-5xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">Get Messy Virgo Coin</h2>
-                <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-400">Swap $MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the <a href="/messy-virgo-coin.html" class="text-pink-400 hover:text-pink-300 underline transition">contract address</a> before trading.</p>
-                <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Swap Now</a>
+            <div class="mv-card p-8 md:p-12 max-w-4xl mx-auto">
+                <h2 class="mv-h2 mb-6">Get Messy Virgo Coin</h2>
+                <p class="mv-lead mb-8">Swap $MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the <a href="/messy-virgo-coin.html" class="text-pink-400 hover:text-pink-300 underline transition">contract address</a> before trading.</p>
+                <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Swap Now</a>
             </div>
         </section>
-        
+
         <!-- Join the Alpha -->
         <section id="alpha" class="fade-in">
-            <div class="glassmorphism rounded-lg py-12 px-8 text-center max-w-5xl mx-auto">
-                 <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">Join the community</h2>
-                 <p class="max-w-3xl mx-auto mb-8 text-lg text-gray-400">Follow the latest findings on X and join Telegram for real-time discussions.</p>
-                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                     <a href="https://x.com/MessyVirgoCoin" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-semibold py-3 px-8 rounded-lg border border-white/20 hover:bg-white/20 transition">Follow on X</a>
-                     <a href="https://t.me/messyvirgo" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-semibold py-3 px-8 rounded-lg hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Join Telegram</a>
-                 </div>
+            <div class="mv-card p-8 md:p-12 text-center max-w-4xl mx-auto">
+                <h2 class="mv-h2 mb-6">Join the community</h2>
+                <p class="mv-lead mb-8">Follow the latest findings on X and join Telegram for real-time discussions.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://x.com/MessyVirgoCoin" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Follow on X</a>
+                    <a href="https://t.me/messyvirgo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Telegram</a>
+                </div>
             </div>
         </section>
 
