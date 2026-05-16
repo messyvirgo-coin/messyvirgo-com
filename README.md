@@ -42,7 +42,7 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 ## Pages
 
 - **Home** (`index.html`) – Landing page with hero, tokenomics, evolution phases, and swap integration
-- **Litepaper** (`litepaper.html`) – Interactive documentation with charts and roadmap; **Trust & transparency** summarizes verification and links to **Treasury, Safes & Vesting** for canonical custody and vesting detail
+- **Litepaper** (`litepaper.html`) – AI-native fund OS narrative, tokenomics chart, phased roadmap, and trust summary; **Investment Vehicles** lists Guru.fund links (independent of Phase 3 pre-live Funds); **Trust & transparency** links to **Treasury, Safes & Vesting** for custody and vesting detail
 - **Treasury, Safes & Vesting** (`about/treasury.html` → `/treasury.html`) – Safe custody explainer, six-wallet table, interactive vesting chart and allocation schedule, monthly treasury movements
 - **Governance & association** (`about/association.html` → `/association.html`) – Association overview and how governance connects to treasury
 - **Token** (`messy-virgo-coin.html` → `/messy-virgo-coin`) – Token FAQ and links into treasury for verification
