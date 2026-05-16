@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Local IDE / agent settings (personal, not shared)
+.claude/settings.local.json
+.remember/
+
 # Build outputs
 _site/
 npm-debug.log*
