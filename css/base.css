@@ -155,7 +155,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: auto;
 }
 
-/* Card Base - shared glassmorphism card */
+/* Card Base - shared glassmorphism card (canonical).
+   Padding is intentionally NOT set here — pages provide it via Tailwind
+   utilities (e.g. p-6, p-8) so individual cards can vary by content density
+   while still sharing the canonical surface treatment. */
 .mv-card {
     background: var(--mv-glass-bg);
     backdrop-filter: blur(12px);
@@ -165,10 +168,181 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease, transform 0.3s ease-out;
 }
 
-.mv-card:hover {
+.mv-card:hover,
+.mv-card:focus-within {
     background: var(--mv-glass-bg-hover);
     border-color: var(--mv-glass-border-hover);
     transform: translateY(-8px) !important;
+}
+
+/* Feature card — rotating conic-gradient glow on hover. */
+.mv-card--feature {
+    position: relative;
+    overflow: hidden;
+}
+
+.mv-card--feature::before {
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(transparent, rgba(255, 105, 180, 0.5), transparent 30%);
+    animation: rotate 6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.mv-card--feature:hover::before,
+.mv-card--feature:focus-within::before {
+    opacity: 1;
+}
+
+/* Aliases for legacy class names — keep partially-migrated pages rendering.
+   Removed in Phase 6 once every page uses .mv-card directly. */
+.litepaper-box,
+.vision-card,
+.founder-card {
+    background: var(--mv-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--mv-glass-border);
+    border-radius: var(--mv-border-radius);
+    transition: all 0.3s ease, transform 0.3s ease-out;
+}
+
+.litepaper-box:hover,
+.vision-card:hover,
+.founder-card:hover {
+    background: var(--mv-glass-bg-hover);
+    border-color: var(--mv-glass-border-hover);
+    transform: translateY(-8px);
+}
+
+/* Semantic Heading Scale — D4 in design-system spec.
+   These compile to the canonical Tailwind utility strings; pages may
+   either apply .mv-h2 or use the full utility string. Both must match. */
+.mv-h1 {
+    font-size: 2.25rem;     /* text-4xl */
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--mv-accent-pink), var(--mv-accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.3;
+    padding-bottom: 0.1em;
+}
+
+.mv-h2 {
+    font-size: 1.875rem;    /* text-3xl */
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--mv-accent-pink), var(--mv-accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.3;
+    padding-bottom: 0.1em;
+}
+
+.mv-h3 {
+    font-size: 1.25rem;     /* text-xl */
+    font-weight: 600;
+    color: #ffffff;         /* H3 is white, never pink — fixes the litepaper rogue */
+}
+
+@media (min-width: 768px) {
+    .mv-h1 { font-size: 3rem; }       /* md:text-5xl */
+    .mv-h2 { font-size: 2.25rem; }    /* md:text-4xl */
+    .mv-h3 { font-size: 1.5rem; }     /* md:text-2xl */
+}
+
+/* Body, lead paragraph, eyebrow label — semantic text classes. */
+.mv-body {
+    color: var(--mv-text-secondary);
+    line-height: 1.75;
+    font-size: 1rem;
+}
+
+.mv-lead {
+    color: var(--mv-text-muted);
+    line-height: 1.75;
+    font-size: 1.125rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mv-eyebrow {
+    color: var(--mv-accent-pink);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Legal page prose — D7 in design-system spec.
+   Scopes to descendants of the legal content wrapper so it never leaks. */
+.prose-legal h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--mv-accent-pink), var(--mv-accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.prose-legal h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--mv-text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.prose-legal p {
+    color: var(--mv-text-muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+.prose-legal strong {
+    color: var(--mv-text-primary);
+}
+
+.prose-legal a {
+    color: var(--mv-accent-pink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.prose-legal a:hover,
+.prose-legal a:focus-visible {
+    color: #f472b6;
+}
+
+.prose-legal ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: var(--mv-text-muted);
+    margin-bottom: 1rem;
+}
+
+.prose-legal ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+}
+
+.prose-legal hr {
+    border: none;
+    border-top: 1px solid var(--mv-glass-border);
+    margin: 2rem 0;
 }
 
 /* ========================================
@@ -259,17 +433,23 @@ h1, h2, h3, h4, h5, h6 {
     position: sticky;
     top: 0;
     z-index: 40;
+    /* Respect iOS notch/Dynamic Island so sticky nav isn't clipped */
+    padding-top: env(safe-area-inset-top);
 }
 
-/* Dropdown hover delay (was previously inlined on many pages) */
+/* Dropdown hover delay (was previously inlined on many pages).
+   Reveal on hover OR focus-within so keyboard/touch users get the dropdown too. */
 .dropdown-menu {
     transition: opacity 200ms ease-out, visibility 200ms ease-out;
     transition-delay: 0ms;
 }
-.group:hover .dropdown-menu {
+.group:hover .dropdown-menu,
+.group:focus-within .dropdown-menu {
     transition-delay: 0ms;
+    opacity: 1;
+    visibility: visible;
 }
-.group:not(:hover) .dropdown-menu {
+.group:not(:hover):not(:focus-within) .dropdown-menu {
     transition-delay: 200ms;
 }
 
@@ -286,8 +466,10 @@ h1, h2, h3, h4, h5, h6 {
     transition: background-color 0.3s ease;
 }
 
-#mobile-menu a:hover {
+#mobile-menu a:hover,
+#mobile-menu a:focus-visible {
     background-color: #1f2937;
+    outline: none;
 }
 
 /* ========================================
@@ -375,10 +557,12 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 1rem rgba(255, 105, 180, 0.2);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
     background-color: #ff4488;
     transform: scale(1.05);
     box-shadow: 0 0 2rem rgba(255, 105, 180, 0.4);
+    outline: none;
 }
 
 .btn-primary:active {
@@ -391,10 +575,12 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.4);
     transform: scale(1.05);
+    outline: none;
 }
 
 .btn-secondary:active {
@@ -420,7 +606,8 @@ a:not(.btn)::after {
     transition: width 0.3s ease;
 }
 
-a:not(.btn):hover::after {
+a:not(.btn):hover::after,
+a:not(.btn):focus-visible::after {
     width: 100%;
 }
 
@@ -438,8 +625,10 @@ footer a {
     transition: color 0.3s ease;
 }
 
-footer a:hover {
+footer a:hover,
+footer a:focus-visible {
     color: var(--mv-accent-pink);
+    outline: none;
 }
 
 /* ========================================
@@ -450,16 +639,26 @@ footer a:hover {
         font-size: 0.95rem;
     }
 
-    .btn {
-        padding: 0.625rem 1.5rem;
-        font-size: 0.9rem;
+    /* Touch hit-area minimums — every interactive role gets at least 44×44 below 768px. */
+    .btn,
+    button,
+    a.mv-card,
+    .nav-link,
+    [role="button"] {
         min-height: 44px;
         min-width: 44px;
     }
 
-    button {
-        min-height: 44px;
-        min-width: 44px;
+    .btn {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Prevent iOS auto-zoom on focused inputs (anything below 16px triggers it). */
+    input,
+    select,
+    textarea {
+        font-size: 16px;
     }
 }
 
