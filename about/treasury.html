@@ -56,56 +56,61 @@ permalink: /treasury.html
 
     <main class="max-w-content mx-auto px-4 py-16 md:py-24">
 
-        <!-- Header Section -->
-        <section class="mv-page-header mb-16 text-center">
-            <h1 class="mv-h1 mb-4">Treasury, Safes & Vesting</h1>
-            <p class="mv-lead">The creator-side $MESSY allocation is documented through six Safe smart wallets and related BaseScan transactions on Base. This page brings together wallet addresses, allocation amounts, vesting rules, unlock schedules, and monthly treasury movements so holders can verify custody and activity in one place.</p>
+        <!-- Header -->
+        <section class="mb-16 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="mv-h1 mb-4">Treasury, Safes & Vesting</h1>
+                <p class="mv-lead">The creator-side $MESSY allocation is documented through six Safe smart wallets and related BaseScan transactions on Base. This page brings together wallet addresses, allocation amounts, vesting rules, unlock schedules, and monthly treasury movements so holders can verify custody and activity in one place.</p>
+            </div>
         </section>
 
         <!-- How to Read This Page -->
         <section class="mb-16">
-            <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                <h2 class="mv-h2 mb-6 text-center">How to read this page</h2>
-                <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed space-y-4">
-                    <p>The Safe wallets show where the tokens are held. The allocation table explains what each wallet is for. The vesting schedule explains when tokens may unlock. The monthly treasury updates show actual movements after setup. Together, these give holders one place to verify both planned allocation and real on-chain activity.</p>
-                    <p>Governance and execution are separate but connected: token holders steer major decisions, the Swiss association provides the real-world execution layer, the Safe wallets hold the tokens on-chain, and vesting controls when allocation buckets may move.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
-                        <h3 class="mv-h3 mb-2">Governance decides</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">Token-holder governance is the intended path for major budgets, partnerships, protocol changes, and long-term treasury direction.</p>
-                    </div>
-                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
-                        <h3 class="mv-h3 mb-2">Association executes</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">The Swiss association gives the project a legal execution layer for services, contracts, stewardship, and approved operational decisions.</p>
-                    </div>
-                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
-                        <h3 class="mv-h3 mb-2">Safes hold</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">The creator-side allocation buckets under ongoing custody are held in six Safe smart wallets on Base for public, verifiable custody.</p>
-                    </div>
-                    <div class="rounded-lg border border-white/10 bg-white/5 p-5">
-                        <h3 class="mv-h3 mb-2">Vesting controls timing</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">Each allocation bucket follows a published unlock schedule. Transfers from the Safe wallets remain subject to the same 1.25% reflection tax.</p>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="mv-h2 mb-4 text-center">How to read this page</h2>
+                <p class="mv-lead text-center mb-8">The Safe wallets show where the tokens are held. The allocation table explains what each wallet is for. The vesting schedule explains when tokens may unlock. The monthly treasury updates show actual movements after setup. Together, these give holders one place to verify both planned allocation and real on-chain activity.</p>
+                <div class="mv-card p-6 md:p-8 fade-in">
+                    <p class="mv-body mb-6">Governance and execution are separate but connected: token holders steer major decisions, the Swiss association provides the real-world execution layer, the Safe wallets hold the tokens on-chain, and vesting controls when allocation buckets may move.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h3 class="mv-h3 mb-2">Governance decides</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">Token-holder governance is the intended path for major budgets, partnerships, protocol changes, and long-term treasury direction.</p>
+                        </div>
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h3 class="mv-h3 mb-2">Association executes</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">The Swiss association gives the project a legal execution layer for services, contracts, stewardship, and approved operational decisions.</p>
+                        </div>
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h3 class="mv-h3 mb-2">Safes hold</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">The creator-side allocation buckets under ongoing custody are held in six Safe smart wallets on Base for public, verifiable custody.</p>
+                        </div>
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h3 class="mv-h3 mb-2">Vesting controls timing</h3>
+                            <p class="text-sm text-gray-300 leading-relaxed">Each allocation bucket follows a published unlock schedule. Transfers from the Safe wallets remain subject to the same 1.25% reflection tax.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Safe Wallet Custody Section -->
+        <!-- Safe Wallet Custody -->
         <section class="mb-16">
-            <div class="grid grid-cols-1 gap-8 mt-8">
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h2 class="mv-h2 mb-6 text-center">Safe Wallet Custody</h2>
-                    <div class="max-w-4xl mx-auto text-gray-300 leading-relaxed space-y-4">
-                        <p>The original creator-side allocation was split from a single externally owned address into public Safe wallets and related transfer transactions on Base. These Safes collectively hold the published team, contributor, liquidity, community, and treasury allocation buckets under ongoing custody; completed direct transfers, such as upfront tranches, are linked separately where applicable.</p>
-                        <p>We use Safe smart wallets instead of a standard third-party locker because $MESSY includes a 1.25% reflection mechanic. Traditional lockers can be incompatible with automatically changing token balances or can mishandle reflection-taxed transfers. Safe custody keeps the allocation buckets public and verifiable while preserving the token's normal transfer rules.</p>
-                        <p>All transfers from these Safes remain subject to the same 1.25% reflection tax applied to regular transfers. Movements are documented below in monthly State of the Treasury updates.</p>
-                    </div>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="mv-h2 mb-4 text-center">Safe Wallet Custody</h2>
+                <div class="mv-card p-6 md:p-8 fade-in">
+                    <p class="mv-body mb-4">The original creator-side allocation was split from a single externally owned address into public Safe wallets and related transfer transactions on Base. These Safes collectively hold the published team, contributor, liquidity, community, and treasury allocation buckets under ongoing custody; completed direct transfers, such as upfront tranches, are linked separately where applicable.</p>
+                    <p class="mv-body mb-4">We use Safe smart wallets instead of a standard third-party locker because $MESSY includes a 1.25% reflection mechanic. Traditional lockers can be incompatible with automatically changing token balances or can mishandle reflection-taxed transfers. Safe custody keeps the allocation buckets public and verifiable while preserving the token's normal transfer rules.</p>
+                    <p class="mv-body">All transfers from these Safes remain subject to the same 1.25% reflection tax applied to regular transfers. Movements are documented below in monthly State of the Treasury updates.</p>
                 </div>
+            </div>
+        </section>
 
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h2 class="mv-h2 mb-4 text-center">Six Safe Wallets</h2>
-                    <p class="max-w-3xl mx-auto text-center text-gray-400 mb-8">Each row links to the relevant Safe wallet or transfer transaction on BaseScan. The amounts reflect the creator-side allocation buckets before transfer taxes where applicable.</p>
+        <!-- Six Safe Wallets -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="mv-h2 mb-4 text-center">Six Safe Wallets</h2>
+                <p class="mv-lead text-center mb-8">Each row links to the relevant Safe wallet or transfer transaction on BaseScan. The amounts reflect the creator-side allocation buckets before transfer taxes where applicable.</p>
+                <div class="mv-card p-6 md:p-8 fade-in">
                     <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left" style="min-width: 900px;">
                     <thead class="text-xs text-gray-400 uppercase">
@@ -184,293 +189,298 @@ permalink: /treasury.html
 
         <!-- Vesting Schedule -->
         <section class="mb-16">
-            <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 text-left transition-transform duration-300 hover:-translate-y-2">
-                <h2 class="mv-h2 mb-6 text-center">Vesting Schedule</h2>
-                <p class="max-w-3xl mx-auto text-center text-gray-400 mb-8">Vesting defines when each creator-side allocation bucket may begin to move. It does not override governance or treasury reporting: unlocks define timing, while actual movements are still visible on-chain and disclosed in the monthly State of the Treasury updates.</p>
-                <div id="vesting-chart-container" class="vesting-chart-container">
-                    <div class="absolute top-2 left-4 text-xs text-gray-500">Year 1</div>
-                    <div class="absolute top-2 left-1/2 -ml-4 text-xs text-gray-500">Year 2</div>
-                    <div class="absolute top-2 right-4 text-xs text-gray-500">End</div>
-                    <div class="absolute top-8 bottom-0 left-1/2 border-l border-dashed border-gray-600"></div>
+            <div class="max-w-4xl mx-auto">
+                <h2 class="mv-h2 mb-4 text-center">Vesting Schedule</h2>
+                <p class="mv-lead text-center mb-8">Vesting defines when each creator-side allocation bucket may begin to move. It does not override governance or treasury reporting: unlocks define timing, while actual movements are still visible on-chain and disclosed in the monthly State of the Treasury updates.</p>
+                <div class="mv-card p-6 md:p-8 fade-in">
+                    <div id="vesting-chart-container" class="vesting-chart-container">
+                        <div class="absolute top-2 left-4 text-xs text-gray-500">Year 1</div>
+                        <div class="absolute top-2 left-1/2 -ml-4 text-xs text-gray-500">Year 2</div>
+                        <div class="absolute top-2 right-4 text-xs text-gray-500">End</div>
+                        <div class="absolute top-8 bottom-0 left-1/2 border-l border-dashed border-gray-600"></div>
+                    </div>
+                    <div id="vesting-details" class="vesting-details">
+                        Hover over a bar to see the cliff and vesting duration for each allocation.
+                    </div>
+                    <h3 class="mv-h3 mt-8 mb-3">Allocation Schedule</h3>
+                    <p class="mv-body mb-4">The schedule below summarizes the published unlock timing for the major creator-side allocation buckets.</p>
+                    <div class="overflow-x-auto">
+                        <table class="litepaper-table">
+                            <thead>
+                                <tr>
+                                    <th>Allocation</th>
+                                    <th class="text-right">Cliff</th>
+                                    <th class="text-right">Unlocks Begin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium">Protocol Liquidity</td>
+                                    <td class="text-right">3 Months</td>
+                                    <td class="text-right">Jan 1, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Community &amp; Partners</td>
+                                    <td class="text-right">6 Months</td>
+                                    <td class="text-right">Apr 1, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Contributors &amp; Advisors</td>
+                                    <td class="text-right">12 Months</td>
+                                    <td class="text-right">Oct 1, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">Treasury (Strategic)</td>
+                                    <td class="text-right">9 Months</td>
+                                    <td class="text-right">Jul 1, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">CTO (Michael) - Upfront</td>
+                                    <td class="text-right">1 Month</td>
+                                    <td class="text-right">Nov 1, 2025</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-medium">CTO (Michael) - Vesting</td>
+                                    <td class="text-right">6 Months</td>
+                                    <td class="text-right">Apr 1, 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mv-body mt-4">Dates and amounts should be read together with the BaseScan links above. If an allocation moves, the transaction history on-chain and the monthly treasury updates are the verification source.</p>
                 </div>
-                <div id="vesting-details" class="vesting-details">
-                    Hover over a bar to see the cliff and vesting duration for each allocation.
-                </div>
-
-                <h3 class="mv-h3 mt-8 mb-3">Allocation Schedule</h3>
-                <p class="text-sm text-gray-400 mb-4">The schedule below summarizes the published unlock timing for the major creator-side allocation buckets.</p>
-                <div class="overflow-x-auto">
-                    <table class="litepaper-table">
-                        <thead>
-                            <tr>
-                                <th>Allocation</th>
-                                <th class="text-right">Cliff</th>
-                                <th class="text-right">Unlocks Begin</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="font-medium">Protocol Liquidity</td>
-                                <td class="text-right">3 Months</td>
-                                <td class="text-right">Jan 1, 2026</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">Community &amp; Partners</td>
-                                <td class="text-right">6 Months</td>
-                                <td class="text-right">Apr 1, 2026</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">Contributors &amp; Advisors</td>
-                                <td class="text-right">12 Months</td>
-                                <td class="text-right">Oct 1, 2026</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">Treasury (Strategic)</td>
-                                <td class="text-right">9 Months</td>
-                                <td class="text-right">Jul 1, 2026</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">CTO (Michael) - Upfront</td>
-                                <td class="text-right">1 Month</td>
-                                <td class="text-right">Nov 1, 2025</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">CTO (Michael) - Vesting</td>
-                                <td class="text-right">6 Months</td>
-                                <td class="text-right">Apr 1, 2026</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="text-sm text-gray-400 mt-4">Dates and amounts should be read together with the BaseScan links above. If an allocation moves, the transaction history on-chain and the monthly treasury updates are the verification source.</p>
             </div>
         </section>
 
-        <!-- State of the Treasury Updates -->
-        <section class="mb-16 text-center">
-            <h3 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">State of the Treasury</h3>
-            <p class="max-w-3xl mx-auto text-gray-400 mb-12">Monthly updates record actual movements from the Safe wallets after the original setup. These updates are separate from the vesting schedule: the schedule explains what may unlock; the monthly updates show what actually moved.</p>
-            
-            <div class="space-y-4 max-w-4xl mx-auto text-left">
-                <!-- April 2026 -->
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 border-l-4 border-amber-400 transition-transform duration-300 hover:-translate-y-2">
-                    <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-                        <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
-                            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
-                            <div class="text-2xl font-bold text-amber-400">April 2026</div>
-                        </div>
-                        <div class="md:col-span-7 flex flex-col">
-                            <div>
-                                <h4 class="text-lg font-bold text-gray-100 mb-4">Protocol Liquidity → Volume Bot Liquidity (3M)</h4>
-                                <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                    <div>
-                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                        <p class="text-base md:text-lg font-semibold text-gray-200">3,000,000.00</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                        <p class="text-base md:text-lg font-semibold text-gray-200">0.30%</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
-                                        <p class="font-semibold">
-                                            <a href="https://basescan.org/tx/0xbcf6e7335064903de351e9a583160c4e7aebba28a5075890894b252f134cc157" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
-                                        </p>
-                                    </div>
-                                </div>
+        <!-- State of the Treasury -->
+        <section class="mb-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="mv-h2 mb-4 text-center">State of the Treasury</h2>
+                <p class="mv-lead text-center mb-8">Monthly updates record actual movements from the Safe wallets after the original setup. These updates are separate from the vesting schedule: the schedule explains what may unlock; the monthly updates show what actually moved.</p>
+
+                <div class="space-y-4 text-left">
+
+                    <!-- April 2026 -->
+                    <div class="mv-card p-6 md:p-8 border-l-4 border-amber-400 fade-in">
+                        <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+                            <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
+                                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
+                                <div class="text-2xl font-bold text-amber-400">April 2026</div>
                             </div>
-                            <div class="mv-treasury-sep">
-                                <div class="mv-treasury-sep-inner">
-                                    <h4 class="text-lg font-bold text-gray-100 mb-4">Community &amp; Partners → Raffle, Infrastructure, Campaigns (7M)</h4>
+                            <div class="md:col-span-7 flex flex-col">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-100 mb-4">Protocol Liquidity → Volume Bot Liquidity (3M)</h4>
                                     <div class="grid grid-cols-3 gap-4 md:gap-6">
                                         <div>
                                             <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                            <p class="text-base md:text-lg font-semibold text-gray-200">7,000,000.00</p>
+                                            <p class="text-base md:text-lg font-semibold text-gray-200">3,000,000.00</p>
                                         </div>
                                         <div>
                                             <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                            <p class="text-base md:text-lg font-semibold text-gray-200">0.70%</p>
+                                            <p class="text-base md:text-lg font-semibold text-gray-200">0.30%</p>
                                         </div>
                                         <div>
                                             <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
                                             <p class="font-semibold">
-                                                <a href="https://basescan.org/tx/0xf0c7578e64ae88b000e558f924b777bb79563abfcba79f53c07e01571c8cb221" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
+                                                <a href="https://basescan.org/tx/0xbcf6e7335064903de351e9a583160c4e7aebba28a5075890894b252f134cc157" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mv-treasury-sep">
-                                <div class="mv-treasury-sep-inner">
-                                    <p class="text-sm text-gray-400 leading-relaxed">Notes: 3M MESSY for Buyer Raffle, 3M MESSY for infrastructure budget, 1M MESSY for campaigns – all within the monthly vesting limits for Community &amp; Partners and Protocol Liquidity pools.</p>
+                                <div class="mv-treasury-sep">
+                                    <div class="mv-treasury-sep-inner">
+                                        <h4 class="text-lg font-bold text-gray-100 mb-4">Community &amp; Partners → Raffle, Infrastructure, Campaigns (7M)</h4>
+                                        <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                            <div>
+                                                <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
+                                                <p class="text-base md:text-lg font-semibold text-gray-200">7,000,000.00</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
+                                                <p class="text-base md:text-lg font-semibold text-gray-200">0.70%</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
+                                                <p class="font-semibold">
+                                                    <a href="https://basescan.org/tx/0xf0c7578e64ae88b000e558f924b777bb79563abfcba79f53c07e01571c8cb221" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mv-treasury-sep">
+                                    <div class="mv-treasury-sep-inner">
+                                        <p class="mv-body text-sm leading-relaxed">Notes: 3M MESSY for Buyer Raffle, 3M MESSY for infrastructure budget, 1M MESSY for campaigns – all within the monthly vesting limits for Community &amp; Partners and Protocol Liquidity pools.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- March 2026 -->
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 border-l-4 border-emerald-400 transition-transform duration-300 hover:-translate-y-2">
-                    <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-                        <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
-                            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
-                            <div class="text-2xl font-bold text-emerald-400">March 2026</div>
-                        </div>
-                        <div class="md:col-span-7 flex flex-col">
-                            <div>
-                                <h4 class="text-lg font-bold text-gray-100 mb-4">Co-Founder &amp; CTO Vesting Q2/2026</h4>
-                                <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                    <div>
-                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                        <p class="text-base md:text-lg font-semibold text-gray-200">15,000,000.00</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                        <p class="text-base md:text-lg font-semibold text-gray-200">1.5%</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
-                                        <p class="font-semibold">
-                                            <a href="https://basescan.org/tx/0xe8f273db753250b9ef45f53529949d266653beb4aab4d50257ebbe6d00540ffb" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
-                                        </p>
-                                    </div>
-                                </div>
+                    <!-- March 2026 -->
+                    <div class="mv-card p-6 md:p-8 border-l-4 border-emerald-400 fade-in">
+                        <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+                            <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
+                                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
+                                <div class="text-2xl font-bold text-emerald-400">March 2026</div>
                             </div>
-                            <div class="mv-treasury-sep">
-                                <div class="mv-treasury-sep-inner">
-                                    <h4 class="text-lg font-bold text-gray-100 mb-4">Q1/26 Liquidity &amp; Market-Making Program (3M); Infrastructure Costs March 2026 (3M)</h4>
+                            <div class="md:col-span-7 flex flex-col">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-100 mb-4">Co-Founder &amp; CTO Vesting Q2/2026</h4>
                                     <div class="grid grid-cols-3 gap-4 md:gap-6">
                                         <div>
                                             <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                            <p class="text-base md:text-lg font-semibold text-gray-200">6,000,000.00</p>
+                                            <p class="text-base md:text-lg font-semibold text-gray-200">15,000,000.00</p>
                                         </div>
                                         <div>
                                             <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                            <p class="text-base md:text-lg font-semibold text-gray-200">0.6%</p>
+                                            <p class="text-base md:text-lg font-semibold text-gray-200">1.5%</p>
                                         </div>
                                         <div>
                                             <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
                                             <p class="font-semibold">
-                                                <a href="https://basescan.org/tx/0xac3a74f410ae1a89973fae25055072bf7b1f7083b848afa83de9dac215cea175" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
+                                                <a href="https://basescan.org/tx/0xe8f273db753250b9ef45f53529949d266653beb4aab4d50257ebbe6d00540ffb" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
                                             </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mv-treasury-sep">
+                                    <div class="mv-treasury-sep-inner">
+                                        <h4 class="text-lg font-bold text-gray-100 mb-4">Q1/26 Liquidity &amp; Market-Making Program (3M); Infrastructure Costs March 2026 (3M)</h4>
+                                        <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                            <div>
+                                                <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
+                                                <p class="text-base md:text-lg font-semibold text-gray-200">6,000,000.00</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
+                                                <p class="text-base md:text-lg font-semibold text-gray-200">0.6%</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
+                                                <p class="font-semibold">
+                                                    <a href="https://basescan.org/tx/0xac3a74f410ae1a89973fae25055072bf7b1f7083b848afa83de9dac215cea175" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- February 2026 -->
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 border-l-4 border-cyan-400 transition-transform duration-300 hover:-translate-y-2">
-                    <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-                        <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
-                            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
-                            <div class="text-2xl font-bold text-cyan-400">February 2026</div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <h4 class="text-lg font-bold text-gray-100 mb-4">No Safe Wallet Transactions</h4>
-                            <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                    <!-- February 2026 -->
+                    <div class="mv-card p-6 md:p-8 border-l-4 border-cyan-400 fade-in">
+                        <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+                            <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
+                                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
+                                <div class="text-2xl font-bold text-cyan-400">February 2026</div>
+                            </div>
+                            <div class="md:col-span-7">
+                                <h4 class="text-lg font-bold text-gray-100 mb-4">No Safe Wallet Transactions</h4>
+                                <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- January 2026 -->
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 border-l-4 border-blue-400 transition-transform duration-300 hover:-translate-y-2">
-                    <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-                        <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
-                            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
-                            <div class="text-2xl font-bold text-blue-400">January 2026</div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <h4 class="text-lg font-bold text-gray-100 mb-4">No Safe Wallet Transactions</h4>
-                            <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                    <!-- January 2026 -->
+                    <div class="mv-card p-6 md:p-8 border-l-4 border-blue-400 fade-in">
+                        <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+                            <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
+                                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
+                                <div class="text-2xl font-bold text-blue-400">January 2026</div>
+                            </div>
+                            <div class="md:col-span-7">
+                                <h4 class="text-lg font-bold text-gray-100 mb-4">No Safe Wallet Transactions</h4>
+                                <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- December 2025 -->
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 border-l-4 border-purple-400 transition-transform duration-300 hover:-translate-y-2">
-                    <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-                        <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
-                            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
-                            <div class="text-2xl font-bold text-purple-400">December 2025</div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <h4 class="text-lg font-bold text-gray-100 mb-4">Safe Wallet Test Transaction</h4>
-                            <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">120,000.00</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
-                                    <p class="font-semibold">
-                                        <a href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
-                                    </p>
+                    <!-- December 2025 -->
+                    <div class="mv-card p-6 md:p-8 border-l-4 border-purple-400 fade-in">
+                        <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+                            <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
+                                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
+                                <div class="text-2xl font-bold text-purple-400">December 2025</div>
+                            </div>
+                            <div class="md:col-span-7">
+                                <h4 class="text-lg font-bold text-gray-100 mb-4">Safe Wallet Test Transaction</h4>
+                                <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">120,000.00</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">-</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
+                                        <p class="font-semibold">
+                                            <a href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- November 2025 -->
-                <div class="fade-in glassmorphism rounded-lg p-6 md:p-8 border-l-4 border-pink-400 transition-transform duration-300 hover:-translate-y-2">
-                    <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
-                        <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
-                            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
-                            <div class="text-2xl font-bold text-pink-400">November 2025</div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <h4 class="text-lg font-bold text-gray-100 mb-4">Co-Founder &amp; CTO Upfront Allocation</h4>
-                            <div class="grid grid-cols-3 gap-4 md:gap-6">
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">20,000,000.00</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
-                                    <p class="text-base md:text-lg font-semibold text-gray-200">2.01%</p>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
-                                    <p class="font-semibold">
-                                        <a href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
-                                    </p>
+                    <!-- November 2025 -->
+                    <div class="mv-card p-6 md:p-8 border-l-4 border-pink-400 fade-in">
+                        <div class="flex flex-col md:grid md:grid-cols-10 md:gap-6">
+                            <div class="md:col-span-3 flex-shrink-0 mb-4 md:mb-0">
+                                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">Month</div>
+                                <div class="text-2xl font-bold text-pink-400">November 2025</div>
+                            </div>
+                            <div class="md:col-span-7">
+                                <h4 class="text-lg font-bold text-gray-100 mb-4">Co-Founder &amp; CTO Upfront Allocation</h4>
+                                <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Amount</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">20,000,000.00</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">% of Supply</p>
+                                        <p class="text-base md:text-lg font-semibold text-gray-200">2.01%</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-xs uppercase tracking-wide mb-2">Reference</p>
+                                        <p class="font-semibold">
+                                            <a href="https://basescan.org/tx/0xff7e5fb2b7ddae5fc44e90ee987e1358913e6f8b5cebf061d88bdaa162c6c17a" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">BaseScan →</a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -482,7 +492,6 @@ permalink: /treasury.html
 
     <!-- External Scripts -->
     <script src="/js/main.js" defer></script>
-    <script src="/js/buildlog.js" defer></script>
     <script src="/js/litepaper.js" defer></script>
 </body>
 </html>
