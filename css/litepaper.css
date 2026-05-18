@@ -196,11 +196,15 @@ body.litepaper-page {
         gap: 2rem;
     }
     
-    /* Left column: cards stack naturally */
+    /* Left column: cards stack, last one grows to fill remaining height */
     .ecosystem-grid > div:first-child > .mv-card {
         display: flex;
         flex-direction: column;
-        margin: 0; /* Remove litepaper-box margin */
+        margin: 0;
+    }
+
+    .ecosystem-grid > div:first-child > .mv-card:last-child {
+        flex: 1;
     }
     
     /* Right column: single card stretches to match left column height */
