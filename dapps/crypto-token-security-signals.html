@@ -97,19 +97,19 @@ permalink: /dapps/crypto-token-security-signals.html
     ]
     </script>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+    <main class="max-w-4xl mx-auto px-4 pt-24 pb-16 md:pt-32 md:pb-24">
 
         <!-- Header Section -->
         <section class="mv-page-header mb-16 text-center">
-            <h1 class="text-gradient mb-4">Crypto Token Security Signals</h1>
-            <p class="max-w-3xl mx-auto text-lg">
+            <h1 class="mv-h1 mb-4">Crypto Token Security Signals</h1>
+            <p class="mv-lead">
                 A plain-language risk lens for <strong>scam exposure</strong>, <strong>control risk</strong>, <strong>holder concentration</strong>, and <strong>liquidity resilience</strong>.
             </p>
         </section>
@@ -118,9 +118,9 @@ permalink: /dapps/crypto-token-security-signals.html
 
         <!-- TL;DR -->
         <section id="tldr" class="mv-section">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold font-sans tracking-tight text-pink-400 mb-4">TL;DR</h2>
-                <p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">TL;DR</h2>
+                <p class="mv-body">
                     The Security Lens helps you quickly decide whether a token looks reasonably safe to research further or too risky to touch. It combines scanner findings, contract control signals, holder concentration, and liquidity quality into one deterministic score, then enforces hard-stop NO-GO rules for major red flags.
                 </p>
             </div>
@@ -128,25 +128,25 @@ permalink: /dapps/crypto-token-security-signals.html
 
         <!-- How to use it -->
         <section id="how-to-use" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">How to use it (Web UI)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">How to use it (Web UI)</h2>
+            <p class="mv-lead text-center mb-12">
                 The Security Lens workflow is simple: pick a token, run analysis, and review the score and flags top-down.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <a href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener noreferrer" class="block bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20 font-semibold text-center mb-6">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <a href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener noreferrer" class="btn btn-primary block text-center mb-6">
                         Open dApp →
                     </a>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Pick a token</h3>
-                    <p class="text-gray-300 mb-4">Search or paste a contract address and select the chain/network.</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">2) Run the analysis</h3>
-                    <p class="text-gray-300 mb-4">Generate a report. The lens gathers best-effort security and market-structure signals from multiple data providers.</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Share or revisit</h3>
-                    <p class="text-gray-300">Each run produces a shareable analysis link so you can compare risk changes over time.</p>
+                    <h3 class="mv-h3 mb-3">1) Pick a token</h3>
+                    <p class="mv-body mb-4">Search or paste a contract address and select the chain/network.</p>
+                    <h3 class="mv-h3 mb-3">2) Run the analysis</h3>
+                    <p class="mv-body mb-4">Generate a report. The lens gathers best-effort security and market-structure signals from multiple data providers.</p>
+                    <h3 class="mv-h3 mb-3">3) Share or revisit</h3>
+                    <p class="mv-body">Each run produces a shareable analysis link so you can compare risk changes over time.</p>
                 </div>
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Read the report top-down</h3>
-                    <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Read the report top-down</h3>
+                    <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                         <li><strong>Summary</strong>: Plain-English risk view and confidence level.</li>
                         <li><strong>Final Score</strong>: A 0-100 score plus risk label (low / medium / high / no-go).</li>
                         <li><strong>Risk Flags</strong>: Concentration, admin-control, or suspicious scanner signals.</li>
@@ -158,57 +158,57 @@ permalink: /dapps/crypto-token-security-signals.html
 
         <!-- What it does -->
         <section id="what-it-does" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">What the Security Lens does (high level)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">What the Security Lens does (high level)</h2>
+            <p class="mv-lead text-center mb-12">
                 The lens turns raw security and market-structure data into a consistent due-diligence signal with transparent, deterministic rules.
             </p>
 
             <div class="space-y-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Data ingestion (multi-source)</h3>
-                    <p class="text-gray-300">We collect best-effort security and market context from providers such as CoinGecko, DexTools, De.Fi, EVA, and Nansen.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">1) Data ingestion (multi-source)</h3>
+                    <p class="mv-body">We collect best-effort security and market context from providers such as CoinGecko, DexTools, De.Fi, EVA, and Nansen.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-4">2) Three-pillar deterministic scoring</h3>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-4">2) Three-pillar deterministic scoring</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Protocol Security (60%)</div>
-                            <div class="text-sm text-gray-300">Scanner and trust-signal inputs for contract-level risk context.</div>
+                            <div class="mv-eyebrow mb-2">Protocol Security (60%)</div>
+                            <div class="mv-body text-sm">Scanner and trust-signal inputs for contract-level risk context.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Holder Power (25%)</div>
-                            <div class="text-sm text-gray-300">Ownership concentration and dominance risk checks.</div>
+                            <div class="mv-eyebrow mb-2">Holder Power (25%)</div>
+                            <div class="mv-body text-sm">Ownership concentration and dominance risk checks.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Liquidity Resilience (15%)</div>
-                            <div class="text-sm text-gray-300">Liquidity depth, lock coverage, and lock-duration quality.</div>
+                            <div class="mv-eyebrow mb-2">Liquidity Resilience (15%)</div>
+                            <div class="mv-body text-sm">Liquidity depth, lock coverage, and lock-duration quality.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Hard-stop NO-GO gate</h3>
-                    <p class="text-gray-300">Some red flags are non-negotiable. The lens forces a no-go result if severe honeypot/scam behavior appears or dangerous early-stage unlocked liquidity risk is detected under strict conditions.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">3) Hard-stop NO-GO gate</h3>
+                    <p class="mv-body">Some red flags are non-negotiable. The lens forces a no-go result if severe honeypot/scam behavior appears or dangerous early-stage unlocked liquidity risk is detected under strict conditions.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Maturity-aware liquidity logic</h3>
-                    <p class="text-gray-300">Unlocked liquidity is interpreted with project maturity context, distinguishing early unlocked liquidity (higher risk) from mature unlocked liquidity (still risky, but not always a hard stop).</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Maturity-aware liquidity logic</h3>
+                    <p class="mv-body">Unlocked liquidity is interpreted with project maturity context, distinguishing early unlocked liquidity (higher risk) from mature unlocked liquidity (still risky, but not always a hard stop).</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">5) Confidence and missing-data handling</h3>
-                    <p class="text-gray-300">If key inputs are missing, the report still returns a result but lowers confidence and clearly marks partial analysis to avoid fake precision.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">5) Confidence and missing-data handling</h3>
+                    <p class="mv-body">If key inputs are missing, the report still returns a result but lowers confidence and clearly marks partial analysis to avoid fake precision.</p>
                 </div>
             </div>
         </section>
 
         <!-- Disclaimer -->
         <section id="disclaimer" class="mb-8">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl font-bold font-sans tracking-tight text-gradient mb-4">Disclaimer</h2>
-                <p>The Security Lens uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">Disclaimer</h2>
+                <p class="mv-body">The Security Lens uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
             </div>
         </section>
 

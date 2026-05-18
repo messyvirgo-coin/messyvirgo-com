@@ -5,11 +5,11 @@
 {% set isLitepaper = currentUrl == '/litepaper.html' %}
 {% set isBuildlog = currentUrl == '/buildlog.html' %}
 {% set isUpdates = isBuildlog or (currentUrl == '/blog/') or currentUrl.startsWith('/blog/') %}
-{% set isTrust = (currentUrl == '/founder-profiles.html') or (currentUrl == '/treasury.html') or (currentUrl == '/association.html') %}
+{% set isTrust = (currentUrl == '/founder-profiles.html') or (currentUrl == '/treasury.html') or (currentUrl == '/governance.html') %}
 {% set swapUrl = 'https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453' %}
 {% set appUrl = 'https://app.messyvirgo.com/' %}
 
-<nav id="navbar" class="sticky top-0 z-40 glassmorphism transition-all duration-300 shadow-lg">
+<nav id="navbar" class="glassmorphism shadow-lg">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex justify-between items-center h-16">
       <a href="/" class="text-2xl font-bold font-sans tracking-tight text-gradient">$MESSY</a>
@@ -43,15 +43,17 @@
           </button>
           <div class="dropdown-menu absolute right-0 mt-2 pt-2 w-56 rounded-lg border border-white/10 bg-gray-900/95 backdrop-blur shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity transition-visibility duration-200">
             <a href="/treasury.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-t-lg{% if currentUrl == '/treasury.html' %} text-pink-400{% endif %}">Safes &amp; Vesting</a>
-            <a href="/association.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition{% if currentUrl == '/association.html' %} text-pink-400{% endif %}">Governance</a>
+            <a href="/governance.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition{% if currentUrl == '/governance.html' %} text-pink-400{% endif %}">Governance</a>
             <a href="/founder-profiles.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition{% if currentUrl == '/founder-profiles.html' %} text-pink-400{% endif %}">Founders</a>
             <a href="https://app.solidproof.io/projects/messyvirgo" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition rounded-b-lg">SolidProof audit &amp; KYC</a>
           </div>
         </div>
 
         <a href="/litepaper.html" class="text-gray-300 hover:text-pink-400 transition{% if isLitepaper %} text-pink-400{% endif %}">Litepaper</a>
-        <a href="{{ appUrl }}" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">Open App</a>
-        <a href="{{ swapUrl }}" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 px-2 py-2 transition">Swap</a>
+        <div class="flex items-center gap-2">
+          <a href="{{ swapUrl }}" target="_blank" rel="noopener noreferrer" class="border border-pink-400/60 text-pink-400 px-4 py-2 rounded-md hover:bg-pink-400/10 hover:border-pink-400 transition text-sm font-semibold">Swap $MESSY</a>
+          <a href="{{ appUrl }}" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20 text-sm font-semibold">Open App</a>
+        </div>
       </div>
 
       <!-- Mobile Nav Button -->
@@ -66,23 +68,27 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden hidden bg-black/50">
-    <a href="{{ appUrl }}" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 mx-3 my-2 text-sm text-center font-bold text-white bg-pink-500 hover:bg-pink-600 rounded-lg shadow-lg shadow-pink-500/20">Open App</a>
-    <div class="border-t border-white/10 my-1"></div>
-    <a href="/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Home</a>
-    <a href="/messy-virgo-coin.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Token</a>
-    <a href="/litepaper.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
-    <div class="border-t border-white/10 my-1"></div>
-    <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">Updates</div>
-    <a href="/blog/2026/05/messy-fund-update-week-of-2026-05-15/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Latest update</a>
-    <a href="/buildlog.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
-    <a href="/blog/" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
-    <div class="border-t border-white/10 my-1"></div>
-    <div class="px-4 pt-2 pb-1 text-xs uppercase tracking-wider text-gray-500">Trust</div>
-    <a href="/treasury.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Safes &amp; Vesting</a>
-    <a href="/association.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Governance</a>
-    <a href="/founder-profiles.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
-    <a href="https://app.solidproof.io/projects/messyvirgo" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-800">SolidProof</a>
-    <a href="{{ swapUrl }}" target="_blank" rel="noopener noreferrer" class="block py-2 px-4 text-sm text-pink-400 hover:bg-gray-800 font-semibold">Swap $MESSY</a>
+  <div id="mobile-menu" class="lg:hidden hidden bg-black/50 pb-4">
+    <div class="flex gap-3 px-4 pt-3 pb-3">
+      <a href="{{ appUrl }}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 text-sm text-center font-bold text-white bg-pink-500 hover:bg-pink-600 rounded-lg shadow-lg shadow-pink-500/20 transition">Open App</a>
+      <a href="{{ swapUrl }}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 text-sm text-center font-bold text-pink-400 border border-pink-400/60 hover:bg-pink-400/10 rounded-lg transition">Swap $MESSY</a>
+    </div>
+    <div class="border-t border-white/10"></div>
+    <a href="/" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Home</a>
+    <div class="border-t border-white/10"></div>
+    <div class="px-5 pt-4 pb-1 text-xs uppercase tracking-wider text-gray-500">Updates</div>
+    <a href="/blog/2026/05/messy-fund-update-week-of-2026-05-15/" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Latest update</a>
+    <a href="/buildlog.html" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Build Log</a>
+    <a href="/blog/" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Blog</a>
+    <div class="border-t border-white/10"></div>
+    <a href="/messy-virgo-coin.html" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Token</a>
+    <div class="border-t border-white/10"></div>
+    <div class="px-5 pt-4 pb-1 text-xs uppercase tracking-wider text-gray-500">Trust</div>
+    <a href="/treasury.html" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Safes &amp; Vesting</a>
+    <a href="/governance.html" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Governance</a>
+    <a href="/founder-profiles.html" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Founders</a>
+    <a href="https://app.solidproof.io/projects/messyvirgo" target="_blank" rel="noopener noreferrer" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">SolidProof</a>
+    <div class="border-t border-white/10"></div>
+    <a href="/litepaper.html" class="block py-3 px-5 text-sm text-gray-300 hover:bg-gray-800">Litepaper</a>
   </div>
 </nav>

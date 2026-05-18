@@ -97,19 +97,19 @@ permalink: /dapps/crypto-token-performance-signals.html
     ]
     </script>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+    <main class="max-w-4xl mx-auto px-4 pt-24 pb-16 md:pt-32 md:pb-24">
 
         <!-- Header Section -->
         <section class="mv-page-header mb-16 text-center">
-            <h1 class="text-gradient mb-4">Crypto Token Performance Signals</h1>
-            <p class="max-w-3xl mx-auto text-lg">
+            <h1 class="mv-h1 mb-4">Crypto Token Performance Signals</h1>
+            <p class="mv-lead">
                 A practical signal lens for swing-style decisions across <strong>trend quality</strong>, <strong>momentum confirmation</strong>, <strong>setup risk</strong>, and <strong>relative strength</strong>.
             </p>
         </section>
@@ -118,9 +118,9 @@ permalink: /dapps/crypto-token-performance-signals.html
 
         <!-- TL;DR -->
         <section id="tldr" class="mv-section">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold font-sans tracking-tight text-pink-400 mb-4">TL;DR</h2>
-                <p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">TL;DR</h2>
+                <p class="mv-body">
                     The Performance Lens helps answer one practical question: "Does this token currently show healthy conditions for a swing trade?" It converts market structure, momentum, setup quality, and benchmark-relative performance into a clear score and decision label, while lowering confidence when data quality is weak.
                 </p>
             </div>
@@ -128,25 +128,25 @@ permalink: /dapps/crypto-token-performance-signals.html
 
         <!-- How to use it -->
         <section id="how-to-use" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">How to use it (Web UI)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">How to use it (Web UI)</h2>
+            <p class="mv-lead text-center mb-12">
                 The Performance Lens workflow is straightforward: choose a token, run analysis, and review the setup top-down.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <a href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener noreferrer" class="block bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20 font-semibold text-center mb-6">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <a href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener noreferrer" class="btn btn-primary block text-center mb-6">
                         Open dApp →
                     </a>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Pick a token</h3>
-                    <p class="text-gray-300 mb-4">Search or paste a contract address and select the chain/network.</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">2) Run the analysis</h3>
-                    <p class="text-gray-300 mb-4">Generate a report. The lens gathers best-effort market inputs and computes signal KPIs across multiple time windows.</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Share or revisit</h3>
-                    <p class="text-gray-300">Each run generates a shareable link so you can track how the setup changes over time.</p>
+                    <h3 class="mv-h3 mb-3">1) Pick a token</h3>
+                    <p class="mv-body mb-4">Search or paste a contract address and select the chain/network.</p>
+                    <h3 class="mv-h3 mb-3">2) Run the analysis</h3>
+                    <p class="mv-body mb-4">Generate a report. The lens gathers best-effort market inputs and computes signal KPIs across multiple time windows.</p>
+                    <h3 class="mv-h3 mb-3">3) Share or revisit</h3>
+                    <p class="mv-body">Each run generates a shareable link so you can track how the setup changes over time.</p>
                 </div>
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Read the report top-down</h3>
-                    <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Read the report top-down</h3>
+                    <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                         <li><strong>Summary</strong>: Plain-English interpretation of current setup quality.</li>
                         <li><strong>Pillar Scores</strong>: Trend, momentum, entry/risk, and relative strength.</li>
                         <li><strong>Tradeability Context</strong>: Liquidity, turnover, and volatility quality.</li>
@@ -158,56 +158,56 @@ permalink: /dapps/crypto-token-performance-signals.html
 
         <!-- What it does -->
         <section id="what-it-does" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">What the Performance Lens does (high level)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">What the Performance Lens does (high level)</h2>
+            <p class="mv-lead text-center mb-12">
                 The lens translates noisy market activity into a structured, repeatable signal that is easier to compare across tokens.
             </p>
 
             <div class="space-y-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Data ingestion (market + benchmark context)</h3>
-                    <p class="text-gray-300">We combine token market data with benchmark context from BTC, ETH, and narrative peers when available.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">1) Data ingestion (market + benchmark context)</h3>
+                    <p class="mv-body">We combine token market data with benchmark context from BTC, ETH, and narrative peers when available.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-4">2) Four-pillar deterministic scoring</h3>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-4">2) Four-pillar deterministic scoring</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Trend Quality (35%)</div>
-                            <div class="text-sm text-gray-300">Direction and structure health.</div>
+                            <div class="mv-eyebrow mb-2">Trend Quality (35%)</div>
+                            <div class="mv-body text-sm">Direction and structure health.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Momentum &amp; Volume (25%)</div>
-                            <div class="text-sm text-gray-300">Move confirmation and participation strength.</div>
+                            <div class="mv-eyebrow mb-2">Momentum &amp; Volume (25%)</div>
+                            <div class="mv-body text-sm">Move confirmation and participation strength.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Entry Timing &amp; Risk (25%)</div>
-                            <div class="text-sm text-gray-300">Pullback quality, volatility, and reward/risk context.</div>
+                            <div class="mv-eyebrow mb-2">Entry Timing &amp; Risk (25%)</div>
+                            <div class="mv-body text-sm">Pullback quality, volatility, and reward/risk context.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Relative Strength (15%)</div>
-                            <div class="text-sm text-gray-300">Outperformance or underperformance versus majors and peers.</div>
+                            <div class="mv-eyebrow mb-2">Relative Strength (15%)</div>
+                            <div class="mv-body text-sm">Outperformance or underperformance versus majors and peers.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Missing-data and low-liquidity behavior</h3>
-                    <p class="text-gray-300">When a pillar has missing inputs, weights are redistributed across available pillars instead of failing the report. Confidence is lowered when key inputs are absent or market liquidity is too thin.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">3) Missing-data and low-liquidity behavior</h3>
+                    <p class="mv-body">When a pillar has missing inputs, weights are redistributed across available pillars instead of failing the report. Confidence is lowered when key inputs are absent or market liquidity is too thin.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Decision labels for faster interpretation</h3>
-                    <p class="text-gray-300">The final score maps to one of four labels: <code>strong_buy</code>, <code>buy_hold</code>, <code>neutral_watch</code>, or <code>consider_sell</code>. Labels summarize signal state; they do not guarantee outcomes.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Decision labels for faster interpretation</h3>
+                    <p class="mv-body">The final score maps to one of four labels: <code>strong_buy</code>, <code>buy_hold</code>, <code>neutral_watch</code>, or <code>consider_sell</code>. Labels summarize signal state; they do not guarantee outcomes.</p>
                 </div>
             </div>
         </section>
 
         <!-- Disclaimer -->
         <section id="disclaimer" class="mb-8">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl font-bold font-sans tracking-tight text-gradient mb-4">Disclaimer</h2>
-                <p>The Performance Lens uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">Disclaimer</h2>
+                <p class="mv-body">The Performance Lens uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
             </div>
         </section>
 

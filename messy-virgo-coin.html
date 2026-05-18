@@ -74,23 +74,23 @@ permalink: /messy-virgo-coin.html
     }
     </script>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24 space-y-16">
+    <main class="max-w-4xl mx-auto px-4 pt-24 pb-16 md:pt-32 md:pb-24 space-y-16">
         <!-- Header -->
         <section class="mv-page-header mb-10 text-center fade-in">
-            <h1 class="text-gradient mb-4">Messy Virgo Coin ($MESSY)</h1>
-            <p class="max-w-3xl mx-auto text-lg text-gray-200">Token overview, official links, and a straight answer to the questions people ask most.</p>
+            <h1 class="mv-h1 mb-4">Messy Virgo Coin ($MESSY)</h1>
+            <p class="mv-lead">Token overview, official links, and a straight answer to the questions people ask most.</p>
         </section>
 
         <!-- Quick Facts -->
         <section id="quick-facts" class="text-center fade-in">
-            <div class="max-w-4xl mx-auto mb-12">
+            <div class="mb-12">
                 <div class="glassmorphism rounded-lg p-6 py-8 md:py-6 border border-white/10 transition-transform duration-300 hover:-translate-y-2">
                     <div class="flex flex-col md:flex-row md:gap-8">
                         <!-- Logo Section -->
@@ -144,33 +144,29 @@ permalink: /messy-virgo-coin.html
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-                
-                <!-- BaseScan Button -->
+
                 <div class="flex justify-center mt-6">
-                    <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition-transform duration-300 transform hover:scale-105 inline-flex items-center gap-2">
+                    <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         View on BaseScan
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
                     </a>
                 </div>
         </section>
 
         <!-- How to Buy -->
         <section id="how-to-buy" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">How to Buy $MESSY</h2>
+            <h2 class="mv-h2 mb-6">How to Buy $MESSY</h2>
             <div class="max-w-3xl mx-auto mb-12 text-gray-400">
                 <p>$MESSY can be acquired through multiple platforms. Below are three of the most straightforward and user-friendly ways to get started.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                 <!-- Left column: Step-by-step Process -->
                 <div class="glassmorphism rounded-lg p-6 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold font-sans tracking-tight text-yellow-400 mb-6">Swap on Aerodrome</h3>
+                    <h3 class="mv-h3 mb-6">Swap on Aerodrome</h3>
                     <div class="space-y-6 flex flex-col h-full">
                         <!-- Step 1 -->
                         <div class="flex gap-4">
@@ -197,7 +193,7 @@ permalink: /messy-virgo-coin.html
 
                         <!-- Step 3: CTA Button -->
                         <div class="mt-auto pt-4">
-                            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="w-full bg-pink-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/20 inline-flex items-center justify-center">
+                            <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full inline-flex items-center justify-center">
                                 Swap NOW
                             </a>
                         </div>
@@ -208,7 +204,7 @@ permalink: /messy-virgo-coin.html
                 <div class="flex flex-col gap-6">
                     <!-- Alternative 1: Binance Wallet -->
                     <div class="glassmorphism rounded-lg p-6 flex-1 flex flex-col transition-transform duration-300 hover:-translate-y-2">
-                        <h3 class="text-2xl font-bold font-sans tracking-tight text-yellow-400 mb-6">Binance Wallet</h3>
+                        <h3 class="mv-h3 mb-6">Binance Wallet</h3>
                         <p class="text-gray-300 text-sm mb-6">Download the Binance Web3 wallet for seamless trading and asset management.</p>
                         <div class="flex gap-3">
                             <a href="https://apps.apple.com/app/binance-buy-crypto/id1436799971" target="_blank" rel="noopener noreferrer" class="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-4 py-2 text-sm text-white font-semibold transition inline-flex items-center justify-center gap-2">
@@ -224,7 +220,7 @@ permalink: /messy-virgo-coin.html
 
                     <!-- Alternative 2: Base mobile app -->
                     <div class="glassmorphism rounded-lg p-6 flex-1 flex flex-col transition-transform duration-300 hover:-translate-y-2">
-                        <h3 class="text-2xl font-bold font-sans tracking-tight text-yellow-400 mb-6">Base Mobile App</h3>
+                        <h3 class="mv-h3 mb-6">Base Mobile App</h3>
                         <p class="text-gray-300 text-sm mb-6">Download the Base app for a simple, social mobile experience with built-in community features.</p>
                         <div class="flex gap-3">
                             <a href="https://apps.apple.com/us/app/base-formerly-coinbase-wallet/id1278383455" target="_blank" rel="noopener noreferrer" class="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-4 py-2 text-sm text-white font-semibold transition inline-flex items-center justify-center gap-2">
@@ -243,15 +239,15 @@ permalink: /messy-virgo-coin.html
 
         <!-- Tokenomics Explained -->
         <section id="tokenomics" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">Tokenomics Explained</h2>
+            <h2 class="mv-h2 mb-6">Tokenomics Explained</h2>
             <div class="max-w-3xl mx-auto mb-12 text-gray-400">
                 <p>Every trade strengthens the ecosystem. Messy Virgo Coin ($MESSY) uses a 4.95% transaction tax to fund holder rewards and AI development. The token smart contract has been independently audited by SolidProof and team KYC has been verified — see <a href="https://app.solidproof.io/projects/messyvirgo" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:underline">app.solidproof.io/projects/messyvirgo</a>. The contract was built using CertiK-audited templates via Bitbond's Token Tool.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                 <!-- Left column: Tax Structure -->
                 <div class="glassmorphism rounded-lg p-6 text-left transition-transform duration-300 hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold font-sans tracking-tight text-yellow-400 mb-6">How Trading Grows the Ecosystem</h3>
+                    <h3 class="mv-h3 mb-6">How Trading Grows the Ecosystem</h3>
                     <div class="space-y-6">
                         <div>
                             <h4 class="text-lg font-semibold text-white mb-2">4.95% Transaction Tax</h4>
@@ -286,7 +282,7 @@ permalink: /messy-virgo-coin.html
 
                 <!-- Right column: Supply Details -->
                 <div class="glassmorphism rounded-lg p-6 transition-transform duration-300 hover:-translate-y-2">
-                    <h3 class="text-2xl font-bold font-sans tracking-tight text-yellow-400 mb-6">Supply & Distribution</h3>
+                    <h3 class="mv-h3 mb-6">Supply & Distribution</h3>
                     
                     <div class="mb-6">
                         <h4 class="text-lg font-semibold text-white mb-4">Supply Breakdown</h4>
@@ -310,15 +306,15 @@ permalink: /messy-virgo-coin.html
 
         <!-- Analytics & Links -->
         <section id="analytics" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">Charts & Links</h2>
+            <h2 class="mv-h2 mb-6">Charts & Links</h2>
             <div class="max-w-3xl mx-auto mb-12 text-gray-400">
                 <p>Access real-time data, charts, and analytics. Verify our contract, track your tokens, and stay connected with the Messy community.</p>
             </div>
 
-            <div class="max-w-7xl mx-auto">
+            <div>
                 <!-- On-Chain Data & Analytics -->
                 <div class="mb-12">
-                    <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mb-6 text-left">On-Chain Data & Analytics</h3>
+                    <h3 class="mv-h3 mb-6 text-left">On-Chain Data & Analytics</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <a href="https://basescan.org/token/0x09f87f948c88848363b124c9099cbb58e4cc7cb6" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-transparent transition-all duration-300 hover:-translate-y-2 border border-white/10 hover:border-blue-400/30">
                             <div class="mb-4 flex items-center justify-center">
@@ -355,7 +351,7 @@ permalink: /messy-virgo-coin.html
 
                 <!-- Market Info & Community -->
                 <div>
-                    <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mb-6 text-left">Market Info & Community</h3>
+                    <h3 class="mv-h3 mb-6 text-left">Market Info & Community</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <a href="https://www.coingecko.com/en/coins/messy-virgo" target="_blank" rel="noopener noreferrer" class="group glassmorphism rounded-lg p-6 hover:bg-gradient-to-br hover:from-yellow-500/10 hover:to-transparent transition-all duration-300 hover:-translate-y-2 border border-white/10 hover:border-yellow-400/30">
                             <div class="mb-4 flex items-center justify-center">
@@ -394,15 +390,15 @@ permalink: /messy-virgo-coin.html
 
         <!-- FAQ -->
         <section id="faq" class="text-center fade-in">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-6">Frequently Asked Questions</h2>
+            <h2 class="mv-h2 mb-6">Frequently Asked Questions</h2>
             <div class="max-w-3xl mx-auto mb-12 text-gray-400">
                 <p>Got questions? We've got answers. Explore our FAQ organized by topic to find what you need to know about $MESSY.</p>
             </div>
 
-            <div class="max-w-4xl mx-auto">
+            <div>
                 <!-- Token Basics -->
                 <div class="mb-12">
-                    <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mb-6 text-left flex items-center gap-2">
+                    <h3 class="mv-h3 mb-6 text-left flex items-center gap-2">
                         <div class="w-8 h-8 rounded-lg bg-pink-500/20 flex items-center justify-center">
                             <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
@@ -428,7 +424,7 @@ permalink: /messy-virgo-coin.html
 
                 <!-- Tokenomics & Trading -->
                 <div class="mb-12">
-                    <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mb-6 text-left flex items-center gap-2">
+                    <h3 class="mv-h3 mb-6 text-left flex items-center gap-2">
                         <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
                             <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                         </div>
@@ -465,7 +461,7 @@ permalink: /messy-virgo-coin.html
 
                 <!-- Supply & Distribution -->
                 <div class="mb-12">
-                    <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mb-6 text-left flex items-center gap-2">
+                    <h3 class="mv-h3 mb-6 text-left flex items-center gap-2">
                         <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
                             <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
@@ -499,7 +495,7 @@ permalink: /messy-virgo-coin.html
 
                 <!-- Funds & Roadmap -->
                 <div class="mb-12">
-                    <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mb-6 text-left flex items-center gap-2">
+                    <h3 class="mv-h3 mb-6 text-left flex items-center gap-2">
                         <div class="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center">
                             <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
@@ -536,7 +532,7 @@ permalink: /messy-virgo-coin.html
 
                 <!-- Resources & Verification -->
                 <div>
-                    <h3 class="text-xl font-bold font-sans tracking-tight text-pink-400 mb-6 text-left flex items-center gap-2">
+                    <h3 class="mv-h3 mb-6 text-left flex items-center gap-2">
                         <div class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
                             <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>

@@ -105,30 +105,30 @@ permalink: /dapps/crypto-token-social-signals.html
     ]
     </script>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body>
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        
+    <main class="max-w-4xl mx-auto px-4 pt-24 pb-16 md:pt-32 md:pb-24">
+
         <!-- Header Section -->
         <section class="mv-page-header mb-16 text-center">
-            <h1 class="text-gradient mb-4">Crypto Token Social Signals</h1>
-            <p class="max-w-3xl mx-auto text-lg">
+            <h1 class="mv-h1 mb-4">Crypto Token Social Signals</h1>
+            <p class="mv-lead">
                 A structured view of <strong>attention</strong>, <strong>sentiment</strong>, <strong>influencer signal</strong>, and <strong>community health</strong> for crypto tokens.
             </p>
         </section>
 
         <div class="space-y-16">
-        
+
         <!-- TL;DR -->
         <section id="tldr" class="mv-section">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold font-sans tracking-tight text-pink-400 mb-4">TL;DR</h2>
-                <p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">TL;DR</h2>
+                <p class="mv-body">
                     The Social Signals Lens turns aggregated social data into a clear, repeatable snapshot of whether a token has real, improving attention or fading, low-quality noise. It scores five pillars (Influencer &amp; KOL, Sentiment, Community, Social Momentum, Social Volume), applies quality penalties for spam and engagement concentration, and pairs the score with plain-language interpretation to highlight tailwinds and risks.
                 </p>
             </div>
@@ -136,25 +136,25 @@ permalink: /dapps/crypto-token-social-signals.html
 
         <!-- How to use it -->
         <section id="how-to-use" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">How to use it (Web UI)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">How to use it (Web UI)</h2>
+            <p class="mv-lead text-center mb-12">
                 The Social Signals Lens provides a structured workflow: pick a token, generate a report, and read the analysis top-down.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <a href="https://app.messyvirgo.com/social" target="_blank" rel="noopener noreferrer" class="block bg-pink-500 text-white px-5 py-3 rounded-md hover:bg-pink-600 transition shadow-lg shadow-pink-500/20 font-semibold text-center mb-6">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <a href="https://app.messyvirgo.com/social" target="_blank" rel="noopener noreferrer" class="btn btn-primary block text-center mb-6">
                         Open dApp →
                     </a>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Pick a token</h3>
-                    <p class="text-gray-300 mb-4">Search or paste a contract address and select the chain/network.</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">2) Run the analysis</h3>
-                    <p class="text-gray-300 mb-4">Click "Go" to generate a report. The lens pulls aggregated topic snapshots and time-series social metrics and computes the latest signal.</p>
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Share or revisit</h3>
-                    <p class="text-gray-300">Each run produces a shareable analysis link so you can return later or compare changes over time.</p>
+                    <h3 class="mv-h3 mb-3">1) Pick a token</h3>
+                    <p class="mv-body mb-4">Search or paste a contract address and select the chain/network.</p>
+                    <h3 class="mv-h3 mb-3">2) Run the analysis</h3>
+                    <p class="mv-body mb-4">Click "Go" to generate a report. The lens pulls aggregated topic snapshots and time-series social metrics and computes the latest signal.</p>
+                    <h3 class="mv-h3 mb-3">3) Share or revisit</h3>
+                    <p class="mv-body">Each run produces a shareable analysis link so you can return later or compare changes over time.</p>
                 </div>
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Read the report top-down</h3>
-                    <ul class="list-disc list-outside pl-6 space-y-2 text-gray-300">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Read the report top-down</h3>
+                    <ul class="list-disc list-outside pl-6 space-y-2 mv-body">
                         <li><strong>Summary</strong>: Plain-English view of the current signal, confidence, and bias.</li>
                         <li><strong>Social Snapshot</strong>: Attention level, share of voice, and recent momentum.</li>
                         <li><strong>Sentiment</strong>: Current tone and whether it is improving or deteriorating.</li>
@@ -168,16 +168,16 @@ permalink: /dapps/crypto-token-social-signals.html
 
         <!-- What it does -->
         <section id="what-it-does" class="mv-section">
-            <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4 text-center">What the Social Signals Lens does (high level)</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
+            <h2 class="mv-h2 mb-4 text-center">What the Social Signals Lens does (high level)</h2>
+            <p class="mv-lead text-center mb-12">
                 The lens uses aggregated social metrics (not post-level scraping) to assess attention quality, then converts that into a structured report.
             </p>
-            
+
             <div class="space-y-6">
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">1) Data ingestion (topic snapshots + time-series)</h3>
-                    <p class="text-gray-300 mb-3">We ingest best-effort social metrics from sources like LunarCrush, including:</p>
-                    <ul class="list-disc list-outside pl-6 text-gray-300 space-y-2">
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">1) Data ingestion (topic snapshots + time-series)</h3>
+                    <p class="mv-body mb-3">We ingest best-effort social metrics from sources like LunarCrush, including:</p>
+                    <ul class="list-disc list-outside pl-6 mv-body space-y-2">
                         <li><strong>Interaction volume</strong> and activity counts</li>
                         <li><strong>Contributor breadth</strong> and post creation</li>
                         <li><strong>Share of voice</strong> (social dominance)</li>
@@ -185,58 +185,58 @@ permalink: /dapps/crypto-token-social-signals.html
                     </ul>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">2) KPI computation &amp; quality gating</h3>
-                    <p class="text-gray-300">We normalize metrics into a consistent schema and score primarily on a 7-day rolling window, then compare that to a 30-day "usual activity" baseline. The lens also checks whether there is enough real activity to treat the signal as meaningful.</p>
-                    <p class="text-gray-300 mt-3">If a token is not "alive" (minimum recent activity), the report returns a low-confidence <code>no_social_signal</code> state and treats social scores as unavailable rather than forcing a misleading low score.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">2) KPI computation &amp; quality gating</h3>
+                    <p class="mv-body">We normalize metrics into a consistent schema and score primarily on a 7-day rolling window, then compare that to a 30-day "usual activity" baseline. The lens also checks whether there is enough real activity to treat the signal as meaningful.</p>
+                    <p class="mv-body mt-3">If a token is not "alive" (minimum recent activity), the report returns a low-confidence <code>no_social_signal</code> state and treats social scores as unavailable rather than forcing a misleading low score.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">3) Scoring across five pillars</h3>
-                    <p class="text-gray-300 mb-4">Each pillar is scored 0-100 using deviation-from-normal logic, then adjusted by a quality factor that penalizes spam and engagement concentration:</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">3) Scoring across five pillars</h3>
+                    <p class="mv-body mb-4">Each pillar is scored 0-100 using deviation-from-normal logic, then adjusted by a quality factor that penalizes spam and engagement concentration:</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Influencer &amp; KOL Signal – 38%</div>
-                            <div class="text-sm text-gray-300">Early attention quality and credibility.</div>
+                            <div class="mv-eyebrow mb-2">Influencer &amp; KOL Signal – 38%</div>
+                            <div class="mv-body text-sm">Early attention quality and credibility.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Sentiment – 31%</div>
-                            <div class="text-sm text-gray-300">Reputation health and trend.</div>
+                            <div class="mv-eyebrow mb-2">Sentiment – 31%</div>
+                            <div class="mv-body text-sm">Reputation health and trend.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Community – 19%</div>
-                            <div class="text-sm text-gray-300">Breadth and persistence of participation.</div>
+                            <div class="mv-eyebrow mb-2">Community – 19%</div>
+                            <div class="mv-body text-sm">Breadth and persistence of participation.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4">
-                            <div class="font-bold text-pink-400 mb-2">Social Momentum – 6%</div>
-                            <div class="text-sm text-gray-300">Acceleration vs the token’s baseline.</div>
+                            <div class="mv-eyebrow mb-2">Social Momentum – 6%</div>
+                            <div class="mv-body text-sm">Acceleration vs the token’s baseline.</div>
                         </div>
                         <div class="glassmorphism rounded-lg p-4 md:col-span-2">
-                            <div class="font-bold text-pink-400 mb-2">Social Volume – 6%</div>
-                            <div class="text-sm text-gray-300">Current attention level as confirmation.</div>
+                            <div class="mv-eyebrow mb-2">Social Volume – 6%</div>
+                            <div class="mv-body text-sm">Current attention level as confirmation.</div>
                         </div>
                     </div>
-                    <p class="text-gray-300 mt-4">Share-of-voice (social dominance) is still shown in the report for context and trend reading, but it does not currently add a direct deterministic pillar score.</p>
+                    <p class="mv-body mt-4">Share-of-voice (social dominance) is still shown in the report for context and trend reading, but it does not currently add a direct deterministic pillar score.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">4) Signal interpretation (context, not scored)</h3>
-                    <p class="text-gray-300">We summarize what is improving versus weakening across attention, sentiment, influencer quality, and community breadth. This context explains the score but does not directly change deterministic scoring.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">4) Signal interpretation (context, not scored)</h3>
+                    <p class="mv-body">We summarize what is improving versus weakening across attention, sentiment, influencer quality, and community breadth. This context explains the score but does not directly change deterministic scoring.</p>
                 </div>
 
-                <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3">5) How we summarize it (without black box magic)</h3>
-                    <p class="text-gray-300">The report combines deterministic scoring with a concise narrative that explains what is improving, what is weakening, and what could change the outlook.</p>
-                    <p class="text-gray-300 mt-3">When coverage is thin (for example, short history or missing inputs), confidence is downgraded so users can separate strong signals from noisy ones.</p>
+                <div class="mv-card p-8 md:p-10 fade-in">
+                    <h3 class="mv-h3 mb-3">5) How we summarize it (without black box magic)</h3>
+                    <p class="mv-body">The report combines deterministic scoring with a concise narrative that explains what is improving, what is weakening, and what could change the outlook.</p>
+                    <p class="mv-body mt-3">When coverage is thin (for example, short history or missing inputs), confidence is downgraded so users can separate strong signals from noisy ones.</p>
                 </div>
             </div>
         </section>
 
         <!-- Disclaimer -->
         <section id="disclaimer" class="mb-8">
-            <div class="mv-card glassmorphism rounded-lg p-8 md:p-10 fade-in">
-                <h2 class="text-2xl font-bold font-sans tracking-tight text-gradient mb-4">Disclaimer</h2>
-                <p>The Social Signals Lens uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
+            <div class="mv-card p-8 md:p-10 fade-in">
+                <h2 class="mv-h2 mb-4">Disclaimer</h2>
+                <p class="mv-body">The Social Signals Lens uses best-effort data retrieval and automated analysis. Data may be incomplete or delayed, and interpretations can be wrong. This is for educational purposes only and is <strong>not financial advice</strong>.</p>
             </div>
         </section>
 
