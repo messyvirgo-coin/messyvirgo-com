@@ -361,6 +361,21 @@ h1, h2, h3, h4, h5, h6 {
    5. ANIMATIONS & EFFECTS
    ======================================== */
 
+/* Subgrid card row — aligns body text across variable-height headings.
+   At lg+, each card spans 2 parent rows (heading auto, body 1fr).
+   The heading row grows to the tallest heading; body starts at the same y. */
+@media (min-width: 1024px) {
+    .mv-subgrid-row {
+        grid-auto-rows: auto 1fr; /* cycles auto+1fr per visual row */
+    }
+    .mv-subgrid-row > * {
+        grid-row: span 2;
+        display: grid;
+        grid-template-rows: subgrid;
+        gap: 0;
+    }
+}
+
 /* Aurora Background Animation */
 .aurora-bg {
     position: fixed;
