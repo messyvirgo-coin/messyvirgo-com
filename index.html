@@ -87,6 +87,10 @@
         "url": "https://www.messyvirgo.com/"
     }
     </script>
+    <style>
+        /* On homepage the nav sits below the hero in document flow — make it sticky, not fixed */
+        #navbar { position: sticky; }
+    </style>
 </head>
 <body>
     <div id="scroll-progress"></div>
@@ -117,56 +121,23 @@
         {% include "partials/trust-cluster.njk" %}
     </header>
 
-    <!-- Navigation -->
-    {% include "partials/nav.njk" %}
+    <!-- Navigation — sticky below hero on homepage -->
+    <div class="sticky top-0 z-40">
+        {% include "partials/nav.njk" %}
+    </div>
 
     <main class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 space-y-24">
 
         {% include "partials/home-funds-first.njk" %}
 
-        <!-- Live On-Chain Data -->
-        <section id="data" class="fade-in">
+        <!-- Join the community -->
+        <section id="alpha" class="fade-in text-center">
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-6">
-                    <h2 class="mv-h2 mb-4">Live price</h2>
-                    <p class="mv-lead">MESSY/WETH on Base — via GeckoTerminal.</p>
-                </div>
-                <div class="w-full h-[500px] rounded-lg overflow-hidden glassmorphism p-2">
-                    <iframe
-                        id="geckoterminal-chart"
-                        src="https://www.geckoterminal.com/base/pools/0x09f87f948c88848363b124c9099cbb58e4cc7cb6?embed=1&info=0&swaps=0&light_chart=0&chart_type=price&resolution=4h&bg_color=111827"
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        allowfullscreen
-                        title="MESSY Token Chart - GeckoTerminal">
-                    </iframe>
-                </div>
-                <div class="text-center mt-3">
-                    <a href="https://www.dextools.io/app/en/token/messy" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-400 hover:text-pink-400 transition underline">DEXTools</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Swap -->
-        <section id="swap" class="text-center fade-in">
-            <div class="mv-card p-8 md:p-12 max-w-4xl mx-auto">
-                <h2 class="mv-h2 mb-6">Get Messy Virgo Coin</h2>
-                <p class="mv-lead mb-8">Swap $MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the <a href="/messy-virgo-coin.html" class="text-pink-400 hover:text-pink-300 underline transition">contract address</a> before trading.</p>
-                <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Swap Now</a>
-            </div>
-        </section>
-
-        <!-- Join the Alpha -->
-        <section id="alpha" class="fade-in">
-            <div class="mv-card p-8 md:p-12 text-center max-w-4xl mx-auto">
-                <h2 class="mv-h2 mb-6">Join the community</h2>
-                <p class="mv-lead mb-8">Follow the latest findings on X and join Telegram for real-time discussions.</p>
+                <h2 class="mv-h2 mb-4">Join the community</h2>
+                <p class="mv-lead max-w-2xl mx-auto mb-8">Follow the latest findings on X and join Telegram for real-time discussions.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="https://x.com/MessyVirgoCoin" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Follow on X</a>
-                    <a href="https://t.me/messyvirgo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Telegram</a>
+                    <a href="https://t.me/messyvirgo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Join Telegram</a>
                 </div>
             </div>
         </section>

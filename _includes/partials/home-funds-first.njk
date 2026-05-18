@@ -1,141 +1,302 @@
 {# Funds-first routing sections — pipeline order: overview → 1 engine → 2 funds → 3–4 roadmap → proof → verify #}
 
-<!-- What Messy is building (overview) -->
-<section id="building" class="text-center fade-in">
-  <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">What we are building</h2>
-  <p class="max-w-3xl mx-auto mb-10 text-gray-400">Funds are the product. Research tools are the engine. Updates are the proof. AI-managed Funds are the destination — tested in public first.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto text-left">
-    <a href="#research-engine" class="glassmorphism rounded-lg p-5 border border-white/10 hover:border-pink-400/30 transition block">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">1 · Engine</p>
-      <p class="text-sm text-gray-400">Live research surfaces — macro, narratives, performance, social, and security.</p>
-    </a>
-    <a href="#funds" class="glassmorphism rounded-lg p-5 border border-white/10 hover:border-pink-400/30 transition block">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">2 · Pre-live testing</p>
-      <p class="text-sm text-gray-400">Research-informed test portfolios in the app — human-reviewed, not autonomous capital.</p>
-    </a>
-    <a href="#road-ahead" class="glassmorphism rounded-lg p-5 border border-white/10 hover:border-pink-400/30 transition block">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">3 · Allocation logic</p>
-      <p class="text-sm text-gray-400">Screening, scoring, and risk checks tested before any live AI-managed execution.</p>
-    </a>
-    <a href="#road-ahead" class="glassmorphism rounded-lg p-5 border border-white/10 hover:border-pink-400/30 transition block">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">4 · AI-managed Funds</p>
-      <p class="text-sm text-gray-400">AI Fund Agent in development — not released. Follow updates before live autonomous management.</p>
-    </a>
+<!-- What Messy is building — numbered pipeline -->
+<section id="building" class="fade-in">
+  <div class="text-center mb-12">
+    <h2 class="mv-h2 mb-4">What we are building</h2>
+    <p class="mv-lead max-w-3xl mx-auto">Funds are the product. Research tools are the engine. Updates are the proof. AI-managed Funds are the destination — tested in public first.</p>
+  </div>
+  <div class="max-w-4xl mx-auto relative">
+    <!-- Connecting line, desktop only -->
+    <div class="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-pink-500/40 via-pink-400/20 to-white/5 z-0"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+      <a href="#research-engine" class="relative z-10 flex flex-col items-center text-center group">
+        <div class="w-16 h-16 rounded-full border-2 border-pink-400 bg-pink-500/10 flex items-center justify-center mb-3 group-hover:bg-pink-500/20 transition">
+          <span class="text-xl font-black text-pink-400">1</span>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Live</span>
+        <h3 class="text-sm font-bold text-white mb-1">Research Engine</h3>
+        <p class="text-xs text-gray-500 leading-relaxed">Five live research surfaces feeding screening and risk.</p>
+      </a>
+      <a href="#funds" class="relative z-10 flex flex-col items-center text-center group">
+        <div class="w-16 h-16 rounded-full border-2 border-pink-400 bg-pink-500/10 flex items-center justify-center mb-3 group-hover:bg-pink-500/20 transition">
+          <span class="text-xl font-black text-pink-400">2</span>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-wider text-green-400 mb-1">Testing</span>
+        <h3 class="text-sm font-bold text-white mb-1">Pre-live Funds</h3>
+        <p class="text-xs text-gray-500 leading-relaxed">Research-informed portfolios — human-reviewed, not autonomous capital.</p>
+      </a>
+      <a href="#road-ahead" class="relative z-10 flex flex-col items-center text-center group">
+        <div class="w-16 h-16 rounded-full border-2 border-amber-400/50 bg-amber-500/10 flex items-center justify-center mb-3 group-hover:bg-amber-500/20 transition">
+          <span class="text-xl font-black text-amber-400">3</span>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-500/80 mb-1">Coming</span>
+        <h3 class="text-sm font-bold text-white mb-1">Allocation Logic</h3>
+        <p class="text-xs text-gray-500 leading-relaxed">Scoring thresholds and risk rules hardened in production.</p>
+      </a>
+      <a href="#road-ahead" class="relative z-10 flex flex-col items-center text-center group">
+        <div class="w-16 h-16 rounded-full border-2 border-violet-400/40 bg-violet-500/10 flex items-center justify-center mb-3 group-hover:bg-violet-500/20 transition">
+          <span class="text-xl font-black text-violet-400">4</span>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-wider text-violet-400/80 mb-1">Future</span>
+        <h3 class="text-sm font-bold text-white mb-1">AI-managed Funds</h3>
+        <p class="text-xs text-gray-500 leading-relaxed">AI Fund Agent in development — not released.</p>
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- 1 · Research engine -->
-<section id="research-engine" class="text-center fade-in">
-  <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">The research engine</h2>
-  <p class="max-w-3xl mx-auto mb-10 text-gray-400">Five live research surfaces on the app, each answering a decision question that feeds screening and risk checks for the pre-live testing Funds in step 2.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto text-left">
-    <a href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition block">
-      <h3 class="text-lg font-bold text-white mb-2">Macro Economics</h3>
-      <p class="text-sm text-gray-400 mb-3">Regime context for exposure and risk posture.</p>
-      <p class="text-xs text-pink-400/90">Open →</p>
+<section id="research-engine" class="fade-in">
+  <div class="text-center mb-10">
+    <p class="text-xs uppercase tracking-widest text-pink-400 font-semibold mb-3">Step 1</p>
+    <h2 class="mv-h2 mb-4">The research engine</h2>
+    <p class="mv-lead max-w-3xl mx-auto">Five live research surfaces on the app, each answering a decision question that feeds screening and risk checks for the pre-live testing Funds.</p>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+    <a href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+      <h3 class="text-base font-bold text-white mb-2">Macro Economics</h3>
+      <p class="text-sm text-gray-400 flex-1">Regime context for exposure and risk posture.</p>
+      <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
     </a>
-    <a href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition block">
-      <h3 class="text-lg font-bold text-white mb-2">Narrative Momentum</h3>
-      <p class="text-sm text-gray-400 mb-3">Thematic opportunity and crowding context.</p>
-      <p class="text-xs text-pink-400/90">Open →</p>
+    <a href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+      <h3 class="text-base font-bold text-white mb-2">Narrative Momentum</h3>
+      <p class="text-sm text-gray-400 flex-1">Thematic opportunity and crowding context.</p>
+      <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
     </a>
-    <a href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition block">
-      <h3 class="text-lg font-bold text-white mb-2">Performance Signals</h3>
-      <p class="text-sm text-gray-400 mb-3">Trend quality and relative strength for candidate selection.</p>
-      <p class="text-xs text-pink-400/90">Open →</p>
+    <div class="glassmorphism rounded-lg p-6 border border-white/10 flex flex-col">
+      <div class="flex items-start justify-between mb-2">
+        <h3 class="text-base font-bold text-white">News &amp; Events</h3>
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-500/20 text-gray-400 border border-gray-500/30 shrink-0 ml-2">Soon</span>
+      </div>
+      <p class="text-sm text-gray-400 flex-1">Token news, market events, and narrative catalysts surfaced in real time.</p>
+      <span class="mt-4 text-sm text-gray-600">In development</span>
+    </div>
+    <a href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+      <h3 class="text-base font-bold text-white mb-2">Performance Signals</h3>
+      <p class="text-sm text-gray-400 flex-1">Trend quality and relative strength for candidate selection.</p>
+      <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
     </a>
-    <a href="https://app.messyvirgo.com/due-diligence/social" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition block">
-      <h3 class="text-lg font-bold text-white mb-2">Social Signals</h3>
-      <p class="text-sm text-gray-400 mb-3">Attention quality and narrative risk before you post or size.</p>
-      <p class="text-xs text-pink-400/90">Open →</p>
+    <a href="https://app.messyvirgo.com/due-diligence/social" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+      <h3 class="text-base font-bold text-white mb-2">Social Signals</h3>
+      <p class="text-sm text-gray-400 flex-1">Attention quality and narrative risk before you post or size.</p>
+      <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
     </a>
-    <a href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition block sm:col-span-2 lg:col-span-1">
-      <h3 class="text-lg font-bold text-white mb-2">Security Signals</h3>
-      <p class="text-sm text-gray-400 mb-3">No-go flags and contract-level risk rejection.</p>
-      <p class="text-xs text-pink-400/90">Open →</p>
+    <a href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener noreferrer" class="glassmorphism rounded-lg p-6 border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+      <h3 class="text-base font-bold text-white mb-2">Security Signals</h3>
+      <p class="text-sm text-gray-400 flex-1">No-go flags and contract-level risk rejection.</p>
+      <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
     </a>
   </div>
 </section>
 
-<!-- 2 · Pre-live testing Funds (app) -->
+<!-- 2 · Pre-live testing Funds -->
 <section id="funds" class="fade-in">
   <div class="text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">Pre-live testing Funds</h2>
-    <p class="max-w-3xl mx-auto text-gray-400">These Funds run in the <a href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">Messy Virgo app</a>. Each one is screened, scored, and risk-checked using the research engine above — human-reviewed today, not autonomous capital.</p>
+    <p class="text-xs uppercase tracking-widest text-pink-400 font-semibold mb-3">Step 2</p>
+    <h2 class="mv-h2 mb-4">Pre-live testing Funds</h2>
+    <p class="mv-lead max-w-3xl mx-auto">Each Fund is screened, scored, and risk-checked using the research engine above — human-reviewed today, not autonomous capital.</p>
   </div>
-  <article class="glassmorphism rounded-lg p-8 md:p-10 text-left border border-white/10 max-w-5xl mx-auto mb-8">
-    <div class="flex flex-wrap items-center gap-2 mb-4">
-      <h3 class="text-xl font-bold text-white">Messy Virgo Funds</h3>
-      <span class="text-xs font-bold px-2 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30">Pre-live testing</span>
+  <div class="max-w-4xl mx-auto">
+    <div class="glassmorphism rounded-lg border border-white/10 p-8 md:p-10 relative overflow-hidden">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-pink-500/60 via-pink-400/30 to-transparent"></div>
+      <div class="flex flex-col md:flex-row md:items-start gap-8">
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <h3 class="text-xl font-bold text-white">Messy Virgo Funds</h3>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30">Pre-live testing</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed mb-5">Full Fund workflow in action — screening, scoring, risk rejection, and allocation discipline — proving the process before any live AI-managed capital.</p>
+          <!-- App UI preview: mini fund cards -->
+          <div class="grid grid-cols-2 gap-2.5 mb-6">
+            <div class="rounded-lg bg-black/40 border border-white/10 p-3 select-none relative overflow-hidden">
+              <svg viewBox="0 0 100 40" preserveAspectRatio="none" class="absolute inset-0 w-full h-full opacity-40" fill="none">
+                <defs>
+                  <linearGradient id="grad-messybased" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#4ade80" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,35 L12,30 L25,32 L38,24 L52,18 L65,22 L78,10 L90,6 L100,2 L100,40 L0,40 Z" fill="url(#grad-messybased)"/>
+                <polyline points="0,35 12,30 25,32 38,24 52,18 65,22 78,10 90,6 100,2" stroke="#4ade80" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-0.5">
+                  <span class="text-pink-400 font-bold text-[11px]">messybased</span>
+                  <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-white/15 text-gray-500 leading-none">PUBLIC</span>
+                </div>
+                <p class="text-[9px] text-gray-600 mb-2">mvf-messybased · base</p>
+                <p class="text-[9px] text-gray-500 mb-0.5">NAV</p>
+                <p class="text-base font-bold text-white leading-none mb-5">$35,607</p>
+                <div class="flex gap-2 text-[9px] text-gray-500">
+                  <span>1D <span class="text-green-400 font-semibold">+3.84%</span></span>
+                  <span>7D <span class="text-green-400 font-semibold">+2.71%</span></span>
+                  <span>30D <span class="text-green-400 font-semibold">+31.65%</span></span>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg bg-black/40 border border-white/10 p-3 select-none relative overflow-hidden">
+              <svg viewBox="0 0 100 40" preserveAspectRatio="none" class="absolute inset-0 w-full h-full opacity-40" fill="none">
+                <defs>
+                  <linearGradient id="grad-sub3m" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#4ade80" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,34 L15,28 L30,30 L45,22 L60,26 L75,16 L88,20 L100,10 L100,40 L0,40 Z" fill="url(#grad-sub3m)"/>
+                <polyline points="0,34 15,28 30,30 45,22 60,26 75,16 88,20 100,10" stroke="#4ade80" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-0.5">
+                  <span class="text-pink-400 font-bold text-[11px]">base sub 3m</span>
+                  <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-white/15 text-gray-500 leading-none">PUBLIC</span>
+                </div>
+                <p class="text-[9px] text-gray-600 mb-2">mvf-base-sub3m · base</p>
+                <p class="text-[9px] text-gray-500 mb-0.5">NAV</p>
+                <p class="text-base font-bold text-white leading-none mb-5">$12,480</p>
+                <div class="flex gap-2 text-[9px] text-gray-500">
+                  <span>1D <span class="text-green-400 font-semibold">+1.2%</span></span>
+                  <span>7D <span class="text-green-400 font-semibold">+4.3%</span></span>
+                  <span>30D <span class="text-green-400 font-semibold">+18.4%</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Funds</a>
+        </div>
+        <div class="md:w-52 shrink-0 border-t border-white/10 pt-6 md:border-t-0 md:pt-0 md:border-l md:pl-8">
+          <p class="text-xs uppercase tracking-wide text-gray-400 font-semibold mb-1">Also on Guru.fund</p>
+          <p class="text-xs text-gray-500 mb-4 leading-relaxed">Small human-managed portfolios, separate from app pre-live testing.</p>
+          <div class="flex flex-col gap-2">
+            <a href="https://guru.fund/$MESSYINFRA" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-3 min-h-[44px] rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition group">
+              <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">$MESSYINFRA</span>
+              <span class="text-pink-400 text-sm font-semibold">→</span>
+            </a>
+            <a href="https://guru.fund/$MESSYBNB" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-3 min-h-[44px] rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition group">
+              <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">$MESSYBNB</span>
+              <span class="text-pink-400 text-sm font-semibold">→</span>
+            </a>
+            <a href="https://guru.fund/$MESSYAI" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-3 min-h-[44px] rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition group">
+              <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">$MESSYAI</span>
+              <span class="text-pink-400 text-sm font-semibold">→</span>
+            </a>
+            <a href="https://guru.fund/$MESSYDEFI" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-3 py-3 min-h-[44px] rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition group">
+              <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">$MESSYDEFI</span>
+              <span class="text-pink-400 text-sm font-semibold">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <dl class="space-y-4 text-sm text-gray-400">
-      <div>
-        <dt class="text-pink-400 text-xs uppercase tracking-wide font-semibold mb-1">Where to view</dt>
-        <dd><a href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 underline">app.messyvirgo.com/funds</a> — each Fund shows its status, objective, and latest activity.</dd>
-      </div>
-      <div>
-        <dt class="text-pink-400 text-xs uppercase tracking-wide font-semibold mb-1">Testing objective</dt>
-        <dd>Run the full Fund workflow — screening, scoring, risk rejection, and allocation discipline — before any live AI-managed capital.</dd>
-      </div>
-      <div>
-        <dt class="text-pink-400 text-xs uppercase tracking-wide font-semibold mb-1">Research inputs</dt>
-        <dd>Macro Economics, Narrative Momentum, Performance Signals, Social Signals, and Security Signals — from the research engine above.</dd>
-      </div>
-    </dl>
-    <div class="mt-6 flex flex-wrap gap-4">
-      <a href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener noreferrer" class="bg-pink-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-pink-600 transition shadow-lg shadow-pink-500/20">View Funds</a>
-    </div>
-  </article>
-  <p class="text-center text-xs text-gray-500 max-w-2xl mx-auto">Also on <a href="https://guru.fund" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 underline">Guru.fund</a>: $MESSYINFRA, $MESSYBNB, $MESSYAI, $MESSYDEFI — small human-managed portfolios, separate from app pre-live testing.</p>
+  </div>
 </section>
 
 <!-- 3–4 · Toward AI-managed Funds -->
-<section id="road-ahead" class="text-center fade-in">
-  <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">Toward AI-managed Funds</h2>
-  <p class="max-w-3xl mx-auto mb-10 text-gray-400">Pre-live testing is not the end state. The next layers harden allocation rules and move toward autonomous execution only when the process is proven.</p>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
-    <div class="glassmorphism rounded-lg p-6 border border-white/10">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Allocation logic</p>
-      <p class="text-sm text-gray-400">Screening playbooks, scoring thresholds, and risk rejection rules tested against real portfolios in the app before any live autonomous capital deployment.</p>
+<section id="road-ahead" class="fade-in">
+  <div class="text-center mb-10">
+    <p class="text-xs uppercase tracking-widest text-amber-500 font-semibold mb-3">Steps 3 &amp; 4</p>
+    <h2 class="mv-h2 mb-4">Toward AI-managed Funds</h2>
+    <p class="mv-lead max-w-3xl mx-auto">Pre-live testing is not the end state. The next layers harden allocation rules and move toward autonomous execution only when the process is proven.</p>
+  </div>
+  <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-4 items-stretch">
+    <div class="flex-1 glassmorphism rounded-lg p-6 border border-amber-400/30 bg-amber-500/5">
+      <p class="text-xs uppercase tracking-wide text-amber-500 font-semibold mb-3">Step 3 · Coming</p>
+      <h3 class="text-base font-bold text-white mb-2">Allocation Logic</h3>
+      <p class="text-sm text-gray-400 leading-relaxed">Screening playbooks, scoring thresholds, and risk rejection rules tested against real portfolios before any live autonomous capital deployment.</p>
     </div>
-    <div class="glassmorphism rounded-lg p-6 border border-white/10">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">AI-managed Funds</p>
-      <p class="text-sm text-gray-400">The AI Fund Agent is <strong class="text-white">in development and not released</strong>. Follow proof and updates below — do not treat pre-live testing as live AI-managed performance.</p>
+    <div class="hidden md:flex items-center shrink-0 text-gray-600 text-xl px-1">→</div>
+    <div class="flex-1 glassmorphism rounded-lg p-6 border border-violet-400/25 bg-violet-500/5">
+      <p class="text-xs uppercase tracking-wide text-violet-400 font-semibold mb-3">Step 4 · Future</p>
+      <h3 class="text-base font-bold text-white mb-2">AI-managed Funds</h3>
+      <p class="text-sm text-gray-400 leading-relaxed">The AI Fund Agent is <strong class="text-gray-200">in development and not released</strong>. Follow proof and updates — do not treat pre-live testing as live AI-managed performance.</p>
     </div>
   </div>
 </section>
 
 <!-- Proof and updates -->
-<section id="updates" class="text-center fade-in">
-  <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">Proof and updates</h2>
-  <p class="max-w-3xl mx-auto mb-10 text-gray-400">Blog, Build Log, and Fund / Signal updates show what changed — which tools mattered, what was rejected, and what it teaches the future AI Fund Agent.</p>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-    <a href="/blog/2026/05/messy-fund-update-week-of-2026-05-15/" class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition block">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Latest update</p>
-      <h3 class="text-lg font-bold text-white mb-2">Messy Fund Update</h3>
-      <p class="text-sm text-gray-400">3 funds, new council sessions, macro Neutral, narrative leaders, and what this teaches the AI Fund Agent.</p>
-    </a>
-    <a href="/buildlog.html" class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition block">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Build Log</p>
-      <h3 class="text-lg font-bold text-white mb-2">Weekly shipped progress</h3>
-      <p class="text-sm text-gray-400">Tools, app Funds observed, and agent pipeline milestones.</p>
-    </a>
-    <a href="/blog/" class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition block">
-      <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Blog</p>
-      <h3 class="text-lg font-bold text-white mb-2">Architecture &amp; Fund updates</h3>
-      <p class="text-sm text-gray-400">Long-form proof — not a passive archive.</p>
-    </a>
+<section id="updates" class="fade-in">
+  <div class="text-center mb-10 max-w-4xl mx-auto">
+    <h2 class="mv-h2 mb-4">Proof and updates</h2>
+    <p class="mv-lead max-w-3xl mx-auto">We track and document what works, which tools mattered, what was rejected, and what it teaches the future AI Fund Agent.</p>
+  </div>
+  <div class="max-w-4xl mx-auto relative">
+    <!-- Connecting line across all three cards -->
+    <div class="hidden sm:block absolute top-0 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-pink-500/30 to-transparent z-10"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a href="/blog/2026/05/messy-fund-update-week-of-2026-05-15/" class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+        <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Latest update</p>
+        <h3 class="text-base font-bold text-white mb-2 group-hover:text-pink-100 transition">Messy Fund Update</h3>
+        <p class="text-sm text-gray-400 flex-1">3 funds, new council sessions, macro Neutral, narrative leaders, and what this teaches the AI Fund Agent.</p>
+        <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
+      </a>
+      <a href="/buildlog.html" class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+        <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Build Log</p>
+        <h3 class="text-base font-bold text-white mb-2 group-hover:text-pink-100 transition">Weekly shipped progress</h3>
+        <p class="text-sm text-gray-400 flex-1">Tools, app Funds observed, and agent pipeline milestones.</p>
+        <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
+      </a>
+      <a href="/blog/" class="glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+        <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Blog</p>
+        <h3 class="text-base font-bold text-white mb-2 group-hover:text-pink-100 transition">Architecture &amp; Fund updates</h3>
+        <p class="text-sm text-gray-400 flex-1">Long-form proof — not a passive archive.</p>
+        <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- Verify $MESSY -->
-<section id="verify" class="text-center fade-in">
-  <h2 class="text-3xl md:text-4xl font-bold font-sans tracking-tight text-gradient mb-4">Verify $MESSY</h2>
-  <p class="max-w-3xl mx-auto mb-8 text-gray-400">Verify the token contract, treasury custody, vesting, and governance before you buy or hold.</p>
-  <div class="flex flex-wrap justify-center gap-4">
-    <a href="/messy-virgo-coin.html" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition">Token</a>
-    <a href="/treasury.html" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition">Safes &amp; Vesting</a>
-    <a href="/governance.html" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition">Governance</a>
-    <a href="https://app.solidproof.io/projects/messyvirgo" target="_blank" rel="noopener noreferrer" class="bg-white/10 text-white font-semibold py-3 px-6 rounded-lg border border-white/20 hover:bg-white/20 transition">SolidProof</a>
+<!-- Live price -->
+<section id="data" class="fade-in">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-6">
+      <h2 class="mv-h2 mb-4">Live price</h2>
+      <p class="mv-lead">MESSY/WETH on Base — via GeckoTerminal.</p>
+    </div>
+    <div class="w-full h-[500px] rounded-lg overflow-hidden glassmorphism p-2">
+      <iframe
+        id="geckoterminal-chart"
+        src="https://www.geckoterminal.com/base/pools/0x09f87f948c88848363b124c9099cbb58e4cc7cb6?embed=1&info=0&swaps=0&light_chart=0&chart_type=price&resolution=4h&bg_color=111827"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        title="MESSY Token Chart - GeckoTerminal">
+      </iframe>
+    </div>
+    <div class="text-center mt-3">
+      <a href="https://www.dextools.io/app/en/token/messy" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-400 hover:text-pink-400 transition underline">DEXTools</a>
+    </div>
+  </div>
+</section>
+
+<!-- Verify & Buy $MESSY -->
+<section id="verify" class="fade-in">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="mv-h2 mb-4">Verify &amp; Buy $MESSY</h2>
+    <p class="mv-lead max-w-3xl mx-auto mb-8">Swap $MESSY on Aerodrome (Base). Use 4.95% slippage. Always verify the contract address before trading. Contract, custody, vesting, and governance are all verifiable on-chain.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+      <a href="/messy-virgo-coin.html" class="flex items-center justify-between px-4 py-3 min-h-[48px] rounded-lg glassmorphism border border-white/10 hover:border-white/25 hover:bg-white/10 transition group">
+        <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">Token</span>
+        <span class="text-pink-400 font-semibold text-sm">→</span>
+      </a>
+      <a href="/treasury.html" class="flex items-center justify-between px-4 py-3 min-h-[48px] rounded-lg glassmorphism border border-white/10 hover:border-white/25 hover:bg-white/10 transition group">
+        <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">Safes &amp; Vesting</span>
+        <span class="text-pink-400 font-semibold text-sm">→</span>
+      </a>
+      <a href="/governance.html" class="flex items-center justify-between px-4 py-3 min-h-[48px] rounded-lg glassmorphism border border-white/10 hover:border-white/25 hover:bg-white/10 transition group">
+        <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">Governance</span>
+        <span class="text-pink-400 font-semibold text-sm">→</span>
+      </a>
+      <a href="https://app.solidproof.io/projects/messyvirgo" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between px-4 py-3 min-h-[48px] rounded-lg glassmorphism border border-white/10 hover:border-white/25 hover:bg-white/10 transition group">
+        <span class="text-sm font-semibold text-gray-200 group-hover:text-white transition">SolidProof</span>
+        <span class="text-pink-400 font-semibold text-sm">→</span>
+      </a>
+    </div>
+    <div class="relative inline-block">
+      <div class="absolute -inset-2 bg-pink-500/25 blur-xl rounded-2xl"></div>
+      <a href="https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453" target="_blank" rel="noopener noreferrer" class="btn btn-primary relative text-lg px-12 py-5">Swap $MESSY Now</a>
+    </div>
   </div>
 </section>
