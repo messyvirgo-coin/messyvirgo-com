@@ -503,8 +503,8 @@ body.litepaper-page {
     }
 
     .vesting-chart-container {
-        height: 12rem;
-        padding: 2rem 1rem 0.5rem;
+        height: 18rem;
+        padding: 2rem 1rem 1rem;
     }
 
     .litepaper-table {

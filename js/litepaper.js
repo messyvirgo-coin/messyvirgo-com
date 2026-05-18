@@ -68,6 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailsPanel = document.getElementById('vesting-details');
     
     if (chartContainer && detailsPanel) {
+        const isTouch = window.matchMedia('(hover: none)').matches;
+        const idleText = isTouch
+            ? 'Tap a bar to see the cliff and vesting duration for each allocation.'
+            : 'Hover over a bar to see the cliff and vesting duration for each allocation.';
+        detailsPanel.innerHTML = idleText;
+
         const computedStyle = window.getComputedStyle(chartContainer);
         const paddingLeft = parseFloat(computedStyle.paddingLeft);
         const paddingRight = parseFloat(computedStyle.paddingRight);
@@ -108,17 +114,18 @@ document.addEventListener('DOMContentLoaded', function() {
             fullBarContainer.appendChild(bar);
             chartContainer.appendChild(fullBarContainer);
 
+            const showDetail = () => {
+                detailsPanel.innerHTML = `
+                    <strong style="color:${item.color}">${item.name}</strong><br>
+                    Cliff: ${item.cliff} months, Vesting: ${item.vesting} months
+                    ${item.cadence ? `<br>${item.cadence}` : ''}
+                `;
+            };
+
             [bar, cliffBar].forEach(el => {
-                el.addEventListener('mouseover', () => {
-                    detailsPanel.innerHTML = `
-                        <strong style="color:${item.color}">${item.name}</strong><br>
-                        Cliff: ${item.cliff} months, Vesting: ${item.vesting} months
-                        ${item.cadence ? `<br>${item.cadence}` : ''}
-                    `;
-                });
-                el.addEventListener('mouseout', () => {
-                    detailsPanel.innerHTML = 'Hover over a bar to see the cliff and vesting duration for each allocation.';
-                });
+                el.addEventListener('mouseover', showDetail);
+                el.addEventListener('mouseout', () => { detailsPanel.innerHTML = idleText; });
+                el.addEventListener('click', showDetail);
             });
         });
     }

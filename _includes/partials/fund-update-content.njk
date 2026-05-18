@@ -213,8 +213,6 @@
   <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener"><span class="fu-link-icon">🔒</span> Security Signals</a>
 </div>
 
-<p style="margin-top:2rem;font-size:.82rem;color:#6b7280;text-align:center">
-  {% if showAutogenNotice %}Data auto-fetched at build time · {% endif %}<a href="/blog/" style="color:#ff69b4">← All updates</a>
-</p>
+{% if showAutogenNotice %}<p style="margin-top:2rem;font-size:.82rem;color:#6b7280;text-align:center">Data auto-fetched at build time</p>{% endif %}
 
 {% endif %}
