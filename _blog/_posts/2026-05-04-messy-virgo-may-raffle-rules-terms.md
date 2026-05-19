@@ -1,7 +1,8 @@
 ---
 title: "Messy Virgo May Raffle – Rules, Prizes & Terms"
+seoTitle: "Messy Virgo May Raffle Rules"
 date: 2026-05-04
-description: "Official rules and terms for the May 2026 Messy Virgo raffle and holder loyalty tiers: 3M $MESSY prize pool, DEX and postcard entry, June 15 snapshot, eligibility, exclusions, and Swiss governing law."
+description: "Official May 2026 Messy Virgo raffle rules: $MESSY prize pool, DEX and postcard entry, June 15 snapshot, eligibility, and Swiss law."
 tags: [messy-virgo, raffle, dao, messy-token, legal]
 layout: post.njk
 permalink: /blog/2026/05/messy-virgo-may-raffle-rules-terms/index.html

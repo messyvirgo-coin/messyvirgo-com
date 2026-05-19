@@ -33,6 +33,29 @@ permalink: /legal/imprint.html
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     {% include "partials/head-common.njk" %}
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Imprint | Messy Virgo DAO",
+        "description": "Legal information for Messy Virgo DAO, a non-profit association registered in Zürich, Switzerland.",
+        "url": "https://www.messyvirgo.com/legal/imprint.html",
+        "about": {
+            "@type": "Organization",
+            "name": "Messy Virgo DAO",
+            "legalName": "Messy Virgo DAO",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Zürich",
+                "postalCode": "8000",
+                "addressCountry": "CH"
+            },
+            "email": "legal@messyvirgo.com"
+        }
+    }
+    </script>
 </head>
 <body class="bg-gray-900 text-gray-200">
     <div id="scroll-progress"></div>

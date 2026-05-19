@@ -1,7 +1,8 @@
 ---
 title: "Messy Virgo screening, part 2: daily runs, aggregates, and configurable playbooks"
+seoTitle: "Messy Virgo Screening: Daily Runs"
 date: 2026-04-24
-description: "How Messy turns prepared daily evidence into sleeve-specific candidate reports, builds aggregates from recurring signals, and uses configurable playbooks to tailor the process."
+description: "How Messy Virgo turns daily evidence into candidate reports, aggregate signals, and configurable screening playbooks."
 tags: [screening, due-diligence, fund-operations, ai-agents]
 layout: post.njk
 permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html

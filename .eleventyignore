@@ -1,5 +1,10 @@
 node_modules/
 _site/
+.claude/
+.cursor/
+.github/
+.remember/
+openspec/
 package.json
 package-lock.json
 .git/
@@ -9,12 +14,20 @@ css/input.css
 .DS_Store
 *.log
 README.md
+AGENTS.md
+BRAND.md
+CLAUDE.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+GOVERNANCE.md
+NOTICE.md
+REVIEWING_REPO_DOCS.md
+SUPPORT.md
 IMAGE_PLACEHOLDERS.md
 ELEVENTY_IMPLEMENTATION.md
 TESTING_GUIDE.md
 HOW_TO_ADD_BLOG_POST.md
 _blog/README.md
-
 
 
 

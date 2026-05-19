@@ -1,7 +1,8 @@
 ---
 title: "Messy Virgo screening, part 1: how we prepare the market before a fund screens"
+seoTitle: "Messy Virgo Screening: Market Prep"
 date: 2026-04-15
-description: "A plain-language look at how Messy gets from a managed view of tokens to a fresh, shared layer of screening information each day–so teams are not reinventing the same heavy work on every screen."
+description: "How Messy Virgo prepares token catalogs, strategy views, and shared daily signal layers before fund screening starts."
 tags: [screening, due-diligence, fund-operations]
 layout: post.njk
 permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html

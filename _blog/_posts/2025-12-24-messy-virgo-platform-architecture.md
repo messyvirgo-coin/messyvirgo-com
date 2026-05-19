@@ -1,7 +1,8 @@
 ---
 title: "Messy Virgo Platform Architecture: a modular stack for AI‑assisted crypto research & fund operations"
+seoTitle: "Messy Virgo Platform Architecture"
 date: 2025-12-24
-description: "A level‑200, high-signal overview of the Messy Virgo platform: How Lenses compose into a Due Diligence Engine, how services and the data plane fit together, and why we optimize for repeatability, provenance, and graceful degradation."
+description: "A high-signal overview of Messy Virgo's lens architecture, data plane, services, and reliability patterns for AI-assisted crypto research."
 tags: [architecture, due-diligence-engine, lenses, ai-agents]
 layout: post.njk
 permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html

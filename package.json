@@ -4,12 +4,14 @@
   "description": "Messy Virgo website",
   "license": "Apache-2.0",
   "scripts": {
+    "clean": "node scripts/clean-site.js",
     "build:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify",
     "watch:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --watch",
     "build:eleventy": "eleventy",
+    "audit:seo": "eleventy --to=json > /tmp/messyvirgo-eleventy.json && node scripts/audit-seo.js /tmp/messyvirgo-eleventy.json",
     "serve": "eleventy --serve",
     "watch:eleventy": "eleventy --watch",
-    "build": "npm run build:css && npm run build:eleventy",
+    "build": "npm run clean && npm run build:css && npm run build:eleventy",
     "dev": "concurrently -n css,11ty -c cyan,magenta npm:watch:css npm:serve",
     "fund-update:publish": "node scripts/publish-fund-update.js"
   },

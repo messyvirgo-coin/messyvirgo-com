@@ -1,5 +1,6 @@
 ---
 title: "Why 99% of Tokens Get Nuked–And How Messy Built a Lifeboat"
+seoTitle: "Why Tokens Fail and How $MESSY Builds Trust"
 date: 2026-02-03
 description: "Why Messy Virgo engineered transparent defenses to survive the 2025 token extinction event that destroyed millions of projects."
 tags: [messy-virgo, survival, treasury, dao]

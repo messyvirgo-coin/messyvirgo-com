@@ -1,7 +1,8 @@
 ---
 title: "An AI End-State: What Messy Virgo Becomes"
+seoTitle: "Messy Virgo AI Fund End-State"
 date: 2026-05-08
-description: "A vision for Messy Virgo as an AI-native, on-chain fund management platform where shared market memory, modular intelligence, auditable execution, and governance operate as one system."
+description: "Messy Virgo's vision for an AI-native on-chain fund platform with shared market memory, modular research agents, and governance."
 tags: [messy-virgo, ai-native, fund-management, governance, onchain]
 layout: post.njk
 permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html

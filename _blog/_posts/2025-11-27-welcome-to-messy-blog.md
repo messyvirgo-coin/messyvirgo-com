@@ -1,5 +1,6 @@
 ---
 title: "Welcome to the Messy Virgo Coin ($MESSY) Blog"
+seoTitle: "Welcome to the Messy Virgo Coin Blog"
 date: 2025-11-27
 description: "Introducing The MESSY Blog - your hub for insights on AI agents, autonomous fund management, and the future of DeFi."
 tags: [announcements, ai-agents, blog]
@@ -39,4 +40,3 @@ We'll be announcing new posts across our social channels, so make sure you're fo
 Thanks for reading, and welcome to the Messy Virgo Coin ($MESSY) Blog! We're excited to share our journey with you.
 
 *- The Messy Virgo Coin ($MESSY) Team*
-

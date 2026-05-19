@@ -1,7 +1,8 @@
 ---
 title: "From Weekend Hacks to Autonomous Lenses: How Messy Virgo Is Designing Its Due Diligence Engine"
+seoTitle: "Messy Virgo Due Diligence Engine"
 date: 2025-11-30
-description: "Andrej Karpathy’s “weekend vibe” agentic AI hack meets Messy Virgo’s on-chain reality in this piece, showing how our lens architecture turns tool orchestration, self-evaluation, and tight reasoning loops into an AI-native due diligence engine–and the foundation for an autonomous trader on Base and Ethereum."
+description: "How Messy Virgo turns agentic AI patterns, validation layers, and modular lenses into an AI-native due diligence engine for crypto research."
 tags: []
 layout: post.njk
 permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html

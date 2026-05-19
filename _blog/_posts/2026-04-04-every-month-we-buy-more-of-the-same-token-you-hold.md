@@ -1,5 +1,6 @@
 ---
 title: "Every Month, We Buy More Of The Same Token You Hold"
+seoTitle: "How Messy Virgo Funds Operations"
 date: 2026-04-04
 description: "How Messy Virgo funds March operations without dumping on holders: treasury moves, transparent pricing, and founders ending the month with more MESSY, not less."
 tags: [messy-virgo, treasury, dao, transparency]
