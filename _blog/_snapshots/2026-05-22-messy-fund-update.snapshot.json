@@ -1,0 +1,504 @@
+{
+  "snapshotDate": "22 May 2026",
+  "publishedAt": "2026-05-22T14:39:27.208Z",
+  "funds": [
+    {
+      "id": "mvf-messybased",
+      "name": "messybased",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-messybased",
+      "nav": "$40k",
+      "ret1d": {
+        "value": "+6.4%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+27.8%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "+56.9%",
+        "cls": "pos"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "58.0",
+          "pnl": 12603.231062613588,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "ETHY",
+          "weight": "20.9",
+          "pnl": 5968.859999999999,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "FACY",
+          "weight": "5.9",
+          "pnl": 612.0817261587044,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "WIRE",
+          "weight": "5.6",
+          "pnl": 1614.8212221050655,
+          "color": "#34d399",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$3,818",
+          "pnl": "$-50"
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change",
+        "date": "22 May 2026",
+        "shortDate": "22 May",
+        "riskNotes": "No hard policy blocks are present. The main risk issue is degraded macro context, which argues against any top-down beta increase, while fresh screening aggregate coverage supports an internal rotation within the existing sleeve. The current sleeve is highly concentrated in legacy high-beta exposures, with several stale or zero-quantity names, so the safer admissible action is targeted rotation/rebalance rather than maintaining the status quo or deploying new risk.",
+        "certified": true,
+        "executionStatus": "resolved",
+        "headline": "Target change approved; rebalance handoff is ready for review."
+      },
+      "screening": {
+        "runDate": "22 May 2026",
+        "aggDate": "22 May 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "DARKSOL",
+            "name": "Darksol",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 5.00 and best rank 3."
+          },
+          {
+            "rank": 2,
+            "symbol": "$BV7X",
+            "name": "BitVault Signal",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "LUM",
+            "name": "Luminous",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.60 and best rank 1."
+          },
+          {
+            "rank": 4,
+            "symbol": "JUNO",
+            "name": "Juno Agent",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 6.60 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "SIBYL",
+            "name": "SIBYL",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.00 and best rank 1."
+          },
+          {
+            "rank": 6,
+            "symbol": "MOEW",
+            "name": "MOEW",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.50 and best rank 4."
+          },
+          {
+            "rank": 7,
+            "symbol": "PRXVT",
+            "name": "PRXVT by Virtuals",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.00 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "ROBOTMONEY",
+            "name": "Robot Money",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 2.33 and best rank 1."
+          }
+        ]
+      },
+      "positionCount": 6,
+      "pricedAt": "2026-05-22T14:39:26.092191Z"
+    },
+    {
+      "id": "mvf-base-sub3m",
+      "name": "Base Sub 3M",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base-sub3m",
+      "nav": "$10.6k",
+      "ret1d": {
+        "value": "-0.6%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-7.3%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-9.1%",
+        "cls": "neg"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$10,575",
+          "pnl": "$-280"
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change",
+        "date": "22 May 2026",
+        "shortDate": "22 May",
+        "riskNotes": "No hard policy blocks are present, but admissibility is constrained by degraded macro and holdings coverage. The only explicit warning is against increasing top-down beta while macros_context is degraded. Screening and aggregate inputs are fresh and support selective rotation/rebalance ideas, but the current book state is partially degraded, so execution should be treated as review-required rather than fully automatic.",
+        "certified": true,
+        "executionStatus": "resolved",
+        "headline": "Target change approved; rebalance handoff is ready for review."
+      },
+      "screening": {
+        "runDate": "22 May 2026",
+        "aggDate": "22 May 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "$BV7X",
+            "name": "BitVault Signal",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "LITCOIN",
+            "name": "Litcoin",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 6.33 and best rank 2."
+          },
+          {
+            "rank": 3,
+            "symbol": "LUM",
+            "name": "Luminous",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 3.60 and best rank 1."
+          },
+          {
+            "rank": 4,
+            "symbol": "DARKSOL",
+            "name": "Darksol",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 4.60 and best rank 3."
+          },
+          {
+            "rank": 5,
+            "symbol": "BOTCOIN",
+            "name": "BOTCOIN",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.25 and best rank 1."
+          },
+          {
+            "rank": 6,
+            "symbol": "SIBYL",
+            "name": "SIBYL",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.50 and best rank 3."
+          },
+          {
+            "rank": 7,
+            "symbol": "ROBOTMONEY",
+            "name": "Robot Money",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 3.33 and best rank 2."
+          },
+          {
+            "rank": 8,
+            "symbol": "DELU",
+            "name": "Delu",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 5.00 and best rank 1."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-05-22T14:39:25.402376Z"
+    },
+    {
+      "id": "mvf-ccl-may05",
+      "name": "Pre-Alpha Council Play",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-ccl-may05",
+      "nav": "$9k",
+      "ret1d": {
+        "value": "-4.4%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-9.6%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "CAP",
+          "weight": "16.3",
+          "pnl": 475.55573351,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "SIBYL",
+          "weight": "16.3",
+          "pnl": 474.91468373,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "BETTER",
+          "weight": "13.7",
+          "pnl": 243.39264599,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "SHEKEL",
+          "weight": "11.0",
+          "pnl": 20.9197484000001,
+          "color": "#34d399",
+          "warning": false
+        },
+        {
+          "symbol": "BENI",
+          "weight": "9.7",
+          "pnl": -120.67779317,
+          "color": "#a78bfa",
+          "warning": true
+        },
+        {
+          "symbol": "1000X",
+          "weight": "9.6",
+          "pnl": -113.72089344,
+          "color": "#f87171",
+          "warning": true
+        },
+        {
+          "symbol": "DICKBUTT",
+          "weight": "8.9",
+          "pnl": -191.21257986,
+          "color": "#fb923c",
+          "warning": true
+        },
+        {
+          "symbol": "ANDY",
+          "weight": "7.6",
+          "pnl": -312.3207015000001,
+          "color": "#e879f9",
+          "warning": true
+        },
+        {
+          "symbol": "CRED",
+          "weight": "5.9",
+          "pnl": -469.41511846,
+          "color": "#ff69b4",
+          "warning": true
+        },
+        {
+          "symbol": "SEAM",
+          "weight": "1.0",
+          "pnl": -911.0187108,
+          "color": "#fbbf24",
+          "warning": true
+        }
+      ],
+      "basePositions": [],
+      "council": {
+        "outcome": "maintain_current",
+        "outcomeLabel": "maintain current",
+        "date": "22 May 2026",
+        "shortDate": "22 May",
+        "riskNotes": "No hard policy blocks are present. The main admissibility issue is coverage quality: holdings valuation is degraded with missing marks/cost basis visibility on the book, and macros context is degraded. That argues against introducing new risk or increasing beta. Candidate rotation is available and screening is fresh, but under the current policy snapshot the safest council action is to maintain current exposure unless the chair specifically requests a risk-reducing rotation.",
+        "certified": true,
+        "executionStatus": "resolved",
+        "headline": "Current book was ratified."
+      },
+      "screening": {
+        "runDate": "22 May 2026",
+        "aggDate": "22 May 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "DARKSOL",
+            "name": "Darksol",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 5.29 and best rank 3."
+          },
+          {
+            "rank": 2,
+            "symbol": "$BV7X",
+            "name": "BitVault Signal",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.20 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "LUM",
+            "name": "Luminous",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.80 and best rank 1."
+          },
+          {
+            "rank": 4,
+            "symbol": "BOTCOIN",
+            "name": "BOTCOIN",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 4.80 and best rank 1."
+          },
+          {
+            "rank": 5,
+            "symbol": "JUNO",
+            "name": "Juno Agent",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 6.80 and best rank 2."
+          },
+          {
+            "rank": 6,
+            "symbol": "SIBYL",
+            "name": "SIBYL",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 1."
+          },
+          {
+            "rank": 7,
+            "symbol": "MOEW",
+            "name": "MOEW",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.75 and best rank 4."
+          },
+          {
+            "rank": 8,
+            "symbol": "PRXVT",
+            "name": "PRXVT by Virtuals",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.75 and best rank 2."
+          }
+        ]
+      },
+      "positionCount": 10,
+      "pricedAt": "2026-05-22T14:39:25.700202Z"
+    }
+  ],
+  "macro": {
+    "score": 58.8,
+    "regime": "N",
+    "summary": "Effective Score: 58.8 (N). This implies a balanced, mildly risk-on macro backdrop with no urgent tail risks, but also no strong conviction drivers—positioning should remain flexible and liquidity-conscious. The base tailwind is structural: global liquidity is expanding (+4.6% YoY), the Treasury General Account has declined sharply (−22.3% in 4 weeks, releasing cash into markets), and equity markets have rallied 14.4% over 60 days.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "+13.6%",
+      "chg30": "+33.0%",
+      "chg60": "+32.7%",
+      "vsBtc15": "-2.8pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 13.5941
+    }
+  },
+  "narratives": [
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "+13.6%",
+      "chg30": "+33.0%",
+      "chg60": "+32.7%",
+      "vsBtc15": "-2.8pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 13.5941
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "+10.1%",
+      "chg30": "+50.3%",
+      "chg60": "+90.7%",
+      "vsBtc15": "+53.7pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 10.0708
+    },
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "+7.2%",
+      "chg30": "+13.3%",
+      "chg60": "+21.3%",
+      "vsBtc15": "-6.4pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": 7.2215
+    },
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "+6.7%",
+      "chg30": "+43.7%",
+      "chg60": "+72.4%",
+      "vsBtc15": "+42.0pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": 6.6808
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "+4.0%",
+      "chg30": "+6.2%",
+      "chg60": "+23.9%",
+      "vsBtc15": "-0.4pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": 3.983
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "-7.7%",
+      "chg30": "-25.6%",
+      "chg60": "-21.8%",
+      "vsBtc15": "-34.8pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -7.7128
+    }
+  ],
+  "signalExample": {
+    "symbol": "DARKSOL",
+    "name": "Darksol",
+    "body": "Appeared in <strong>7/7 daily runs</strong> across messybased and Base Sub 3M and Pre-Alpha Council Play over the 7-day lookback. Appeared in 7/7 source run(s) with avg rank 5.00 and best rank 3.",
+    "tags": [
+      "7/7 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": null
+}
