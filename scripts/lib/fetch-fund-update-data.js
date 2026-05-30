@@ -8,9 +8,8 @@ const { execSync } = require("child_process");
 const API = "https://api.messyvirgo.com/api/v1/public";
 
 const FUNDS = [
-  { id: "mvf-messybased", name: "messybased", sleeveId: "mvs-messybased-1" },
-  { id: "mvf-base-sub3m", name: "Base Sub 3M", sleeveId: "mvs-base-sub3m-1" },
-  { id: "mvf-ccl-may05", name: "Pre-Alpha Council Play", sleeveId: "mvs-ccl-may05-1" },
+  { id: "mvf-guru-messybased", name: "messybased", sleeveId: "mvs-guru-messybased-1" },
+  { id: "mvf-guru-messyinfra", name: "messyinfra", sleeveId: "mvs-guru-messyinfra-1" },
 ];
 
 const BAR_COLOURS = [
@@ -118,7 +117,7 @@ function deriveSignals(funds) {
   }
 
   let riskReject = null;
-  const messy = funds.find((f) => f.id === "mvf-messybased");
+  const messy = funds.find((f) => f.id === "mvf-guru-messybased");
   if (messy?.holdingsBar?.length) {
     const warned = messy.holdingsBar
       .filter((h) => h.warning && h.pnl != null)
@@ -305,17 +304,76 @@ async function fetchMacro() {
   const data = await safeFetch(`${API}/reports/macro/report/default`);
   if (!data) return null;
 
-  const md = data.outputs?.find((o) => o.kind === "markdown")?.content?.body || "";
-  const scoreMatch = md.match(/Effective Score:\s*([\d.]+)\s*\((\w+)\)/);
-  const score = scoreMatch ? parseFloat(scoreMatch[1]) : null;
-  const regime = scoreMatch ? scoreMatch[2] : null;
-  const summaryMatch = md.match(/^## Summary\s*\n+(.+?)(?:\n\n|\n##)/s);
-  const summaryFull = summaryMatch ? summaryMatch[1].replace(/\n/g, " ").trim() : null;
-  const summarySentences = summaryFull
-    ? summaryFull.split(/(?<=[.!?])\s+/).slice(0, 3).join(" ")
-    : null;
+  const content = data.outputs?.find((o) => o.kind === "markdown")?.content || {};
+  const md = content.body || "";
+  const header = content.header || "";
 
-  return { score, regime, summary: summarySentences };
+  let score = null;
+  let regime = null;
+
+  const headerScoreMatch = header.match(/=\s*([\d.]+)\s*\(ES\)/);
+  const headerRegimeMatch = header.match(/\*\*Effective Regime\*\*\s*\|\s*([^|\n]+)/);
+  if (headerScoreMatch) score = parseFloat(headerScoreMatch[1]);
+  if (headerRegimeMatch) regime = normalizeMacroRegime(headerRegimeMatch[1]);
+
+  if (score == null) {
+    const scoreMatch = md.match(/Effective Score:\s*([\d.]+)\s*\((\w+)\)/);
+    if (scoreMatch) {
+      score = parseFloat(scoreMatch[1]);
+      regime = normalizeMacroRegime(scoreMatch[2]);
+    }
+  }
+
+  if (score == null) {
+    const tableMatch = md.match(
+      /\|\s*[\d.]+\s*\|\s*[-\d.]+\s*\|\s*([\d.]+)\s*\|\s*([^|\n]+)\|/
+    );
+    if (tableMatch) {
+      score = parseFloat(tableMatch[1]);
+      regime = normalizeMacroRegime(tableMatch[2]);
+    }
+  }
+
+  const summaryMatch = md.match(/^## Summary\s*\n+(.+?)(?:\n\n|\n##)/s);
+  const summaryBody = summaryMatch ? summaryMatch[1].replace(/\n/g, " ").trim() : null;
+  let summary = null;
+
+  if (summaryBody && !/^Summary unavailable\.?$/i.test(summaryBody)) {
+    summary = summaryBody.split(/(?<=[.!?])\s+/).slice(0, 3).join(" ");
+  } else {
+    const findings = extractMacroOverlayFindings(md);
+    const scoreLabel = score != null ? score.toFixed(1) : "n/a";
+    const regimeLabel = regime || "Neutral";
+    const lead = `Effective Score: ${scoreLabel} (${regimeLabel}).`;
+    summary = findings.length
+      ? [lead, ...findings].join(" ").split(/(?<=[.!?])\s+/).slice(0, 3).join(" ")
+      : lead;
+  }
+
+  return { score, regime, summary };
+}
+
+function normalizeMacroRegime(raw) {
+  const text = String(raw || "").trim();
+  const labeled = text.match(/^[A-Z]\s*—\s*(.+)$/);
+  if (labeled) return labeled[1].trim();
+  if (text === "N") return "Neutral";
+  return text;
+}
+
+function extractMacroOverlayFindings(md) {
+  const overlaySection = md.match(
+    /## Current Events Overlay[\s\S]*?(?=\n## Effective Risk Regime|\n## [^#]|$)/
+  );
+  if (!overlaySection) return [];
+
+  return overlaySection[0]
+    .split("\n")
+    .filter((line) => line.startsWith("|") && !/^\|\s*-/.test(line) && !/Finding \| Adjustment/.test(line))
+    .slice(0, 2)
+    .map((line) => line.split("|").map((part) => part.trim()).filter(Boolean)[0])
+    .filter(Boolean)
+    .map((finding) => finding.split(/\s*;\s*/)[0].trim());
 }
 
 async function fetchNarratives() {

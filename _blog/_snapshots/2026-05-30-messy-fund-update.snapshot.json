@@ -1,0 +1,321 @@
+{
+  "snapshotDate": "30 May 2026",
+  "publishedAt": "2026-05-30T13:08:15.451Z",
+  "funds": [
+    {
+      "id": "mvf-guru-messybased",
+      "name": "messybased",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messybased",
+      "nav": "$33.4k",
+      "ret1d": {
+        "value": "+3.7%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "-7.0%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "74.4",
+          "pnl": null,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "ETHY",
+          "weight": "13.6",
+          "pnl": null,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "FACY",
+          "weight": "7.8",
+          "pnl": null,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "WIRE",
+          "weight": "4.1",
+          "pnl": null,
+          "color": "#34d399",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "screening": {
+        "runDate": "30 May 2026",
+        "aggDate": "30 May 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "PRXVT",
+            "name": "PRXVT by Virtuals",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.71 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "$BV7X",
+            "name": "BitVault Signal",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 4.86 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "TIG",
+            "name": "The Innovation Game",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 3.17 and best rank 1."
+          },
+          {
+            "rank": 4,
+            "symbol": "MOLTEN",
+            "name": "Molten",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 7.50 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "SIBYL",
+            "name": "SIBYL",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 6,
+            "symbol": "JUNO",
+            "name": "Juno Agent",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.50 and best rank 5."
+          },
+          {
+            "rank": 7,
+            "symbol": "SERV",
+            "name": "OpenServ",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 3.33 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "REI",
+            "name": "Rei",
+            "reason": "Appeared in 2/7 source run(s) with avg rank 4.00 and best rank 2."
+          }
+        ]
+      },
+      "positionCount": 4,
+      "pricedAt": "2026-05-30T13:05:57.516508Z"
+    },
+    {
+      "id": "mvf-guru-messyinfra",
+      "name": "messyinfra",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messyinfra",
+      "nav": "$31.7k",
+      "ret1d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "ret7d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "61.8",
+          "pnl": null,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "VIRTUAL",
+          "weight": "10.6",
+          "pnl": null,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "AERO",
+          "weight": "10.2",
+          "pnl": null,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "BNKR",
+          "weight": "6.9",
+          "pnl": null,
+          "color": "#34d399",
+          "warning": false
+        },
+        {
+          "symbol": "AVNT",
+          "weight": "5.5",
+          "pnl": null,
+          "color": "#a78bfa",
+          "warning": false
+        },
+        {
+          "symbol": "KTA",
+          "weight": "5.0",
+          "pnl": null,
+          "color": "#f87171",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "screening": {
+        "runDate": "30 May 2026",
+        "aggDate": null,
+        "aggLookback": 7,
+        "aggSourceRuns": 0,
+        "aggCandidates": []
+      },
+      "positionCount": 6,
+      "pricedAt": "2026-05-30T13:05:57.516508Z"
+    }
+  ],
+  "macro": {
+    "score": 44.53,
+    "regime": "Neutral",
+    "summary": "Effective Score: 44.5 (Neutral). Bitcoin spot ETF outflows accelerate to 9th consecutive day Fed rate-hike odds near 70% by 2026",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-0.4%",
+      "chg30": "+23.2%",
+      "chg60": "+31.6%",
+      "vsBtc15": "+9.8pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -0.3838
+    }
+  },
+  "narratives": [
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "+8.7%",
+      "chg30": "+21.1%",
+      "chg60": "+32.3%",
+      "vsBtc15": "-0.6pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": false,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": 8.6969
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "+3.9%",
+      "chg30": "+14.8%",
+      "chg60": "+27.2%",
+      "vsBtc15": "+0.1pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": 3.9019
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-0.4%",
+      "chg30": "+23.2%",
+      "chg60": "+31.6%",
+      "vsBtc15": "+9.8pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -0.3838
+    },
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "-1.7%",
+      "chg30": "+30.7%",
+      "chg60": "+65.9%",
+      "vsBtc15": "+46.4pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -1.6575
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "-9.1%",
+      "chg30": "+13.7%",
+      "chg60": "+69.1%",
+      "vsBtc15": "+63.8pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -9.1064
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "-11.0%",
+      "chg30": "-7.6%",
+      "chg60": "-23.1%",
+      "vsBtc15": "-35.9pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -10.9821
+    }
+  ],
+  "signalExample": {
+    "symbol": "PRXVT",
+    "name": "PRXVT by Virtuals",
+    "body": "Appeared in <strong>7/7 daily runs</strong> across messybased over the 7-day lookback. Appeared in 7/7 source run(s) with avg rank 2.71 and best rank 1.",
+    "tags": [
+      "7/7 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": null
+}

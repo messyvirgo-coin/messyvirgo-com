@@ -7,7 +7,7 @@ description: Publishes a weekly Messy Fund / Signal update from live Messy Virgo
 
 ## When this applies
 
-Weekly **Fund / Signal** proof post: three showcase funds, macro, narratives, aggregate signal / risk reject, council outcomes, app links. Strategy: [MESSY-GAP-CLOSING-WEBSITE-STRATEGY.md](../../../MESSY-GAP-CLOSING-WEBSITE-STRATEGY.md) §6 (Concepts workspace).
+Weekly **Fund / Signal** proof post: Guru Lotus Funds on Base (read-only), macro, narratives, aggregate signal / risk reject, council context, app links. Strategy: [MESSY-GAP-CLOSING-WEBSITE-STRATEGY.md](../../../MESSY-GAP-CLOSING-WEBSITE-STRATEGY.md) §6 (Concepts workspace).
 
 ## Command
 
