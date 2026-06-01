@@ -1,27 +1,27 @@
 {% set fu = fu or fundUpdate %}
 {% if not fu %}
-<div class="fu-intro fu-panel">
-  <p class="fu-lead">Fund update data unavailable — rebuild after API is reachable.</p>
+<div class="mv-card glassmorphism rounded-lg p-6 mb-8">
+  <p class="mv-body mb-0">Fund update data unavailable — rebuild after API is reachable.</p>
 </div>
 {% else %}
 
-<div class="fu-intro fu-panel">
-  <div class="fu-badge">Fund / Signal update · {{ fu.snapshotDate }}</div>
+<div class="mv-card glassmorphism rounded-lg p-6 mb-8">
+  <p class="mv-eyebrow mb-3">Fund / Signal update · {{ fu.snapshotDate }}</p>
 
   {% if showAutogenNotice %}
-  <div class="fu-autogen">Auto-generated at build time from <a href="https://api.messyvirgo.com">api.messyvirgo.com</a> — data reflects latest available.</div>
+  <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> — data reflects latest available.</p>
   {% endif %}
 
-  <p class="fu-lead">Each week: what changed in our Guru Lotus Funds on Base — read-only snapshots of real holdings and NAV on Guru.fund, not paper trading. We pair that with the same research stack (macro, narratives, screening, council context): what moved, what was passed on, and what the process teaches about the path toward AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
+  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Each week: what changed in our Guru Lotus Funds on Base — read-only snapshots of real holdings and NAV on Guru.fund, not paper trading. We pair that with the same research stack (macro, narratives, screening, council context): what moved, what was passed on, and what the process teaches about the path toward AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
 </div>
 
-<hr class="fu-divider">
+<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<div class="fu-section-label">Funds on Base — Guru Lotus (read-only)</div>
+<p class="mv-eyebrow mb-4">Funds on Base — Guru Lotus (read-only)</p>
 
 <div class="fu-fund-grid">
 {% for fund in fu.funds %}
-  <a class="fu-fund-card" href="{{ fund.appUrl }}" target="_blank" rel="noopener">
+  <a class="fu-fund-card mv-card glassmorphism rounded-lg p-6 block text-gray-200 no-underline hover:shadow-lg hover:shadow-pink-500/20" href="{{ fund.appUrl }}" target="_blank" rel="noopener noreferrer">
     <div class="fc-name">{{ fund.name }}</div>
     <div class="fc-nav">{{ fund.nav }} NAV</div>
     <div class="fc-returns">
@@ -34,10 +34,10 @@
 {% endfor %}
 </div>
 
-<hr class="fu-divider">
+<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
 {% for fund in fu.funds %}
-<div class="fu-section-label">{{ fund.name }} — screening &amp; council</div>
+<p class="mv-eyebrow mb-4">{{ fund.name }} — screening &amp; council</p>
 
 {% if fund.holdingsBar.length %}
 <div class="fu-holdings">
@@ -93,15 +93,15 @@
 </div>
 {% endif %}
 
-{% if not loop.last %}<hr class="fu-divider">{% endif %}
+{% if not loop.last %}<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>{% endif %}
 {% endfor %}
 
-<hr class="fu-divider">
+<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<div class="fu-section-label">Market regime — macro economics</div>
+<p class="mv-eyebrow mb-4">Market regime — macro economics</p>
 
 {% if fu.macro %}
-<div class="fu-macro">
+<div class="fu-macro mv-card glassmorphism rounded-lg p-6 mb-6">
   <div class="fu-macro-score">
     <div class="ms-val">{{ fu.macro.score }}</div>
     <div class="ms-label">{{ fu.macro.regime }}</div>
@@ -110,9 +110,9 @@
 </div>
 {% endif %}
 
-<hr class="fu-divider">
+<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<div class="fu-section-label">Narrative momentum — {{ fu.snapshotDate }}</div>
+<p class="mv-eyebrow mb-4">Narrative momentum — {{ fu.snapshotDate }}</p>
 
 {% if fu.narratives.length %}
 <div class="fu-narr-wrap">
@@ -149,8 +149,8 @@
 {% endif %}
 
 {% if fu.signalExample or fu.riskReject %}
-<hr class="fu-divider">
-<div class="fu-section-label">Aggregate signal · Risk reject</div>
+<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
+<p class="mv-eyebrow mb-4">Aggregate signal · Risk reject</p>
 <div class="fu-signal-grid">
   {% if fu.signalExample %}
   <div class="fu-signal-card candidate">
@@ -181,10 +181,10 @@
 </div>
 {% endif %}
 
-<hr class="fu-divider">
+<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<div class="fu-agent-box">
-  <h3>What this teaches the future Fund Agent</h3>
+<div class="fu-agent-box mv-card glassmorphism rounded-lg p-6 mb-8">
+  <h3 class="mv-eyebrow mb-4">What this teaches the future Fund Agent</h3>
   <div class="fu-agent-patterns">
     <div class="fu-pattern">
       <div class="fu-pattern-num">1</div>
@@ -201,20 +201,20 @@
   </div>
 </div>
 
-<hr class="fu-divider">
+<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<div class="fu-section-label">Run the same workflow</div>
+<p class="mv-eyebrow mb-4">Run the same workflow</p>
 
 <div class="fu-links-grid">
-  <a class="fu-link-pill" href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener"><span class="fu-link-icon">🏦</span> All Funds</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🏦</span> All Funds</a>
   {% for fund in fu.funds %}
-  <a class="fu-link-pill" href="{{ fund.appUrl }}" target="_blank" rel="noopener"><span class="fu-link-icon">📊</span> {{ fund.name }}</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="{{ fund.appUrl }}" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">📊</span> {{ fund.name }}</a>
   {% endfor %}
-  <a class="fu-link-pill" href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener"><span class="fu-link-icon">🌐</span> Macro Economics</a>
-  <a class="fu-link-pill" href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener"><span class="fu-link-icon">📈</span> Narrative Momentum</a>
-  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener"><span class="fu-link-icon">⚡</span> Performance Signals</a>
-  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/social" target="_blank" rel="noopener"><span class="fu-link-icon">💬</span> Social Signals</a>
-  <a class="fu-link-pill" href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener"><span class="fu-link-icon">🔒</span> Security Signals</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🌐</span> Macro Economics</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">📈</span> Narrative Momentum</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">⚡</span> Performance Signals</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/due-diligence/social" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">💬</span> Social Signals</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🔒</span> Security Signals</a>
 </div>
 
 {% if showAutogenNotice %}<p style="margin-top:2rem;font-size:.82rem;color:#6b7280;text-align:center">Data auto-fetched at build time</p>{% endif %}

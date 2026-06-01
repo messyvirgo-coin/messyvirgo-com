@@ -1,20 +1,22 @@
 {# Weekly fund update archive — included on every archived week and /fund-update/ #}
 {% if collections.fundUpdates.length > 0 %}
-<section class="fu-archive fu-panel" aria-labelledby="fu-archive-heading">
-  <h2 id="fu-archive-heading" class="fu-archive-title">Archive</h2>
-  <ul class="fu-archive-list">
-    {% for week in collections.fundUpdates %}
-    <li class="fu-archive-item">
-      {% if fundUpdateSnapshot and week.url == page.url %}
-      <span class="fu-archive-current">Week of {{ week.date | readableDate }}</span>
-      {% else %}
-      <a href="{{ week.url }}" class="fu-archive-link">Week of {{ week.date | readableDate }}</a>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-  {% if not fundUpdateSnapshot %}
-  <p class="fu-archive-note">This page shows live data at build time. Archived weeks above are frozen snapshots.</p>
-  {% endif %}
+<section class="mv-section !mb-0 mt-12 pt-8 border-t border-white/10" aria-labelledby="fu-archive-heading">
+  <h2 id="fu-archive-heading" class="mv-eyebrow mb-4">Archive</h2>
+  <nav class="mv-card glassmorphism rounded-lg p-6" aria-label="Past fund updates">
+    <ul class="list-none m-0 p-0 space-y-1">
+      {% for week in collections.fundUpdates %}
+      <li>
+        {% if fundUpdateSnapshot and week.url == page.url %}
+        <span class="block py-2.5 px-3 rounded-lg bg-pink-500/10 border border-pink-400/30 text-pink-400 font-semibold text-sm">Week of {{ week.date | readableDate }}</span>
+        {% else %}
+        <a href="{{ week.url }}" class="block py-2.5 px-3 rounded-lg text-sm text-gray-300 hover:bg-white/5 hover:text-pink-400 transition no-underline">Week of {{ week.date | readableDate }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% if not fundUpdateSnapshot %}
+    <p class="mv-body text-xs text-gray-500 mt-4 pt-4 mb-0 border-t border-white/10">This page shows live data at build time. Archived weeks above are frozen snapshots.</p>
+    {% endif %}
+  </nav>
 </section>
 {% endif %}

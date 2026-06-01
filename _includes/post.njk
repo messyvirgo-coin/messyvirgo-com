@@ -53,38 +53,41 @@
     }
     </script>
 </head>
-<body class="blog-post-page text-gray-200{% if isFundUpdatePage %} fu-page{% endif %}">
+<body class="blog-post-page text-gray-200 flex flex-col min-h-screen">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
-    <div class="flex flex-col min-h-screen">
+    <div class="flex flex-col flex-1 min-h-0">
 
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="{% if isFundUpdatePage %}max-w-5xl{% else %}max-w-4xl{% endif %} mx-auto w-full px-4 sm:px-6 pt-24 pb-16 md:pt-32 md:pb-24 flex-1 overflow-x-hidden">
-        <article class="fade-in{% if isFundUpdatePage %} fu-article{% endif %}">
-            <header class="{% if isFundUpdatePage %}fu-hero{% else %}mb-12 text-center{% endif %}">
-                <h1 class="text-gradient text-4xl md:text-5xl font-bold font-sans tracking-tight mb-4">{{ title }}</h1>
-                {% if isFundUpdatePage %}
-                <p class="fu-hero-meta">
+    <main class="max-w-4xl mx-auto w-full px-4 pt-24 pb-16 md:pt-32 md:pb-24 flex-1 overflow-x-hidden">
+        <article class="fade-in">
+            {% if isFundUpdatePage %}
+            <header class="mv-page-header mb-12">
+                <h1 class="text-gradient mb-4 font-bold font-sans tracking-tight">{{ title }}</h1>
+                <p class="max-w-3xl mx-auto text-sm text-gray-400 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
                     {% if fundUpdateSnapshot %}
-                    <time datetime="{{ page.date | htmlDateString }}" class="fu-hero-date">Week of {{ page.date | readableDate }}</time>
-                    <span class="fu-hero-sep" aria-hidden="true">·</span>
-                    <span class="fu-hero-tag">Archived snapshot</span>
+                    <time datetime="{{ page.date | htmlDateString }}" class="text-gray-200 font-medium">Week of {{ page.date | readableDate }}</time>
+                    <span aria-hidden="true" class="text-gray-600">·</span>
+                    <span class="text-xs font-semibold text-pink-400 uppercase tracking-wide">Archived snapshot</span>
                     {% else %}
-                    <span class="fu-hero-date">Live snapshot</span>
-                    <span class="fu-hero-sep" aria-hidden="true">·</span>
-                    <span class="fu-hero-tag">Refreshed at build</span>
+                    <span class="text-gray-200 font-medium">Live snapshot</span>
+                    <span aria-hidden="true" class="text-gray-600">·</span>
+                    <span class="text-xs font-semibold text-pink-400 uppercase tracking-wide">Refreshed at build</span>
                     {% endif %}
                 </p>
-                {% else %}
+            </header>
+            {% else %}
+            <header class="mb-12 text-center">
+                <h1 class="text-gradient text-4xl md:text-5xl font-bold font-sans tracking-tight mb-4">{{ title }}</h1>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-400 text-sm">
                     <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
                 </div>
-                {% endif %}
             </header>
+            {% endif %}
 
-            <div class="{% if isFundUpdatePage %}fu-report{% else %}mb-16{% endif %} prose prose-invert max-w-none text-gray-300 leading-relaxed">
+            <div class="prose prose-invert max-w-none {% if not isFundUpdatePage %}mb-16{% endif %} text-gray-300 leading-relaxed fu-prose">
                 {{ content | safe }}
             </div>
 
