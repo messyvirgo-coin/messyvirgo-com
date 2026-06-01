@@ -5,6 +5,7 @@
     {% set metaDescription = seoDescription or description or 'Read the latest Messy Virgo Coin ($MESSY) update on AI agents, DeFi research, and transparent fund development.' %}
     {% set titleSuffix = 'Fund update' if fundUpdateSnapshot else '$MESSY Blog' %}
     {% set isFundUpdatePage = fundUpdateSnapshot or showAutogenNotice %}
+    {% set isLatestFundUpdate = fundUpdateSnapshot and collections.fundUpdates.length and page.url == collections.fundUpdates[0].url %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ metaTitle }} | {{ titleSuffix }}</title>
@@ -69,8 +70,13 @@
                 <p class="max-w-3xl mx-auto text-sm text-gray-400 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
                     {% if fundUpdateSnapshot %}
                     <time datetime="{{ page.date | htmlDateString }}" class="text-gray-200 font-medium">Week of {{ page.date | readableDate }}</time>
+                    {% if isLatestFundUpdate %}
+                    <span aria-hidden="true" class="text-gray-600">·</span>
+                    <span class="text-xs font-semibold text-pink-400 uppercase tracking-wide">Latest update</span>
+                    {% else %}
                     <span aria-hidden="true" class="text-gray-600">·</span>
                     <span class="text-xs font-semibold text-pink-400 uppercase tracking-wide">Archived snapshot</span>
+                    {% endif %}
                     {% else %}
                     <span class="text-gray-200 font-medium">Live snapshot</span>
                     <span aria-hidden="true" class="text-gray-600">·</span>
