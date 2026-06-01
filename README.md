@@ -118,7 +118,7 @@ npm run build
 - **Archive:** date list at the bottom of each fund-update week (and on `/fund-update/`)
 - **Archived week:** `/updates/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/` (snapshot in `_blog/_snapshots/`)
 - **Live mirror:** `/fund-update/` (always current at build time)
-- **Latest update** links in nav/home resolve automatically from `collections.fundUpdates` — no nav patching step
+- **Fund updates** links in nav/home resolve automatically from `collections.fundUpdates` — no nav patching step
 
 Agent skill: `.cursor/skills/messyvirgo-publish-fund-update/SKILL.md`
 

@@ -26,7 +26,7 @@ npm run fund-update:publish -- --date 2026-05-22 --no-cli
 
 Then: `npm run build` → commit snapshot + post.
 
-Nav and homepage **Latest update** links resolve automatically from `collections.fundUpdates` — no `--update-nav` step.
+Nav and homepage **Fund updates** links resolve automatically from `collections.fundUpdates` — no `--update-nav` step.
 
 ## What it creates
 
@@ -57,7 +57,7 @@ Implementation: `scripts/lib/fetch-fund-update-data.js`, `scripts/publish-fund-u
 - Hand-edit 600+ lines of HTML in the markdown stub — change partials or re-run publish.
 - Delete snapshots for past weeks (archived posts depend on them).
 - Use `post.njk` layout for Fund updates — use `fund-update-post.njk`.
-- Patch nav/home “Latest update” URLs manually — Eleventy collections handle it.
+- Patch nav/home “Fund updates” URLs manually — Eleventy collections handle it.
 
 ## Related
 
