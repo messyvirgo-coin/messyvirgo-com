@@ -9,7 +9,7 @@ permalink: /blog/index.html
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Messy Virgo Coin ($MESSY) - AI Agent Token on Base</title>
     <meta name="title" content="Blog | Messy Virgo Coin ($MESSY) - AI Agent Token on Base">
-    <meta name="description" content="Read the latest articles and insights about MESSY, AI agents, DeFi, and autonomous fund management.">
+    <meta name="description" content="Long-form MESSY articles on AI-native funds, research architecture, and DeFi — separate from weekly Fund update snapshots at /updates/.">
     <meta name="keywords" content="MESSY blog, AI agents, DeFi, autonomous trading, crypto insights">
     <meta name="robots" content="index, follow">
     
@@ -56,13 +56,30 @@ permalink: /blog/index.html
     <main class="max-w-4xl mx-auto px-4 pt-24 pb-16 md:pt-32 md:pb-24 flex-1">
         
         <!-- Header Section -->
-        <section class="mv-page-header mb-16">
+        <section class="mv-page-header mb-12">
             <h1 class="text-gradient mb-4">The MESSY Blog</h1>
-            <p class="max-w-3xl mx-auto">Insights and deep dives into AI agents, autonomous fund management, and the future of DeFi.</p>
+            <p class="max-w-3xl mx-auto">Long-form articles on AI agents, autonomous fund management, and the future of DeFi. Weekly Fund update snapshots live separately under <a href="{{ collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' }}" class="text-pink-400 hover:text-pink-300 transition">Fund updates</a>.</p>
+        </section>
+
+        <!-- Proof track (Fund updates + Build log — not mixed into article grid) -->
+        <section class="mb-14 max-w-3xl mx-auto" aria-label="Weekly proof track">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="{{ collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' }}" class="glassmorphism rounded-lg p-5 text-left border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+                    <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Fund updates</p>
+                    <p class="text-sm text-gray-400 flex-1">Weekly snapshot of pre-live testing Funds, macro regime, narratives, and council decisions.</p>
+                    <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open latest →</span>
+                </a>
+                <a href="/buildlog.html" class="glassmorphism rounded-lg p-5 text-left border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+                    <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Build log</p>
+                    <p class="text-sm text-gray-400 flex-1">Shipped tools, pipeline milestones, and agent stack progress.</p>
+                    <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
+                </a>
+            </div>
         </section>
 
         <!-- Blog Posts Grid -->
         <section class="blog-posts-grid">
+            <h2 class="mv-eyebrow mb-8">Articles</h2>
             {% if collections.blog.length > 0 %}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {% for post in collections.blog %}
