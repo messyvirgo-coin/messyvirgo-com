@@ -63,8 +63,8 @@ function writePostStub(dateStr) {
   const frontmatter = `---
 title: "Messy Fund Update"
 date: ${dateStr}
-description: "What three pre-live testing Funds observed this week: macro regime, narrative leaders, screening aggregates, and council decisions — with links to inspect the same workflow in the app."
-tags: [fund-update, signal-brief, pre-live-testing, macro, messy-virgo]
+description: "What Messy Virgo's Guru Lotus Funds on Base showed this week: macro regime, narrative leaders, screening aggregates, and council context — read-only, with links to inspect the same workflow in the app."
+tags: [fund-update, signal-brief, guru-lotus, base, macro, messy-virgo]
 layout: fund-update-post.njk
 fundUpdateSnapshot: "${dateStr}"
 permalink: ${permalink}
