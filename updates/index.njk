@@ -1,0 +1,22 @@
+---
+permalink: /updates/index.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url={{ collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' }}">
+  <meta name="robots" content="noindex, follow">
+  {% if collections.fundUpdates.length %}
+  <link rel="canonical" href="https://www.messyvirgo.com{{ collections.fundUpdates[0].url }}">
+  {% endif %}
+  <script>
+    window.location.replace("{{ collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' }}");
+  </script>
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Redirecting to <a href="{{ collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' }}">latest fund update</a>.</p>
+</body>
+</html>

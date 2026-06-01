@@ -5,7 +5,7 @@ description: "What Messy Virgo's Guru Lotus Funds on Base showed this week: macr
 tags: [fund-update, signal-brief, guru-lotus, base, macro, messy-virgo]
 layout: fund-update-post.njk
 fundUpdateSnapshot: "2026-05-30"
-permalink: /blog/2026/05/messy-fund-update-week-of-2026-05-30/index.html
+permalink: /updates/2026/05/messy-fund-update-week-of-2026-05-30/index.html
 ---
 
 <!-- Body rendered from _blog/_snapshots/2026-05-30-messy-fund-update.snapshot.json via fund-update-post.njk -->

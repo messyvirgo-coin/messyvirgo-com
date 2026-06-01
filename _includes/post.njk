@@ -3,10 +3,12 @@
 <head>
     {% set metaTitle = seoTitle or title %}
     {% set metaDescription = seoDescription or description or 'Read the latest Messy Virgo Coin ($MESSY) update on AI agents, DeFi research, and transparent fund development.' %}
+    {% set titleSuffix = 'Fund update' if fundUpdateSnapshot else '$MESSY Blog' %}
+    {% set isFundUpdatePage = fundUpdateSnapshot or showAutogenNotice %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ metaTitle }} | $MESSY Blog</title>
-    <meta name="title" content="{{ metaTitle }} | $MESSY Blog">
+    <title>{{ metaTitle }} | {{ titleSuffix }}</title>
+    <meta name="title" content="{{ metaTitle }} | {{ titleSuffix }}">
     <meta name="description" content="{{ metaDescription }}">
     <meta name="robots" content="index, follow">
     
@@ -51,7 +53,7 @@
     }
     </script>
 </head>
-<body class="blog-post-page text-gray-200">
+<body class="blog-post-page text-gray-200{% if isFundUpdatePage %} fu-page{% endif %}">
     <div id="scroll-progress"></div>
     <div class="aurora-bg"></div>
     <div class="flex flex-col min-h-screen">
@@ -59,25 +61,39 @@
     <!-- Navigation -->
     {% include "partials/nav.njk" %}
 
-    <main class="max-w-4xl mx-auto w-full px-4 pt-24 pb-16 md:pt-32 md:pb-24 flex-1 overflow-x-hidden">
-        <!-- Post Header -->
-        <article class="fade-in">
-            <header class="mb-12 text-center">
+    <main class="{% if isFundUpdatePage %}max-w-5xl{% else %}max-w-4xl{% endif %} mx-auto w-full px-4 sm:px-6 pt-24 pb-16 md:pt-32 md:pb-24 flex-1 overflow-x-hidden">
+        <article class="fade-in{% if isFundUpdatePage %} fu-article{% endif %}">
+            <header class="{% if isFundUpdatePage %}fu-hero{% else %}mb-12 text-center{% endif %}">
                 <h1 class="text-gradient text-4xl md:text-5xl font-bold font-sans tracking-tight mb-4">{{ title }}</h1>
+                {% if isFundUpdatePage %}
+                <p class="fu-hero-meta">
+                    {% if fundUpdateSnapshot %}
+                    <time datetime="{{ page.date | htmlDateString }}" class="fu-hero-date">Week of {{ page.date | readableDate }}</time>
+                    <span class="fu-hero-sep" aria-hidden="true">·</span>
+                    <span class="fu-hero-tag">Archived snapshot</span>
+                    {% else %}
+                    <span class="fu-hero-date">Live snapshot</span>
+                    <span class="fu-hero-sep" aria-hidden="true">·</span>
+                    <span class="fu-hero-tag">Refreshed at build</span>
+                    {% endif %}
+                </p>
+                {% else %}
                 <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-400 text-sm">
                     <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
                 </div>
+                {% endif %}
             </header>
 
-            <!-- Post Content -->
-            <div class="prose prose-invert max-w-none mb-16 text-gray-300 leading-relaxed">
+            <div class="{% if isFundUpdatePage %}fu-report{% else %}mb-16{% endif %} prose prose-invert max-w-none text-gray-300 leading-relaxed">
                 {{ content | safe }}
             </div>
 
             <!-- Post Footer -->
+            {% if not fundUpdateSnapshot %}
             <div class="mt-16 pt-10">
                 <a href="/blog/" class="inline-flex items-center read-more-btn">&larr; Back to Blog</a>
             </div>
+            {% endif %}
         </article>
     </main>
 

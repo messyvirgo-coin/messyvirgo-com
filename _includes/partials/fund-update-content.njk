@@ -1,15 +1,19 @@
 {% set fu = fu or fundUpdate %}
 {% if not fu %}
-<p class="fu-lead">Fund update data unavailable — rebuild after API is reachable.</p>
+<div class="fu-intro fu-panel">
+  <p class="fu-lead">Fund update data unavailable — rebuild after API is reachable.</p>
+</div>
 {% else %}
 
-<div class="fu-badge">📡 Fund / Signal update · {{ fu.snapshotDate }}</div>
+<div class="fu-intro fu-panel">
+  <div class="fu-badge">Fund / Signal update · {{ fu.snapshotDate }}</div>
 
-{% if showAutogenNotice %}
-<div class="fu-autogen">⚡ Auto-generated at build time from <a href="https://api.messyvirgo.com" style="color:#ff69b4">api.messyvirgo.com</a> — data reflects latest available.</div>
-{% endif %}
+  {% if showAutogenNotice %}
+  <div class="fu-autogen">Auto-generated at build time from <a href="https://api.messyvirgo.com">api.messyvirgo.com</a> — data reflects latest available.</div>
+  {% endif %}
 
-<p class="fu-lead">Each week: what changed in our Guru Lotus Funds on Base — read-only snapshots of real holdings and NAV on Guru.fund, not paper trading. We pair that with the same research stack (macro, narratives, screening, council context): what moved, what was passed on, and what the process teaches about the path toward AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
+  <p class="fu-lead">Each week: what changed in our Guru Lotus Funds on Base — read-only snapshots of real holdings and NAV on Guru.fund, not paper trading. We pair that with the same research stack (macro, narratives, screening, council context): what moved, what was passed on, and what the process teaches about the path toward AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
+</div>
 
 <hr class="fu-divider">
 

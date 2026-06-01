@@ -1,16 +1,167 @@
 <style>
-.blog-post-page header time,
-.blog-post-page header .flex { display: none !important; }
-.blog-post-page header { margin-bottom: 1.5rem !important; }
-.fu-lead { font-size:1.1rem; color:#9ca3af; line-height:1.75; margin-bottom:2.5rem; border-left:3px solid rgba(255,105,180,0.4); padding-left:1.25rem; }
-.fu-badge { display:inline-flex; align-items:center; gap:.35rem; background:rgba(255,105,180,.08); border:1px solid rgba(255,105,180,.22); border-radius:9999px; padding:.3rem .85rem; font-size:.75rem; color:#ff69b4; font-weight:600; letter-spacing:.04em; text-transform:uppercase; margin-bottom:2rem; }
+/* —— Fund update page shell (post.njk adds .fu-page) —— */
+.fu-page .fu-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+.fu-page .fu-hero::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  transform: translateX(-50%);
+  width: min(12rem, 40%);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 105, 180, 0.6), rgba(255, 215, 0, 0.5), transparent);
+}
+.fu-page .fu-hero h1 { margin-bottom: 0.75rem; }
+.fu-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.5rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0;
+}
+.fu-hero-date { color: #e5e7eb; font-weight: 600; }
+.fu-hero-sep { color: #4b5563; user-select: none; }
+.fu-hero-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff69b4;
+  background: rgba(255, 105, 180, 0.08);
+  border: 1px solid rgba(255, 105, 180, 0.2);
+  border-radius: 9999px;
+  padding: 0.2rem 0.65rem;
+}
+.fu-page .fu-report {
+  margin-bottom: 0;
+}
+.fu-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 1.5rem 1.35rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+@media (min-width: 640px) {
+  .fu-panel { padding: 1.75rem 1.75rem; }
+}
+.fu-intro { margin-bottom: 0; }
+.fu-intro .fu-badge { margin-bottom: 1rem; }
+.fu-intro .fu-autogen { margin-bottom: 1.25rem; }
+.fu-intro .fu-lead { margin-bottom: 0; }
+.fu-lead {
+  font-size: 1.05rem;
+  color: #d1d5db;
+  line-height: 1.75;
+  border-left: 3px solid rgba(255, 105, 180, 0.45);
+  padding-left: 1.15rem;
+  margin: 0;
+}
+.fu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, rgba(255, 105, 180, 0.12), rgba(255, 215, 0, 0.06));
+  border: 1px solid rgba(255, 105, 180, 0.28);
+  border-radius: 9999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.72rem;
+  color: #ff69b4;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 .fu-section-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#ff69b4; margin-bottom:1rem; display:flex; align-items:center; gap:.5rem; }
 .fu-section-label::after { content:''; flex:1; height:1px; background:rgba(255,105,180,.15); }
-.fu-divider { border:none; border-top:1px solid rgba(255,255,255,.06); margin:3rem 0; }
+.fu-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  margin: 2.75rem 0;
+}
+.fu-archive {
+  margin-top: 2.5rem;
+}
+.fu-archive-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 0 0 1rem;
+}
+.fu-archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.fu-archive-item { margin: 0; padding: 0; }
+.fu-archive-link {
+  display: block;
+  padding: 0.5rem 0.65rem;
+  margin: 0 -0.65rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.fu-archive-link:hover {
+  background: rgba(255, 105, 180, 0.08);
+  color: #ff69b4;
+  text-decoration: none;
+}
+.fu-archive-current {
+  display: block;
+  padding: 0.5rem 0.65rem;
+  margin: 0 -0.65rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ff69b4;
+  background: rgba(255, 105, 180, 0.1);
+  border: 1px solid rgba(255, 105, 180, 0.2);
+}
+.fu-archive-note {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.55;
+}
 .fu-fund-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-bottom:2.5rem; }
 @media(min-width:640px){ .fu-fund-grid{ grid-template-columns:repeat(3,1fr); } }
-.fu-fund-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:1.25rem; transition:border-color .2s,background .2s; text-decoration:none; display:block; }
-.fu-fund-card:hover { border-color:rgba(255,105,180,.3); background:rgba(255,105,180,.04); }
+.fu-fund-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1.35rem;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: block;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+.fu-fund-card:hover {
+  border-color: rgba(255, 105, 180, 0.35);
+  background: rgba(255, 105, 180, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 105, 180, 0.08);
+}
 .fc-name { font-size:.85rem; font-weight:700; color:#e5e7eb; margin-bottom:.25rem; }
 .fc-nav  { font-size:1.3rem; font-weight:700; color:#fff; margin-bottom:.75rem; }
 .fc-returns { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:.85rem; }
@@ -78,7 +229,18 @@
 .fu-link-pill { display:flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:8px; padding:.6rem .85rem; font-size:.78rem; font-weight:500; color:#9ca3af; text-decoration:none; transition:border-color .2s,color .2s; }
 .fu-link-pill:hover { border-color:rgba(255,105,180,.35); color:#ff69b4; text-decoration:none; }
 .fu-link-icon { font-size:.85rem; }
-.fu-autogen { font-size:.73rem; color:#4b5563; background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:8px; padding:.6rem 1rem; margin-bottom:2rem; display:flex; align-items:center; gap:.5rem; }
+.fu-autogen {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.fu-autogen a { color: #ff69b4; text-decoration: none; font-weight: 500; }
+.fu-autogen a:hover { text-decoration: underline; }
 .fu-narr-wrap { width:100%; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid rgba(255,255,255,.08); border-radius:10px; }
 /* Override base.css which sets display:block and width:100% on .prose table.
    We need the table to use its natural content width so the wrapper can scroll it. */

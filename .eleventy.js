@@ -18,14 +18,40 @@ module.exports = function (eleventyConfig) {
   // Watch targets
   eleventyConfig.addWatchTarget("css/tailwind.css");
 
+  function isBlogPost(item) {
+    return (
+      item.inputPath &&
+      item.inputPath.includes("_blog/_posts/") &&
+      item.inputPath.endsWith(".md")
+    );
+  }
+
+  function isFundUpdate(item) {
+    return (
+      item.data.layout === "fund-update-post.njk" ||
+      (Array.isArray(item.data.tags) && item.data.tags.includes("fund-update"))
+    );
+  }
+
+  function sortByDateDesc(items) {
+    return items.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+  }
+
   // Collections
   eleventyConfig.addCollection("blog", function (collectionApi) {
-    return collectionApi
-      .getAll()
-      .filter(function(item) {
-        return item.inputPath && item.inputPath.includes("_blog/_posts/") && item.inputPath.endsWith(".md");
+    return sortByDateDesc(
+      collectionApi.getAll().filter(function (item) {
+        return isBlogPost(item) && !isFundUpdate(item);
       })
-      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+    );
+  });
+
+  eleventyConfig.addCollection("fundUpdates", function (collectionApi) {
+    return sortByDateDesc(
+      collectionApi.getAll().filter(function (item) {
+        return isBlogPost(item) && isFundUpdate(item);
+      })
+    );
   });
 
   // Markdown configuration

@@ -1,0 +1,20 @@
+{# Weekly fund update archive — included on every archived week and /fund-update/ #}
+{% if collections.fundUpdates.length > 0 %}
+<section class="fu-archive fu-panel" aria-labelledby="fu-archive-heading">
+  <h2 id="fu-archive-heading" class="fu-archive-title">Archive</h2>
+  <ul class="fu-archive-list">
+    {% for week in collections.fundUpdates %}
+    <li class="fu-archive-item">
+      {% if fundUpdateSnapshot and week.url == page.url %}
+      <span class="fu-archive-current">Week of {{ week.date | readableDate }}</span>
+      {% else %}
+      <a href="{{ week.url }}" class="fu-archive-link">Week of {{ week.date | readableDate }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% if not fundUpdateSnapshot %}
+  <p class="fu-archive-note">This page shows live data at build time. Archived weeks above are frozen snapshots.</p>
+  {% endif %}
+</section>
+{% endif %}

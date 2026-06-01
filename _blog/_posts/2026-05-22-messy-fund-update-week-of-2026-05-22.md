@@ -5,7 +5,7 @@ description: "What three pre-live testing Funds observed this week: macro regime
 tags: [fund-update, signal-brief, pre-live-testing, macro, messy-virgo]
 layout: fund-update-post.njk
 fundUpdateSnapshot: "2026-05-22"
-permalink: /blog/2026/05/messy-fund-update-week-of-2026-05-22/index.html
+permalink: /updates/2026/05/messy-fund-update-week-of-2026-05-22/index.html
 ---
 
 <!-- Body rendered from _blog/_snapshots/2026-05-22-messy-fund-update.snapshot.json via fund-update-post.njk -->

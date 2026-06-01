@@ -94,11 +94,13 @@ Generates the static site in `_site/` directory.
 Weekly Fund updates use a **snapshot + stub** pattern (not hand-written HTML):
 
 ```bash
-npm run fund-update:publish -- --date YYYY-MM-DD [--update-nav] [--no-cli]
+npm run fund-update:publish -- --date YYYY-MM-DD [--no-cli]
 ```
 
 - Stub: `_posts/YYYY-MM-DD-messy-fund-update-week-of-YYYY-MM-DD.md` with `layout: fund-update-post.njk` and `fundUpdateSnapshot: "YYYY-MM-DD"`
 - Snapshot: `_snapshots/YYYY-MM-DD-messy-fund-update.snapshot.json`
+- Permalink: `/updates/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/`
+- Archive: date list at the bottom of every fund-update page (`partials/fund-update-archive.njk`)
 - Skill: `.cursor/skills/messyvirgo-publish-fund-update/SKILL.md`
 
 Do not replace these with a normal `post.njk` + manual body unless intentionally reverting automation.
@@ -115,15 +117,17 @@ _includes/
 └── post.njk            # Post template (do not edit)
 
 blog/
-└── index.njk           # Blog listing page template (do not edit)
+└── index.njk           # Article blog listing (articles only)
+
+updates/
+└── index.njk           # Redirects to latest week (legacy `/updates/` URL)
 ```
 
 ## Auto-Generated Features
 
-- **Blog Index**: Automatically updated at `/blog/`
-- **Sitemap**: Blog posts automatically added to `/sitemap.xml`
-- **RSS/Feeds**: Can be added in future updates
-- **Archive Pages**: Can be added in future updates
+- **Blog Index**: Articles only at `/blog/` (`collections.blog`)
+- **Fund update weeks**: `/updates/YYYY/MM/...` with archive list on each page (`collections.fundUpdates`)
+- **Sitemap**: Both collections added to `/sitemap.xml`
 
 ## Markdown Formatting
 

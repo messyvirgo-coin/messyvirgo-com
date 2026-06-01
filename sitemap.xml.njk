@@ -143,18 +143,28 @@ eleventyExcludeFromCollections: true
     <!-- Fund Update -->
     <url>
         <loc>https://www.messyvirgo.com/fund-update/</loc>
-        <lastmod>2026-05-19</lastmod>
+        <lastmod>2026-05-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
-    
-    <!-- Blog Posts -->
+
+    <!-- Blog Posts (articles) -->
     {% for post in collections.blog %}
     <url>
         <loc>https://www.messyvirgo.com{{ post.url }}</loc>
         <lastmod>{{ post.date | htmlDateString }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+    {% endfor %}
+
+    <!-- Fund update weeks -->
+    {% for post in collections.fundUpdates %}
+    <url>
+        <loc>https://www.messyvirgo.com{{ post.url }}</loc>
+        <lastmod>{{ post.date | htmlDateString }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
     </url>
     {% endfor %}
 </urlset>

@@ -17,22 +17,25 @@ From `messyvirgo-com` repo root:
 # Default: today's date, API + CLI council
 npm run fund-update:publish
 
-# Specific week + rewire nav/hero "Latest" links
-npm run fund-update:publish -- --date 2026-05-22 --update-nav
+# Specific week
+npm run fund-update:publish -- --date 2026-05-22
 
 # CI / no Messy CLI auth
 npm run fund-update:publish -- --date 2026-05-22 --no-cli
 ```
 
-Then: `npm run build` → commit snapshot + post (+ nav files if `--update-nav`).
+Then: `npm run build` → commit snapshot + post.
+
+Nav and homepage **Latest update** links resolve automatically from `collections.fundUpdates` — no `--update-nav` step.
 
 ## What it creates
 
 | Output | Purpose |
 | --- | --- |
-| `_blog/_snapshots/YYYY-MM-DD-messy-fund-update.snapshot.json` | Frozen data for archived blog URL (rebuild-safe) |
+| `_blog/_snapshots/YYYY-MM-DD-messy-fund-update.snapshot.json` | Frozen data for archived week URL (rebuild-safe) |
 | `_blog/_posts/YYYY-MM-DD-messy-fund-update-week-of-YYYY-MM-DD.md` | Frontmatter stub; body from `fund-update-post.njk` + partials |
-| Permalink | `/blog/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/` |
+| Permalink | `/updates/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/` |
+| Archive | Date list on every week page via `partials/fund-update-archive.njk` |
 
 **Live mirror (not snapshotted):** `/fund-update/` uses `_data/fundUpdate.js` at build time.
 
@@ -45,7 +48,7 @@ Implementation: `scripts/lib/fetch-fund-update-data.js`, `scripts/publish-fund-u
 
 ## After publish
 
-1. Verify locally: `npm run dev` → blog permalink + `/fund-update/`.
+1. Verify locally: `npm run dev` → week permalink shows archive at bottom + `/fund-update/`.
 2. **X package (manual):** four posts per §6.2 — Fund, macro, token/risk, agent-learning; each links to a specific app route or the update URL.
 3. Deploy `main` when ready.
 
@@ -54,6 +57,7 @@ Implementation: `scripts/lib/fetch-fund-update-data.js`, `scripts/publish-fund-u
 - Hand-edit 600+ lines of HTML in the markdown stub — change partials or re-run publish.
 - Delete snapshots for past weeks (archived posts depend on them).
 - Use `post.njk` layout for Fund updates — use `fund-update-post.njk`.
+- Patch nav/home “Latest update” URLs manually — Eleventy collections handle it.
 
 ## Related
 

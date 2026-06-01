@@ -7,6 +7,7 @@ module.exports = {
     "./legal/**/*.html",
     "./dapps/**/*.html",
     "./blog/**/*.njk",
+    "./updates/**/*.njk",
     "./_blog/**/*.md",
     "./_includes/**/*.njk",
     "./js/**/*.js"
