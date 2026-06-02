@@ -62,14 +62,14 @@ permalink: /blog/index.html
         </section>
 
         <!-- Proof track (Fund updates + Build log — not mixed into article grid) -->
-        <section class="mb-14 max-w-3xl mx-auto" aria-label="Weekly proof track">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <a href="{{ collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' }}" class="glassmorphism rounded-lg p-5 text-left border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+        <section class="mb-14" aria-label="Weekly proof track">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="{{ collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' }}" class="mv-card glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 hover:shadow-lg hover:shadow-pink-500/20 transition flex flex-col group">
                     <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Fund updates</p>
                     <p class="text-sm text-gray-400 flex-1">Weekly snapshot of pre-live testing Funds, macro regime, narratives, and council decisions.</p>
                     <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open latest →</span>
                 </a>
-                <a href="/buildlog.html" class="glassmorphism rounded-lg p-5 text-left border border-white/10 hover:border-pink-400/30 transition flex flex-col group">
+                <a href="/buildlog.html" class="mv-card glassmorphism rounded-lg p-6 text-left border border-white/10 hover:border-pink-400/30 hover:shadow-lg hover:shadow-pink-500/20 transition flex flex-col group">
                     <p class="text-xs uppercase tracking-wide text-pink-400 font-semibold mb-2">Build log</p>
                     <p class="text-sm text-gray-400 flex-1">Shipped tools, pipeline milestones, and agent stack progress.</p>
                     <span class="mt-4 text-sm font-semibold text-pink-400 group-hover:text-pink-300 transition">Open →</span>
