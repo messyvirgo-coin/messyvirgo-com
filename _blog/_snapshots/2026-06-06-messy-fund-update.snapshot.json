@@ -1,0 +1,379 @@
+{
+  "snapshotDate": "6 June 2026",
+  "publishedAt": "2026-06-06T10:14:57.203Z",
+  "funds": [
+    {
+      "id": "mvf-guru-messybased",
+      "name": "messybased",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messybased",
+      "nav": "$28.3k",
+      "ret1d": {
+        "value": "-7.5%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-19.5%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "78.9",
+          "pnl": null,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "ETHY",
+          "weight": "9.3",
+          "pnl": null,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "FACY",
+          "weight": "8.1",
+          "pnl": null,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "WIRE",
+          "weight": "3.7",
+          "pnl": null,
+          "color": "#34d399",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "screening": {
+        "runDate": "6 June 2026",
+        "aggDate": "6 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 6,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "PRXVT",
+            "name": "PRXVT by Virtuals",
+            "reason": "Appeared in 6/6 source run(s) with avg rank 1.17 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "TACHI",
+            "name": "TACHI",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "BLKH",
+            "name": "BLACK HOLE",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 3.20 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "DRV",
+            "name": "Derive",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 5.40 and best rank 4."
+          },
+          {
+            "rank": 5,
+            "symbol": "$BV7X",
+            "name": "BitVault Signal",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 6.60 and best rank 2."
+          },
+          {
+            "rank": 6,
+            "symbol": "MYTHOS",
+            "name": "Mythos Router",
+            "reason": "Appeared in 4/6 source run(s) with avg rank 6.50 and best rank 5."
+          },
+          {
+            "rank": 7,
+            "symbol": "VELVET",
+            "name": "Velvet",
+            "reason": "Appeared in 3/6 source run(s) with avg rank 4.00 and best rank 3."
+          },
+          {
+            "rank": 8,
+            "symbol": "ALLO",
+            "name": "Allora",
+            "reason": "Appeared in 3/6 source run(s) with avg rank 5.00 and best rank 4."
+          }
+        ]
+      },
+      "positionCount": 4,
+      "pricedAt": "2026-06-06T10:11:51.795738Z"
+    },
+    {
+      "id": "mvf-guru-messyinfra",
+      "name": "messyinfra",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messyinfra",
+      "nav": "$26.4k",
+      "ret1d": {
+        "value": "-6.8%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-17.2%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "65.9",
+          "pnl": null,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "AERO",
+          "weight": "9.3",
+          "pnl": null,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "VIRTUAL",
+          "weight": "8.9",
+          "pnl": null,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "BNKR",
+          "weight": "5.8",
+          "pnl": null,
+          "color": "#34d399",
+          "warning": false
+        },
+        {
+          "symbol": "KTA",
+          "weight": "5.1",
+          "pnl": null,
+          "color": "#a78bfa",
+          "warning": false
+        },
+        {
+          "symbol": "AVNT",
+          "weight": "4.9",
+          "pnl": null,
+          "color": "#f87171",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$1",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change",
+        "date": "6 June 2026",
+        "shortDate": "6 Jun",
+        "riskNotes": "No hard policy blocks are present, and the book has fresh holdings, macro, and narratives coverage. The main admissibility concern is that screening aggregate coverage is degraded/sparse and mixed-context, so any rotation or new-position decision would be based on a thinner evidence stack than usual. Macro is regime N but risk-off news overlay and fully deployed high-beta exposure argue against net risk increase. A selective candidate rotation or rebalance is permissible, but execution should be treated as review-required rather than automatic.",
+        "certified": true,
+        "executionStatus": "resolved",
+        "headline": "Target change approved; rebalance handoff is ready for review."
+      },
+      "screening": {
+        "runDate": "6 June 2026",
+        "aggDate": "6 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 5,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "PRXVT",
+            "name": "PRXVT by Virtuals",
+            "reason": "Appeared in 5/5 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "DRV",
+            "name": "Derive",
+            "reason": "Appeared in 4/5 source run(s) with avg rank 3.75 and best rank 3."
+          },
+          {
+            "rank": 3,
+            "symbol": "AXLUSDC",
+            "name": "Axelar Bridged USDC",
+            "reason": "Appeared in 3/5 source run(s) with avg rank 3.00 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "TACHI",
+            "name": "TACHI",
+            "reason": "Appeared in 3/5 source run(s) with avg rank 6.33 and best rank 5."
+          },
+          {
+            "rank": 5,
+            "symbol": "BLKH",
+            "name": "BLACK HOLE",
+            "reason": "Appeared in 3/5 source run(s) with avg rank 8.67 and best rank 7."
+          },
+          {
+            "rank": 6,
+            "symbol": "RSETH",
+            "name": "Kelp DAO Restaked ETH",
+            "reason": "Appeared in 2/5 source run(s) with avg rank 4.50 and best rank 4."
+          },
+          {
+            "rank": 7,
+            "symbol": "$BV7X",
+            "name": "BitVault Signal",
+            "reason": "Appeared in 2/5 source run(s) with avg rank 5.50 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "NOCK",
+            "name": "Nockchain",
+            "reason": "Appeared in 2/5 source run(s) with avg rank 6.50 and best rank 6."
+          }
+        ]
+      },
+      "positionCount": 6,
+      "pricedAt": "2026-06-06T10:11:51.795738Z"
+    }
+  ],
+  "macro": {
+    "score": 26.93,
+    "regime": "R- — Risk Off",
+    "summary": "The Effective Score of 26.93 (on 0–100) signals a **Risk-Off regime (R-)** driven by acute liquidation cascades, institutional ETF redemptions, and geopolitical escalation that have overwhelmed a moderately supportive base macro backdrop. The base regime (51.9) reflects solid global liquidity growth, a positive yield curve, and low volatility—all tailwinds for risk appetite—but a **−25 point qualitative adjustment** from current-events shocks (crypto leverage unwinding, $1.6B liquidations, 13+ consecutive spot ETF outflow days, and Zcash protocol vulnerability disclosure) has pushed the effective posture decisively into defensive territory. This matters now because institutional capital is rotating hard into AI equities and pre-IPO contracts, leaving crypto majors starved of inflows despite structural support from ETF infrastructure and tokenized banking initiatives.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-11.7%",
+      "chg30": "+0.3%",
+      "chg60": "+24.1%",
+      "vsBtc15": "+28.3pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -11.7232
+    }
+  },
+  "narratives": [
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "-0.3%",
+      "chg30": "+6.9%",
+      "chg60": "+23.8%",
+      "vsBtc15": "+11.8pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -0.265
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "-1.9%",
+      "chg30": "+2.0%",
+      "chg60": "+14.3%",
+      "vsBtc15": "+4.3pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -1.9314
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-11.7%",
+      "chg30": "+0.3%",
+      "chg60": "+24.1%",
+      "vsBtc15": "+28.3pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -11.7232
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "-19.7%",
+      "chg30": "-25.9%",
+      "chg60": "-34.2%",
+      "vsBtc15": "-30.3pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -19.7147
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "-30.0%",
+      "chg30": "-22.9%",
+      "chg60": "+40.1%",
+      "vsBtc15": "+87.8pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -29.9553
+    },
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "-31.0%",
+      "chg30": "-26.4%",
+      "chg60": "+19.7%",
+      "vsBtc15": "+61.1pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -30.9657
+    }
+  ],
+  "signalExample": {
+    "symbol": "PRXVT",
+    "name": "PRXVT by Virtuals",
+    "body": "Appeared in <strong>6/6 daily runs</strong> across messybased and messyinfra over the 7-day lookback. Appeared in 6/6 source run(s) with avg rank 1.17 and best rank 1.",
+    "tags": [
+      "6/6 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": null
+}

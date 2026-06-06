@@ -31,5 +31,6 @@ Public static Eleventy + Tailwind site. Always follow these boundaries and steps
 
 ## Specialized Skills
 - Blog posts → `publish-blog-post`
+- Weekly Fund / Signal updates → `messyvirgo-publish-fund-update` (URLs under `/updates/`, not `/blog/`)
 - Weekly build logs → `messyvirgo-weekly-buildlog`
 - General page edits → `messyvirgo-edit-webpage`

@@ -36,6 +36,17 @@ function permalinkFor(dateStr) {
   return `/updates/${y}/${m}/messy-fund-update-week-of-${dateStr}/index.html`;
 }
 
+function assertUpdatesPermalink(permalink) {
+  if (!permalink.startsWith("/updates/")) {
+    throw new Error(
+      `Fund update permalink must be under /updates/, not /blog/: ${permalink}`
+    );
+  }
+  if (permalink.includes("/blog/")) {
+    throw new Error(`Fund update permalink must not contain /blog/: ${permalink}`);
+  }
+}
+
 function postFilename(dateStr) {
   return `${dateStr}-messy-fund-update-week-of-${dateStr}.md`;
 }
@@ -58,6 +69,8 @@ function writePostStub(dateStr) {
   const filePath = path.join(POSTS_DIR, filename);
   const permalink = permalinkFor(dateStr);
 
+  assertUpdatesPermalink(permalink);
+
   const frontmatter = `---
 title: "Messy Fund Update"
 date: ${dateStr}
@@ -68,6 +81,7 @@ fundUpdateSnapshot: "${dateStr}"
 permalink: ${permalink}
 ---
 
+<!-- NOT a blog article: excluded from collections.blog; listed only under collections.fundUpdates and /updates/ URLs. -->
 <!-- Body rendered from _blog/_snapshots/${dateStr}-messy-fund-update.snapshot.json via fund-update-post.njk -->
 `;
 
@@ -102,7 +116,9 @@ async function main() {
   console.log(`  snapshot → ${path.relative(ROOT, snapPath)}`);
   console.log(`  post     → ${path.relative(ROOT, filePath)}`);
   console.log(`  url      → ${permalink.replace(/\/index\.html$/, "/")}`);
-  console.log("\nNext: npm run build   then commit snapshot + post");
+  console.log("  blog     → excluded (collections.blog filters fund-update posts)");
+  console.log("\nDo not add blog/... redirect stubs for new weeks.");
+  console.log("Next: npm run build   then commit snapshot + post");
 }
 
 main().catch((err) => {

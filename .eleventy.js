@@ -37,21 +37,52 @@ module.exports = function (eleventyConfig) {
     return items.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   }
 
+  function assertFundUpdateNotBlogArticle(item) {
+    const url = String(item.url || item.data?.permalink || "");
+    const looksLikeFundUpdate =
+      isFundUpdate(item) ||
+      item.data?.fundUpdateSnapshot ||
+      url.includes("messy-fund-update");
+    if (!looksLikeFundUpdate) return;
+
+    if (url.startsWith("/blog/")) {
+      throw new Error(
+        `[fundUpdate] Fund updates must use /updates/ permalinks, not /blog/: ${item.inputPath}`
+      );
+    }
+    if (item.data?.layout === "post.njk") {
+      throw new Error(
+        `[fundUpdate] Fund updates must use layout fund-update-post.njk, not post.njk: ${item.inputPath}`
+      );
+    }
+  }
+
   // Collections
   eleventyConfig.addCollection("blog", function (collectionApi) {
-    return sortByDateDesc(
-      collectionApi.getAll().filter(function (item) {
-        return isBlogPost(item) && !isFundUpdate(item);
-      })
-    );
+    const posts = collectionApi.getAll().filter(isBlogPost);
+    const articles = posts.filter(function (item) {
+      assertFundUpdateNotBlogArticle(item);
+      return !isFundUpdate(item);
+    });
+
+    const leaked = posts.filter(function (item) {
+      return isFundUpdate(item);
+    });
+    leaked.forEach(assertFundUpdateNotBlogArticle);
+
+    return sortByDateDesc(articles);
   });
 
   eleventyConfig.addCollection("fundUpdates", function (collectionApi) {
-    return sortByDateDesc(
-      collectionApi.getAll().filter(function (item) {
+    const weeks = collectionApi
+      .getAll()
+      .filter(function (item) {
         return isBlogPost(item) && isFundUpdate(item);
-      })
-    );
+      });
+
+    weeks.forEach(assertFundUpdateNotBlogArticle);
+
+    return sortByDateDesc(weeks);
   });
 
   // Markdown configuration

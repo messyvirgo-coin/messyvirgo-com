@@ -9,7 +9,7 @@ description: Creates a new MESSY blog post from textual input in _blog/_posts wi
 
 The user supplies (or you infer) post content–notes, a draft, bullet outline, or full prose. Your job is to add **one new file** under `_blog/_posts/` that matches existing posts and `_blog/README.md`.
 
-**Not for weekly Fund / Signal updates** — use the `messyvirgo-publish-fund-update` skill and `npm run fund-update:publish` instead (snapshot-backed template).
+**Not for weekly Fund / Signal updates** — use `messyvirgo-publish-fund-update` and `npm run fund-update:publish` instead. Fund updates live under `/updates/` only and must **never** use `layout: post.njk` or a `/blog/...` permalink (they are excluded from the blog article grid).
 
 ## File naming
 

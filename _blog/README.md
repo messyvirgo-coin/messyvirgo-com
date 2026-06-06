@@ -105,6 +105,8 @@ npm run fund-update:publish -- --date YYYY-MM-DD [--no-cli]
 
 Do not replace these with a normal `post.njk` + manual body unless intentionally reverting automation.
 
+**Not on the blog index:** files live in `_blog/_posts/` for Eleventy convenience only. `collections.blog` excludes `fund-update` posts; they appear only under `/updates/` and `collections.fundUpdates`. Never use a `/blog/...` permalink for new fund-update weeks.
+
 ## File Structure
 ```
 _blog/
