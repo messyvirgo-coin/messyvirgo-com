@@ -213,6 +213,6 @@ Messy Virgo DAO reserves the right to amend these terms at any time, with amendm
 
 - **Name:** Messy Virgo DAO
 - **Legal Form:** Non-profit association under Swiss Civil Code Articles 60–79 (ZGB)
-- **Registered Seat:** Zürich, Switzerland
-- **Address:** Messy Virgo DAO, 8000 Zürich, Switzerland
+- **Registered Seat:** Glattbrugg, Canton of Zurich, Switzerland
+- **Address:** Messy Virgo DAO,, c/o WIGRA Treuhand AG, Europastrasse 13, 8152 Glattbrugg, Switzerland
 - **Website:** https://www.messyvirgo.com
