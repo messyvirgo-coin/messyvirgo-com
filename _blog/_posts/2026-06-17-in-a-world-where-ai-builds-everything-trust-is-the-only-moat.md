@@ -1,7 +1,7 @@
 ---
 title: "In a World Where AI Builds Everything, Trust Is the Only Moat"
 seoTitle: "Trust Is the Only Moat in AI Crypto"
-date: 2026-06-11
+date: 2026-06-17
 description: "A trilogy wrap-up on the AI crypto fund stack, proof-before-autonomy architecture, and the quarterly discipline framework Messy Virgo uses to stay defensible."
 tags: [messy-virgo, ai-native, fund-management, strategy, trust]
 layout: post.njk
