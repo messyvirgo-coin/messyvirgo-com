@@ -369,12 +369,16 @@ async function fetchFundStatusHistorical(fundId, asOfDate) {
 }
 
 async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
-  const statusData = asOfDate
-    ? await fetchFundStatusHistorical(id, asOfDate)
-    : await safeFetch(`${API}/funds/${id}/status`, {
-        retries: 2,
-        timeoutMs: 20000,
-      });
+  let statusData = null;
+  if (asOfDate) {
+    statusData = await fetchFundStatusHistorical(id, asOfDate);
+  }
+  if (!statusData) {
+    statusData = await safeFetch(`${API}/funds/${id}/status`, {
+      retries: 2,
+      timeoutMs: 20000,
+    });
+  }
   const [council, screening] = await Promise.all([
     fetchCouncil(id, useCli, asOfDate),
     fetchScreening(id, sleeveId, asOfDate),
