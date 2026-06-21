@@ -101,8 +101,8 @@ Publish script does **not** create legacy `/blog/...` redirect stubs. Those exis
 ## Data sources
 
 - **Public API:** `https://api.messyvirgo.com/api/v1/public/*` (funds status, screen aggregates, council sessions, macro, narratives)
-- **Funds:** `messybased` (`mvf-guru-messybased`), `messyinfra` (`mvf-guru-messyinfra`)
-- **CLI (optional):** `npx -y @messyvirgo/cli@latest funds council list <fund_id>` for freshest council before public index catches up
+- **Funds:** Guru Lotus (read-only NAV) — `messybased` (`mvf-guru-messybased`), `messyinfra` (`mvf-guru-messyinfra`); Guru micro test (workflow-traded, council-gated target changes) — `base01` (`mvf-base01`), `base02` (`mvf-base02`), `base03` (`mvf-base03`)
+- **CLI (optional):** `npx -y @messyvirgo/cli@0.27.0 funds council list <fund_id>` for freshest council before public index catches up
 
 Implementation: `scripts/lib/fetch-fund-update-data.js`, `scripts/publish-fund-update.js`.
 

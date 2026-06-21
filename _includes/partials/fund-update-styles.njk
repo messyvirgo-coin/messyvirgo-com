@@ -14,6 +14,7 @@
 }
 @media (min-width: 640px) {
   .fu-fund-grid { grid-template-columns: repeat(3, 1fr); }
+  .fu-fund-grid--micro { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Linked fund tiles: mv-card surface + toned hover (not full -8px lift) */
@@ -65,6 +66,16 @@ a.fu-fund-card.mv-card:focus-within {
   margin-bottom: 0.35rem;
 }
 .fu-council-body p { font-size: 0.85rem; color: var(--mv-text-primary); line-height: 1.6; margin: 0; }
+.fu-council-detail { margin-top: 0.65rem !important; font-size: 0.82rem !important; color: var(--mv-text-muted) !important; }
+.fu-council--pending {
+  background: rgba(251, 191, 36, 0.05);
+  border-color: rgba(251, 191, 36, 0.22);
+}
+.fu-council--blocked {
+  background: rgba(248, 113, 113, 0.05);
+  border-color: rgba(248, 113, 113, 0.22);
+}
+.fu-council--blocked .fu-council-outcome { color: #f87171; }
 
 .fu-candidates { margin: 0.75rem 0 1.25rem; }
 .fu-cand-row {

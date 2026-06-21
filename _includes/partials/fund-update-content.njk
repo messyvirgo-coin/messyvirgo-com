@@ -12,15 +12,16 @@
   <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> — data reflects latest available.</p>
   {% endif %}
 
-  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Each week: what changed in our Guru Lotus Funds on Base — read-only snapshots of real holdings and NAV on Guru.fund, not paper trading. We pair that with the same research stack (macro, narratives, screening, council context): what moved, what was passed on, and what the process teaches about the path toward AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
+  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Each week: what changed across our Guru funds on Base — Guru Lotus read-only NAV snapshots (messybased, messyinfra) plus micro test funds on Guru (base01–03) that run the full screening → council → target-change workflow. Those micro funds are traded by the fund workflow; target changes execute manually or automatically only after council resolution. We pair that with macro, narratives, and screening context: what moved, what was passed on, and what the process teaches about AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
 </div>
 
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<p class="mv-eyebrow mb-4">Funds on Base — Guru Lotus (read-only)</p>
+<p class="mv-eyebrow mb-4">Guru Lotus (read-only NAV)</p>
 
 <div class="fu-fund-grid">
 {% for fund in fu.funds %}
+  {% if fund.group == "guru" %}
   <a class="fu-fund-card mv-card glassmorphism rounded-lg p-6 block text-gray-200 no-underline hover:shadow-lg hover:shadow-pink-500/20" href="{{ fund.appUrl }}" target="_blank" rel="noopener noreferrer">
     <div class="fc-name">{{ fund.name }}</div>
     <div class="fc-nav">{{ fund.nav }} NAV</div>
@@ -31,6 +32,26 @@
     </div>
     <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %}{% if fund.screening.aggDate %} · agg {{ fund.screening.aggDate }}{% endif %}</div>
   </a>
+  {% endif %}
+{% endfor %}
+</div>
+
+<p class="mv-eyebrow mb-4 mt-8">Micro test funds on Guru (workflow-traded)</p>
+
+<div class="fu-fund-grid fu-fund-grid--micro">
+{% for fund in fu.funds %}
+  {% if fund.group == "guru-micro" or fund.group == "micro" %}
+  <a class="fu-fund-card mv-card glassmorphism rounded-lg p-6 block text-gray-200 no-underline hover:shadow-lg hover:shadow-pink-500/20" href="{{ fund.appUrl }}" target="_blank" rel="noopener noreferrer">
+    <div class="fc-name">{{ fund.name }}</div>
+    <div class="fc-nav">{{ fund.nav }} NAV</div>
+    <div class="fc-returns">
+      <span class="fc-ret {{ fund.ret1d.cls }}">{{ fund.ret1d.value }} 1d</span>
+      <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
+      <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} 30d</span>
+    </div>
+    <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %}{% if fund.screening.aggDate %} · agg {{ fund.screening.aggDate }}{% endif %}{% if fund.council %} · council {{ fund.council.outcomeLabel }}{% endif %}</div>
+  </a>
+  {% endif %}
 {% endfor %}
 </div>
 
@@ -82,13 +103,19 @@
 {% endif %}
 
 {% if fund.council %}
-<div class="fu-council">
-  <div class="fu-council-icon">{% if fund.council.outcome == "maintain_current" %}🔒{% elif fund.council.outcome == "target_change" %}🔄{% else %}⚖️{% endif %}</div>
+<div class="fu-council{% if fund.council.targetFinalizationBlocked %} fu-council--blocked{% elif fund.council.certified == false %} fu-council--pending{% endif %}">
+  <div class="fu-council-icon">{% if fund.council.outcome == "maintain_current" %}🔒{% elif fund.council.outcome == "target_change" %}🔄{% elif fund.council.targetFinalizationBlocked %}⚠️{% else %}⚖️{% endif %}</div>
   <div class="fu-council-body">
     <div class="fu-council-outcome">
-      Council{% if fund.council.certified != false %} certified{% endif %} · {{ fund.council.outcomeLabel }}{% if fund.council.date %} · {{ fund.council.date }}{% endif %}
+      Council{% if fund.council.certificationLabel %} · {{ fund.council.certificationLabel }}{% elif fund.council.certified %} · certified{% endif %} · {{ fund.council.outcomeLabel }}{% if fund.council.date %} · {{ fund.council.date }}{% endif %}
     </div>
+    {% if fund.council.targetFinalization %}
+    <p class="fu-council-detail"><strong>Target finalization:</strong> {{ fund.council.targetFinalization }}</p>
+    {% endif %}
     <p>{{ fund.council.riskNotes or fund.council.headline or "See app for full council protocol." }}</p>
+    {% if fund.council.actionItems %}
+    <p class="fu-council-detail"><strong>Action items:</strong> {{ fund.council.actionItems }}</p>
+    {% endif %}
   </div>
 </div>
 {% endif %}

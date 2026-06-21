@@ -8,8 +8,11 @@ const { execSync } = require("child_process");
 const API = "https://api.messyvirgo.com/api/v1/public";
 
 const FUNDS = [
-  { id: "mvf-guru-messybased", name: "messybased", sleeveId: "mvs-guru-messybased-1" },
-  { id: "mvf-guru-messyinfra", name: "messyinfra", sleeveId: "mvs-guru-messyinfra-1" },
+  { id: "mvf-guru-messybased", name: "messybased", sleeveId: "mvs-guru-messybased-1", group: "guru" },
+  { id: "mvf-guru-messyinfra", name: "messyinfra", sleeveId: "mvs-guru-messyinfra-1", group: "guru" },
+  { id: "mvf-base01", name: "base01", sleeveId: "mvs-base01-1", group: "guru-micro" },
+  { id: "mvf-base02", name: "base02", sleeveId: "mvs-base02-1", group: "guru-micro" },
+  { id: "mvf-base03", name: "base03", sleeveId: "mvs-base03-1", group: "guru-micro" },
 ];
 
 const BAR_COLOURS = [
@@ -17,14 +20,20 @@ const BAR_COLOURS = [
   "#a78bfa", "#f87171", "#fb923c", "#e879f9",
 ];
 
-async function safeFetch(url) {
-  try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(12000) });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
-    return null;
+async function safeFetch(url, { retries = 2, timeoutMs = 12000 } = {}) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });
+      if (!res.ok) {
+        if (attempt < retries) continue;
+        return null;
+      }
+      return await res.json();
+    } catch {
+      if (attempt === retries) return null;
+    }
   }
+  return null;
 }
 
 function fmtDate(iso) {
@@ -48,6 +57,13 @@ function fmtPct(pct, decimals = 1) {
   if (pct === null || pct === undefined) return "n/a";
   const v = Number(pct).toFixed(decimals);
   return pct >= 0 ? `+${v}%` : `${v}%`;
+}
+
+function fmtNav(usd) {
+  if (usd == null) return "n/a";
+  const n = Number(usd);
+  if (n >= 1000) return `$${Math.round(n / 1000 * 10) / 10}k`;
+  return `$${Math.round(n * 100) / 100}`;
 }
 
 function buildHoldingsBar(positions) {
@@ -175,35 +191,72 @@ function fetchCouncilCli(fundId) {
   }
 }
 
-async function fetchCouncilPublic(fundId) {
-  const data = await safeFetch(`${API}/funds/${fundId}/council/sessions?limit=1`);
-  if (!data?.items?.length) return null;
+function councilSectionBody(sections, heading) {
+  const section = (sections || []).find((s) => s.heading === heading);
+  return section?.body?.trim() || null;
+}
 
-  const item = data.items[0];
+function parseCertificationStatus(body) {
+  if (!body) return { certified: null, label: null };
+  if (/not recorded/i.test(body)) return { certified: false, label: "not certified" };
+  if (/certified/i.test(body)) return { certified: true, label: "certified" };
+  return { certified: null, label: body.split(/[.!]/)[0].trim() };
+}
+
+function parseCouncilItem(item) {
   const refs = item.source_artifact_refs || [];
   const dates = refs.map((r) => r.created_at).filter(Boolean).sort();
   const sessionDate = dates.length ? dates[0] : null;
   const sc = item.structured_content || {};
+  const sections = sc.sections || [];
   const decisions = sc.decisions || [];
   const outcome = decisions[0] || "unknown";
-  const riskSection = (sc.sections || []).find((s) => s.heading === "Risk Notes");
+  const riskBody = councilSectionBody(sections, "Risk Notes");
+  const certBody = councilSectionBody(sections, "Certification");
+  const targetBody = councilSectionBody(sections, "Target Finalization");
+  const actionBody = councilSectionBody(sections, "Action Items");
+  const { certified, label: certificationLabel } = parseCertificationStatus(certBody);
+  const targetFinalizationBlocked =
+    targetBody != null && /requires review|blocked|override/i.test(targetBody);
 
   return {
     outcome,
     outcomeLabel: outcome.replace(/_/g, " "),
     date: fmtDate(sessionDate),
     shortDate: fmtShortDate(sessionDate),
-    riskNotes: riskSection ? riskSection.body.split(";")[0].trim() : null,
-    certified: (sc.sections || []).some(
-      (s) => s.heading === "Certification" && s.body.includes("certified")
-    ),
+    sessionDateIso: sessionDate ? sessionDate.slice(0, 10) : null,
+    riskNotes: riskBody ? riskBody.split(";")[0].trim() : null,
+    certified,
+    certificationLabel,
+    targetFinalization: targetBody,
+    targetFinalizationBlocked,
+    actionItems: actionBody,
     executionStatus: "resolved",
   };
 }
 
-async function fetchCouncil(fundId, useCli) {
-  let council = useCli ? fetchCouncilCli(fundId) : null;
-  const publicCouncil = await fetchCouncilPublic(fundId);
+async function fetchCouncilPublic(fundId, asOfDate) {
+  const data = await safeFetch(`${API}/funds/${fundId}/council/sessions?limit=20`);
+  if (!data?.items?.length) return null;
+
+  let item = data.items[0];
+  if (asOfDate) {
+    const eligible = data.items
+      .map((session) => ({ session, council: parseCouncilItem(session) }))
+      .filter(({ council }) => council.sessionDateIso && council.sessionDateIso <= asOfDate)
+      .sort((a, b) => b.council.sessionDateIso.localeCompare(a.council.sessionDateIso));
+    if (!eligible.length) return null;
+    item = eligible[0].session;
+  }
+
+  const council = parseCouncilItem(item);
+  delete council.sessionDateIso;
+  return council;
+}
+
+async function fetchCouncil(fundId, useCli, asOfDate) {
+  let council = useCli && !asOfDate ? fetchCouncilCli(fundId) : null;
+  const publicCouncil = await fetchCouncilPublic(fundId, asOfDate);
 
   if (council && publicCouncil) {
     council = {
@@ -230,11 +283,18 @@ async function fetchCouncil(fundId, useCli) {
   return council;
 }
 
-async function fetchScreening(fundId, sleeveId) {
+async function fetchScreening(fundId, sleeveId, asOfDate) {
+  const aggUrl = asOfDate
+    ? `${API}/funds/${fundId}/sleeves/${sleeveId}/screen-aggregate-runs/latest?as_of_date=${asOfDate}`
+    : `${API}/funds/${fundId}/sleeves/${sleeveId}/screen-aggregate-runs/latest`;
   const [runData, aggData] = await Promise.all([
-    safeFetch(`${API}/funds/${fundId}/screen-runs?limit=1`),
-    safeFetch(`${API}/funds/${fundId}/sleeves/${sleeveId}/screen-aggregate-runs/latest`),
+    safeFetch(`${API}/funds/${fundId}/screen-runs?limit=30`),
+    safeFetch(aggUrl),
   ]);
+
+  const runItem = asOfDate
+    ? (runData?.items || []).find((r) => r.run_date === asOfDate)
+    : runData?.items?.[0];
 
   const aggCandidates =
     aggData?.candidates?.slice(0, 8).map((c) => ({
@@ -245,8 +305,8 @@ async function fetchScreening(fundId, sleeveId) {
     })) || [];
 
   return {
-    runDate: runData?.items?.[0]?.run_date
-      ? fmtDate(runData.items[0].run_date + "T00:00:00Z")
+    runDate: runItem?.run_date
+      ? fmtDate(runItem.run_date + "T00:00:00Z")
       : null,
     aggDate: aggData?.as_of_date ? fmtDate(aggData.as_of_date + "T00:00:00Z") : null,
     aggLookback: aggData?.execution_trace?.lookback_days || 7,
@@ -255,53 +315,115 @@ async function fetchScreening(fundId, sleeveId) {
   };
 }
 
-async function fetchFund({ id, name, sleeveId }, useCli) {
-  const [statusData, council, screening] = await Promise.all([
-    safeFetch(`${API}/funds/${id}/status`),
-    fetchCouncil(id, useCli),
-    fetchScreening(id, sleeveId),
+function performancePointByDate(points, asOfDate) {
+  return (points || []).find((p) => p.snapshot_date === asOfDate) || null;
+}
+
+function computePerformanceReturns(points, asOfDate) {
+  const idx = (points || []).findIndex((p) => p.snapshot_date === asOfDate);
+  if (idx === -1) return { ret1d: null, ret7d: null, ret30d: null };
+
+  const navAt = (i) => {
+    const pt = points[i];
+    return pt ? Number(pt.nav_usd) : null;
+  };
+  const pct = (current, prior) =>
+    prior != null && prior !== 0 ? ((current - prior) / prior) * 100 : null;
+
+  const currentNav = navAt(idx);
+  return {
+    ret1d: pct(currentNav, navAt(idx - 1)),
+    ret7d: pct(currentNav, navAt(idx - 7)),
+    ret30d: pct(currentNav, navAt(idx - 30)),
+  };
+}
+
+async function fetchFundStatusHistorical(fundId, asOfDate) {
+  const data = await safeFetch(`${API}/funds/${fundId}/performance`, {
+    retries: 2,
+    timeoutMs: 20000,
+  });
+  const points = data?.points || [];
+  const point = performancePointByDate(points, asOfDate);
+  if (!point) return null;
+
+  const returns = computePerformanceReturns(points, asOfDate);
+  const navUsd = Number(point.nav_usd);
+  const baseUsd = Number(point.base_usd || 0);
+  const basePositions =
+    baseUsd > 0
+      ? [{ symbol: "WETH", value: `$${Math.round(baseUsd)}`, pnl: null }]
+      : [];
+
+  return {
+    nav_usd: navUsd,
+    performance_1d_pct: returns.ret1d,
+    performance_7d_pct: returns.ret7d,
+    performance_30d_pct: returns.ret30d,
+    positions: [],
+    basePositions,
+    price_as_of: point.provider_observed_at || point.snapshot_at || null,
+    positionCount: 0,
+    historical: true,
+  };
+}
+
+async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
+  const statusData = asOfDate
+    ? await fetchFundStatusHistorical(id, asOfDate)
+    : await safeFetch(`${API}/funds/${id}/status`, {
+        retries: 2,
+        timeoutMs: 20000,
+      });
+  const [council, screening] = await Promise.all([
+    fetchCouncil(id, useCli, asOfDate),
+    fetchScreening(id, sleeveId, asOfDate),
   ]);
 
-  if (!statusData) return { id, name, error: true };
+  if (!statusData) return { id, name, group, error: true };
 
-  const nav =
-    statusData.nav_usd != null
-      ? `$${Math.round(statusData.nav_usd / 1000 * 10) / 10}k`
-      : "n/a";
+  const nav = fmtNav(statusData.nav_usd);
   const ret1d = statusData.performance_1d_pct ?? null;
   const ret7d = statusData.performance_7d_pct ?? null;
   const ret30d = statusData.performance_30d_pct ?? null;
 
-  const basePositions = (statusData.positions || [])
-    .filter((p) => p.position_type === "base" && p.current_value_usd > 0)
-    .map((p) => ({
-      symbol: p.symbol.toUpperCase(),
-      value: `$${Math.round(p.current_value_usd).toLocaleString()}`,
-      pnl:
-        p.unrealized_pnl_usd != null
-          ? `${p.unrealized_pnl_usd > 0 ? "+" : ""}$${Math.round(p.unrealized_pnl_usd)}`
-          : null,
-    }));
+  const basePositions = statusData.basePositions
+    || (statusData.positions || [])
+      .filter((p) => p.position_type === "base" && p.current_value_usd > 0)
+      .map((p) => ({
+        symbol: p.symbol.toUpperCase(),
+        value: `$${Math.round(p.current_value_usd).toLocaleString()}`,
+        pnl:
+          p.unrealized_pnl_usd != null
+            ? `${p.unrealized_pnl_usd > 0 ? "+" : ""}$${Math.round(p.unrealized_pnl_usd)}`
+            : null,
+      }));
 
   return {
     id,
     name,
+    group: group || "guru",
     appUrl: `https://app.messyvirgo.com/funds/${id}`,
     nav,
     ret1d: { value: fmtPct(ret1d), cls: retClass(ret1d) },
     ret7d: { value: fmtPct(ret7d), cls: retClass(ret7d) },
     ret30d: { value: fmtPct(ret30d), cls: retClass(ret30d) },
-    holdingsBar: buildHoldingsBar(statusData.positions || []),
+    holdingsBar: statusData.historical ? [] : buildHoldingsBar(statusData.positions || []),
     basePositions,
     council,
     screening,
-    positionCount: (statusData.positions || []).filter((p) => p.position_type === "beta").length,
+    positionCount: statusData.historical
+      ? 0
+      : (statusData.positions || []).filter((p) => p.position_type === "beta").length,
     pricedAt: statusData.price_as_of || null,
   };
 }
 
-async function fetchMacro() {
-  const data = await safeFetch(`${API}/reports/macro/report/default`);
+async function fetchMacro(asOfDate) {
+  const url = asOfDate
+    ? `${API}/reports/macro/report/default?as_of_date=${asOfDate}`
+    : `${API}/reports/macro/report/default`;
+  const data = await safeFetch(url);
   if (!data) return null;
 
   const content = data.outputs?.find((o) => o.kind === "markdown")?.content || {};
@@ -376,8 +498,11 @@ function extractMacroOverlayFindings(md) {
     .map((finding) => finding.split(/\s*;\s*/)[0].trim());
 }
 
-async function fetchNarratives() {
-  const data = await safeFetch(`${API}/reports/narratives/trend`);
+async function fetchNarratives(asOfDate) {
+  const url = asOfDate
+    ? `${API}/reports/narratives/trend?as_of_date=${asOfDate}`
+    : `${API}/reports/narratives/trend`;
+  const data = await safeFetch(url);
   if (!data) return [];
 
   const STABLE_IDS = new Set(["stablecoins"]);
@@ -427,15 +552,16 @@ async function fetchNarratives() {
 }
 
 /**
- * @param {{ useCli?: boolean, snapshotDate?: string }} options
+ * @param {{ useCli?: boolean, snapshotDate?: string, asOfDate?: string }} options
  */
 async function fetchFundUpdateData(options = {}) {
   const useCli = options.useCli !== false;
+  const asOfDate = options.asOfDate || null;
 
   const [funds, macro, narratives] = await Promise.all([
-    Promise.all(FUNDS.map((f) => fetchFund(f, useCli))),
-    fetchMacro(),
-    fetchNarratives(),
+    Promise.all(FUNDS.map((f) => fetchFund(f, useCli, asOfDate))),
+    fetchMacro(asOfDate),
+    fetchNarratives(asOfDate),
   ]);
 
   const snapshotDate =
@@ -454,6 +580,7 @@ async function fetchFundUpdateData(options = {}) {
 
   return {
     snapshotDate,
+    asOfDate,
     publishedAt: new Date().toISOString(),
     funds,
     macro,

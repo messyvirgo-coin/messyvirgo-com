@@ -108,6 +108,7 @@ async function main() {
   const data = await fetchFundUpdateData({
     useCli: args.useCli,
     snapshotDate: formatSnapshotDate(dateStr),
+    asOfDate: dateStr,
   });
 
   const snapPath = writeSnapshot(dateStr, data);

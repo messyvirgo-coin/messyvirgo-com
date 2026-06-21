@@ -1,0 +1,571 @@
+{
+  "snapshotDate": "13 June 2026",
+  "asOfDate": "2026-06-13",
+  "publishedAt": "2026-06-21T04:20:48.985Z",
+  "funds": [
+    {
+      "id": "mvf-guru-messybased",
+      "name": "messybased",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messybased",
+      "nav": "$31.4k",
+      "ret1d": {
+        "value": "+4.3%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+10.6%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "screening": {
+        "runDate": "13 June 2026",
+        "aggDate": "13 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "SOGNI",
+            "name": "Sogni AI",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 6.43 and best rank 6."
+          },
+          {
+            "rank": 2,
+            "symbol": "DRV",
+            "name": "Derive",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 1.83 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "VELVET",
+            "name": "Velvet",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 2.17 and best rank 1."
+          },
+          {
+            "rank": 4,
+            "symbol": "INSTACLAW",
+            "name": "Instaclaw",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 4.67 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "VERTAI",
+            "name": "Vertical AI",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.33 and best rank 4."
+          },
+          {
+            "rank": 6,
+            "symbol": "PRXVT",
+            "name": "PRXVT by Virtuals",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.20 and best rank 1."
+          },
+          {
+            "rank": 7,
+            "symbol": "ROBO",
+            "name": "Fabric Protocol",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 2."
+          },
+          {
+            "rank": 8,
+            "symbol": "GPU",
+            "name": "NodeAI",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 8.25 and best rank 6."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-06-13T23:59:59Z"
+    },
+    {
+      "id": "mvf-guru-messyinfra",
+      "name": "messyinfra",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messyinfra",
+      "nav": "$28.7k",
+      "ret1d": {
+        "value": "+1.6%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+8.4%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$372",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change",
+        "date": "6 June 2026",
+        "shortDate": "6 Jun",
+        "riskNotes": "No hard policy blocks are present, and the book has fresh holdings, macro, and narratives coverage. The main admissibility concern is that screening aggregate coverage is degraded/sparse and mixed-context, so any rotation or new-position decision would be based on a thinner evidence stack than usual. Macro is regime N but risk-off news overlay and fully deployed high-beta exposure argue against net risk increase. A selective candidate rotation or rebalance is permissible, but execution should be treated as review-required rather than automatic.",
+        "certified": true,
+        "certificationLabel": "certified",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved"
+      },
+      "screening": {
+        "runDate": "13 June 2026",
+        "aggDate": "13 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "VELVET",
+            "name": "Velvet",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 1.67 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "DRV",
+            "name": "Derive",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 8.60 and best rank 6."
+          },
+          {
+            "rank": 3,
+            "symbol": "NOCK",
+            "name": "Nockchain",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "LIKE",
+            "name": "LikeCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "RSC",
+            "name": "ResearchCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.25 and best rank 2."
+          },
+          {
+            "rank": 6,
+            "symbol": "SUSDS",
+            "name": "sUSDS",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.50 and best rank 2."
+          },
+          {
+            "rank": 7,
+            "symbol": "OMI",
+            "name": "ECOMI",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.25 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "STG",
+            "name": "Stargate Finance",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.75 and best rank 5."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-06-13T23:59:59Z"
+    },
+    {
+      "id": "mvf-base01",
+      "name": "base01",
+      "group": "micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base01",
+      "nav": "$45.7",
+      "ret1d": {
+        "value": "+0.2%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+3.0%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$19",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "screening": {
+        "runDate": "13 June 2026",
+        "aggDate": "13 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "VELVET",
+            "name": "Velvet",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 1.67 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "DRV",
+            "name": "Derive",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 8.60 and best rank 6."
+          },
+          {
+            "rank": 3,
+            "symbol": "NOCK",
+            "name": "Nockchain",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "LIKE",
+            "name": "LikeCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "RSC",
+            "name": "ResearchCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.25 and best rank 2."
+          },
+          {
+            "rank": 6,
+            "symbol": "SUSDS",
+            "name": "sUSDS",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.50 and best rank 2."
+          },
+          {
+            "rank": 7,
+            "symbol": "OMI",
+            "name": "ECOMI",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.25 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "STG",
+            "name": "Stargate Finance",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.75 and best rank 5."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-06-13T23:59:59Z"
+    },
+    {
+      "id": "mvf-base02",
+      "name": "base02",
+      "group": "micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base02",
+      "nav": "$47.66",
+      "ret1d": {
+        "value": "-0.1%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "+1.3%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$8",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "screening": {
+        "runDate": "13 June 2026",
+        "aggDate": "13 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "VELVET",
+            "name": "Velvet",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 1.67 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "DRV",
+            "name": "Derive",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 8.60 and best rank 6."
+          },
+          {
+            "rank": 3,
+            "symbol": "NOCK",
+            "name": "Nockchain",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "LIKE",
+            "name": "LikeCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "RSC",
+            "name": "ResearchCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.25 and best rank 2."
+          },
+          {
+            "rank": 6,
+            "symbol": "SUSDS",
+            "name": "sUSDS",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.50 and best rank 2."
+          },
+          {
+            "rank": 7,
+            "symbol": "OMI",
+            "name": "ECOMI",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.25 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "STG",
+            "name": "Stargate Finance",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.75 and best rank 5."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-06-13T23:59:59Z"
+    },
+    {
+      "id": "mvf-base03",
+      "name": "base03",
+      "group": "micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base03",
+      "nav": "$46.67",
+      "ret1d": {
+        "value": "+0.4%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+2.7%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$8",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "screening": {
+        "runDate": "13 June 2026",
+        "aggDate": "13 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "VELVET",
+            "name": "Velvet",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 1.67 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "DRV",
+            "name": "Derive",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 8.60 and best rank 6."
+          },
+          {
+            "rank": 3,
+            "symbol": "NOCK",
+            "name": "Nockchain",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "LIKE",
+            "name": "LikeCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "RSC",
+            "name": "ResearchCoin",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.25 and best rank 2."
+          },
+          {
+            "rank": 6,
+            "symbol": "SUSDS",
+            "name": "sUSDS",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.50 and best rank 2."
+          },
+          {
+            "rank": 7,
+            "symbol": "OMI",
+            "name": "ECOMI",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.25 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "STG",
+            "name": "Stargate Finance",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.75 and best rank 5."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-06-13T23:59:59Z"
+    }
+  ],
+  "macro": {
+    "score": 47.83,
+    "regime": "Neutral",
+    "summary": "The Effective Score of 47.83 (down 3.19 points from Base 51.02) signals a **Neutral regime with modest headwinds**—crypto is not in distress, but near-term catalysts favor caution over aggression. The dominant tailwind is strong global liquidity (+4.6% YoY) and a sharp collapse in reverse-repo demand (−97.9% in 20 days), both signaling ample system cash; the primary headwind is a $4.34B outflow from US spot Bitcoin ETFs over 60 days, compounded by the Federal Reserve's hawkish June 17 hold and Iran's geopolitical saber-rattling. This matters now because institutional capital is rotating away from crypto despite record equity inflows, and the Fed's 2026 rate-hike projections have pushed rate-cut expectations to 2027—a structural headwind for risk assets.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-4.6%",
+      "chg30": "-15.8%",
+      "chg60": "+12.0%",
+      "vsBtc15": "+37.1pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -4.6355
+    }
+  },
+  "narratives": [
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "+10.9%",
+      "chg30": "-23.5%",
+      "chg60": "+10.0%",
+      "vsBtc15": "+18.9pp",
+      "chg15Pos": true,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": 10.8856
+    },
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "+10.6%",
+      "chg30": "+10.3%",
+      "chg60": "+24.9%",
+      "vsBtc15": "+32.7pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 10.6178
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "+4.8%",
+      "chg30": "-26.6%",
+      "chg60": "+10.3%",
+      "vsBtc15": "+25.0pp",
+      "chg15Pos": true,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": 4.8469
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "+4.1%",
+      "chg30": "+2.1%",
+      "chg60": "+8.4%",
+      "vsBtc15": "+23.9pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": 4.076
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "+3.3%",
+      "chg30": "-17.1%",
+      "chg60": "-38.3%",
+      "vsBtc15": "-20.5pp",
+      "chg15Pos": true,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": 3.2867
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-4.6%",
+      "chg30": "-15.8%",
+      "chg60": "+12.0%",
+      "vsBtc15": "+37.1pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -4.6355
+    }
+  ],
+  "signalExample": {
+    "symbol": "SOGNI",
+    "name": "Sogni AI",
+    "body": "Appeared in <strong>7/7 daily runs</strong> across messybased over the 7-day lookback. Appeared in 7/7 source run(s) with avg rank 6.43 and best rank 6.",
+    "tags": [
+      "7/7 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": null
+}
