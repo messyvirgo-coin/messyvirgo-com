@@ -1,7 +1,9 @@
 {
   "snapshotDate": "13 June 2026",
   "asOfDate": "2026-06-13",
-  "publishedAt": "2026-06-21T04:20:48.985Z",
+  "macroUnavailable": true,
+  "narrativesUnavailable": true,
+  "publishedAt": "2026-06-21T04:33:22.198Z",
   "funds": [
     {
       "id": "mvf-guru-messybased",
@@ -190,7 +192,7 @@
     {
       "id": "mvf-base01",
       "name": "base01",
-      "group": "micro",
+      "group": "guru-micro",
       "appUrl": "https://app.messyvirgo.com/funds/mvf-base01",
       "nav": "$45.7",
       "ret1d": {
@@ -276,7 +278,7 @@
     {
       "id": "mvf-base02",
       "name": "base02",
-      "group": "micro",
+      "group": "guru-micro",
       "appUrl": "https://app.messyvirgo.com/funds/mvf-base02",
       "nav": "$47.66",
       "ret1d": {
@@ -362,7 +364,7 @@
     {
       "id": "mvf-base03",
       "name": "base03",
-      "group": "micro",
+      "group": "guru-micro",
       "appUrl": "https://app.messyvirgo.com/funds/mvf-base03",
       "nav": "$46.67",
       "ret1d": {
@@ -446,118 +448,8 @@
       "pricedAt": "2026-06-13T23:59:59Z"
     }
   ],
-  "macro": {
-    "score": 47.83,
-    "regime": "Neutral",
-    "summary": "The Effective Score of 47.83 (down 3.19 points from Base 51.02) signals a **Neutral regime with modest headwinds**—crypto is not in distress, but near-term catalysts favor caution over aggression. The dominant tailwind is strong global liquidity (+4.6% YoY) and a sharp collapse in reverse-repo demand (−97.9% in 20 days), both signaling ample system cash; the primary headwind is a $4.34B outflow from US spot Bitcoin ETFs over 60 days, compounded by the Federal Reserve's hawkish June 17 hold and Iran's geopolitical saber-rattling. This matters now because institutional capital is rotating away from crypto despite record equity inflows, and the Fed's 2026 rate-hike projections have pushed rate-cut expectations to 2027—a structural headwind for risk assets.",
-    "aiAgentsNote": {
-      "id": "ai-agents",
-      "label": "AI Agents",
-      "chg15": "-4.6%",
-      "chg30": "-15.8%",
-      "chg60": "+12.0%",
-      "vsBtc15": "+37.1pp",
-      "chg15Pos": false,
-      "chg30Pos": false,
-      "chg60Pos": true,
-      "vsBtc15Pos": true,
-      "pill": "fade",
-      "pillLabel": "Fading",
-      "rawChg15": -4.6355
-    }
-  },
-  "narratives": [
-    {
-      "id": "privacy-coins",
-      "label": "Privacy Coins",
-      "chg15": "+10.9%",
-      "chg30": "-23.5%",
-      "chg60": "+10.0%",
-      "vsBtc15": "+18.9pp",
-      "chg15Pos": true,
-      "chg30Pos": false,
-      "chg60Pos": true,
-      "vsBtc15Pos": true,
-      "pill": "fade",
-      "pillLabel": "Fading",
-      "rawChg15": 10.8856
-    },
-    {
-      "id": "decentralized-finance-defi",
-      "label": "Decentralized Finance (DeFi)",
-      "chg15": "+10.6%",
-      "chg30": "+10.3%",
-      "chg60": "+24.9%",
-      "vsBtc15": "+32.7pp",
-      "chg15Pos": true,
-      "chg30Pos": true,
-      "chg60Pos": true,
-      "vsBtc15Pos": true,
-      "pill": "hot",
-      "pillLabel": "Steady",
-      "rawChg15": 10.6178
-    },
-    {
-      "id": "decentralized-science-desci",
-      "label": "Decentralized Science (DeSci)",
-      "chg15": "+4.8%",
-      "chg30": "-26.6%",
-      "chg60": "+10.3%",
-      "vsBtc15": "+25.0pp",
-      "chg15Pos": true,
-      "chg30Pos": false,
-      "chg60Pos": true,
-      "vsBtc15Pos": true,
-      "pill": "fade",
-      "pillLabel": "Fading",
-      "rawChg15": 4.8469
-    },
-    {
-      "id": "real-world-assets-rwa",
-      "label": "Real World Assets (RWA)",
-      "chg15": "+4.1%",
-      "chg30": "+2.1%",
-      "chg60": "+8.4%",
-      "vsBtc15": "+23.9pp",
-      "chg15Pos": true,
-      "chg30Pos": true,
-      "chg60Pos": true,
-      "vsBtc15Pos": true,
-      "pill": "watch",
-      "pillLabel": "Watch",
-      "rawChg15": 4.076
-    },
-    {
-      "id": "socialfi",
-      "label": "SocialFi",
-      "chg15": "+3.3%",
-      "chg30": "-17.1%",
-      "chg60": "-38.3%",
-      "vsBtc15": "-20.5pp",
-      "chg15Pos": true,
-      "chg30Pos": false,
-      "chg60Pos": false,
-      "vsBtc15Pos": false,
-      "pill": "fade",
-      "pillLabel": "Fading",
-      "rawChg15": 3.2867
-    },
-    {
-      "id": "ai-agents",
-      "label": "AI Agents",
-      "chg15": "-4.6%",
-      "chg30": "-15.8%",
-      "chg60": "+12.0%",
-      "vsBtc15": "+37.1pp",
-      "chg15Pos": false,
-      "chg30Pos": false,
-      "chg60Pos": true,
-      "vsBtc15Pos": true,
-      "pill": "fade",
-      "pillLabel": "Fading",
-      "rawChg15": -4.6355
-    }
-  ],
+  "macro": null,
+  "narratives": [],
   "signalExample": {
     "symbol": "SOGNI",
     "name": "Sogni AI",

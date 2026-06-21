@@ -419,6 +419,16 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
   };
 }
 
+function extractIsoDate(value) {
+  if (!value) return null;
+  const match = String(value).match(/(\d{4}-\d{2}-\d{2})/);
+  return match ? match[1] : null;
+}
+
+function isArchivedContextStale(sourceDate, asOfDate) {
+  return Boolean(asOfDate && sourceDate && sourceDate > asOfDate);
+}
+
 async function fetchMacro(asOfDate) {
   const url = asOfDate
     ? `${API}/reports/macro/report/default?as_of_date=${asOfDate}`
@@ -472,7 +482,13 @@ async function fetchMacro(asOfDate) {
       : lead;
   }
 
-  return { score, regime, summary };
+  const createdMatch = header.match(/\*\*Created\*\*\s*\|\s*([^|\n]+)/);
+  const sourceDate =
+    extractIsoDate(data.meta?.published_at)
+    || extractIsoDate(createdMatch?.[1])
+    || null;
+
+  return { score, regime, summary, sourceDate };
 }
 
 function normalizeMacroRegime(raw) {
@@ -503,7 +519,7 @@ async function fetchNarratives(asOfDate) {
     ? `${API}/reports/narratives/trend?as_of_date=${asOfDate}`
     : `${API}/reports/narratives/trend`;
   const data = await safeFetch(url);
-  if (!data) return [];
+  if (!data) return { narratives: [], sourceDate: null };
 
   const STABLE_IDS = new Set(["stablecoins"]);
   const HIGHLIGHT = new Set([
@@ -511,10 +527,11 @@ async function fetchNarratives(asOfDate) {
     "decentralized-finance-defi", "real-world-assets-rwa", "socialfi",
   ]);
 
-  return (data.narratives || [])
-    .filter((n) => !STABLE_IDS.has(n.narrative_id) && HIGHLIGHT.has(n.narrative_id))
-    .sort((a, b) => (b.change_pct_by_window["15"] || 0) - (a.change_pct_by_window["15"] || 0))
-    .map((n) => {
+  return {
+    narratives: (data.narratives || [])
+      .filter((n) => !STABLE_IDS.has(n.narrative_id) && HIGHLIGHT.has(n.narrative_id))
+      .sort((a, b) => (b.change_pct_by_window["15"] || 0) - (a.change_pct_by_window["15"] || 0))
+      .map((n) => {
       const c15 = n.change_pct_by_window["15"] ?? null;
       const c30 = n.change_pct_by_window["30"] ?? null;
       const c60 = n.change_pct_by_window["60"] ?? null;
@@ -548,7 +565,9 @@ async function fetchNarratives(asOfDate) {
         pillLabel,
         rawChg15: c15,
       };
-    });
+    }),
+    sourceDate: extractIsoDate(data.snapshot_date),
+  };
 }
 
 /**
@@ -558,11 +577,16 @@ async function fetchFundUpdateData(options = {}) {
   const useCli = options.useCli !== false;
   const asOfDate = options.asOfDate || null;
 
-  const [funds, macro, narratives] = await Promise.all([
+  const [funds, macroResult, narrativeResult] = await Promise.all([
     Promise.all(FUNDS.map((f) => fetchFund(f, useCli, asOfDate))),
     fetchMacro(asOfDate),
     fetchNarratives(asOfDate),
   ]);
+
+  const macroUnavailable = isArchivedContextStale(macroResult?.sourceDate, asOfDate);
+  const narrativesUnavailable = isArchivedContextStale(narrativeResult.sourceDate, asOfDate);
+  const macro = macroUnavailable ? null : macroResult;
+  const narratives = narrativesUnavailable ? [] : narrativeResult.narratives;
 
   const snapshotDate =
     options.snapshotDate ||
@@ -574,16 +598,23 @@ async function fetchFundUpdateData(options = {}) {
 
   const { signalExample, riskReject } = deriveSignals(funds);
 
-  if (macro) {
-    macro.aiAgentsNote = narratives.find((n) => n.id === "ai-agents") || null;
-  }
+  const macroPayload = macro
+    ? {
+        score: macro.score,
+        regime: macro.regime,
+        summary: macro.summary,
+        aiAgentsNote: narratives.find((n) => n.id === "ai-agents") || null,
+      }
+    : null;
 
   return {
     snapshotDate,
     asOfDate,
+    macroUnavailable,
+    narrativesUnavailable,
     publishedAt: new Date().toISOString(),
     funds,
-    macro,
+    macro: macroPayload,
     narratives,
     signalExample,
     riskReject,

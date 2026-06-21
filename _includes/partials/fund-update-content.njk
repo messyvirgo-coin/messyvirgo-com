@@ -127,7 +127,11 @@
 
 <p class="mv-eyebrow mb-4">Market regime — macro economics</p>
 
-{% if fu.macro %}
+{% if fu.macroUnavailable %}
+<div class="fu-context-unavailable mv-card glassmorphism rounded-lg p-6 mb-6">
+  <p class="mv-body mb-0 text-gray-400">Not available for this archived week. The public API does not expose historical macro snapshots — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current regime context.</p>
+</div>
+{% elif fu.macro %}
 <div class="fu-macro mv-card glassmorphism rounded-lg p-6 mb-6">
   <div class="fu-macro-score">
     <div class="ms-val">{{ fu.macro.score }}</div>
@@ -141,7 +145,11 @@
 
 <p class="mv-eyebrow mb-4">Narrative momentum — {{ fu.snapshotDate }}</p>
 
-{% if fu.narratives.length %}
+{% if fu.narrativesUnavailable %}
+<div class="fu-context-unavailable mv-card glassmorphism rounded-lg p-6 mb-6">
+  <p class="mv-body mb-0 text-gray-400">Not available for this archived week. The public API does not expose historical narrative momentum snapshots — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current narrative rankings.</p>
+</div>
+{% elif fu.narratives.length %}
 <div class="fu-narr-wrap">
 <table class="fu-narr-table" style="margin:0">
   <thead>
@@ -215,7 +223,7 @@
   <div class="fu-agent-patterns">
     <div class="fu-pattern">
       <div class="fu-pattern-num">1</div>
-      <div class="fu-pattern-text"><strong>Macro gates gross exposure.</strong> {% if fu.macro %}Neutral regime ({{ fu.macro.score }} {{ fu.macro.regime }}){% else %}Regime context{% endif %} → defensive funds stay in core; beta funds rotate within the book, not expand it blindly.</div>
+      <div class="fu-pattern-text"><strong>Macro gates gross exposure.</strong> {% if fu.macro %}Regime context ({{ fu.macro.score }} {{ fu.macro.regime }}){% elif fu.macroUnavailable %}Regime context unavailable for this archived week{% else %}Regime context{% endif %} → defensive funds stay in core; beta funds rotate within the book, not expand it blindly.</div>
     </div>
     <div class="fu-pattern">
       <div class="fu-pattern-num">2</div>
