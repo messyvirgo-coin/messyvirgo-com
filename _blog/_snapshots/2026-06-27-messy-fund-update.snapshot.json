@@ -1,0 +1,641 @@
+{
+  "snapshotDate": "27 June 2026",
+  "asOfDate": "2026-06-27",
+  "macroUnavailable": false,
+  "narrativesUnavailable": false,
+  "publishedAt": "2026-06-27T14:51:39.862Z",
+  "funds": [
+    {
+      "id": "mvf-guru-messybased",
+      "name": "messybased",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messybased",
+      "nav": "$26.2k",
+      "ret1d": {
+        "value": "+1.6%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "-8.2%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-29.9%",
+        "cls": "neg",
+        "window": "30d"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "80.1",
+          "pnl": null,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "ETHY",
+          "weight": "9.3",
+          "pnl": null,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "FACY",
+          "weight": "7.9",
+          "pnl": null,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "WIRE",
+          "weight": "2.7",
+          "pnl": null,
+          "color": "#34d399",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "councilWeek": null,
+      "screening": {
+        "runDate": "27 June 2026",
+        "aggDate": "27 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "SPARK",
+            "name": "SPARK",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 4.17 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "CXT",
+            "name": "Covalent X Token",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.33 and best rank 4."
+          },
+          {
+            "rank": 3,
+            "symbol": "WAVE",
+            "name": "Waveform by Virtuals",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.60 and best rank 1."
+          },
+          {
+            "rank": 4,
+            "symbol": "CPHY",
+            "name": "Cypher Tempre",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.60 and best rank 1."
+          },
+          {
+            "rank": 5,
+            "symbol": "YNE",
+            "name": "yesnoerror",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.25 and best rank 3."
+          },
+          {
+            "rank": 6,
+            "symbol": "OLAS",
+            "name": "Autonolas",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 5.25 and best rank 1."
+          },
+          {
+            "rank": 7,
+            "symbol": "EIGEN",
+            "name": "EigenCloud (prev. EigenLayer)",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 3.00 and best rank 3."
+          },
+          {
+            "rank": 8,
+            "symbol": "CAP",
+            "name": "Capminal",
+            "reason": "Appeared in 2/7 source run(s) with avg rank 2.00 and best rank 2."
+          }
+        ]
+      },
+      "positionCount": 4,
+      "pricedAt": "2026-06-27T14:50:47.853413Z"
+    },
+    {
+      "id": "mvf-guru-messyinfra",
+      "name": "messyinfra",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messyinfra",
+      "nav": "$26k",
+      "ret1d": {
+        "value": "+2.6%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "-6.3%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-20.8%",
+        "cls": "neg",
+        "window": "27d*"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "MESSY",
+          "weight": "63.6",
+          "pnl": null,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "AERO",
+          "weight": "14.4",
+          "pnl": null,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "VIRTUAL",
+          "weight": "9.1",
+          "pnl": null,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "BNKR",
+          "weight": "7.9",
+          "pnl": null,
+          "color": "#34d399",
+          "warning": false
+        },
+        {
+          "symbol": "KTA",
+          "weight": "5.0",
+          "pnl": null,
+          "color": "#a78bfa",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeKind": "target_change",
+        "outcomeLabel": "target change",
+        "date": "6 June 2026",
+        "shortDate": "6 Jun",
+        "headline": "Target change approved; rebalance handoff is ready for review.",
+        "executionStatus": "resolved",
+        "riskNotes": null
+      },
+      "councilWeek": null,
+      "screening": {
+        "runDate": "27 June 2026",
+        "aggDate": "27 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "REAL",
+            "name": "Defactor",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.86 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "HANDL",
+            "name": "HandlPay",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 3.50 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "RIZE",
+            "name": "RIZE",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.80 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "EMT",
+            "name": "EMAIL Token",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.50 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "WAVE",
+            "name": "Waveform by Virtuals",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 3."
+          },
+          {
+            "rank": 6,
+            "symbol": "AMPS",
+            "name": "AMPLIFYWORLD",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 1.33 and best rank 1."
+          },
+          {
+            "rank": 7,
+            "symbol": "SPX",
+            "name": "SPX6900",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 3.67 and best rank 3."
+          },
+          {
+            "rank": 8,
+            "symbol": "CHEX",
+            "name": "Chintai",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 6.67 and best rank 4."
+          }
+        ]
+      },
+      "positionCount": 5,
+      "pricedAt": "2026-06-27T14:50:47.853413Z"
+    },
+    {
+      "id": "mvf-base01",
+      "name": "base01",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base01",
+      "nav": "$57.26",
+      "ret1d": {
+        "value": "+2.6%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+3.3%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "-3.9%",
+        "cls": "neg",
+        "window": "30d"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "RIZE",
+          "weight": "5.6",
+          "pnl": null,
+          "color": "#ff69b4",
+          "warning": false
+        },
+        {
+          "symbol": "HANDL",
+          "weight": "5.1",
+          "pnl": null,
+          "color": "#fbbf24",
+          "warning": false
+        },
+        {
+          "symbol": "REAL",
+          "weight": "4.9",
+          "pnl": null,
+          "color": "#60a5fa",
+          "warning": false
+        },
+        {
+          "symbol": "SPX",
+          "weight": "3.3",
+          "pnl": null,
+          "color": "#34d399",
+          "warning": false
+        },
+        {
+          "symbol": "EMT",
+          "weight": "2.8",
+          "pnl": null,
+          "color": "#a78bfa",
+          "warning": false
+        },
+        {
+          "symbol": "AERO",
+          "weight": "0.0",
+          "pnl": null,
+          "color": "#f87171",
+          "warning": false
+        }
+      ],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$24",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeLabel": "target change · executed reconciled",
+        "date": "27 June 2026",
+        "shortDate": "27 Jun",
+        "headline": "The rebalance executed and reconciled, and the fund was mutated under the council’s approved target-change decision.",
+        "riskNotes": "The main risk was the mixed fresh-and-aggregate evidence on the preferred add, which lowered conviction relative to a purely fresh-confirmed candidate.",
+        "certified": true,
+        "certificationLabel": "certified",
+        "targetFinalization": "Target finalization confirmed the ratified posture and produced a certified target structure for execution.",
+        "targetFinalizationBlocked": false,
+        "actionItems": "The session closed as resolved and completed, with the fund mutated, reconciled, and handed off under the approved target-change decision.",
+        "executionStatus": "resolved",
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-06-22",
+        "weekEnd": "2026-06-27",
+        "totalSessions": 5,
+        "executedRotations": 3,
+        "holdSessions": 2,
+        "blockedSessions": 0
+      },
+      "screening": {
+        "runDate": "27 June 2026",
+        "aggDate": "27 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "REAL",
+            "name": "Defactor",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.86 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "HANDL",
+            "name": "HandlPay",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 3.50 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "RIZE",
+            "name": "RIZE",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.80 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "EMT",
+            "name": "EMAIL Token",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.50 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "WAVE",
+            "name": "Waveform by Virtuals",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 3."
+          },
+          {
+            "rank": 6,
+            "symbol": "AMPS",
+            "name": "AMPLIFYWORLD",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 1.33 and best rank 1."
+          },
+          {
+            "rank": 7,
+            "symbol": "SPX",
+            "name": "SPX6900",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 3.67 and best rank 3."
+          },
+          {
+            "rank": 8,
+            "symbol": "CHEX",
+            "name": "Chintai",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 6.67 and best rank 4."
+          }
+        ]
+      },
+      "positionCount": 6,
+      "pricedAt": "2026-06-27T14:50:47.853413Z"
+    },
+    {
+      "id": "mvf-base02",
+      "name": "base02",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base02",
+      "nav": "$47.16",
+      "ret1d": {
+        "value": "+0.5%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "-1.3%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-4.7%",
+        "cls": "neg",
+        "window": "30d"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$8",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "councilWeek": null,
+      "screening": {
+        "runDate": "27 June 2026",
+        "aggDate": "27 June 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "REAL",
+            "name": "Defactor",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.86 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "HANDL",
+            "name": "HandlPay",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 3.50 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "RIZE",
+            "name": "RIZE",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.80 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "EMT",
+            "name": "EMAIL Token",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.50 and best rank 2."
+          },
+          {
+            "rank": 5,
+            "symbol": "WAVE",
+            "name": "Waveform by Virtuals",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 3."
+          },
+          {
+            "rank": 6,
+            "symbol": "AMPS",
+            "name": "AMPLIFYWORLD",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 1.33 and best rank 1."
+          },
+          {
+            "rank": 7,
+            "symbol": "SPX",
+            "name": "SPX6900",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 3.67 and best rank 3."
+          },
+          {
+            "rank": 8,
+            "symbol": "CHEX",
+            "name": "Chintai",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 6.67 and best rank 4."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-06-27T14:50:47.853413Z"
+    }
+  ],
+  "macro": {
+    "score": 32.04,
+    "regime": "R- — Risk Off",
+    "summary": "The Effective Score of 32 (on 0–100) signals a **Risk-Off regime (R-)** with material headwinds offsetting modest tailwinds. Global liquidity expansion and a normalized yield curve provide a base of support, but Bitcoin spot ETF outflows extending into a seventh consecutive day, combined with geopolitical escalation (US military strikes on Iran) and regulatory tightening (Spain's MiCA stance, EU DeFi oversight push), have compressed institutional conviction and forced a 10.95-point qualitative downgrade from the base score of 43. This matters now because crypto is caught between long-term tokenization momentum (Securitize's NYSE listing) and immediate deleveraging pressure, leaving retail portfolios vulnerable to sharp intra-week swings.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-7.7%",
+      "chg30": "-19.7%",
+      "chg60": "-0.2%",
+      "vsBtc15": "+26.2pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -7.7038
+    }
+  },
+  "narratives": [
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "+10.7%",
+      "chg30": "+7.8%",
+      "chg60": "+25.1%",
+      "vsBtc15": "+31.2pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 10.6629
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "+0.6%",
+      "chg30": "-15.0%",
+      "chg60": "-37.2%",
+      "vsBtc15": "-19.5pp",
+      "chg15Pos": true,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": 0.5796
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "-1.9%",
+      "chg30": "-2.8%",
+      "chg60": "+4.1%",
+      "vsBtc15": "+24.2pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -1.8813
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-7.7%",
+      "chg30": "-19.7%",
+      "chg60": "-0.2%",
+      "vsBtc15": "+26.2pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -7.7038
+    },
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "-12.9%",
+      "chg30": "-19.7%",
+      "chg60": "-0.1%",
+      "vsBtc15": "+32.9pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -12.9414
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "-13.0%",
+      "chg30": "-27.7%",
+      "chg60": "-6.5%",
+      "vsBtc15": "+25.7pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -13.0424
+    }
+  ],
+  "signalExample": {
+    "symbol": "REAL",
+    "name": "Defactor",
+    "body": "Appeared in <strong>7/7 daily runs</strong> across messyinfra and base01 and base02 over the 7-day lookback. Appeared in 7/7 source run(s) with avg rank 2.86 and best rank 1.",
+    "tags": [
+      "7/7 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": null,
+  "weeklyHighlights": [
+    "Macro currently reads R- (32.0/100). The score updates daily; each council session uses the latest macro read available at meeting time.",
+    "base01 held 5 council sessions this week — 3 executed rotations on Base and 2 hold reviews.",
+    "Decentralized Finance (DeFi) leads narrative momentum (+10.7% over 15 days) — thematic heat, not a buy signal on its own.",
+    "REAL showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade."
+  ],
+  "readerNotes": [
+    {
+      "showUntil": "2026-08-31",
+      "text": "Fund pages in the app now include full council minutes — open any fund and tap Council to read what the portfolio committee debated, voted on, and whether trades were executed.",
+      "link": {
+        "href": "/blog/2026/06/messy-virgo-decision-pipeline-part-1-the-ai-investment-council/",
+        "label": "How the AI investment council works"
+      }
+    },
+    {
+      "showUntil": "2026-08-31",
+      "text": "We publish two live workflow test funds (base01 and base02) alongside the read-only Guru Lotus snapshots. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use."
+    }
+  ]
+}

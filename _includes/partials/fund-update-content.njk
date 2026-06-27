@@ -12,8 +12,35 @@
   <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> — data reflects latest available.</p>
   {% endif %}
 
-  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Each week: what changed across our Guru funds on Base — Guru Lotus read-only NAV snapshots (messybased, messyinfra) plus micro test funds on Guru (base01–03) that run the full screening → council → target-change workflow. Those micro funds are traded by the fund workflow; target changes execute manually or automatically only after council resolution. We pair that with macro, narratives, and screening context: what moved, what was passed on, and what the process teaches about AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
+  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Each week: what changed across our Guru funds on Base — Guru Lotus read-only NAV snapshots (messybased, messyinfra) plus micro test funds on Guru (base01, base02) that run the full screening → council → target-change workflow. Those micro funds are traded by the fund workflow; target changes execute manually or automatically only after council resolution. We pair that with macro, narratives, and screening context: what moved, what was passed on, and what the process teaches about AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
 </div>
+
+{% if fu.weeklyHighlights and fu.weeklyHighlights.length %}
+<div class="mv-card glassmorphism rounded-lg p-6 mb-8">
+  <p class="mv-eyebrow mb-3">This week at a glance</p>
+  <ul class="fu-highlights">
+    {% for item in fu.weeklyHighlights %}
+    <li class="fu-highlight-item">{{ item }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if fu.readerNotes and fu.readerNotes.length %}
+<div class="mv-card glassmorphism rounded-lg p-6 mb-8">
+  <p class="mv-eyebrow mb-3">What's new in the app</p>
+  <ul class="fu-highlights">
+    {% for note in fu.readerNotes %}
+    <li class="fu-highlight-item">
+      {{ note.text }}
+      {% if note.link %}
+      <a href="{{ note.link.href }}" class="text-pink-400 hover:underline">{{ note.link.label }} →</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
 
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
@@ -28,7 +55,7 @@
     <div class="fc-returns">
       <span class="fc-ret {{ fund.ret1d.cls }}">{{ fund.ret1d.value }} 1d</span>
       <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
-      <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} 30d</span>
+      <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} {{ fund.ret30d.window or "30d" }}</span>
     </div>
     <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %}{% if fund.screening.aggDate %} · agg {{ fund.screening.aggDate }}{% endif %}</div>
   </a>
@@ -47,7 +74,7 @@
     <div class="fc-returns">
       <span class="fc-ret {{ fund.ret1d.cls }}">{{ fund.ret1d.value }} 1d</span>
       <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
-      <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} 30d</span>
+      <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} {{ fund.ret30d.window or "30d" }}</span>
     </div>
     <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %}{% if fund.screening.aggDate %} · agg {{ fund.screening.aggDate }}{% endif %}{% if fund.council %} · council {{ fund.council.outcomeLabel }}{% endif %}</div>
   </a>
@@ -231,7 +258,7 @@
     </div>
     <div class="fu-pattern">
       <div class="fu-pattern-num">3</div>
-      <div class="fu-pattern-text"><strong>Council is the constraint layer.</strong> Certified outcomes encode PM conflict, guardrail breaches, and explicit rotate-out lists. This is training data for autonomous Funds — not marketing copy.</div>
+      <div class="fu-pattern-text"><strong>Council is the constraint layer.</strong> No trade runs until the committee records its decision — including disagreements, guardrails, and what was actually executed. That record is public on each fund page.</div>
     </div>
   </div>
 </div>
