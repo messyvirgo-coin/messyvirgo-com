@@ -41,7 +41,15 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 - **Do not** use a single `#` heading for the post title; the template supplies the title. Start sections with `##` / `###` like existing posts.
 - Preserve the user’s voice; fix obvious typos and broken Markdown.
 - Use standard Markdown: lists, **bold**, *italic*, links, fenced code blocks with language tags when applicable.
-- For images and Eleventy specifics, follow `_blog/README.md`.
+
+## Images
+
+Follow `.cursor/rules/15-messyvirgo-blog-images.mdc` (always applied when editing `_blog/_posts/`).
+
+- Syntax: `![Caption label shown below the image.](/images/blog/filename.png)`
+- **Alt text is the caption** — `post.njk` wraps images in a centered figure and renders alt as `<figcaption>`.
+- **Placement:** after a paragraph in the section; never directly under a `##` / `###` heading.
+- Files live in `images/blog/`. No per-post HTML or inline figure styling.
 
 ## Workflow
 
@@ -57,5 +65,6 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 
 ## Reference
 
+- Image rules: `.cursor/rules/15-messyvirgo-blog-images.mdc`
 - Conventions and build commands: `_blog/README.md` (repository root)
 - Examples: `_blog/_posts/*.md`

@@ -27,3 +27,7 @@ This is the public Messy Virgo website: a static Eleventy site using Tailwind CS
 - **`.font-serif`** (Playfair) exists for edge cases only; do not revert section titles to Playfair without an explicit product decision.
 
 Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts, **Fund / Signal updates** (`messyvirgo-publish-fund-update`), and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.
+
+## Blog post images
+
+Article images are styled globally in `_includes/post.njk` (centered figure, border, caption). In Markdown use `![caption label](/images/blog/file.png)` — **alt text becomes the visible caption**. Place images after a paragraph, not directly under a heading. Full rules: `.cursor/rules/15-messyvirgo-blog-images.mdc`.

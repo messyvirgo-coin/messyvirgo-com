@@ -1,0 +1,68 @@
+---
+description: Blog post images — markdown syntax, caption labels, placement, and automatic figure styling via post.njk.
+globs:
+  - "_blog/_posts/**/*.md"
+  - "_includes/post.njk"
+alwaysApply: false
+---
+
+# Blog post images
+
+All article posts use `layout: post.njk`. Image presentation is **automatic** — do not add per-post HTML, inline styles, or Tailwind classes for figures.
+
+## How styling works
+
+`_includes/post.njk` wraps every `.prose img` in a centered `<figure class="blog-figure">` with:
+
+- max width ~42rem, centered in the column
+- rounded border and subtle shadow
+- **visible caption** from the image alt text (`<figcaption>`)
+
+Agents only need correct Markdown in the post file; the template handles frame and label.
+
+## Markdown syntax (required)
+
+```markdown
+![Short caption that reads as a figure label.](/images/blog/your-image.png)
+```
+
+- **Alt text = caption.** Write a full, readable label (not a filename or `image1`). It appears below the image in italic gray text.
+- **Path:** `/images/blog/...` (file lives in `images/blog/` in the repo).
+- **One image per line** — standard `![alt](url)` only; no raw `<img>` unless unavoidable.
+
+## Placement
+
+- Put images **after a paragraph**, embedded in the section flow.
+- **Do not** place an image directly under a `##` or `###` heading — add at least one sentence first.
+- Prefer illustrating the idea just explained, not the heading about to follow.
+- Hero/lead images: after the opening hook (1–3 short paragraphs), before the first `---` or major `##` section.
+
+## Examples (from existing posts)
+
+```markdown
+We think the same principle applies to crypto portfolio management.
+
+![From council resolution to trade plan: the bridge translates portfolio intent into concrete on-chain legs.](/images/blog/decision-pipeline-3.png)
+
+---
+
+## Next section
+```
+
+```markdown
+## A deliberate pause before execution
+
+Right now, before anything touches the fund, a human reviews the execution package and decides: approve or decline.
+
+![Human review gate: the fund manager sees the execution package, warnings, and quote expiry before signing.](/images/blog/decision-pipeline-4.png)
+```
+
+## Do not
+
+- Hand-build `<figure>` / `<figcaption>` in Markdown unless fixing an edge case.
+- Edit figure CSS in individual posts — change `_includes/post.njk` if the shared style needs updating.
+- Use images in Fund / Signal updates (`layout: fund-update-post.njk`) — those pages use a different template.
+
+## New posts
+
+Use the `publish-blog-post` skill. When adding images, always include descriptive alt text and follow placement rules above.

@@ -248,6 +248,49 @@
             max-width: 100%;
             height: auto;
         }
+
+        /* Blog figures: centered image + caption from alt text (see .cursor/rules/15-messyvirgo-blog-images.mdc) */
+        .prose figure.blog-figure {
+            display: block;
+            margin: 2.5rem auto;
+            max-width: 42rem;
+            text-align: center;
+        }
+
+        .prose figure.blog-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .prose figure.blog-figure figcaption {
+            margin-top: 0.875rem;
+            padding: 0 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        /* Standalone image paragraphs (before figure wrap runs) */
+        .prose p:has(> img:only-child) {
+            text-align: center;
+            margin: 2.5rem auto;
+            max-width: 42rem;
+        }
+
+        .prose p:has(> img:only-child) img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        }
     </style>
     <script>
         // Add prose styling for markdown content
@@ -338,6 +381,31 @@
                 // Style code blocks
                 proseContent.querySelectorAll('pre').forEach(pre => {
                     pre.classList.add('bg-gray-900', 'border', 'border-gray-700', 'rounded', 'p-4', 'overflow-x-auto', 'my-4');
+                });
+
+                // Wrap images in centered figures with captions from alt text
+                proseContent.querySelectorAll('img').forEach((img) => {
+                    if (img.closest('figure')) return;
+
+                    const caption = (img.getAttribute('alt') || '').trim();
+                    const figure = document.createElement('figure');
+                    figure.className = 'blog-figure';
+
+                    const parent = img.parentElement;
+                    if (parent && parent.tagName === 'P' && parent.children.length === 1) {
+                        parent.replaceWith(figure);
+                    } else {
+                        img.replaceWith(figure);
+                    }
+
+                    figure.appendChild(img);
+
+                    if (caption) {
+                        img.setAttribute('alt', '');
+                        const figcaption = document.createElement('figcaption');
+                        figcaption.textContent = caption;
+                        figure.appendChild(figcaption);
+                    }
                 });
 
                 // Style inline code

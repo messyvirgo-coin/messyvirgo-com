@@ -3,6 +3,16 @@ const path = require("path");
 const { fetchFundUpdateData } = require("./scripts/lib/fetch-fund-update-data");
 
 module.exports = function (eleventyConfig) {
+  // Linux inotify limits (max_user_instances) are often low; polling avoids EMFILE in dev.
+  eleventyConfig.setChokidarConfig({
+    usePolling: true,
+    interval: 300,
+    binaryInterval: 300,
+  });
+  eleventyConfig.watchIgnores.add("_site/**");
+  eleventyConfig.watchIgnores.add("node_modules/**");
+  eleventyConfig.watchIgnores.add(".git/**");
+
   // Plugins
   eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-syntaxhighlight"));
 
