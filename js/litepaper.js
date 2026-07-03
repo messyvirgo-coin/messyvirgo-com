@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Contributors & Advisors', cliff: 12, vesting: 12, color: '#805AD5' },
         { name: 'Treasury (Strategic)', cliff: 9, vesting: 15, color: '#D53F8C' },
         { name: 'CTO (Michael) - Upfront', cliff: 1, vesting: 1, color: '#F59E0B' },
-        { name: 'CTO (Michael) - Vesting', cliff: 6, vesting: 18, color: '#FBBF24', cadence: 'Paid quarterly at the beginning of each quarter' }
+        { name: 'CTO (Michael) - Vesting', cliff: 3, vesting: 18, color: '#FBBF24', cadence: 'Six quarterly tranches of 15M MESSY (1.5%) each, beginning end of Q1/2026' }
     ];
 
     const chartContainer = document.getElementById('vesting-chart-container');
