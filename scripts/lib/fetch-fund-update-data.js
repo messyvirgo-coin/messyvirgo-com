@@ -12,6 +12,9 @@ const FUNDS = [
   { id: "mvf-guru-messyinfra", name: "messyinfra", sleeveId: "mvs-guru-messyinfra-1", group: "guru" },
   { id: "mvf-base01", name: "base01", sleeveId: "mvs-base01-1", group: "guru-micro" },
   { id: "mvf-base02", name: "base02", sleeveId: "mvs-base02-1", group: "guru-micro" },
+  // Public workflow micro funds added 2026-07-10 (excluded from earlier archived weeks).
+  { id: "mvf-base04", name: "base04", sleeveId: "mvs-base04-1", group: "guru-micro", since: "2026-07-10" },
+  { id: "mvf-base05", name: "base05", sleeveId: "mvs-base05-1", group: "guru-micro", since: "2026-07-10" },
 ];
 
 const BAR_COLOURS = [
@@ -19,27 +22,42 @@ const BAR_COLOURS = [
   "#a78bfa", "#f87171", "#fb923c", "#e879f9",
 ];
 
-/** End-user product notes from recent releases. Drop entries by showUntil. */
+/** End-user product notes from recent releases. Drop entries by showUntil / showFrom. */
 const READER_NOTES = [
   {
     showUntil: "2026-08-31",
     text:
-      "Fund pages in the app now include full council minutes — open any fund and tap Council to read what the portfolio committee debated, voted on, and whether trades were executed.",
+      "Fund pages in the app now include full council minutes — open any fund and tap Council to read what the portfolio committee debated, what the Chair decided, and whether trades were executed.",
     link: {
       href: "/blog/2026/06/messy-virgo-decision-pipeline-part-1-the-ai-investment-council/",
       label: "How the AI investment council works",
     },
   },
   {
-    showUntil: "2026-08-31",
+    showUntil: "2026-07-09",
     text:
       "We publish two live workflow test funds (base01 and base02) alongside the read-only Guru Lotus snapshots. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use.",
+  },
+  {
+    showFrom: "2026-07-10",
+    showUntil: "2026-08-31",
+    text:
+      "We publish four Guru micro test funds (base01, base02, base04, base05) alongside the read-only Guru Lotus snapshots. base04 and base05 joined on 10 July with distinct token universes. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use.",
   },
 ];
 
 function activeReaderNotes(asOfDate) {
   const today = asOfDate || new Date().toISOString().slice(0, 10);
-  return READER_NOTES.filter((note) => !note.showUntil || note.showUntil >= today);
+  return READER_NOTES.filter((note) => {
+    if (note.showUntil && note.showUntil < today) return false;
+    if (note.showFrom && note.showFrom > today) return false;
+    return true;
+  });
+}
+
+function fundsForAsOf(asOfDate) {
+  const today = asOfDate || new Date().toISOString().slice(0, 10);
+  return FUNDS.filter((fund) => !fund.since || fund.since <= today);
 }
 
 function buildWeeklyHighlights({ funds, macro, signalExample, narratives }) {
@@ -256,10 +274,10 @@ function fundUpdateWeekRange(asOfDate) {
 }
 
 function sessionDateIsoFromCouncilItem(item) {
+  if (item.generated_at) return String(item.generated_at).slice(0, 10);
   const refs = item.source_artifact_refs || [];
   const dates = refs.map((r) => r.created_at).filter(Boolean).sort();
   if (dates.length) return dates[0].slice(0, 10);
-  if (item.generated_at) return String(item.generated_at).slice(0, 10);
   return null;
 }
 
@@ -277,6 +295,9 @@ function classifyCouncilSession(parsed, cliItem) {
   if (outcomeKind === "maintain_current") return "hold";
   if (outcomeKind === "blocked") return "blocked";
   if (outcomeKind === "target_change") return "other";
+  // Public meeting presentation outcomes (council/meetings)
+  if (parsed.meetingOutcome === "traded" || parsed.outcome === "traded") return "executed";
+  if (parsed.meetingOutcome === "held" || parsed.outcome === "held") return "hold";
   if (parsed.outcome === "executed_reconciled") return "executed";
   if (parsed.outcome === "maintain_current") return "hold";
   if (
@@ -420,15 +441,57 @@ function parseCertificationStatus(body) {
   return { certified: null, label: body.split(/[.!]/)[0].trim() };
 }
 
+function parseCouncilMeetingItem(item) {
+  const sessionDate = item.generated_at || null;
+  const meetingOutcome = item.outcome || null;
+  const summary = item.summary || null;
+  const title = item.title || null;
+  const traded = meetingOutcome === "traded" || (item.executed_leg_count || 0) > 0;
+  const held = meetingOutcome === "held";
+  const outcome = traded
+    ? "executed_reconciled"
+    : held
+      ? "maintain_current"
+      : "unknown";
+  const outcomeLabel = traded
+    ? "executed reconciled"
+    : held
+      ? "maintain current"
+      : (meetingOutcome || "unknown").replace(/_/g, " ");
+
+  return {
+    outcome,
+    meetingOutcome,
+    outcomeLabel,
+    date: fmtDate(sessionDate),
+    shortDate: fmtShortDate(sessionDate),
+    sessionDateIso: sessionDate ? String(sessionDate).slice(0, 10) : null,
+    headline: firstSentence(summary || title),
+    riskNotes: null,
+    certified: null,
+    certificationLabel: null,
+    targetFinalization: null,
+    targetFinalizationBlocked: false,
+    actionItems: null,
+    executionStatus: "resolved",
+    executedLegCount: item.executed_leg_count ?? null,
+  };
+}
+
 function parseCouncilItem(item) {
+  // Prefer the compact public meeting presentation when present.
+  if (item && (item.outcome === "traded" || item.outcome === "held") && !item.structured_content) {
+    return parseCouncilMeetingItem(item);
+  }
+
   const refs = item.source_artifact_refs || [];
   const dates = refs.map((r) => r.created_at).filter(Boolean).sort();
   const sessionDate = dates.length ? dates[0] : item.generated_at || null;
   const sc = item.structured_content || {};
   const sections = councilContentSections(sc);
   const decisions = sc.decisions || [];
-  const summary = sc.summary || null;
-  const title = sc.title || null;
+  const summary = sc.summary || item.summary || null;
+  const title = sc.title || item.title || null;
   const resolutionBody = councilSectionBody(sections, "Resolution & Decision");
   const executionBody = councilSectionBody(
     sections,
@@ -481,8 +544,10 @@ function parseCouncilItem(item) {
 }
 
 async function fetchCouncilPublic(fundId, asOfDate) {
-  const data = await safeFetch(`${API}/funds/${fundId}/council/sessions?limit=25`);
-  if (!data?.items?.length) return { council: null, weekSummary: null };
+  // Public list surface is council/meetings (compact presentation).
+  // Legacy council/sessions list is no longer exposed publicly.
+  const data = await safeFetch(`${API}/funds/${fundId}/council/meetings?limit=40`);
+  if (!data?.items?.length) return { council: null, publicItems: [] };
 
   let item = data.items[0];
   if (asOfDate) {
@@ -490,7 +555,7 @@ async function fetchCouncilPublic(fundId, asOfDate) {
       .map((session) => ({ session, council: parseCouncilItem(session) }))
       .filter(({ council }) => council.sessionDateIso && council.sessionDateIso <= asOfDate)
       .sort((a, b) => b.council.sessionDateIso.localeCompare(a.council.sessionDateIso));
-    if (!eligible.length) return { council: null, weekSummary: null };
+    if (!eligible.length) return { council: null, publicItems: data.items };
     item = eligible[0].session;
   }
 
@@ -1006,7 +1071,7 @@ async function fetchFundUpdateData(options = {}) {
   const asOfDate = options.asOfDate || null;
 
   const [funds, macroResult, narrativeResult] = await Promise.all([
-    Promise.all(FUNDS.map((f) => fetchFund(f, useCli, asOfDate))),
+    Promise.all(fundsForAsOf(asOfDate).map((f) => fetchFund(f, useCli, asOfDate))),
     fetchMacro(asOfDate),
     fetchNarratives(asOfDate),
   ]);

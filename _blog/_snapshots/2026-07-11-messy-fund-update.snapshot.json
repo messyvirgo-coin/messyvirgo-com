@@ -1,0 +1,608 @@
+{
+  "snapshotDate": "11 July 2026",
+  "asOfDate": "2026-07-11",
+  "macroUnavailable": true,
+  "narrativesUnavailable": true,
+  "publishedAt": "2026-07-23T02:36:08.867Z",
+  "funds": [
+    {
+      "id": "mvf-guru-messybased",
+      "name": "messybased",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messybased",
+      "nav": "$28.5k",
+      "ret1d": {
+        "value": "-1.5%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-5.2%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-6.1%",
+        "cls": "neg",
+        "window": "30d"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "councilWeek": null,
+      "screening": {
+        "runDate": "11 July 2026",
+        "aggDate": "11 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "CLAWD",
+            "name": "clawd.atg.eth",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 4.83, best rank 3, recency score 17.81."
+          },
+          {
+            "rank": 2,
+            "symbol": "CX",
+            "name": "Cortex",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 3.80, best rank 2, recency score 18.49."
+          },
+          {
+            "rank": 3,
+            "symbol": "REPLY",
+            "name": "ReplyCorp",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 6.60, best rank 5, recency score 8.03."
+          },
+          {
+            "rank": 4,
+            "symbol": "1000X",
+            "name": "1000x by Virtuals",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.50, best rank 2, recency score 11.66."
+          },
+          {
+            "rank": 5,
+            "symbol": "SAIRI",
+            "name": "SAIRI",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75, best rank 4, recency score 17.47."
+          },
+          {
+            "rank": 6,
+            "symbol": "DIEM",
+            "name": "Diem",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 8.25, best rank 6, recency score 6.16."
+          },
+          {
+            "rank": 7,
+            "symbol": "TIBBIR",
+            "name": "Ribbita by Virtuals",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 4.67, best rank 1, recency score 16.57."
+          },
+          {
+            "rank": 8,
+            "symbol": "OVR",
+            "name": "Ovr",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 5.00, best rank 1, recency score 5.35."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-11T23:59:59Z"
+    },
+    {
+      "id": "mvf-guru-messyinfra",
+      "name": "messyinfra",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messyinfra",
+      "nav": "$28.5k",
+      "ret1d": {
+        "value": "-0.5%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-2.9%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-0.4%",
+        "cls": "neg",
+        "window": "30d"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeKind": "target_change",
+        "outcomeLabel": "target change",
+        "date": "6 June 2026",
+        "shortDate": "6 Jun",
+        "headline": "Target change approved; rebalance handoff is ready for review.",
+        "executionStatus": "resolved",
+        "riskNotes": null
+      },
+      "councilWeek": null,
+      "screening": {
+        "runDate": "11 July 2026",
+        "aggDate": "11 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "AMETA",
+            "name": "Alpha City",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.14, best rank 1, recency score 35.10."
+          },
+          {
+            "rank": 2,
+            "symbol": "JESSE",
+            "name": "jesse",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.57, best rank 2, recency score 31.68."
+          },
+          {
+            "rank": 3,
+            "symbol": "NPC",
+            "name": "Non-Playable Coin",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.83, best rank 4, recency score 16.47."
+          },
+          {
+            "rank": 4,
+            "symbol": "FBOMB",
+            "name": "Fantom Bomb",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 2.75, best rank 2, recency score 24.68."
+          },
+          {
+            "rank": 5,
+            "symbol": "DUAL",
+            "name": "Dual",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.75, best rank 6, recency score 4.81."
+          },
+          {
+            "rank": 6,
+            "symbol": "USOL",
+            "name": "Wrapped Solana (Universal)",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 5.67, best rank 5, recency score 8.27."
+          },
+          {
+            "rank": 7,
+            "symbol": "1000X",
+            "name": "1000x by Virtuals",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 6.33, best rank 5, recency score 4.35."
+          },
+          {
+            "rank": 8,
+            "symbol": "JITOSOL",
+            "name": "Jito Staked SOL",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 6.33, best rank 5, recency score 10.65."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-11T23:59:59Z"
+    },
+    {
+      "id": "mvf-base01",
+      "name": "base01",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base01",
+      "nav": "$98.31",
+      "ret1d": {
+        "value": "-1.3%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-1.3%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "+9.1%",
+        "cls": "pos",
+        "window": "30d"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$39",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "meetingOutcome": "traded",
+        "outcomeLabel": "executed reconciled",
+        "date": "11 July 2026",
+        "shortDate": "11 Jul",
+        "headline": "The council's rebalance executed and reconciled, resizing four beta positions (reducing npc and ameta, holding fbomb and jesse) while the fund's cash/base/high-beta posture stayed unchanged at roughly 34%/40%/26%, with a realized post-execution breakdown not yet available.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "executedLegCount": 4,
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-07-06",
+        "weekEnd": "2026-07-11",
+        "totalSessions": 6,
+        "executedRotations": 5,
+        "holdSessions": 1,
+        "blockedSessions": 0
+      },
+      "screening": {
+        "runDate": "11 July 2026",
+        "aggDate": "11 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "AMETA",
+            "name": "Alpha City",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.14, best rank 1, recency score 35.10."
+          },
+          {
+            "rank": 2,
+            "symbol": "JESSE",
+            "name": "jesse",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 2.57, best rank 2, recency score 31.68."
+          },
+          {
+            "rank": 3,
+            "symbol": "NPC",
+            "name": "Non-Playable Coin",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.83, best rank 4, recency score 16.47."
+          },
+          {
+            "rank": 4,
+            "symbol": "FBOMB",
+            "name": "Fantom Bomb",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 2.75, best rank 2, recency score 24.68."
+          },
+          {
+            "rank": 5,
+            "symbol": "DUAL",
+            "name": "Dual",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 7.75, best rank 6, recency score 4.81."
+          },
+          {
+            "rank": 6,
+            "symbol": "USOL",
+            "name": "Wrapped Solana (Universal)",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 5.67, best rank 5, recency score 8.27."
+          },
+          {
+            "rank": 7,
+            "symbol": "1000X",
+            "name": "1000x by Virtuals",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 6.33, best rank 5, recency score 4.35."
+          },
+          {
+            "rank": 8,
+            "symbol": "JITOSOL",
+            "name": "Jito Staked SOL",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 6.33, best rank 5, recency score 10.65."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-11T23:59:59Z"
+    },
+    {
+      "id": "mvf-base02",
+      "name": "base02",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base02",
+      "nav": "$47.82",
+      "ret1d": {
+        "value": "-0.0%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-0.9%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "+0.6%",
+        "cls": "pos",
+        "window": "30d"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$20",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "meetingOutcome": "traded",
+        "outcomeLabel": "executed reconciled",
+        "date": "9 July 2026",
+        "shortDate": "9 Jul",
+        "headline": "The rebalance executed and reconciled, mutating the fund's holdings, though one planned jitosol buy leg was skipped on a route-floor rejection and a small cash/base residual remains unpaired.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "executedLegCount": 4,
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-07-06",
+        "weekEnd": "2026-07-11",
+        "totalSessions": 4,
+        "executedRotations": 4,
+        "holdSessions": 0,
+        "blockedSessions": 0
+      },
+      "screening": {
+        "runDate": "11 July 2026",
+        "aggDate": "11 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 6,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "FBOMB",
+            "name": "Fantom Bomb",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 1.80, best rank 1, recency score 31.01."
+          },
+          {
+            "rank": 2,
+            "symbol": "ALTT",
+            "name": "Altcoinist Token",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 2.80, best rank 1, recency score 27.67."
+          },
+          {
+            "rank": 3,
+            "symbol": "JITOSOL",
+            "name": "Jito Staked SOL",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 4.00, best rank 1, recency score 21.84."
+          },
+          {
+            "rank": 4,
+            "symbol": "USOL",
+            "name": "Wrapped Solana (Universal)",
+            "reason": "Appeared in 5/6 source run(s) with avg rank 5.60, best rank 3, recency score 17.61."
+          },
+          {
+            "rank": 5,
+            "symbol": "YFI",
+            "name": "yearn.finance",
+            "reason": "Appeared in 4/6 source run(s) with avg rank 5.25, best rank 3, recency score 16.25."
+          },
+          {
+            "rank": 6,
+            "symbol": "CX",
+            "name": "Cortex",
+            "reason": "Appeared in 4/6 source run(s) with avg rank 6.00, best rank 3, recency score 11.84."
+          },
+          {
+            "rank": 7,
+            "symbol": "PEAS",
+            "name": "Peapods Finance",
+            "reason": "Appeared in 3/6 source run(s) with avg rank 5.00, best rank 2, recency score 13.55."
+          },
+          {
+            "rank": 8,
+            "symbol": "ETHFI",
+            "name": "Ether.fi",
+            "reason": "Appeared in 2/6 source run(s) with avg rank 3.50, best rank 1, recency score 4.48."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-11T23:59:59Z"
+    },
+    {
+      "id": "mvf-base04",
+      "name": "base04",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base04",
+      "nav": "$24.54",
+      "ret1d": {
+        "value": "+0.2%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "ret30d": {
+        "value": "+0.2%",
+        "cls": "pos",
+        "window": "1d*"
+      },
+      "holdingsBar": [],
+      "basePositions": [],
+      "council": null,
+      "councilWeek": null,
+      "screening": {
+        "runDate": "11 July 2026",
+        "aggDate": "11 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 1,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "JESSE",
+            "name": "jesse",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 1.00, best rank 1, recency score 10.00."
+          },
+          {
+            "rank": 2,
+            "symbol": "HIGHER",
+            "name": "higher",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 2.00, best rank 2, recency score 9.00."
+          },
+          {
+            "rank": 3,
+            "symbol": "TIBBIR",
+            "name": "Ribbita by Virtuals",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 3.00, best rank 3, recency score 8.00."
+          },
+          {
+            "rank": 4,
+            "symbol": "MOLT",
+            "name": "Moltbook",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 4.00, best rank 4, recency score 7.00."
+          },
+          {
+            "rank": 5,
+            "symbol": "BALD",
+            "name": "Bald",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 5.00, best rank 5, recency score 6.00."
+          },
+          {
+            "rank": 6,
+            "symbol": "NPC",
+            "name": "Non-Playable Coin",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 6.00, best rank 6, recency score 5.00."
+          },
+          {
+            "rank": 7,
+            "symbol": "REKT",
+            "name": "Rekt",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 7.00, best rank 7, recency score 4.00."
+          },
+          {
+            "rank": 8,
+            "symbol": "SUPERGEMMA",
+            "name": "Supergemma4-26b-multimodal",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 8.00, best rank 8, recency score 3.00."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-11T23:59:59Z"
+    },
+    {
+      "id": "mvf-base05",
+      "name": "base05",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base05",
+      "nav": "$24.54",
+      "ret1d": {
+        "value": "+0.2%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "n/a",
+        "cls": "neu"
+      },
+      "ret30d": {
+        "value": "+0.2%",
+        "cls": "pos",
+        "window": "1d*"
+      },
+      "holdingsBar": [],
+      "basePositions": [],
+      "council": null,
+      "councilWeek": null,
+      "screening": {
+        "runDate": "11 July 2026",
+        "aggDate": "11 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 1,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "OK",
+            "name": "Okcash",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 1.00, best rank 1, recency score 10.00."
+          },
+          {
+            "rank": 2,
+            "symbol": "HIGHER",
+            "name": "higher",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 2.00, best rank 2, recency score 9.00."
+          },
+          {
+            "rank": 3,
+            "symbol": "BRO",
+            "name": "Neurobro",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 3.00, best rank 3, recency score 8.00."
+          },
+          {
+            "rank": 4,
+            "symbol": "PR",
+            "name": "Primer",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 4.00, best rank 4, recency score 7.00."
+          },
+          {
+            "rank": 5,
+            "symbol": "SUPERGEMMA",
+            "name": "Supergemma4-26b-multimodal",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 5.00, best rank 5, recency score 6.00."
+          },
+          {
+            "rank": 6,
+            "symbol": "WXM",
+            "name": "WeatherXM",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 6.00, best rank 6, recency score 5.00."
+          },
+          {
+            "rank": 7,
+            "symbol": "PIGGY",
+            "name": "Piggy",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 7.00, best rank 7, recency score 4.00."
+          },
+          {
+            "rank": 8,
+            "symbol": "CHAD",
+            "name": "Based Chad",
+            "reason": "Appeared in 1/1 source run(s) with avg rank 8.00, best rank 8, recency score 3.00."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-11T23:59:59Z"
+    }
+  ],
+  "macro": null,
+  "narratives": [],
+  "signalExample": {
+    "symbol": "JESSE",
+    "name": "jesse",
+    "body": "Appeared in <strong>7/7 daily runs</strong> across messyinfra and base01 and base04 over the 7-day lookback. Appeared in 7/7 source run(s) with avg rank 2.57, best rank 2, recency score 31.68.",
+    "tags": [
+      "7/7 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": null,
+  "weeklyHighlights": [
+    "base01 held 6 council sessions this week — 5 executed rotations on Base and 1 hold review.",
+    "base02 held 4 council sessions this week — 4 signed and reconciled on Base.",
+    "JESSE showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade."
+  ],
+  "readerNotes": [
+    {
+      "showUntil": "2026-08-31",
+      "text": "Fund pages in the app now include full council minutes — open any fund and tap Council to read what the portfolio committee debated, what the Chair decided, and whether trades were executed.",
+      "link": {
+        "href": "/blog/2026/06/messy-virgo-decision-pipeline-part-1-the-ai-investment-council/",
+        "label": "How the AI investment council works"
+      }
+    },
+    {
+      "showFrom": "2026-07-10",
+      "showUntil": "2026-08-31",
+      "text": "We publish four Guru micro test funds (base01, base02, base04, base05) alongside the read-only Guru Lotus snapshots. base04 and base05 joined on 10 July with distinct token universes. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use."
+    }
+  ]
+}

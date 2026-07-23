@@ -1,0 +1,421 @@
+{
+  "snapshotDate": "4 July 2026",
+  "asOfDate": "2026-07-04",
+  "macroUnavailable": true,
+  "narrativesUnavailable": true,
+  "publishedAt": "2026-07-23T02:28:16.314Z",
+  "funds": [
+    {
+      "id": "mvf-guru-messybased",
+      "name": "messybased",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messybased",
+      "nav": "$29.8k",
+      "ret1d": {
+        "value": "+1.4%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+15.2%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "-1.5%",
+        "cls": "neg",
+        "window": "25d*"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "councilWeek": null,
+      "screening": {
+        "runDate": "4 July 2026",
+        "aggDate": "4 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "SR",
+            "name": "Strike Robot",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 1.75 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "CAP",
+            "name": "Capminal",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 3,
+            "symbol": "CX",
+            "name": "Cortex",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 2.25 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "WAVE",
+            "name": "Waveform by Virtuals",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 2.33 and best rank 1."
+          },
+          {
+            "rank": 5,
+            "symbol": "ACN",
+            "name": "AITECH Cloud Network",
+            "reason": "Appeared in 2/7 source run(s) with avg rank 2.50 and best rank 2."
+          },
+          {
+            "rank": 6,
+            "symbol": "GPU",
+            "name": "NodeAI",
+            "reason": "Appeared in 2/7 source run(s) with avg rank 4.50 and best rank 4."
+          },
+          {
+            "rank": 7,
+            "symbol": "PROMPT",
+            "name": "Wayfinder",
+            "reason": "Appeared in 2/7 source run(s) with avg rank 5.00 and best rank 4."
+          },
+          {
+            "rank": 8,
+            "symbol": "BOT",
+            "name": "Wasabot",
+            "reason": "Appeared in 1/7 source run(s) with avg rank 1.00 and best rank 1."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-04T23:59:59Z"
+    },
+    {
+      "id": "mvf-guru-messyinfra",
+      "name": "messyinfra",
+      "group": "guru",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-guru-messyinfra",
+      "nav": "$29k",
+      "ret1d": {
+        "value": "+1.6%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+14.1%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "+4.3%",
+        "cls": "pos",
+        "window": "25d*"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$0",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "target_change",
+        "outcomeKind": "target_change",
+        "outcomeLabel": "target change",
+        "date": "6 June 2026",
+        "shortDate": "6 Jun",
+        "headline": "Target change approved; rebalance handoff is ready for review.",
+        "executionStatus": "resolved",
+        "riskNotes": null
+      },
+      "councilWeek": null,
+      "screening": {
+        "runDate": "4 July 2026",
+        "aggDate": "4 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "JESSE",
+            "name": "jesse",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.17 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "REAL",
+            "name": "Defactor",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.60 and best rank 2."
+          },
+          {
+            "rank": 3,
+            "symbol": "SYN",
+            "name": "Synapse",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 6.40 and best rank 5."
+          },
+          {
+            "rank": 4,
+            "symbol": "EDEL",
+            "name": "Edel",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.00 and best rank 1."
+          },
+          {
+            "rank": 5,
+            "symbol": "AURA",
+            "name": "Aura Finance",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 3."
+          },
+          {
+            "rank": 6,
+            "symbol": "CX",
+            "name": "Cortex",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.75 and best rank 5."
+          },
+          {
+            "rank": 7,
+            "symbol": "HANDL",
+            "name": "HandlPay",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 1.67 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "SR",
+            "name": "Strike Robot",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 2.33 and best rank 1."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-04T23:59:59Z"
+    },
+    {
+      "id": "mvf-base01",
+      "name": "base01",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base01",
+      "nav": "$80.8",
+      "ret1d": {
+        "value": "+1.9%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+6.0%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "+11.0%",
+        "cls": "pos",
+        "window": "25d*"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$32",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "meetingOutcome": "traded",
+        "outcomeLabel": "executed reconciled",
+        "date": "4 July 2026",
+        "shortDate": "4 Jul",
+        "headline": "The rebalance executed and reconciled, trimming wave and cap while increasing edel, real, and jesse inside a newly ratified defensive posture of about 38% cash, 37% base, and 25% high beta (down from about 41/39/20); realized post-execution weights are not yet available to confirm the achieved posture against that target.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "executedLegCount": 5,
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-06-29",
+        "weekEnd": "2026-07-04",
+        "totalSessions": 6,
+        "executedRotations": 6,
+        "holdSessions": 0,
+        "blockedSessions": 0
+      },
+      "screening": {
+        "runDate": "4 July 2026",
+        "aggDate": "4 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "JESSE",
+            "name": "jesse",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 5.17 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "REAL",
+            "name": "Defactor",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 2.60 and best rank 2."
+          },
+          {
+            "rank": 3,
+            "symbol": "SYN",
+            "name": "Synapse",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 6.40 and best rank 5."
+          },
+          {
+            "rank": 4,
+            "symbol": "EDEL",
+            "name": "Edel",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.00 and best rank 1."
+          },
+          {
+            "rank": 5,
+            "symbol": "AURA",
+            "name": "Aura Finance",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 3."
+          },
+          {
+            "rank": 6,
+            "symbol": "CX",
+            "name": "Cortex",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 6.75 and best rank 5."
+          },
+          {
+            "rank": 7,
+            "symbol": "HANDL",
+            "name": "HandlPay",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 1.67 and best rank 1."
+          },
+          {
+            "rank": 8,
+            "symbol": "SR",
+            "name": "Strike Robot",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 2.33 and best rank 1."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-04T23:59:59Z"
+    },
+    {
+      "id": "mvf-base02",
+      "name": "base02",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base02",
+      "nav": "$48.23",
+      "ret1d": {
+        "value": "+1.0%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+2.8%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "+1.2%",
+        "cls": "pos",
+        "window": "25d*"
+      },
+      "holdingsBar": [],
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$9",
+          "pnl": null
+        }
+      ],
+      "council": null,
+      "councilWeek": null,
+      "screening": {
+        "runDate": "4 July 2026",
+        "aggDate": "4 July 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "REAL",
+            "name": "Defactor",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 2,
+            "symbol": "G",
+            "name": "Gravity (by Galxe)",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 4.00 and best rank 2."
+          },
+          {
+            "rank": 3,
+            "symbol": "SYN",
+            "name": "Synapse",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 3.00 and best rank 2."
+          },
+          {
+            "rank": 4,
+            "symbol": "VNXAU",
+            "name": "VNX Gold",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 5.80 and best rank 4."
+          },
+          {
+            "rank": 5,
+            "symbol": "HANDL",
+            "name": "HandlPay",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 2.00 and best rank 1."
+          },
+          {
+            "rank": 6,
+            "symbol": "CX",
+            "name": "Cortex",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 2.75 and best rank 2."
+          },
+          {
+            "rank": 7,
+            "symbol": "AURA",
+            "name": "Aura Finance",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 4.00 and best rank 2."
+          },
+          {
+            "rank": 8,
+            "symbol": "DOG",
+            "name": "Own The Doge",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 4.67 and best rank 4."
+          }
+        ]
+      },
+      "positionCount": 0,
+      "pricedAt": "2026-07-04T23:59:59Z"
+    }
+  ],
+  "macro": null,
+  "narratives": [],
+  "signalExample": {
+    "symbol": "REAL",
+    "name": "Defactor",
+    "body": "Appeared in <strong>6/7 daily runs</strong> across messyinfra and base01 and base02 over the 7-day lookback. Appeared in 5/7 source run(s) with avg rank 2.60 and best rank 2.",
+    "tags": [
+      "3-fund",
+      "aggregate"
+    ]
+  },
+  "riskReject": null,
+  "weeklyHighlights": [
+    "base01 held 6 council sessions this week — 6 signed and reconciled on Base.",
+    "REAL showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade."
+  ],
+  "readerNotes": [
+    {
+      "showUntil": "2026-08-31",
+      "text": "Fund pages in the app now include full council minutes — open any fund and tap Council to read what the portfolio committee debated, what the Chair decided, and whether trades were executed.",
+      "link": {
+        "href": "/blog/2026/06/messy-virgo-decision-pipeline-part-1-the-ai-investment-council/",
+        "label": "How the AI investment council works"
+      }
+    },
+    {
+      "showUntil": "2026-08-31",
+      "text": "We publish two live workflow test funds (base01 and base02) alongside the read-only Guru Lotus snapshots. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use."
+    }
+  ]
+}
