@@ -6,6 +6,7 @@
 const { execSync } = require("child_process");
 
 const API = "https://api.messyvirgo.com/api/v1/public";
+const CLI = "npx -y @messyvirgo/cli@0.41.0";
 
 const FUNDS = [
   { id: "mvf-guru-messybased", name: "messybased", sleeveId: "mvs-guru-messybased-1", group: "guru" },
@@ -66,7 +67,7 @@ function buildWeeklyHighlights({ funds, macro, signalExample, narratives }) {
   if (macro?.score != null && macro?.regime) {
     const regimeShort = String(macro.regime).replace(/\s*—.*/, "").trim();
     highlights.push(
-      `Macro currently reads ${regimeShort} (${Number(macro.score).toFixed(1)}/100). The score updates daily; each council session uses the latest macro read available at meeting time.`
+      `Macro as of this week reads ${regimeShort} (${Number(macro.score).toFixed(1)}/100). The score updates daily; each council session uses the latest macro read available at meeting time.`
     );
   }
 
@@ -346,15 +347,32 @@ function summarizeCouncilWeek(publicItems, cliItems, asOfDate) {
   };
 }
 
+function parseCliJson(raw) {
+  const obj = raw.indexOf("{");
+  const arr = raw.indexOf("[");
+  let start = -1;
+  if (obj >= 0 && arr >= 0) start = Math.min(obj, arr);
+  else start = Math.max(obj, arr);
+  if (start < 0) throw new Error("No JSON in CLI output");
+  return JSON.parse(raw.slice(start));
+}
+
+function runCliJson(args, timeoutMs = 60000) {
+  const raw = execSync(`${CLI} ${args}`, {
+    encoding: "utf8",
+    timeout: timeoutMs,
+    stdio: ["pipe", "pipe", "pipe"],
+    maxBuffer: 10 * 1024 * 1024,
+  });
+  return parseCliJson(raw);
+}
+
 function fetchCouncilCliList(fundId, limit = 25) {
   try {
-    const raw = execSync(
-      `npx -y @messyvirgo/cli@0.31.0 funds council list ${fundId} --limit ${limit} --json`,
-      { encoding: "utf8", timeout: 45000, stdio: ["pipe", "pipe", "pipe"] }
+    const d = runCliJson(
+      `funds council list ${fundId} --limit ${limit} --json`,
+      45000
     );
-    const start = raw.indexOf("{");
-    if (start === -1) return [];
-    const d = JSON.parse(raw.slice(start));
     return d.items || [];
   } catch {
     return [];
@@ -922,7 +940,74 @@ function isArchivedContextStale(sourceDate, asOfDate) {
   return Boolean(asOfDate && sourceDate && sourceDate > asOfDate);
 }
 
-async function fetchMacro(asOfDate) {
+const REGIME_LABELS = {
+  N: "Neutral",
+  "R+": "Risk On",
+  "R++": "Strong Risk On",
+  "R-": "Risk Off",
+  "R--": "Strong Risk Off",
+};
+
+function formatRegimeDisplay(raw) {
+  const text = String(raw || "").trim();
+  if (!text) return "Neutral";
+  if (/—/.test(text)) return text;
+  const name = REGIME_LABELS[text];
+  return name ? `${text} — ${name}` : text;
+}
+
+function normalizeMacroRegime(raw) {
+  return formatRegimeDisplay(raw);
+}
+
+function fetchMacroCli(asOfDate) {
+  const asOfArg = asOfDate ? ` --as-of ${asOfDate}` : "";
+  const data = runCliJson(`context macros get${asOfArg} --json`);
+  const effective = data.effective || {};
+  const observed = data.observed || {};
+  const news = data.news_overlay || {};
+  const score =
+    effective.score != null
+      ? Number(effective.score)
+      : observed.score != null
+        ? Number(observed.score)
+        : null;
+  if (score == null || Number.isNaN(score)) return null;
+
+  const regime = formatRegimeDisplay(
+    effective.regime_label || observed.regime_label || "N"
+  );
+  const scoreFixed = Number(score.toFixed(2));
+  const parts = [`Effective Score: ${scoreFixed} (${regime}).`];
+  if (news.status === "active") {
+    const qa = news.news_qa_points ?? news.effective_qa_points;
+    const label = news.news_label || "active";
+    const obsScore = observed.score != null ? Number(observed.score).toFixed(1) : null;
+    if (obsScore != null && Math.abs(Number(obsScore) - score) >= 0.05) {
+      parts.push(
+        `News overlay ${label}${qa != null ? ` (${qa} QA pts)` : ""} moved observed ${obsScore} → effective ${scoreFixed}.`
+      );
+    } else {
+      parts.push(
+        `News overlay ${label}${qa != null ? ` (${qa} QA pts)` : ""}.`
+      );
+    }
+  } else if (news.status && news.status !== "active") {
+    parts.push(`News overlay status: ${news.status}.`);
+  }
+  if (asOfDate && data.snapshot_date) {
+    parts.push(`Context snapshot ${data.snapshot_date}.`);
+  }
+
+  return {
+    score: scoreFixed,
+    regime,
+    summary: parts.join(" "),
+    sourceDate: extractIsoDate(data.snapshot_date) || asOfDate || null,
+  };
+}
+
+async function fetchMacroPublic(asOfDate) {
   const url = asOfDate
     ? `${API}/reports/macro/report/default?as_of_date=${asOfDate}`
     : `${API}/reports/macro/report/default`;
@@ -984,12 +1069,28 @@ async function fetchMacro(asOfDate) {
   return { score, regime, summary, sourceDate };
 }
 
-function normalizeMacroRegime(raw) {
-  const text = String(raw || "").trim();
-  const labeled = text.match(/^[A-Z]\s*—\s*(.+)$/);
-  if (labeled) return labeled[1].trim();
-  if (text === "N") return "Neutral";
-  return text;
+async function fetchMacro(asOfDate, useCli = true) {
+  if (useCli) {
+    const attempts = asOfDate ? 3 : 1;
+    let lastErr = null;
+    for (let i = 0; i < attempts; i++) {
+      try {
+        const cliMacro = fetchMacroCli(asOfDate);
+        if (cliMacro) return cliMacro;
+      } catch (err) {
+        lastErr = err;
+        console.warn(
+          `[fund-update] CLI context macros get attempt ${i + 1}/${attempts} failed (${err.message})`
+        );
+      }
+    }
+    if (asOfDate) {
+      // Do not fall back to public report API for archived weeks — it often returns
+      // a newer snapshot that we then discard as stale, wiping historical context.
+      throw lastErr || new Error("CLI macros returned empty for as-of date");
+    }
+  }
+  return fetchMacroPublic(asOfDate);
 }
 
 function extractMacroOverlayFindings(md) {
@@ -1007,28 +1108,27 @@ function extractMacroOverlayFindings(md) {
     .map((finding) => finding.split(/\s*;\s*/)[0].trim());
 }
 
-async function fetchNarratives(asOfDate) {
-  const url = asOfDate
-    ? `${API}/reports/narratives/trend?as_of_date=${asOfDate}`
-    : `${API}/reports/narratives/trend`;
-  const data = await safeFetch(url);
-  if (!data) return { narratives: [], sourceDate: null };
-
+function shapeNarrativeRows(rows) {
   const STABLE_IDS = new Set(["stablecoins"]);
   const HIGHLIGHT = new Set([
     "privacy-coins", "decentralized-science-desci", "ai-agents",
     "decentralized-finance-defi", "real-world-assets-rwa", "socialfi",
   ]);
 
-  return {
-    narratives: (data.narratives || [])
-      .filter((n) => !STABLE_IDS.has(n.narrative_id) && HIGHLIGHT.has(n.narrative_id))
-      .sort((a, b) => (b.change_pct_by_window["15"] || 0) - (a.change_pct_by_window["15"] || 0))
-      .map((n) => {
-      const c15 = n.change_pct_by_window["15"] ?? null;
-      const c30 = n.change_pct_by_window["30"] ?? null;
-      const c60 = n.change_pct_by_window["60"] ?? null;
-      const vsBtc15 = n.relative_pp_by_baseline?.btc?.["15"] ?? null;
+  return (rows || [])
+    .filter((n) => !STABLE_IDS.has(n.narrative_id) && HIGHLIGHT.has(n.narrative_id))
+    .sort((a, b) => (b.change_pct_by_window?.["15"] || 0) - (a.change_pct_by_window?.["15"] || 0))
+    .map((n) => {
+      const c15 = n.change_pct_by_window?.["15"] ?? null;
+      const c30 = n.change_pct_by_window?.["30"] ?? null;
+      const c60 = n.change_pct_by_window?.["60"] ?? null;
+      const vsBaseline = n.relative_pp_by_baseline || {};
+      const vsBtc15 =
+        vsBaseline.btc?.["15"] ??
+        vsBaseline.BTC?.["15"] ??
+        (typeof vsBaseline.BTC === "number" ? vsBaseline.BTC : null) ??
+        (typeof vsBaseline.btc === "number" ? vsBaseline.btc : null) ??
+        null;
 
       let pill = "watch";
       let pillLabel = "Watch";
@@ -1058,9 +1158,54 @@ async function fetchNarratives(asOfDate) {
         pillLabel,
         rawChg15: c15,
       };
-    }),
+    });
+}
+
+function fetchNarrativesCli(asOfDate) {
+  const asOfArg = asOfDate ? ` --as-of ${asOfDate}` : "";
+  const data = runCliJson(`context narratives list${asOfArg} --json`);
+  const rows = data.rows || data.narratives || [];
+  return {
+    narratives: shapeNarrativeRows(rows),
+    sourceDate: extractIsoDate(data.snapshot_date) || asOfDate || null,
+  };
+}
+
+async function fetchNarrativesPublic(asOfDate) {
+  const url = asOfDate
+    ? `${API}/reports/narratives/trend?as_of_date=${asOfDate}`
+    : `${API}/reports/narratives/trend`;
+  const data = await safeFetch(url);
+  if (!data) return { narratives: [], sourceDate: null };
+
+  return {
+    narratives: shapeNarrativeRows(data.narratives || []),
     sourceDate: extractIsoDate(data.snapshot_date),
   };
+}
+
+async function fetchNarratives(asOfDate, useCli = true) {
+  if (useCli) {
+    const attempts = asOfDate ? 3 : 1;
+    let lastErr = null;
+    for (let i = 0; i < attempts; i++) {
+      try {
+        const cliNarratives = fetchNarrativesCli(asOfDate);
+        if (cliNarratives.narratives.length || cliNarratives.sourceDate) {
+          return cliNarratives;
+        }
+      } catch (err) {
+        lastErr = err;
+        console.warn(
+          `[fund-update] CLI context narratives list attempt ${i + 1}/${attempts} failed (${err.message})`
+        );
+      }
+    }
+    if (asOfDate) {
+      throw lastErr || new Error("CLI narratives returned empty for as-of date");
+    }
+  }
+  return fetchNarrativesPublic(asOfDate);
 }
 
 /**
@@ -1070,16 +1215,38 @@ async function fetchFundUpdateData(options = {}) {
   const useCli = options.useCli !== false;
   const asOfDate = options.asOfDate || null;
 
-  const [funds, macroResult, narrativeResult] = await Promise.all([
-    Promise.all(fundsForAsOf(asOfDate).map((f) => fetchFund(f, useCli, asOfDate))),
-    fetchMacro(asOfDate),
-    fetchNarratives(asOfDate),
-  ]);
+  // Resolve historical macro/narratives first (CLI --as-of). Avoid racing dozens of
+  // council CLI calls against context lookups — that contention was dropping context.
+  let macroResult = null;
+  let narrativeResult = { narratives: [], sourceDate: null };
+  try {
+    macroResult = await fetchMacro(asOfDate, useCli);
+  } catch (err) {
+    console.warn(`[fund-update] macro fetch failed: ${err.message}`);
+  }
+  try {
+    narrativeResult = await fetchNarratives(asOfDate, useCli);
+  } catch (err) {
+    console.warn(`[fund-update] narratives fetch failed: ${err.message}`);
+  }
 
-  const macroUnavailable = isArchivedContextStale(macroResult?.sourceDate, asOfDate);
-  const narrativesUnavailable = isArchivedContextStale(narrativeResult.sourceDate, asOfDate);
-  const macro = macroUnavailable ? null : macroResult;
-  const narratives = narrativesUnavailable ? [] : narrativeResult.narratives;
+  const funds = await Promise.all(
+    fundsForAsOf(asOfDate).map((f) => fetchFund(f, useCli, asOfDate))
+  );
+
+  const macroStale = isArchivedContextStale(macroResult?.sourceDate, asOfDate);
+  const narrativesStale = isArchivedContextStale(narrativeResult.sourceDate, asOfDate);
+  const macro = macroStale ? null : macroResult;
+  const narratives = narrativesStale ? [] : narrativeResult.narratives;
+  const macroUnavailable = Boolean(asOfDate) && !macro;
+  const narrativesUnavailable = Boolean(asOfDate) && narratives.length === 0;
+
+  if (asOfDate && macroUnavailable) {
+    console.warn(`[fund-update] macro unavailable for as-of ${asOfDate}`);
+  }
+  if (asOfDate && narrativesUnavailable) {
+    console.warn(`[fund-update] narratives unavailable for as-of ${asOfDate}`);
+  }
 
   const snapshotDate =
     options.snapshotDate ||

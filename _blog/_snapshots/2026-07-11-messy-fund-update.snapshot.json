@@ -1,9 +1,9 @@
 {
   "snapshotDate": "11 July 2026",
   "asOfDate": "2026-07-11",
-  "macroUnavailable": true,
-  "narrativesUnavailable": true,
-  "publishedAt": "2026-07-23T02:36:08.867Z",
+  "macroUnavailable": false,
+  "narrativesUnavailable": false,
+  "publishedAt": "2026-07-24T11:13:44.892Z",
   "funds": [
     {
       "id": "mvf-guru-messybased",
@@ -573,8 +573,118 @@
       "pricedAt": "2026-07-11T23:59:59Z"
     }
   ],
-  "macro": null,
-  "narratives": [],
+  "macro": {
+    "score": 54.63,
+    "regime": "N — Neutral",
+    "summary": "Effective Score: 54.63 (N — Neutral). News overlay risk-on (4.23 QA pts) moved observed 50.4 → effective 54.63. Context snapshot 2026-07-11.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-4.5%",
+      "chg30": "-9.2%",
+      "chg60": "-25.8%",
+      "vsBtc15": "-4.3pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -4.5409
+    }
+  },
+  "narratives": [
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "+13.8%",
+      "chg30": "+8.2%",
+      "chg60": "-15.3%",
+      "vsBtc15": "+6.2pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 13.8194
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "+11.0%",
+      "chg30": "+9.1%",
+      "chg60": "-21.3%",
+      "vsBtc15": "+0.2pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 10.9977
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "+5.4%",
+      "chg30": "+4.7%",
+      "chg60": "+1.6%",
+      "vsBtc15": "+23.1pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": 5.4477
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "-1.1%",
+      "chg30": "-8.9%",
+      "chg60": "-30.6%",
+      "vsBtc15": "-9.1pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -1.1388
+    },
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "-1.7%",
+      "chg30": "+10.4%",
+      "chg60": "+9.6%",
+      "vsBtc15": "+31.1pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -1.6831
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-4.5%",
+      "chg30": "-9.2%",
+      "chg60": "-25.8%",
+      "vsBtc15": "-4.3pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -4.5409
+    }
+  ],
   "signalExample": {
     "symbol": "JESSE",
     "name": "jesse",
@@ -586,9 +696,11 @@
   },
   "riskReject": null,
   "weeklyHighlights": [
+    "Macro as of this week reads N (54.6/100). The score updates daily; each council session uses the latest macro read available at meeting time.",
     "base01 held 6 council sessions this week — 5 executed rotations on Base and 1 hold review.",
     "base02 held 4 council sessions this week — 4 signed and reconciled on Base.",
-    "JESSE showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade."
+    "JESSE showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade.",
+    "Privacy Coins leads narrative momentum (+13.8% over 15 days) — thematic heat, not a buy signal on its own."
   ],
   "readerNotes": [
     {

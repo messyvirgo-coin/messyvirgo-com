@@ -156,7 +156,7 @@
 
 {% if fu.macroUnavailable %}
 <div class="fu-context-unavailable mv-card glassmorphism rounded-lg p-6 mb-6">
-  <p class="mv-body mb-0 text-gray-400">Not available for this archived week. The public API does not expose historical macro snapshots — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current regime context.</p>
+  <p class="mv-body mb-0 text-gray-400">Historical macro context could not be resolved for this archived week — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current regime context.</p>
 </div>
 {% elif fu.macro %}
 <div class="fu-macro mv-card glassmorphism rounded-lg p-6 mb-6">
@@ -174,7 +174,7 @@
 
 {% if fu.narrativesUnavailable %}
 <div class="fu-context-unavailable mv-card glassmorphism rounded-lg p-6 mb-6">
-  <p class="mv-body mb-0 text-gray-400">Not available for this archived week. The public API does not expose historical narrative momentum snapshots — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current narrative rankings.</p>
+  <p class="mv-body mb-0 text-gray-400">Historical narrative momentum could not be resolved for this archived week — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current narrative rankings.</p>
 </div>
 {% elif fu.narratives.length %}
 <div class="fu-narr-wrap">

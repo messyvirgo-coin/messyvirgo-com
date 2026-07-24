@@ -1,9 +1,9 @@
 {
   "snapshotDate": "18 July 2026",
   "asOfDate": "2026-07-18",
-  "macroUnavailable": true,
-  "narrativesUnavailable": true,
-  "publishedAt": "2026-07-23T02:36:49.937Z",
+  "macroUnavailable": false,
+  "narrativesUnavailable": false,
+  "publishedAt": "2026-07-24T11:13:49.891Z",
   "funds": [
     {
       "id": "mvf-guru-messybased",
@@ -627,8 +627,118 @@
       "pricedAt": "2026-07-18T23:59:59Z"
     }
   ],
-  "macro": null,
-  "narratives": [],
+  "macro": {
+    "score": 61.36,
+    "regime": "R+ — Risk On",
+    "summary": "Effective Score: 61.36 (R+ — Risk On). News overlay risk-on (6.94 QA pts) moved observed 54.4 → effective 61.36. Context snapshot 2026-07-18.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-6.8%",
+      "chg30": "-17.5%",
+      "chg60": "-22.9%",
+      "vsBtc15": "-5.9pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -6.822
+    }
+  },
+  "narratives": [
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "+23.0%",
+      "chg30": "+33.9%",
+      "chg60": "+14.4%",
+      "vsBtc15": "+31.4pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Leading",
+      "rawChg15": 23.032
+    },
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "+15.7%",
+      "chg30": "+7.2%",
+      "chg60": "-6.9%",
+      "vsBtc15": "+10.1pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 15.7445
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "+1.9%",
+      "chg30": "-0.3%",
+      "chg60": "+3.0%",
+      "vsBtc15": "+20.1pp",
+      "chg15Pos": true,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": 1.9343
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "-3.5%",
+      "chg30": "-19.7%",
+      "chg60": "-28.6%",
+      "vsBtc15": "-11.5pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -3.4649
+    },
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "-6.8%",
+      "chg30": "-6.4%",
+      "chg60": "+11.1%",
+      "vsBtc15": "+28.1pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -6.79
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-6.8%",
+      "chg30": "-17.5%",
+      "chg60": "-22.9%",
+      "vsBtc15": "-5.9pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -6.822
+    }
+  ],
   "signalExample": {
     "symbol": "TIBBIR",
     "name": "Ribbita by Virtuals",
@@ -640,11 +750,13 @@
   },
   "riskReject": null,
   "weeklyHighlights": [
+    "Macro as of this week reads R+ (61.4/100). The score updates daily; each council session uses the latest macro read available at meeting time.",
     "base01 held 5 council sessions this week — 5 signed and reconciled on Base.",
     "base02 held 7 council sessions this week — 7 signed and reconciled on Base.",
     "base04 held 5 council sessions this week — 5 signed and reconciled on Base.",
     "base05 held 4 council sessions this week — 4 signed and reconciled on Base.",
-    "TIBBIR showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade."
+    "TIBBIR showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade.",
+    "SocialFi leads narrative momentum (+23.0% over 15 days) — thematic heat, not a buy signal on its own."
   ],
   "readerNotes": [
     {

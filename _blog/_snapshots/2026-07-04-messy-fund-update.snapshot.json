@@ -1,9 +1,9 @@
 {
   "snapshotDate": "4 July 2026",
   "asOfDate": "2026-07-04",
-  "macroUnavailable": true,
-  "narrativesUnavailable": true,
-  "publishedAt": "2026-07-23T02:28:16.314Z",
+  "macroUnavailable": false,
+  "narrativesUnavailable": false,
+  "publishedAt": "2026-07-24T11:09:49.925Z",
   "funds": [
     {
       "id": "mvf-guru-messybased",
@@ -20,9 +20,9 @@
         "cls": "pos"
       },
       "ret30d": {
-        "value": "-1.5%",
-        "cls": "neg",
-        "window": "25d*"
+        "value": "+3.3%",
+        "cls": "pos",
+        "window": "24d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -108,9 +108,9 @@
         "cls": "pos"
       },
       "ret30d": {
-        "value": "+4.3%",
+        "value": "+7.5%",
         "cls": "pos",
-        "window": "25d*"
+        "window": "24d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -126,7 +126,7 @@
         "outcomeLabel": "target change",
         "date": "6 June 2026",
         "shortDate": "6 Jun",
-        "headline": "Target change approved; rebalance handoff is ready for review.",
+        "headline": "Council session completed.",
         "executionStatus": "resolved",
         "riskNotes": null
       },
@@ -205,9 +205,9 @@
         "cls": "pos"
       },
       "ret30d": {
-        "value": "+11.0%",
+        "value": "+11.9%",
         "cls": "pos",
-        "window": "25d*"
+        "window": "24d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -314,9 +314,9 @@
         "cls": "pos"
       },
       "ret30d": {
-        "value": "+1.2%",
+        "value": "+1.9%",
         "cls": "pos",
-        "window": "25d*"
+        "window": "24d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -388,8 +388,118 @@
       "pricedAt": "2026-07-04T23:59:59Z"
     }
   ],
-  "macro": null,
-  "narratives": [],
+  "macro": {
+    "score": 44.3,
+    "regime": "N — Neutral",
+    "summary": "Effective Score: 44.3 (N — Neutral). News overlay neutral (0 QA pts). Context snapshot 2026-07-04.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-8.7%",
+      "chg30": "-22.4%",
+      "chg60": "-2.4%",
+      "vsBtc15": "+19.6pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -8.6786
+    }
+  },
+  "narratives": [
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "+13.1%",
+      "chg30": "+3.0%",
+      "chg60": "-12.4%",
+      "vsBtc15": "+9.5pp",
+      "chg15Pos": true,
+      "chg30Pos": true,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "hot",
+      "pillLabel": "Steady",
+      "rawChg15": 13.1052
+    },
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "+1.4%",
+      "chg30": "-20.2%",
+      "chg60": "-6.3%",
+      "vsBtc15": "+15.7pp",
+      "chg15Pos": true,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": 1.4146
+    },
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "-0.3%",
+      "chg30": "-3.0%",
+      "chg60": "+22.9%",
+      "vsBtc15": "+44.9pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -0.3106
+    },
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "-1.4%",
+      "chg30": "+0.6%",
+      "chg60": "+7.7%",
+      "vsBtc15": "+29.6pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -1.4192
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-8.7%",
+      "chg30": "-22.4%",
+      "chg60": "-2.4%",
+      "vsBtc15": "+19.6pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -8.6786
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "-12.7%",
+      "chg30": "-20.2%",
+      "chg60": "-29.2%",
+      "vsBtc15": "-7.3pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -12.6582
+    }
+  ],
   "signalExample": {
     "symbol": "REAL",
     "name": "Defactor",
@@ -401,7 +511,9 @@
   },
   "riskReject": null,
   "weeklyHighlights": [
+    "Macro as of this week reads N (44.3/100). The score updates daily; each council session uses the latest macro read available at meeting time.",
     "base01 held 6 council sessions this week — 6 signed and reconciled on Base.",
+    "SocialFi leads narrative momentum (+13.1% over 15 days) — thematic heat, not a buy signal on its own.",
     "REAL showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade."
   ],
   "readerNotes": [
@@ -414,7 +526,7 @@
       }
     },
     {
-      "showUntil": "2026-08-31",
+      "showUntil": "2026-07-09",
       "text": "We publish two live workflow test funds (base01 and base02) alongside the read-only Guru Lotus snapshots. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use."
     }
   ]

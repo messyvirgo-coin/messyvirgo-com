@@ -1,9 +1,9 @@
 {
   "snapshotDate": "13 June 2026",
   "asOfDate": "2026-06-13",
-  "macroUnavailable": true,
-  "narrativesUnavailable": true,
-  "publishedAt": "2026-06-21T04:33:22.198Z",
+  "macroUnavailable": false,
+  "narrativesUnavailable": false,
+  "publishedAt": "2026-07-24T11:09:21.369Z",
   "funds": [
     {
       "id": "mvf-guru-messybased",
@@ -16,12 +16,13 @@
         "cls": "pos"
       },
       "ret7d": {
-        "value": "+10.6%",
-        "cls": "pos"
-      },
-      "ret30d": {
         "value": "n/a",
         "cls": "neu"
+      },
+      "ret30d": {
+        "value": "+9.6%",
+        "cls": "pos",
+        "window": "3d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -32,8 +33,9 @@
         }
       ],
       "council": null,
+      "councilWeek": null,
       "screening": {
-        "runDate": "13 June 2026",
+        "runDate": null,
         "aggDate": "13 June 2026",
         "aggLookback": 7,
         "aggSourceRuns": 7,
@@ -102,12 +104,13 @@
         "cls": "pos"
       },
       "ret7d": {
-        "value": "+8.4%",
-        "cls": "pos"
-      },
-      "ret30d": {
         "value": "n/a",
         "cls": "neu"
+      },
+      "ret30d": {
+        "value": "+6.6%",
+        "cls": "pos",
+        "window": "3d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -119,19 +122,17 @@
       ],
       "council": {
         "outcome": "target_change",
+        "outcomeKind": "target_change",
         "outcomeLabel": "target change",
         "date": "6 June 2026",
         "shortDate": "6 Jun",
-        "riskNotes": "No hard policy blocks are present, and the book has fresh holdings, macro, and narratives coverage. The main admissibility concern is that screening aggregate coverage is degraded/sparse and mixed-context, so any rotation or new-position decision would be based on a thinner evidence stack than usual. Macro is regime N but risk-off news overlay and fully deployed high-beta exposure argue against net risk increase. A selective candidate rotation or rebalance is permissible, but execution should be treated as review-required rather than automatic.",
-        "certified": true,
-        "certificationLabel": "certified",
-        "targetFinalization": null,
-        "targetFinalizationBlocked": false,
-        "actionItems": null,
-        "executionStatus": "resolved"
+        "headline": "Council session completed.",
+        "executionStatus": "resolved",
+        "riskNotes": null
       },
+      "councilWeek": null,
       "screening": {
-        "runDate": "13 June 2026",
+        "runDate": null,
         "aggDate": "13 June 2026",
         "aggLookback": 7,
         "aggSourceRuns": 7,
@@ -200,12 +201,13 @@
         "cls": "pos"
       },
       "ret7d": {
-        "value": "+3.0%",
-        "cls": "pos"
-      },
-      "ret30d": {
         "value": "n/a",
         "cls": "neu"
+      },
+      "ret30d": {
+        "value": "+1.7%",
+        "cls": "pos",
+        "window": "3d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -216,8 +218,9 @@
         }
       ],
       "council": null,
+      "councilWeek": null,
       "screening": {
-        "runDate": "13 June 2026",
+        "runDate": null,
         "aggDate": "13 June 2026",
         "aggLookback": 7,
         "aggSourceRuns": 7,
@@ -286,12 +289,13 @@
         "cls": "neg"
       },
       "ret7d": {
-        "value": "+1.3%",
-        "cls": "pos"
-      },
-      "ret30d": {
         "value": "n/a",
         "cls": "neu"
+      },
+      "ret30d": {
+        "value": "+0.9%",
+        "cls": "pos",
+        "window": "3d*"
       },
       "holdingsBar": [],
       "basePositions": [
@@ -302,94 +306,9 @@
         }
       ],
       "council": null,
+      "councilWeek": null,
       "screening": {
-        "runDate": "13 June 2026",
-        "aggDate": "13 June 2026",
-        "aggLookback": 7,
-        "aggSourceRuns": 7,
-        "aggCandidates": [
-          {
-            "rank": 1,
-            "symbol": "VELVET",
-            "name": "Velvet",
-            "reason": "Appeared in 6/7 source run(s) with avg rank 1.67 and best rank 1."
-          },
-          {
-            "rank": 2,
-            "symbol": "DRV",
-            "name": "Derive",
-            "reason": "Appeared in 5/7 source run(s) with avg rank 8.60 and best rank 6."
-          },
-          {
-            "rank": 3,
-            "symbol": "NOCK",
-            "name": "Nockchain",
-            "reason": "Appeared in 4/7 source run(s) with avg rank 3.25 and best rank 2."
-          },
-          {
-            "rank": 4,
-            "symbol": "LIKE",
-            "name": "LikeCoin",
-            "reason": "Appeared in 4/7 source run(s) with avg rank 4.75 and best rank 2."
-          },
-          {
-            "rank": 5,
-            "symbol": "RSC",
-            "name": "ResearchCoin",
-            "reason": "Appeared in 4/7 source run(s) with avg rank 5.25 and best rank 2."
-          },
-          {
-            "rank": 6,
-            "symbol": "SUSDS",
-            "name": "sUSDS",
-            "reason": "Appeared in 4/7 source run(s) with avg rank 5.50 and best rank 2."
-          },
-          {
-            "rank": 7,
-            "symbol": "OMI",
-            "name": "ECOMI",
-            "reason": "Appeared in 4/7 source run(s) with avg rank 6.25 and best rank 1."
-          },
-          {
-            "rank": 8,
-            "symbol": "STG",
-            "name": "Stargate Finance",
-            "reason": "Appeared in 4/7 source run(s) with avg rank 7.75 and best rank 5."
-          }
-        ]
-      },
-      "positionCount": 0,
-      "pricedAt": "2026-06-13T23:59:59Z"
-    },
-    {
-      "id": "mvf-base03",
-      "name": "base03",
-      "group": "guru-micro",
-      "appUrl": "https://app.messyvirgo.com/funds/mvf-base03",
-      "nav": "$46.67",
-      "ret1d": {
-        "value": "+0.4%",
-        "cls": "pos"
-      },
-      "ret7d": {
-        "value": "+2.7%",
-        "cls": "pos"
-      },
-      "ret30d": {
-        "value": "n/a",
-        "cls": "neu"
-      },
-      "holdingsBar": [],
-      "basePositions": [
-        {
-          "symbol": "WETH",
-          "value": "$8",
-          "pnl": null
-        }
-      ],
-      "council": null,
-      "screening": {
-        "runDate": "13 June 2026",
+        "runDate": null,
         "aggDate": "13 June 2026",
         "aggLookback": 7,
         "aggSourceRuns": 7,
@@ -448,8 +367,118 @@
       "pricedAt": "2026-06-13T23:59:59Z"
     }
   ],
-  "macro": null,
-  "narratives": [],
+  "macro": {
+    "score": 53.25,
+    "regime": "N — Neutral",
+    "summary": "Effective Score: 53.25 (N — Neutral). News overlay status: unavailable. Context snapshot 2026-06-13.",
+    "aiAgentsNote": {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-11.0%",
+      "chg30": "-8.3%",
+      "chg60": "+10.9%",
+      "vsBtc15": "+25.2pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -10.9609
+    }
+  },
+  "narratives": [
+    {
+      "id": "real-world-assets-rwa",
+      "label": "Real World Assets (RWA)",
+      "chg15": "-1.8%",
+      "chg30": "-1.7%",
+      "chg60": "+13.8%",
+      "vsBtc15": "+28.1pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -1.7884
+    },
+    {
+      "id": "decentralized-finance-defi",
+      "label": "Decentralized Finance (DeFi)",
+      "chg15": "-3.1%",
+      "chg30": "+7.8%",
+      "chg60": "+15.6%",
+      "vsBtc15": "+29.8pp",
+      "chg15Pos": false,
+      "chg30Pos": true,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "watch",
+      "pillLabel": "Watch",
+      "rawChg15": -3.0986
+    },
+    {
+      "id": "socialfi",
+      "label": "SocialFi",
+      "chg15": "-10.5%",
+      "chg30": "-19.6%",
+      "chg60": "-38.1%",
+      "vsBtc15": "-23.8pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": false,
+      "vsBtc15Pos": false,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -10.5344
+    },
+    {
+      "id": "decentralized-science-desci",
+      "label": "Decentralized Science (DeSci)",
+      "chg15": "-10.6%",
+      "chg30": "-15.8%",
+      "chg60": "+41.0%",
+      "vsBtc15": "+55.3pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -10.6303
+    },
+    {
+      "id": "ai-agents",
+      "label": "AI Agents",
+      "chg15": "-11.0%",
+      "chg30": "-8.3%",
+      "chg60": "+10.9%",
+      "vsBtc15": "+25.2pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -10.9609
+    },
+    {
+      "id": "privacy-coins",
+      "label": "Privacy Coins",
+      "chg15": "-16.1%",
+      "chg30": "-16.9%",
+      "chg60": "+7.6%",
+      "vsBtc15": "+21.9pp",
+      "chg15Pos": false,
+      "chg30Pos": false,
+      "chg60Pos": true,
+      "vsBtc15Pos": true,
+      "pill": "fade",
+      "pillLabel": "Fading",
+      "rawChg15": -16.1191
+    }
+  ],
   "signalExample": {
     "symbol": "SOGNI",
     "name": "Sogni AI",
@@ -459,5 +488,23 @@
       "aggregate"
     ]
   },
-  "riskReject": null
+  "riskReject": null,
+  "weeklyHighlights": [
+    "Macro as of this week reads N (53.3/100). The score updates daily; each council session uses the latest macro read available at meeting time.",
+    "SOGNI showed up consistently across fund screens this week — a leading aggregate candidate, not an automatic trade."
+  ],
+  "readerNotes": [
+    {
+      "showUntil": "2026-08-31",
+      "text": "Fund pages in the app now include full council minutes — open any fund and tap Council to read what the portfolio committee debated, what the Chair decided, and whether trades were executed.",
+      "link": {
+        "href": "/blog/2026/06/messy-virgo-decision-pipeline-part-1-the-ai-investment-council/",
+        "label": "How the AI investment council works"
+      }
+    },
+    {
+      "showUntil": "2026-07-09",
+      "text": "We publish two live workflow test funds (base01 and base02) alongside the read-only Guru Lotus snapshots. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use."
+    }
+  ]
 }
