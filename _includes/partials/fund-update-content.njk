@@ -6,13 +6,13 @@
 {% else %}
 
 <div class="mv-card glassmorphism rounded-lg p-6 mb-8">
-  <p class="mv-eyebrow mb-3">Fund / Signal update · {{ fu.snapshotDate }}</p>
+  <p class="mv-eyebrow mb-3">Fund / Signal update · {{ fu.snapshotDate }}{% if fu.reportVersion %} · {{ fu.reportVersion }}{% endif %}</p>
 
   {% if showAutogenNotice %}
-  <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> — data reflects latest available.</p>
+  <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> and authenticated council prep (session-frozen macro/narrative when available).</p>
   {% endif %}
 
-  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Each week: what changed across our Guru funds on Base — Guru Lotus read-only NAV snapshots (messybased, messyinfra) plus micro test funds on Guru (base01, base02, and from 10 July also base04 and base05) that run the full screening → council → target-change workflow. Those micro funds are traded by the fund workflow; target changes execute manually or automatically only after council resolution. We pair that with macro, narratives, and screening context: what moved, what was passed on, and what the process teaches about AI-managed Funds. Published for transparency only; this update does not execute trades or rotate the books.</p>
+  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Weekly workflow proof for Guru micro test funds on Base (base01, base02, base04, base05). Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used — not a live market refresh at publish time.</p>
 </div>
 
 {% if fu.weeklyHighlights and fu.weeklyHighlights.length %}
@@ -20,6 +20,17 @@
   <p class="mv-eyebrow mb-3">This week at a glance</p>
   <ul class="fu-highlights">
     {% for item in fu.weeklyHighlights %}
+    <li class="fu-highlight-item">{{ item }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if fu.weekDebateDigest and fu.weekDebateDigest.bullets and fu.weekDebateDigest.bullets.length %}
+<div class="mv-card glassmorphism rounded-lg p-6 mb-8">
+  <p class="mv-eyebrow mb-3">{{ fu.weekDebateDigest.title or "Across the councils" }}</p>
+  <ul class="fu-highlights">
+    {% for item in fu.weekDebateDigest.bullets %}
     <li class="fu-highlight-item">{{ item }}</li>
     {% endfor %}
   </ul>
@@ -44,8 +55,87 @@
 
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<p class="mv-eyebrow mb-4">Guru Lotus (read-only NAV)</p>
+{# Week regime (session-frozen briefs + path across the week) #}
+{% if fu.sessionContext and not fu.sessionContext.unavailable %}
+<p class="mv-eyebrow mb-4">Week regime · what the councils used</p>
+<div class="fu-session-context mv-card glassmorphism rounded-lg p-6 mb-8">
+  {% if fu.sessionContext.weekPath %}
+  <div class="fu-week-path mb-5">
+    <p class="fu-session-label">Regime path</p>
+    <p class="fu-session-regime">{{ fu.sessionContext.weekPath.label }}</p>
+    {% if fu.sessionContext.weekPath.points and fu.sessionContext.weekPath.points.length %}
+    <div class="fu-week-path-strip">
+      {% for point in fu.sessionContext.weekPath.points %}
+      <div class="fu-week-path-day">
+        <span class="fu-week-path-wd">{{ point.weekday }}</span>
+        <span class="fu-week-path-reg">{{ point.regimeCode }}</span>
+        <span class="fu-week-path-beat">{{ point.beat }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if fu.sessionContext.weekPath.sourceFundName %}
+    <p class="fu-session-meta text-sm text-gray-500 mb-0 mt-3">Sampled from {{ fu.sessionContext.weekPath.sourceFundName }} sessions across the week</p>
+    {% endif %}
+  </div>
+  {% endif %}
 
+  <div class="fu-session-grid">
+    {% if fu.sessionContext.macro %}
+    <div class="fu-session-block">
+      <p class="fu-session-label">Closing macro brief</p>
+      {% if fu.sessionContext.macro.regimeLabel %}
+      <p class="fu-session-regime">{{ fu.sessionContext.macro.regimeLabel }}
+        {% if fu.sessionContext.macro.asOf %}<span class="text-gray-500"> · as of {{ fu.sessionContext.macro.asOf }}</span>{% endif %}
+      </p>
+      {% endif %}
+      {% if fu.sessionContext.macro.summary %}
+      <p class="mv-body mb-0 text-gray-300">{{ fu.sessionContext.macro.summary }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if fu.sessionContext.tapeMotif or fu.sessionContext.narrative %}
+    <div class="fu-session-block">
+      <p class="fu-session-label">{{ fu.sessionContext.tapeMotif.label if fu.sessionContext.tapeMotif else "Narrative momentum" }}</p>
+      {% if fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.summary %}
+      <p class="mv-body mb-0 text-gray-300">{{ fu.sessionContext.tapeMotif.summary }}</p>
+      {% elif fu.sessionContext.narrative and fu.sessionContext.narrative.summary %}
+      <p class="mv-body mb-0 text-gray-300">{{ fu.sessionContext.narrative.summary }}</p>
+      {% endif %}
+      {% if fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.signals and fu.sessionContext.tapeMotif.signals.length %}
+      <ul class="fu-session-signals">
+        {% for signal in fu.sessionContext.tapeMotif.signals %}
+        <li>{{ signal }}</li>
+        {% endfor %}
+      </ul>
+      {% elif fu.sessionContext.narrative and fu.sessionContext.narrative.signals and fu.sessionContext.narrative.signals.length %}
+      <ul class="fu-session-signals">
+        {% for signal in fu.sessionContext.narrative.signals %}
+        <li>{{ signal }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% if fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.funds and fu.sessionContext.tapeMotif.funds.length %}
+      <p class="fu-session-meta text-sm text-gray-500 mb-0 mt-3">Flagged in {{ fu.sessionContext.tapeMotif.funds | join(", ") }} Chair notes</p>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% elif fu.macro and not fu.macroUnavailable %}
+<p class="mv-eyebrow mb-4">Market regime — macro economics</p>
+<div class="fu-macro mv-card glassmorphism rounded-lg p-6 mb-6">
+  <div class="fu-macro-score">
+    <div class="ms-val">{{ fu.macro.score }}</div>
+    <div class="ms-label">{{ fu.macro.regime }}</div>
+  </div>
+  <div class="fu-macro-summary">{{ fu.macro.summary }}</div>
+</div>
+{% endif %}
+
+{# Older archived snapshots still include read-only Guru Lotus books #}
+{% if fu.hasReadOnlyGuru %}
+<p class="mv-eyebrow mb-4">Guru Lotus (read-only NAV)</p>
 <div class="fu-fund-grid">
 {% for fund in fu.funds %}
   {% if fund.group == "guru" %}
@@ -57,13 +147,44 @@
       <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
       <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} {{ fund.ret30d.window or "30d" }}</span>
     </div>
-    <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %}{% if fund.screening.aggDate %} · agg {{ fund.screening.aggDate }}{% endif %}</div>
   </a>
   {% endif %}
 {% endfor %}
 </div>
+{% endif %}
 
-<p class="mv-eyebrow mb-4 mt-8">Micro test funds on Guru (workflow-traded)</p>
+<p class="mv-eyebrow mb-4">Micro funds · week scan</p>
+
+{% if fu.comparison and fu.comparison.length %}
+<div class="fu-compare-wrap mb-8">
+<table class="fu-compare-table">
+  <thead>
+    <tr>
+      <th>Fund</th>
+      <th>NAV</th>
+      <th>7d</th>
+      <th>Sessions</th>
+      <th>Exec</th>
+      <th>Hold</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in fu.comparison %}
+    <tr>
+      <td><a href="{{ row.appUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">{{ row.name }}</a></td>
+      <td>{{ row.nav }}</td>
+      <td class="{% if row.ret7d.cls == 'pos' %}narr-chg-pos{% elif row.ret7d.cls == 'neg' %}narr-chg-neg{% endif %}">{{ row.ret7d.value }}</td>
+      <td>{{ row.sessions }}</td>
+      <td>{{ row.executed }}</td>
+      <td>{{ row.holds }}</td>
+      <td>{% if row.councilUrl %}<a href="{{ row.councilUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Council</a>{% endif %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endif %}
 
 <div class="fu-fund-grid fu-fund-grid--micro">
 {% for fund in fu.funds %}
@@ -76,7 +197,17 @@
       <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
       <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} {{ fund.ret30d.window or "30d" }}</span>
     </div>
-    <div class="fc-desc">{{ fund.positionCount }} position{% if fund.positionCount != 1 %}s{% endif %}{% if fund.screening.aggDate %} · agg {{ fund.screening.aggDate }}{% endif %}{% if fund.council %} · council {{ fund.council.outcomeLabel }}{% endif %}</div>
+    <div class="fc-desc">
+      {% if fund.councilWeek %}
+        {{ fund.councilWeek.totalSessions }} session{% if fund.councilWeek.totalSessions != 1 %}s{% endif %}
+        · {{ fund.councilWeek.executedRotations }} exec
+        · {{ fund.councilWeek.holdSessions }} hold
+      {% elif fund.council %}
+        council {{ fund.council.outcomeLabel }}
+      {% else %}
+        no council this week
+      {% endif %}
+    </div>
   </a>
   {% endif %}
 {% endfor %}
@@ -85,38 +216,117 @@
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
 {% for fund in fu.funds %}
-<p class="mv-eyebrow mb-4">{{ fund.name }} — screening &amp; council</p>
+{% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "guru" %}
+<p class="mv-eyebrow mb-4">{{ fund.name }} — council &amp; book</p>
 
-{% if fund.holdingsBar.length %}
+{% if fund.council %}
+<div class="fu-council{% if fund.council.targetFinalizationBlocked %} fu-council--blocked{% elif fund.council.certified == false %} fu-council--pending{% endif %}">
+  <div class="fu-council-icon">{% if fund.council.outcome == "maintain_current" or fund.council.meetingOutcome == "held" %}🔒{% elif fund.council.outcome == "executed_reconciled" or fund.council.meetingOutcome == "traded" %}✅{% elif fund.council.targetFinalizationBlocked %}⚠️{% else %}⚖️{% endif %}</div>
+  <div class="fu-council-body">
+    <div class="fu-council-outcome">
+      Closing session · {{ fund.council.outcomeLabel }}{% if fund.council.date %} · {{ fund.council.date }}{% endif %}
+      {% if fund.council.executedLegCount %} · {{ fund.council.executedLegCount }} legs{% endif %}
+    </div>
+    <p>{{ fund.council.headline or fund.council.riskNotes or "See app for full council minutes." }}</p>
+    {% if fund.weekTimeline and fund.weekTimeline.label %}
+    <p class="fu-council-detail">Week strip: {{ fund.weekTimeline.label }} · {{ fund.weekTimeline.sessionCount }} sessions</p>
+    {% elif fund.councilWeek %}
+    <p class="fu-council-detail">Week: {{ fund.councilWeek.totalSessions }} sessions · {{ fund.councilWeek.executedRotations }} executed · {{ fund.councilWeek.holdSessions }} hold · {{ fund.councilWeek.blockedSessions }} blocked</p>
+    {% endif %}
+    {% if fund.councilUrl %}
+    <p class="fu-council-detail mb-0"><a href="{{ fund.councilUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Open Council minutes →</a></p>
+    {% endif %}
+  </div>
+</div>
+{% elif fund.councilWeek or fund.weekTimeline %}
+<div class="fu-council">
+  <div class="fu-council-body">
+    <div class="fu-council-outcome">Week · {{ fund.weekTimeline.sessionCount if fund.weekTimeline else fund.councilWeek.totalSessions }} sessions</div>
+    <p class="fu-council-detail mb-0">
+    {% if fund.weekTimeline and fund.weekTimeline.label %}{{ fund.weekTimeline.label }}
+    {% else %}{{ fund.councilWeek.executedRotations }} executed · {{ fund.councilWeek.holdSessions }} hold · {{ fund.councilWeek.blockedSessions }} blocked{% endif %}
+    {% if fund.councilUrl %} · <a href="{{ fund.councilUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Council →</a>{% endif %}
+    </p>
+  </div>
+</div>
+{% endif %}
+
+{% if fund.weekStory and (fund.weekStory.timeline or fund.weekStory.netPosture or (fund.weekStory.earlierNotes and fund.weekStory.earlierNotes.length)) %}
+<div class="fu-week-story mb-5">
+  {% if fund.weekStory.timeline and fund.weekStory.timeline.days %}
+  <div class="fu-week-strip">
+    {% for day in fund.weekStory.timeline.days %}
+    <div class="fu-week-strip-day fu-week-strip-day--{{ day.beat }}">
+      <span class="fu-week-strip-wd">{{ day.weekday }}</span>
+      <span class="fu-week-strip-beat">{{ day.label }}</span>
+      {% if day.sessionCount > 1 %}<span class="fu-week-strip-n">×{{ day.sessionCount }}</span>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if fund.weekStory.netPosture and fund.weekStory.netPosture.line %}
+  <p class="fu-week-net">{{ fund.weekStory.netPosture.line }}</p>
+  {% endif %}
+  {% if fund.weekStory.earlierNotes and fund.weekStory.earlierNotes.length %}
+  <div class="fu-week-earlier">
+    {% for note in fund.weekStory.earlierNotes %}
+    <p class="fu-week-earlier-item"><span class="fu-week-earlier-tag">{{ note.weekday }} {{ note.beat }}</span> {{ note.text }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if fund.chairInsight %}
+<div class="fu-chair-notes mv-card glassmorphism rounded-lg p-5 mb-6">
+  <p class="fu-chair-label">{{ fund.chairInsight.scopeLabel or "Why this session" }}</p>
+  {% if fund.chairInsight.postureLine %}
+  <p class="fu-chair-posture">{{ fund.chairInsight.postureLine }}</p>
+  {% endif %}
+  {% if fund.chairInsight.postureRationale %}
+  <p class="fu-chair-rationale">{{ fund.chairInsight.postureRationale }}</p>
+  {% endif %}
+  {% if fund.chairInsight.notes and fund.chairInsight.notes.length %}
+  <ul class="fu-chair-list">
+    {% for note in fund.chairInsight.notes %}
+    <li>{{ note }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if fund.hasHoldingsBar and fund.holdingsBar.length %}
 <div class="fu-holdings">
   <div class="fu-holdings-label">Current book</div>
+  {% if fund.bookPosture and fund.bookPosture.label %}
+  <div class="fu-book-posture">{{ fund.bookPosture.label }}</div>
+  {% endif %}
   <div class="fu-bar">
     {% for seg in fund.holdingsBar %}
-    <div class="fu-bar-seg" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.85" title="{{ seg.symbol }} {{ seg.weight }}%"></div>
+    <div class="fu-bar-seg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-bar-seg--sleeve{% endif %}" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.9" title="{% if seg.detail %}{{ seg.symbol }} ({{ seg.detail }}){% else %}{{ seg.symbol }}{% endif %} {{ seg.weight }}%"></div>
     {% endfor %}
   </div>
   <div class="fu-bar-legend">
     {% for seg in fund.holdingsBar %}
-    <span class="fu-leg">
+    <span class="fu-leg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-leg--sleeve{% endif %}">
       <span class="fu-leg-dot" style="background:{{ seg.color }}"></span>
+      {% if seg.kind == 'cash' or seg.kind == 'base' %}
+      {{ seg.symbol }}{% if seg.detail %} <span class="fu-leg-detail">({{ seg.detail }})</span>{% endif %} {{ seg.weight }}%
+      {% else %}
       {{ seg.symbol }} {{ seg.weight }}%{% if seg.warning %} ⚠️{% endif %}
+      {% endif %}
     </span>
     {% endfor %}
   </div>
 </div>
 {% endif %}
 
-{% if fund.basePositions.length %}
-<p style="font-size:.85rem;color:#d1d5db;margin-bottom:1rem;">
-  {% for p in fund.basePositions %}
-    <strong>{{ p.symbol }}</strong> {{ p.value }}{% if p.pnl %} ({{ p.pnl }} PnL){% endif %}{% if not loop.last %}, {% endif %}
-  {% endfor %}
-</p>
-{% endif %}
-
-{% if fund.screening.aggCandidates.length %}
+{% if fund.screening and fund.screening.aggCandidates and fund.screening.aggCandidates.length %}
 <p style="font-size:.8rem;color:#6b7280;margin-bottom:.5rem;">
-  <strong style="color:#9ca3af;">{{ fund.screening.aggLookback }}-day aggregate</strong> — {{ fund.screening.aggSourceRuns }} source runs, as of {{ fund.screening.aggDate or "–" }}
+  <strong style="color:#9ca3af;">Top aggregate candidates</strong>
+  {% if fund.screening.aggLookback %} — {{ fund.screening.aggLookback }}-day lookback{% endif %}
+  {% if fund.screening.aggDate %}, as of {{ fund.screening.aggDate }}{% endif %}
 </p>
 <div class="fu-candidates">
   {% for c in fund.screening.aggCandidates %}
@@ -129,90 +339,13 @@
 </div>
 {% endif %}
 
-{% if fund.council %}
-<div class="fu-council{% if fund.council.targetFinalizationBlocked %} fu-council--blocked{% elif fund.council.certified == false %} fu-council--pending{% endif %}">
-  <div class="fu-council-icon">{% if fund.council.outcome == "maintain_current" %}🔒{% elif fund.council.outcome == "target_change" %}🔄{% elif fund.council.targetFinalizationBlocked %}⚠️{% else %}⚖️{% endif %}</div>
-  <div class="fu-council-body">
-    <div class="fu-council-outcome">
-      Council{% if fund.council.certificationLabel %} · {{ fund.council.certificationLabel }}{% elif fund.council.certified %} · certified{% endif %} · {{ fund.council.outcomeLabel }}{% if fund.council.date %} · {{ fund.council.date }}{% endif %}
-    </div>
-    {% if fund.council.targetFinalization %}
-    <p class="fu-council-detail"><strong>Target finalization:</strong> {{ fund.council.targetFinalization }}</p>
-    {% endif %}
-    <p>{{ fund.council.riskNotes or fund.council.headline or "See app for full council protocol." }}</p>
-    {% if fund.council.actionItems %}
-    <p class="fu-council-detail"><strong>Action items:</strong> {{ fund.council.actionItems }}</p>
-    {% endif %}
-  </div>
-</div>
-{% endif %}
-
 {% if not loop.last %}<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>{% endif %}
+{% endif %}
 {% endfor %}
-
-<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
-
-<p class="mv-eyebrow mb-4">Market regime — macro economics</p>
-
-{% if fu.macroUnavailable %}
-<div class="fu-context-unavailable mv-card glassmorphism rounded-lg p-6 mb-6">
-  <p class="mv-body mb-0 text-gray-400">Historical macro context could not be resolved for this archived week — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current regime context.</p>
-</div>
-{% elif fu.macro %}
-<div class="fu-macro mv-card glassmorphism rounded-lg p-6 mb-6">
-  <div class="fu-macro-score">
-    <div class="ms-val">{{ fu.macro.score }}</div>
-    <div class="ms-label">{{ fu.macro.regime }}</div>
-  </div>
-  <div class="fu-macro-summary">{{ fu.macro.summary }}</div>
-</div>
-{% endif %}
-
-<div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
-
-<p class="mv-eyebrow mb-4">Narrative momentum — {{ fu.snapshotDate }}</p>
-
-{% if fu.narrativesUnavailable %}
-<div class="fu-context-unavailable mv-card glassmorphism rounded-lg p-6 mb-6">
-  <p class="mv-body mb-0 text-gray-400">Historical narrative momentum could not be resolved for this archived week — see the <a href="/fund-update/" class="text-pink-400 hover:underline">live fund update</a> for current narrative rankings.</p>
-</div>
-{% elif fu.narratives.length %}
-<div class="fu-narr-wrap">
-<table class="fu-narr-table" style="margin:0">
-  <thead>
-    <tr>
-      <th>Narrative</th>
-      <th>15d</th>
-      <th>30d</th>
-      <th>60d</th>
-      <th title="Percentage points above or below BTC over 15 days">vs BTC 15d</th>
-      <th>Read</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for n in fu.narratives %}
-    <tr>
-      <td>{{ n.label }}</td>
-      <td class="{{ 'narr-chg-pos' if n.chg15Pos else 'narr-chg-neg' }}">{{ n.chg15 }}</td>
-      <td class="{{ 'narr-chg-pos' if n.chg30Pos else 'narr-chg-neg' }}">{{ n.chg30 }}</td>
-      <td class="{{ 'narr-chg-pos' if n.chg60Pos else 'narr-chg-neg' }}">{{ n.chg60 }}</td>
-      <td class="{{ 'narr-chg-pos' if n.vsBtc15Pos else 'narr-chg-neg' }}">{{ n.vsBtc15 }}</td>
-      <td><span class="narr-pill {{ n.pill }}">{{ n.pillLabel }}</span></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-</div>
-{% if fu.macro and fu.macro.aiAgentsNote %}
-<p style="font-size:.85rem;color:#9ca3af;line-height:1.65;margin-top:1rem;">
-  <strong style="color:#e5e7eb;">{{ fu.macro.aiAgentsNote.label }}</strong> is {{ fu.macro.aiAgentsNote.chg15 }} over 15d but {{ fu.macro.aiAgentsNote.vsBtc15 }} vs BTC — absolute strength does not always mean allocation-worthy beta.
-</p>
-{% endif %}
-{% endif %}
 
 {% if fu.signalExample or fu.riskReject %}
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
-<p class="mv-eyebrow mb-4">Aggregate signal · Risk reject</p>
+<p class="mv-eyebrow mb-4">Aggregate signal{% if fu.riskReject %} · Risk reject{% endif %}</p>
 <div class="fu-signal-grid">
   {% if fu.signalExample %}
   <div class="fu-signal-card candidate">
@@ -220,11 +353,6 @@
     <div class="fu-signal-token">{{ fu.signalExample.symbol }}</div>
     <div class="fu-signal-name">{{ fu.signalExample.name }}</div>
     <div class="fu-signal-body">{{ fu.signalExample.body | safe }}</div>
-    <div class="fu-signal-meta">
-      {% for tag in fu.signalExample.tags %}
-      <span class="fu-signal-tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
   </div>
   {% endif %}
   {% if fu.riskReject %}
@@ -233,11 +361,6 @@
     <div class="fu-signal-token">{{ fu.riskReject.symbol }}</div>
     <div class="fu-signal-name">{{ fu.riskReject.name }} · {{ fu.riskReject.fundName }}</div>
     <div class="fu-signal-body">{{ fu.riskReject.body }}</div>
-    <div class="fu-signal-meta">
-      {% for tag in fu.riskReject.tags %}
-      <span class="fu-signal-tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
   </div>
   {% endif %}
 </div>
@@ -250,33 +373,32 @@
   <div class="fu-agent-patterns">
     <div class="fu-pattern">
       <div class="fu-pattern-num">1</div>
-      <div class="fu-pattern-text"><strong>Macro gates gross exposure.</strong> {% if fu.macro %}Regime context ({{ fu.macro.score }} {{ fu.macro.regime }}){% elif fu.macroUnavailable %}Regime context unavailable for this archived week{% else %}Regime context{% endif %} → defensive funds stay in core; beta funds rotate within the book, not expand it blindly.</div>
+      <div class="fu-pattern-text"><strong>Macro gates exposure.</strong> Use the session-frozen regime the council actually saw{% if fu.sessionContext and fu.sessionContext.macro and fu.sessionContext.macro.regimeLabel %} (this week: {{ fu.sessionContext.macro.regimeLabel }}){% endif %} — not a later live refresh.</div>
     </div>
     <div class="fu-pattern">
       <div class="fu-pattern-num">2</div>
-      <div class="fu-pattern-text"><strong>Daily screen ≠ automatic trade.</strong> The day's #1 candidate and the {{ fu.funds[0].screening.aggLookback or 7 }}-day aggregate leader can differ — the agent needs both horizons, not just the latest signal.</div>
+      <div class="fu-pattern-text"><strong>Daily screen ≠ automatic trade.</strong> Aggregate leaders inform the slate; they do not bypass Chair decision or execution gates.</div>
     </div>
     <div class="fu-pattern">
       <div class="fu-pattern-num">3</div>
-      <div class="fu-pattern-text"><strong>Council is the constraint layer.</strong> No trade runs until the committee records its decision — including disagreements, guardrails, and what was actually executed. That record is public on each fund page.</div>
+      <div class="fu-pattern-text"><strong>Chair decides, system records.</strong> Seats analyze and propose; the Chair adjudicates; minutes and execution receipts stay public on each fund’s Council tab.</div>
     </div>
   </div>
 </div>
 
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
-<p class="mv-eyebrow mb-4">Run the same workflow</p>
+<p class="mv-eyebrow mb-4">Inspect the same workflow</p>
 
 <div class="fu-links-grid">
   <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🏦</span> All Funds</a>
   {% for fund in fu.funds %}
-  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="{{ fund.appUrl }}" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">📊</span> {{ fund.name }}</a>
+  {% if fund.group == "guru-micro" or fund.group == "micro" %}
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="{{ fund.councilUrl or fund.appUrl }}" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">⚖️</span> {{ fund.name }} Council</a>
+  {% endif %}
   {% endfor %}
-  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🌐</span> Macro Economics</a>
-  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">📈</span> Narrative Momentum</a>
-  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/due-diligence/performance" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">⚡</span> Performance Signals</a>
-  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/due-diligence/social" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">💬</span> Social Signals</a>
-  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/due-diligence/security" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🔒</span> Security Signals</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/macro-economics" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🌐</span> Macros</a>
+  <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/narratives" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">📈</span> Narratives</a>
 </div>
 
 {% if showAutogenNotice %}<p style="margin-top:2rem;font-size:.82rem;color:#6b7280;text-align:center">Data auto-fetched at build time</p>{% endif %}

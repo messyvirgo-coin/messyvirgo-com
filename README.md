@@ -107,16 +107,19 @@ Open <http://localhost:3000> or <http://localhost:8080> in your browser.
 
 ## Fund / Signal updates (weekly)
 
-Automated weekly posts from Messy Virgo live data:
+Automated weekly **Fund Reports** from Messy Virgo live data (shared week regime path; per-fund strips, Chair notes, and cash/base book posture):
 
 ```bash
-npm run fund-update:publish -- --date 2026-05-22
-npm run fund-update:publish -- --no-cli                          # API-only (CI)
+npm run fund-update:draft -- --date 2026-07-23     # preview under /drafts/
+npm run fund-update:publish -- --date 2026-07-23   # write /updates/ archive
+npm run fund-update:publish -- --date 2026-07-23 --promote  # promote approved draft
+npm run fund-update:publish -- --no-cli            # API-only (degraded; CI)
 npm run build
 ```
 
 - **Archive:** date list at the bottom of each fund-update week (and on `/fund-update/`)
 - **Archived week:** `/updates/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/` (snapshot in `_blog/_snapshots/`)
+- **Draft preview:** `/drafts/fund-update-week-of-YYYY-MM-DD/`
 - **Live mirror:** `/fund-update/` (always current at build time)
 - **Fund updates** links in nav/home resolve automatically from `collections.fundUpdates` — no nav patching step
 

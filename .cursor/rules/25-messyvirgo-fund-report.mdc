@@ -1,0 +1,38 @@
+---
+description: Weekly Messy Fund Report (vNext week-story) — draft/publish workflow and layout contract
+globs: "**/fund-update*/**,**/publish-fund-update.js,**/fetch-fund-update-data.js,**/_drafts/**fund-update**,**/_blog/**messy-fund-update**"
+alwaysApply: false
+---
+
+# Weekly Fund Report (vnext-2026-07-24)
+
+Use skill `.cursor/skills/messyvirgo-publish-fund-update/SKILL.md`.
+
+## Commands
+
+```bash
+npm run fund-update:draft -- --date YYYY-MM-DD      # preview /drafts/…
+npm run fund-update:publish -- --date YYYY-MM-DD    # write /updates/…
+npm run fund-update:publish -- --date YYYY-MM-DD --promote  # promote approved draft
+```
+
+- Draft first; publish/promote only with user approval. Never push without ask.
+- CLI (`@messyvirgo/cli@0.41.0`) required for full week-story; `--no-cli` is degraded.
+- `REPORT_VERSION` lives in `scripts/lib/fetch-fund-update-data.js`.
+
+## Report contract (do not regress)
+
+- **Week story**, not latest-session-only: regime path Mon–Thu, per-fund week strip, week-net posture, mid-week note + **Closing session** Chair notes.
+- **Week regime = shared only** (path, closing macro brief, tape motif). Never a single week-level cash/base % — funds differ; bucket moves stay per fund.
+- Book bar includes **cash + base + high-beta** (not beta-only).
+- Top **3** aggregate candidates; Chair decides / system records (no “voted”).
+- Micro funds only: base01/02/04/05 — no read-only Guru Lotus in new weeks.
+- Permalinks under `/updates/…` only — never `/blog/…`.
+- Publish script strips obsolete `sessionContext.postureIntent` if present.
+
+## Edit surfaces
+
+- Data: `scripts/lib/fetch-fund-update-data.js`
+- Publish: `scripts/publish-fund-update.js`
+- UI: `_includes/partials/fund-update-content.njk` + `fund-update-styles.njk`
+- Do not hand-edit snapshot JSON to “fix” display — re-run draft/publish.
