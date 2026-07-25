@@ -13,6 +13,7 @@
     "watch:eleventy": "eleventy --watch",
     "build": "npm run clean && npm run build:css && npm run build:eleventy",
     "dev": "concurrently -n css,11ty -c cyan,magenta npm:watch:css npm:serve",
+    "fund-update:draft": "node scripts/publish-fund-update.js --draft",
     "fund-update:publish": "node scripts/publish-fund-update.js"
   },
   "devDependencies": {
