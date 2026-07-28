@@ -1,5 +1,5 @@
 ---
-description: Messy Virgo public prose style for blog posts and build log — no em dashes, human technical voice.
+description: Messy Virgo public prose style for blog posts and build log. No em dashes; direct human technical voice.
 globs:
   - "_blog/_posts/**/*.md"
   - "_drafts/**/*.md"

@@ -28,6 +28,15 @@ This is the public Messy Virgo website: a static Eleventy site using Tailwind CS
 
 Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts, **Fund / Signal updates** (`messyvirgo-publish-fund-update` — week-story Fund Report `vnext-2026-07-24`, rule `25-messyvirgo-fund-report.mdc`), and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.
 
+## Public prose (blog + build log)
+
+For `_blog/_posts/**/*.md`, `_drafts/**/*.md`, and `about/buildlog.html` bullet copy: follow `.cursor/rules/16-messyvirgo-public-prose.mdc`.
+
+- **Do not** use em dashes (`—` / `&mdash;`) as clause separators in public prose.
+- Prefer periods, commas, colons, parentheses, or short new sentences.
+- Aim for a direct human technical voice (technical readers treat dense em-dash cadence as an AI tell).
+- Build log **week labels** may keep the existing HTML en dash convention (`July 21&ndash;27`); that exception is for date ranges only, not body bullets.
+
 ## Blog post images
 
 Article images are styled globally in `_includes/post.njk` (centered figure, border, caption). In Markdown use `![caption label](/images/blog/file.png)` — **alt text becomes the visible caption**. Place images after a paragraph, not directly under a heading. Full rules: `.cursor/rules/15-messyvirgo-blog-images.mdc`.

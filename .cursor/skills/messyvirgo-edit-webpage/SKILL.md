@@ -5,7 +5,7 @@ description: Edit existing Messy Virgo website pages safely while preserving Ele
 
 # Edit Messy Virgo Webpage
 
-Follow AGENTS.md + the three `.cursor/rules/` files. This skill provides the actionable checklist for general page edits.
+Follow AGENTS.md + `.cursor/rules/` (especially `00`, `10`, `20`). This skill provides the actionable checklist for general page edits. For blog posts and build log copy, also follow `16-messyvirgo-public-prose.mdc`.
 
 ## First Checks
 1. Identify source file + public URL (respect `permalink` front matter).

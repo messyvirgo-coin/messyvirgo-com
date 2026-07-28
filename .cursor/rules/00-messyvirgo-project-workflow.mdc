@@ -30,7 +30,7 @@ Public static Eleventy + Tailwind site. Always follow these boundaries and steps
 - **`.font-serif` (Playfair):** optional only; do not use for routine section titles.
 
 ## Specialized Skills
-- Blog posts → `publish-blog-post`
+- Blog posts → `publish-blog-post` (images: rule `15`; prose: rule `16`)
 - Weekly Fund / Signal updates → `messyvirgo-publish-fund-update` (URLs under `/updates/`, not `/blog/`)
-- Weekly build logs → `messyvirgo-weekly-buildlog`
+- Weekly build logs → `messyvirgo-weekly-buildlog` (prose: rule `16` for bullets; week labels keep HTML en dash)
 - General page edits → `messyvirgo-edit-webpage`

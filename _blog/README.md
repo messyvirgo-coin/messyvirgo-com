@@ -32,7 +32,9 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 - `permalink`: Generates the URL automatically (do not modify)
 
 ### 3. Write Your Content
-Below the front matter, write your post in Markdown:
+Below the front matter, write your post in Markdown.
+Follow `.cursor/rules/16-messyvirgo-public-prose.mdc`: no em dashes as clause separators; direct human technical voice.
+
 ```markdown
 ## Section Heading
 
