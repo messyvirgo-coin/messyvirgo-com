@@ -45,7 +45,7 @@ The exploit Defimon describes was a Guru vault deposit/approval-path failure. It
 | **C. Other Guru funds holding $MESSY** | Precautionary withdrawals by other Guru funds / LPs (not Messy silently dumping the token) forced fund-level asset sales where $MESSY was inventory. That created indirect sell pressure. |
 | **D. $MESSY token** | Not hacked. Not compromised. No token exploit. Impact came from the redemption/sales cascade and fear, not a contract drain on $MESSY. |
 
-Aftermath on the market: $MESSY dumped on the order of ~50%, then recovered to roughly pre-hack levels within about two days. That is market behavior under stress, not product validation. Thin LP made the move worse than the absolute size of forced selling would suggest on a deeper book. Upside is sharp on thin liquidity too. Downside is the same coin flipped.
+Aftermath on the market: $MESSY dumped on the order of ~50%, then recovered to roughly pre-hack levels within about two days. That is market behavior under stress, not product validation.
 
 ---
 
