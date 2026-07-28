@@ -103,7 +103,7 @@ Bounded capital is blast-radius design. It is not absolution for venue selection
 
 Honest timeline split:
 
-- **Before / around the incident window:** platform work continued on council session honesty, Guru route/cost safety, execution-truth accounting, token-tax observation, provider capability dispatch. Much of it was already in flight. See the [Build Log](/buildlog.html) week of July 21–27 for the full list. That cadence is real. It is not the same sentence as “we built X because Guru got drained.”
+- **Before / around the incident window:** platform work continued on council session honesty, Guru route/cost safety, execution-truth accounting, token-tax observation, provider capability dispatch. Much of it was already in flight. See the [Build Log](/buildlog.html) week of July 21-27 for the full list. That cadence is real. It is not the same sentence as “we built X because Guru got drained.”
 - **Because of the incident (this post’s job):** draw the blast-radius map in public, stop letting brand↔venue coupling stay implicit, and bind ourselves to the commitments below.
 
 We keep building the engine because custody failure is not an excuse to stop making decisioning fail closed.
