@@ -7,7 +7,7 @@ description: Builds or publishes the weekly Messy Fund Report (Fund / Signal upd
 
 ## When this applies
 
-Weekly **Fund Report** / Fund / Signal proof post for Guru **micro test funds** on Base (`base01`, `base02`, `base04`, `base05`): week regime, council week strips, Chair notes, book posture, screening.
+Weekly **Fund Report** / Fund / Signal proof post for Guru **micro test funds** on Base (`base01`, `base02`, `base04`, `base05`, and from week of **2026-08-01** `base06`): week regime, council week strips, Chair notes, book posture, screening.
 
 **Not** the monthly treasury blog (“Every Month, We Buy More…”) — use `publish-blog-post` for that.
 
@@ -122,7 +122,7 @@ The script validates `reportVersion`, warns if CLI week-story fields are missing
 ## Data sources
 
 - **Public API:** `https://api.messyvirgo.com/api/v1/public/*` (funds status, screen aggregates, council meetings, macro, narratives)
-- **Funds:** Guru micro test — `base01`, `base02`, and from **2026-07-10** `base04`, `base05`. Read-only Guru Lotus books are **not** included. `base03` is private and excluded. Funds with a `since` date are omitted from archived weeks before that date.
+- **Funds:** Guru micro test — `base01`, `base02`, from **2026-07-10** `base04`/`base05`, and from **2026-07-27** `base06`. Read-only Guru Lotus books are **not** included. `base03` is private and excluded. Funds with a `since` date are omitted from archived weeks before that date.
 - **CLI (required for full report):** `@messyvirgo/cli@0.41.0`
   - `funds council list <fund_id>` — week strip / session counts
   - `funds council get <fund_id> <session_id>` — Chair notes, locked posture, regime samples

@@ -16,6 +16,8 @@ const FUNDS = [
   // Public workflow micro funds added 2026-07-10 (excluded from earlier archived weeks).
   { id: "mvf-base04", name: "base04", sleeveId: "mvs-base04-1", group: "guru-micro", since: "2026-07-10" },
   { id: "mvf-base05", name: "base05", sleeveId: "mvs-base05-1", group: "guru-micro", since: "2026-07-10" },
+  // Council workflow started week of 2026-08-01 (first manage_fund session 2026-07-27).
+  { id: "mvf-base06", name: "base06", sleeveId: "mvs-base06-1", group: "guru-micro", since: "2026-07-27" },
 ];
 
 const BAR_COLOURS = [
@@ -41,9 +43,15 @@ const READER_NOTES = [
   },
   {
     showFrom: "2026-07-10",
-    showUntil: "2026-08-31",
+    showUntil: "2026-07-31",
     text:
       "We publish four Guru micro test funds (base01, base02, base04, base05). base04 and base05 joined on 10 July with distinct token universes. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use.",
+  },
+  {
+    showFrom: "2026-08-01",
+    showUntil: "2026-08-31",
+    text:
+      "We publish five Guru micro test funds (base01, base02, base04, base05, base06). base04 and base05 joined on 10 July; base06 began council meetings in the week of 1 August. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use.",
   },
 ];
 
@@ -54,6 +62,36 @@ function activeReaderNotes(asOfDate) {
     if (note.showFrom && note.showFrom > today) return false;
     return true;
   });
+}
+
+/**
+ * check-us #1 — provider risk labeling (Fund Update surface).
+ * Source: docs/ops/custody-commitments/01-provider-risk-labeling/fund-update-copy.md
+ * Show from week of 2026-08-01 onward until replaced by multi-adapter copy.
+ */
+const PROVIDER_RISK_LABELING = {
+  showFrom: "2026-08-01",
+  eyebrow: "Custody / provider",
+  body: [
+    "These Messy-managed books use the Guru Lotus vault adapter on Base for custody and share accounting. Messy’s engine runs research, council decisioning, and trade construction; capital sits in Guru’s vault contracts. Our trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. Provider-side contract failure is venue risk. Keys live in Turnkey; our backend never holds key material.",
+  ],
+  linkLead: "For the blast-radius map (engine vs custody vs token), see",
+  link: {
+    href: "/blog/2026/07/custody-broke-the-engine-didnt-heres-the-boundary/",
+    label: "Custody Broke. The Engine Didn’t.",
+  },
+};
+
+function activeProviderRiskLabeling(asOfDate) {
+  const today = asOfDate || new Date().toISOString().slice(0, 10);
+  if (PROVIDER_RISK_LABELING.showFrom && PROVIDER_RISK_LABELING.showFrom > today) {
+    return null;
+  }
+  if (PROVIDER_RISK_LABELING.showUntil && PROVIDER_RISK_LABELING.showUntil < today) {
+    return null;
+  }
+  const { showFrom, showUntil, ...payload } = PROVIDER_RISK_LABELING;
+  return payload;
 }
 
 function fundsForAsOf(asOfDate) {
@@ -2185,6 +2223,7 @@ async function fetchFundUpdateData(options = {}) {
     weeklyRollup,
   });
   const readerNotes = activeReaderNotes(asOfDate);
+  const providerRiskLabeling = activeProviderRiskLabeling(asOfDate);
 
   return {
     snapshotDate,
@@ -2205,6 +2244,7 @@ async function fetchFundUpdateData(options = {}) {
     riskReject,
     weeklyHighlights,
     readerNotes,
+    providerRiskLabeling,
   };
 }
 

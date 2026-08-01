@@ -12,8 +12,23 @@
   <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> and authenticated council prep (session-frozen macro/narrative when available).</p>
   {% endif %}
 
-  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Weekly workflow proof for Guru micro test funds on Base (base01, base02, base04, base05). Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used — not a live market refresh at publish time.</p>
+  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Weekly workflow proof for Guru micro test funds on Base (base01, base02, base04, base05, base06). Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used — not a live market refresh at publish time.</p>
 </div>
+
+{# check-us #1: venue before performance (provider risk labeling) #}
+{% if fu.providerRiskLabeling %}
+<div class="mv-card glassmorphism rounded-lg p-6 mb-8 fu-provider-risk">
+  <p class="mv-eyebrow mb-3">{{ fu.providerRiskLabeling.eyebrow or "Custody / provider" }}</p>
+  {% for para in fu.providerRiskLabeling.body %}
+  <p class="mv-body text-gray-300{% if not loop.last or fu.providerRiskLabeling.link %} mb-3{% else %} mb-0{% endif %}">{{ para }}</p>
+  {% endfor %}
+  {% if fu.providerRiskLabeling.link %}
+  <p class="mv-body mb-0 text-gray-300">
+    {% if fu.providerRiskLabeling.linkLead %}{{ fu.providerRiskLabeling.linkLead }} {% endif %}<a href="{{ fu.providerRiskLabeling.link.href }}" class="text-pink-400 hover:underline">{{ fu.providerRiskLabeling.link.label }}</a>.
+  </p>
+  {% endif %}
+</div>
+{% endif %}
 
 {% if fu.weeklyHighlights and fu.weeklyHighlights.length %}
 <div class="mv-card glassmorphism rounded-lg p-6 mb-8">
