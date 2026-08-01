@@ -34,6 +34,13 @@ Always this order (reorder user bullets if they paste sections out of order):
 
 Copy structure, classes, and nesting from the **current newest** `.buildlog-entry` – do not invent new markup.
 
+## Public prose for bullets
+
+Follow `.cursor/rules/16-messyvirgo-public-prose.mdc` for Marketing / Business / Product bullet copy:
+
+- Prefer periods/commas/colons over `&mdash;` clause separators in `<li>` text.
+- Keep week **display** labels on the existing en dash HTML convention (`Week of July 21&ndash;27, 2026`).
+
 ## HTML snippet pattern
 
 Each week is one `.buildlog-entry`:

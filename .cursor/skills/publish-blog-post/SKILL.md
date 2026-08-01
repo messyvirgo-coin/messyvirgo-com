@@ -51,6 +51,14 @@ Follow `.cursor/rules/15-messyvirgo-blog-images.mdc` (always applied when editin
 - **Placement:** after a paragraph in the section; never directly under a `##` / `###` heading.
 - Files live in `images/blog/`. No per-post HTML or inline figure styling.
 
+## Prose style
+
+Follow `.cursor/rules/16-messyvirgo-public-prose.mdc`.
+
+- Do **not** use em dashes (`—`) as clause separators in the body.
+- Prefer periods, commas, colons, parentheses, or short new sentences.
+- Keep a direct human technical voice; avoid AI-tell cadence for crypto-native readers.
+
 ## Workflow
 
 1. Confirm title, date, and intent from the user (infer only when obvious).
@@ -66,5 +74,6 @@ Follow `.cursor/rules/15-messyvirgo-blog-images.mdc` (always applied when editin
 ## Reference
 
 - Image rules: `.cursor/rules/15-messyvirgo-blog-images.mdc`
+- Prose style: `.cursor/rules/16-messyvirgo-public-prose.mdc`
 - Conventions and build commands: `_blog/README.md` (repository root)
 - Examples: `_blog/_posts/*.md`

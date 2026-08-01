@@ -152,20 +152,33 @@ module.exports = function (eleventyConfig) {
     return `${year}/${month}`;
   });
 
-  // Frozen snapshot for archived Fund / Signal blog posts
+  // Frozen snapshot for archived Fund / Signal posts (and _drafts/ previews)
   eleventyConfig.addGlobalData("eleventyComputed", {
     fu: async (data) => {
       const snapId = data.fundUpdateSnapshot;
       if (!snapId) return null;
 
-      const snapPath = path.join(
+      const publishedPath = path.join(
         __dirname,
         "_blog",
         "_snapshots",
         `${snapId}-messy-fund-update.snapshot.json`
       );
+      const draftPath = path.join(
+        __dirname,
+        "_drafts",
+        `${snapId}-messy-fund-update.snapshot.json`
+      );
+      const snapPath = data.fundUpdateDraft
+        ? (fs.existsSync(draftPath) ? draftPath : publishedPath)
+        : (fs.existsSync(publishedPath) ? publishedPath : draftPath);
+
       if (fs.existsSync(snapPath)) {
-        return JSON.parse(fs.readFileSync(snapPath, "utf8"));
+        const snap = JSON.parse(fs.readFileSync(snapPath, "utf8"));
+        if (snap.hasReadOnlyGuru == null) {
+          snap.hasReadOnlyGuru = (snap.funds || []).some((f) => f.group === "guru");
+        }
+        return snap;
       }
 
       console.warn(`[fundUpdate] Snapshot missing: ${snapPath} — fetching live fallback`);

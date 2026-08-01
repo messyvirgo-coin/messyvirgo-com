@@ -32,7 +32,9 @@ permalink: /blog/{{ page.date | dateFilter }}/{{ title | slugify }}/index.html
 - `permalink`: Generates the URL automatically (do not modify)
 
 ### 3. Write Your Content
-Below the front matter, write your post in Markdown:
+Below the front matter, write your post in Markdown.
+Follow `.cursor/rules/16-messyvirgo-public-prose.mdc`: no em dashes as clause separators; direct human technical voice.
+
 ```markdown
 ## Section Heading
 
@@ -91,14 +93,16 @@ Generates the static site in `_site/` directory.
 
 ## Fund / Signal updates (automated)
 
-Weekly Fund updates use a **snapshot + stub** pattern (not hand-written HTML):
+Weekly **Fund Reports** use a **snapshot + stub** pattern (week-story layout; not hand-written HTML):
 
 ```bash
-npm run fund-update:publish -- --date YYYY-MM-DD [--no-cli]
+npm run fund-update:draft -- --date YYYY-MM-DD
+npm run fund-update:publish -- --date YYYY-MM-DD [--promote] [--no-cli]
 ```
 
 - Stub: `_posts/YYYY-MM-DD-messy-fund-update-week-of-YYYY-MM-DD.md` with `layout: fund-update-post.njk` and `fundUpdateSnapshot: "YYYY-MM-DD"`
-- Snapshot: `_snapshots/YYYY-MM-DD-messy-fund-update.snapshot.json`
+- Snapshot: `_snapshots/YYYY-MM-DD-messy-fund-update.snapshot.json` (`reportVersion: vnext-2026-07-24`)
+- Draft: `_drafts/` snapshot + stub → `/drafts/fund-update-week-of-YYYY-MM-DD/`
 - Permalink: `/updates/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/`
 - Archive: date list at the bottom of every fund-update page (`partials/fund-update-archive.njk`)
 - Skill: `.cursor/skills/messyvirgo-publish-fund-update/SKILL.md`

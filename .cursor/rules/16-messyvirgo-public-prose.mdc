@@ -1,0 +1,39 @@
+---
+description: Messy Virgo public prose style for blog posts and build log. No em dashes; direct human technical voice.
+globs:
+  - "_blog/_posts/**/*.md"
+  - "_drafts/**/*.md"
+  - "about/buildlog.html"
+alwaysApply: false
+---
+
+# Public prose style (blog + build log)
+
+Technical and crypto-native readers treat dense em-dash punctuation as an AI tell. Prefer a human operator voice.
+
+## Dashes
+
+- **Do not use em dashes (`—` / `&mdash;`) as clause separators.**
+- Prefer periods, commas, colons, parentheses, or a short new sentence.
+- For week ranges in build log HTML, a spaced en dash is existing convention (`July 21&ndash;27`); in blog Markdown prefer a simple hyphen (`July 21-27`) unless matching an established HTML pattern.
+- Do not stack multiple dash asides in one sentence.
+
+### Avoid
+
+```text
+Messy was exposed — founders lost money — then the market recovered.
+```
+
+### Prefer
+
+```text
+Messy was exposed because we had capital on that venue. The market sold off hard, then clawed back.
+```
+
+## Voice
+
+- Direct, concrete, evidence-led. Short and medium sentences.
+- Avoid triad cadence and “What X / What Y / What Z” stacks unless a tight list truly helps.
+- Avoid hedge filler (“we do not believe…”, “before anyone quote-tweets…”) when a factual claim works.
+- Keep commitments checkable. Skip thin-market or LP microstructure asides unless the user explicitly asks for them.
+- Franco/Messy voice: accountable without courtroom theater or victory-lap tone.

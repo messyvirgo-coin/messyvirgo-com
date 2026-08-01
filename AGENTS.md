@@ -26,7 +26,16 @@ This is the public Messy Virgo website: a static Eleventy site using Tailwind CS
 - **Marketing / gradient titles:** use **`font-bold font-sans tracking-tight`** with **`text-gradient`** (see `index.html` hero and section `h2` patterns).
 - **`.font-serif`** (Playfair) exists for edge cases only; do not revert section titles to Playfair without an explicit product decision.
 
-Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts, **Fund / Signal updates** (`messyvirgo-publish-fund-update`), and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.
+Detailed rules live in `.cursor/rules/`. Use the specialized skills for blog posts, **Fund / Signal updates** (`messyvirgo-publish-fund-update` — week-story Fund Report `vnext-2026-07-24`, rule `25-messyvirgo-fund-report.mdc`), and weekly build logs. For general page edits, use the `messyvirgo-edit-webpage` skill.
+
+## Public prose (blog + build log)
+
+For `_blog/_posts/**/*.md`, `_drafts/**/*.md`, and `about/buildlog.html` bullet copy: follow `.cursor/rules/16-messyvirgo-public-prose.mdc`.
+
+- **Do not** use em dashes (`—` / `&mdash;`) as clause separators in public prose.
+- Prefer periods, commas, colons, parentheses, or short new sentences.
+- Aim for a direct human technical voice (technical readers treat dense em-dash cadence as an AI tell).
+- Build log **week labels** may keep the existing HTML en dash convention (`July 21&ndash;27`); that exception is for date ranges only, not body bullets.
 
 ## Blog post images
 
