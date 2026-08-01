@@ -152,7 +152,11 @@
             <li class="flex gap-2"><span class="text-gray-600">·</span><span>Do not treat Guru vault pages as Messy “live funds”</span></li>
             <li class="flex gap-2"><span class="text-gray-600">·</span><span>Proving continues on labeled test books only</span></li>
           </ul>
+          {% if collections.fundUpdates.length %}
+          <a href="{{ collections.fundUpdates[0].url }}" class="text-sm font-semibold text-pink-400 hover:text-pink-300 transition">Latest Fund Update →</a>
+          {% else %}
           <a href="/fund-update/" class="text-sm font-semibold text-pink-400 hover:text-pink-300 transition">Latest Fund Update →</a>
+          {% endif %}
         </div>
       </div>
     </div>
