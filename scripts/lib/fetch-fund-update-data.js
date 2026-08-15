@@ -53,6 +53,12 @@ const READER_NOTES = [
     text:
       "We publish five Guru micro test funds (base01, base02, base04, base05, base06). base04 and base05 joined on 10 July; base06 began council meetings in the week of 1 August. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use.",
   },
+  {
+    showFrom: "2026-08-15",
+    showUntil: "2026-08-28",
+    text:
+      "This week we specialized the screening playbooks on base04, base05, and base06: meme-nano, asymmetric-micro, and liquid-control. base01 and base02 keep the shared momentum + social templates. Screens still stop at ideas — council and execution decide size, venue, and fills. Rolling 7-day aggregates can mix old and new context until the new playbooks have a full week of runs.",
+  },
 ];
 
 function activeReaderNotes(asOfDate) {
