@@ -10,14 +10,28 @@ const API = "https://api.messyvirgo.com/api/v1/public";
 /** Snapshot schema / layout generation for weekly Fund Reports. */
 const REPORT_VERSION = "vnext-2026-07-24";
 
+/** Installed Messy CLI; week-story fields need an authenticated 0.44 profile. */
+const MESSY_CLI_SPEC = "@messyvirgo/cli@0.44.0";
+
+const PUBLIC_MICRO_GROUPS = new Set(["guru-micro", "micro", "lagoon-micro"]);
+
+function isPublicMicroFund(fund) {
+  return Boolean(fund && PUBLIC_MICRO_GROUPS.has(fund.group));
+}
+
 const FUNDS = [
-  { id: "mvf-base01", name: "base01", sleeveId: "mvs-base01-1", group: "guru-micro" },
-  { id: "mvf-base02", name: "base02", sleeveId: "mvs-base02-1", group: "guru-micro" },
+  // Closed week of 2026-08-22 (FUND_NOT_FOUND). Kept with until so archived weeks still rebuild.
+  { id: "mvf-base01", name: "base01", sleeveId: "mvs-base01-1", group: "guru-micro", until: "2026-08-15" },
+  { id: "mvf-base02", name: "base02", sleeveId: "mvs-base02-1", group: "guru-micro", until: "2026-08-15" },
   // Public workflow micro funds added 2026-07-10 (excluded from earlier archived weeks).
   { id: "mvf-base04", name: "base04", sleeveId: "mvs-base04-1", group: "guru-micro", since: "2026-07-10" },
   { id: "mvf-base05", name: "base05", sleeveId: "mvs-base05-1", group: "guru-micro", since: "2026-07-10" },
   // Council workflow started week of 2026-08-01 (first manage_fund session 2026-07-27).
   { id: "mvf-base06", name: "base06", sleeveId: "mvs-base06-1", group: "guru-micro", since: "2026-07-27" },
+  // Lagoon workflow books (first manage_fund: lg-base01 2026-08-18, lg-base02 2026-08-19).
+  // mvf-lg-base00 is live with council but was never in this public suite; omit unless asked.
+  { id: "mvf-lg-base01", name: "lg-base01", sleeveId: "mvs-lg-base01-1", group: "lagoon-micro", since: "2026-08-18" },
+  { id: "mvf-lg-base02", name: "lg-base02", sleeveId: "mvs-lg-base02-1", group: "lagoon-micro", since: "2026-08-19" },
 ];
 
 const BAR_COLOURS = [
@@ -30,7 +44,7 @@ const READER_NOTES = [
   {
     showUntil: "2026-08-31",
     text:
-      "Fund pages in the app now include full council minutes — open any fund and tap Council to read what the portfolio committee debated, what the Chair decided, and whether trades were executed.",
+      "Fund pages in the app now include full council minutes. Open any fund and tap Council to read what the portfolio committee debated, what the Chair decided, and whether trades were executed.",
     link: {
       href: "/blog/2026/06/messy-virgo-decision-pipeline-part-1-the-ai-investment-council/",
       label: "How the AI investment council works",
@@ -49,15 +63,21 @@ const READER_NOTES = [
   },
   {
     showFrom: "2026-08-01",
-    showUntil: "2026-08-31",
+    showUntil: "2026-08-21",
     text:
       "We publish five Guru micro test funds (base01, base02, base04, base05, base06). base04 and base05 joined on 10 July; base06 began council meetings in the week of 1 August. Every change on those test funds goes through screening, council review, and signed execution — the same path future AI-managed funds will use.",
   },
   {
     showFrom: "2026-08-15",
-    showUntil: "2026-08-28",
+    showUntil: "2026-08-21",
     text:
       "This week we specialized the screening playbooks on base04, base05, and base06: meme-nano, asymmetric-micro, and liquid-control. base01 and base02 keep the shared momentum + social templates. Screens still stop at ideas — council and execution decide size, venue, and fills. Rolling 7-day aggregates can mix old and new context until the new playbooks have a full week of runs.",
+  },
+  {
+    showFrom: "2026-08-22",
+    showUntil: "2026-09-05",
+    text:
+      "Two Guru Lotus verification books closed this week (base01 and base02). Two Lagoon books joined this public suite: lg-base01 and lg-base02. Guru Lotus workflow books still on the page are base04, base05, and base06. Screens still stop at ideas: council and execution decide size, venue, and fills.",
   },
 ];
 
@@ -72,37 +92,78 @@ function activeReaderNotes(asOfDate) {
 
 /**
  * check-us #1 — provider risk labeling (Fund Update surface).
- * Source: docs/ops/custody-commitments/01-provider-risk-labeling/fund-update-copy.md
- * Show from week of 2026-08-01 onward until replaced by multi-adapter copy.
+ * Guru-only copy through week of 2026-08-15; mixed Guru + Lagoon from 2026-08-22.
  */
-const PROVIDER_RISK_LABELING = {
-  showFrom: "2026-08-01",
-  eyebrow: "Custody / provider",
-  body: [
-    "These Messy-managed books use the Guru Lotus vault adapter on Base for custody and share accounting. Messy’s engine runs research, council decisioning, and trade construction; capital sits in Guru’s vault contracts. Our trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. Provider-side contract failure is venue risk. Keys live in Turnkey; our backend never holds key material.",
-  ],
-  linkLead: "For the blast-radius map (engine vs custody vs token), see",
-  link: {
-    href: "/blog/2026/07/custody-broke-the-engine-didnt-heres-the-boundary/",
-    label: "Custody Broke. The Engine Didn’t.",
+const PROVIDER_RISK_LABELING = [
+  {
+    showFrom: "2026-08-01",
+    showUntil: "2026-08-21",
+    eyebrow: "Custody / provider",
+    body: [
+      "These Messy-managed books use the Guru Lotus vault adapter on Base for custody and share accounting. Messy’s engine runs research, council decisioning, and trade construction; capital sits in Guru’s vault contracts. Our trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. Provider-side contract failure is venue risk. Keys live in Turnkey; our backend never holds key material.",
+    ],
+    linkLead: "For the blast-radius map (engine vs custody vs token), see",
+    link: {
+      href: "/blog/2026/07/custody-broke-the-engine-didnt-heres-the-boundary/",
+      label: "Custody Broke. The Engine Didn’t.",
+    },
   },
-};
+  {
+    showFrom: "2026-08-22",
+    eyebrow: "Custody / provider",
+    body: [
+      "This week's public micro books use two Base custody adapters. base04, base05, and base06 sit on Guru Lotus vaults. Messy's engine runs research, council decisioning, and trade construction; capital on those books sits in Guru's vault contracts. On the Guru books, the trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. lg-base01 and lg-base02 sit on Lagoon vaults for custody and share accounting. Provider-side contract failure is venue risk on either adapter. Keys live in Turnkey; our backend never holds key material.",
+    ],
+    linkLead: "For the blast-radius map (engine vs custody vs token), see",
+    link: {
+      href: "/blog/2026/07/custody-broke-the-engine-didnt-heres-the-boundary/",
+      label: "Custody Broke. The Engine Didn’t.",
+    },
+  },
+];
 
 function activeProviderRiskLabeling(asOfDate) {
   const today = asOfDate || new Date().toISOString().slice(0, 10);
-  if (PROVIDER_RISK_LABELING.showFrom && PROVIDER_RISK_LABELING.showFrom > today) {
-    return null;
-  }
-  if (PROVIDER_RISK_LABELING.showUntil && PROVIDER_RISK_LABELING.showUntil < today) {
-    return null;
-  }
-  const { showFrom, showUntil, ...payload } = PROVIDER_RISK_LABELING;
+  const note = PROVIDER_RISK_LABELING.find((entry) => {
+    if (entry.showFrom && entry.showFrom > today) return false;
+    if (entry.showUntil && entry.showUntil < today) return false;
+    return true;
+  });
+  if (!note) return null;
+  const { showFrom, showUntil, ...payload } = note;
   return payload;
 }
 
 function fundsForAsOf(asOfDate) {
   const today = asOfDate || new Date().toISOString().slice(0, 10);
-  return FUNDS.filter((fund) => !fund.since || fund.since <= today);
+  return FUNDS.filter((fund) => {
+    if (fund.since && fund.since > today) return false;
+    if (fund.until && fund.until < today) return false;
+    return true;
+  });
+}
+
+function joinFundNames(names) {
+  if (!names.length) return "";
+  if (names.length === 1) return names[0];
+  if (names.length === 2) return `${names[0]} and ${names[1]}`;
+  return `${names.slice(0, -1).join(", ")}, and ${names[names.length - 1]}`;
+}
+
+function buildSuiteIntro(funds) {
+  const live = (funds || []).filter(isPublicMicroFund);
+  const guru = live.filter((f) => f.group === "guru-micro").map((f) => f.name);
+  const lagoon = live.filter((f) => f.group === "lagoon-micro").map((f) => f.name);
+  const other = live.filter((f) => f.group === "micro").map((f) => f.name);
+  const parts = [];
+  if (guru.length) parts.push(`Guru Lotus books ${joinFundNames(guru)}`);
+  if (lagoon.length) parts.push(`Lagoon books ${joinFundNames(lagoon)}`);
+  if (other.length) parts.push(joinFundNames(other));
+  const roster = parts.join(", plus ");
+  const lead = roster
+    ? `Weekly workflow proof for Messy-managed micro test funds on Base: ${roster}.`
+    : "Weekly workflow proof for Messy-managed micro test funds on Base.";
+  return `${lead} Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used, not a live market refresh at publish time.`;
 }
 
 function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRollup }) {
@@ -152,7 +213,7 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
   }
 
   const movers = (funds || [])
-    .filter((f) => f.group === "guru-micro" || f.group === "micro")
+    .filter(isPublicMicroFund)
     .filter((f) => f.ret7d && f.ret7d.value && f.ret7d.value !== "n/a")
     .slice()
     .sort((a, b) => Math.abs(parseFloat(b.ret7d.value)) - Math.abs(parseFloat(a.ret7d.value)));
@@ -217,7 +278,7 @@ function buildWeeklyRollup(funds) {
 
 function buildComparisonRows(funds) {
   return (funds || [])
-    .filter((f) => f.group === "guru-micro" || f.group === "micro")
+    .filter(isPublicMicroFund)
     .map((f) => ({
       name: f.name,
       id: f.id,
@@ -241,7 +302,7 @@ function artifactUuidFromRef(ref) {
 function fetchCouncilCliGet(fundId, sessionId) {
   try {
     const raw = execSync(
-      `npx -y @messyvirgo/cli@0.41.0 funds council get ${fundId} ${sessionId} --json --no-update-check`,
+      `npx -y ${MESSY_CLI_SPEC} funds council get ${fundId} ${sessionId} --json --no-update-check`,
       { encoding: "utf8", timeout: 60000, stdio: ["pipe", "pipe", "pipe"] }
     );
     const start = raw.indexOf("{");
@@ -256,7 +317,7 @@ function fetchCouncilCliArtifact(fundId, artifactId) {
   if (!artifactId) return null;
   try {
     const raw = execSync(
-      `npx -y @messyvirgo/cli@0.41.0 funds council artifact ${fundId} ${artifactId} --json --no-update-check`,
+      `npx -y ${MESSY_CLI_SPEC} funds council artifact ${fundId} ${artifactId} --json --no-update-check`,
       { encoding: "utf8", timeout: 60000, stdio: ["pipe", "pipe", "pipe"] }
     );
     const start = raw.indexOf("{");
@@ -630,7 +691,7 @@ function buildWeekDebateDigest(funds) {
   const counts = new Map();
   const fundHits = new Map();
   for (const fund of funds || []) {
-    if (fund.group !== "guru-micro" && fund.group !== "micro") continue;
+    if (!isPublicMicroFund(fund)) continue;
     const themes = fund.chairInsight?.themes || [];
     for (const theme of themes) {
       counts.set(theme, (counts.get(theme) || 0) + 1);
@@ -695,7 +756,7 @@ function fetchSessionFrozenContext(funds, asOfDate, useCli) {
   }
 
   for (const fund of funds || []) {
-    if (fund.group !== "guru-micro" && fund.group !== "micro") continue;
+    if (!isPublicMicroFund(fund)) continue;
 
     const latestId = fund.latestWeekSessionId;
     const earliestId = fund.earliestWeekSessionId;
@@ -771,7 +832,7 @@ function fetchSessionFrozenContext(funds, asOfDate, useCli) {
 
   // Regime path: sample one session per calendar day from the densest fund's timeline.
   const densest = (funds || [])
-    .filter((f) => f.group === "guru-micro" || f.group === "micro")
+    .filter(isPublicMicroFund)
     .filter((f) => f.weekTimeline?.days?.length)
     .sort((a, b) => (b.weekTimeline.sessionCount || 0) - (a.weekTimeline.sessionCount || 0))[0];
 
@@ -797,7 +858,7 @@ function fetchSessionFrozenContext(funds, asOfDate, useCli) {
   // Fill any missing days from other funds' closing sessions if densest was sparse.
   if (weekPathPoints.length < 2) {
     for (const fund of funds || []) {
-      if (!fund.latestWeekSessionId) continue;
+      if (!isPublicMicroFund(fund) || !fund.latestWeekSessionId) continue;
       const sessionGet = getCached(fund.id, fund.latestWeekSessionId);
       const regime = regimeFromSessionGet(sessionGet);
       const day = (sessionGet?.summary?.started_at || "").slice(0, 10);
@@ -1127,6 +1188,9 @@ function deriveSignals(funds) {
     }
   }
 
+  // Token-level only: a holding still in book with a PnL warning (~-$50).
+  // Never fill this from council headlines (e.g. "Rebalance executed and
+  // reconciled."). If nothing qualifies, omit the card.
   let riskReject = null;
   for (const fund of funds) {
     if (!fund?.holdingsBar?.length) continue;
@@ -1143,20 +1207,6 @@ function deriveSignals(funds) {
       tags: ["not screened", `$${w.pnl} pnl`, "rotate out"],
     };
     break;
-  }
-
-  if (!riskReject) {
-    for (const fund of funds) {
-      if (!fund?.council?.riskNotes) continue;
-      riskReject = {
-        symbol: fund.name,
-        name: fund.name,
-        fundName: fund.name,
-        body: fund.council.riskNotes.split(";")[0].trim(),
-        tags: ["council reject", "rotate out"],
-      };
-      break;
-    }
   }
 
   return { signalExample, riskReject };
@@ -1275,7 +1325,7 @@ function summarizeCouncilWeek(publicItems, cliItems, asOfDate) {
 function fetchCouncilCliList(fundId, limit = 25) {
   try {
     const raw = execSync(
-      `npx -y @messyvirgo/cli@0.41.0 funds council list ${fundId} --limit ${limit} --json`,
+      `npx -y ${MESSY_CLI_SPEC} funds council list ${fundId} --limit ${limit} --json`,
       { encoding: "utf8", timeout: 45000, stdio: ["pipe", "pipe", "pipe"] }
     );
     const start = raw.indexOf("{");
@@ -1891,7 +1941,7 @@ function parseCliJson(raw) {
 }
 
 function runCliJson(args, timeoutMs = 60000) {
-  const raw = execSync(`npx -y @messyvirgo/cli@0.41.0 ${args}`, {
+  const raw = execSync(`npx -y ${MESSY_CLI_SPEC} ${args}`, {
     encoding: "utf8",
     timeout: timeoutMs,
     stdio: ["pipe", "pipe", "pipe"],
@@ -2230,6 +2280,7 @@ async function fetchFundUpdateData(options = {}) {
   });
   const readerNotes = activeReaderNotes(asOfDate);
   const providerRiskLabeling = activeProviderRiskLabeling(asOfDate);
+  const suiteIntro = buildSuiteIntro(funds);
 
   return {
     snapshotDate,
@@ -2251,6 +2302,7 @@ async function fetchFundUpdateData(options = {}) {
     weeklyHighlights,
     readerNotes,
     providerRiskLabeling,
+    suiteIntro,
   };
 }
 
@@ -2258,4 +2310,5 @@ module.exports = {
   fetchFundUpdateData,
   FUNDS,
   REPORT_VERSION,
+  isPublicMicroFund,
 };

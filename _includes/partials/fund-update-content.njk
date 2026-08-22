@@ -12,7 +12,7 @@
   <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> and authenticated council prep (session-frozen macro/narrative when available).</p>
   {% endif %}
 
-  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">Weekly workflow proof for Guru micro test funds on Base (base01, base02, base04, base05, base06). Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used — not a live market refresh at publish time.</p>
+  <p class="mv-body mb-0 border-l-2 border-pink-400/40 pl-4 text-gray-300">{% if fu.suiteIntro %}{{ fu.suiteIntro }}{% else %}Weekly workflow proof for Guru micro test funds on Base (base01, base02, base04, base05, base06). Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used, not a live market refresh at publish time.{% endif %}</p>
 </div>
 
 {# check-us #1: venue before performance (provider risk labeling) #}
@@ -203,7 +203,7 @@
 
 <div class="fu-fund-grid fu-fund-grid--micro">
 {% for fund in fu.funds %}
-  {% if fund.group == "guru-micro" or fund.group == "micro" %}
+  {% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" %}
   <a class="fu-fund-card mv-card glassmorphism rounded-lg p-6 block text-gray-200 no-underline hover:shadow-lg hover:shadow-pink-500/20" href="{{ fund.appUrl }}" target="_blank" rel="noopener noreferrer">
     <div class="fc-name">{{ fund.name }}</div>
     <div class="fc-nav">{{ fund.nav }} NAV</div>
@@ -231,7 +231,7 @@
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
 {% for fund in fu.funds %}
-{% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "guru" %}
+{% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" or fund.group == "guru" %}
 <p class="mv-eyebrow mb-4">{{ fund.name }} — council &amp; book</p>
 
 {% if fund.council %}
@@ -408,7 +408,7 @@
 <div class="fu-links-grid">
   <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="https://app.messyvirgo.com/funds" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">🏦</span> All Funds</a>
   {% for fund in fu.funds %}
-  {% if fund.group == "guru-micro" or fund.group == "micro" %}
+  {% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" %}
   <a class="fu-link-pill mv-card glassmorphism rounded-lg p-4" href="{{ fund.councilUrl or fund.appUrl }}" target="_blank" rel="noopener noreferrer"><span class="fu-link-icon" aria-hidden="true">⚖️</span> {{ fund.name }} Council</a>
   {% endif %}
   {% endfor %}

@@ -25,6 +25,7 @@ const path = require("path");
 const {
   fetchFundUpdateData,
   REPORT_VERSION,
+  isPublicMicroFund,
 } = require("./lib/fetch-fund-update-data");
 
 const ROOT = path.join(__dirname, "..");
@@ -192,9 +193,7 @@ function sanitizeSnapshot(data) {
 }
 
 function summarizeSnapshot(data, { useCli }) {
-  const funds = (data.funds || []).filter(
-    (f) => f.group === "guru-micro" || f.group === "micro"
-  );
+  const funds = (data.funds || []).filter(isPublicMicroFund);
   const withChair = funds.filter((f) => f.chairInsight?.notes?.length).length;
   const withStrip = funds.filter((f) => f.weekTimeline?.days?.length).length;
   const withNet = funds.filter((f) => f.weekStory?.netPosture?.line).length;
@@ -232,11 +231,9 @@ function validateSnapshot(data, { useCli, draft }) {
     );
   }
 
-  const micro = (data.funds || []).filter(
-    (f) => f.group === "guru-micro" || f.group === "micro"
-  );
+  const micro = (data.funds || []).filter(isPublicMicroFund);
   if (!micro.length) {
-    errors.push("No guru-micro funds in snapshot.");
+    errors.push("No public micro funds in snapshot.");
   }
 
   if (data.sessionContext?.postureIntent) {
