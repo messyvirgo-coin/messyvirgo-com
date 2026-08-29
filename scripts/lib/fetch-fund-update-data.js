@@ -10,8 +10,8 @@ const API = "https://api.messyvirgo.com/api/v1/public";
 /** Snapshot schema / layout generation for weekly Fund Reports. */
 const REPORT_VERSION = "vnext-2026-07-24";
 
-/** Installed Messy CLI; week-story fields need an authenticated 0.44 profile. */
-const MESSY_CLI_SPEC = "@messyvirgo/cli@0.44.0";
+/** Installed Messy CLI; week-story fields need an authenticated 0.45 profile. */
+const MESSY_CLI_SPEC = "@messyvirgo/cli@0.45.0";
 
 const PUBLIC_MICRO_GROUPS = new Set(["guru-micro", "micro", "lagoon-micro"]);
 
@@ -75,9 +75,15 @@ const READER_NOTES = [
   },
   {
     showFrom: "2026-08-22",
-    showUntil: "2026-09-05",
+    showUntil: "2026-08-28",
     text:
       "Two Guru Lotus verification books closed this week (base01 and base02). Two Lagoon books joined this public suite: lg-base01 and lg-base02. Guru Lotus workflow books still on the page are base04, base05, and base06. Screens still stop at ideas: council and execution decide size, venue, and fills.",
+  },
+  {
+    showFrom: "2026-08-29",
+    showUntil: "2026-09-12",
+    text:
+      "The public suite is still five micro books: Guru Lotus base04, base05, and base06, plus Lagoon lg-base01 and lg-base02. Closed verification books base01 and base02 stay off this page. The marketing site now lists only the same current books as app.messyvirgo.com/funds. Screens still stop at ideas: council and execution decide size, venue, and fills.",
   },
 ];
 
