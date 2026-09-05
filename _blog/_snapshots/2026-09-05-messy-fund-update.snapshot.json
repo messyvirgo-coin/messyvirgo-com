@@ -1,0 +1,2325 @@
+{
+  "snapshotDate": "5 September 2026",
+  "asOfDate": "2026-09-05",
+  "reportVersion": "vnext-2026-07-24",
+  "macroUnavailable": false,
+  "narrativesUnavailable": false,
+  "publishedAt": "2026-09-05T11:03:18.259Z",
+  "funds": [
+    {
+      "id": "mvf-base04",
+      "name": "base04",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base04",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-base04/council",
+      "nav": "$47.13",
+      "ret1d": {
+        "value": "-2.2%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "+2.8%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "+7.1%",
+        "cls": "pos",
+        "window": "30d"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "CASH",
+          "detail": "USDC",
+          "weight": "12.3",
+          "pnl": null,
+          "color": "#64748b",
+          "warning": false,
+          "kind": "cash"
+        },
+        {
+          "symbol": "BASE",
+          "detail": "WETH",
+          "weight": "17.5",
+          "pnl": null,
+          "color": "#94a3b8",
+          "warning": false,
+          "kind": "base"
+        },
+        {
+          "symbol": "ROOST",
+          "detail": null,
+          "weight": "16.4",
+          "pnl": -0.039152199476997,
+          "color": "#ff69b4",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "BALD",
+          "detail": null,
+          "weight": "12.5",
+          "pnl": -0.0429166192111145,
+          "color": "#fbbf24",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "PEEZY",
+          "detail": null,
+          "weight": "12.1",
+          "pnl": -0.005822981244233,
+          "color": "#60a5fa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "MFER",
+          "detail": null,
+          "weight": "11.7",
+          "pnl": 0.420353158742543,
+          "color": "#34d399",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "TYBG",
+          "detail": null,
+          "weight": "10.0",
+          "pnl": 0.3329267395491795,
+          "color": "#a78bfa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "KEYCAT",
+          "detail": null,
+          "weight": "4.9",
+          "pnl": -0.1771106305763545,
+          "color": "#f87171",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "DRB",
+          "detail": null,
+          "weight": "2.6",
+          "pnl": -0.0566249714574825,
+          "color": "#fb923c",
+          "warning": false,
+          "kind": "beta"
+        }
+      ],
+      "bookPosture": {
+        "cash": 12.3,
+        "base": 17.5,
+        "beta": 70.1,
+        "label": "Cash 12.3% · Base 17.5% · High-beta 70.1%"
+      },
+      "hasHoldingsBar": true,
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$8",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "outcomeLabel": "executed reconciled",
+        "date": "5 September 2026",
+        "shortDate": "5 Sept",
+        "headline": "The rebalance executed and reconciled: peezy was added while keycat and tybg were trimmed, funding both the addition and a mandated increase in high beta from about 68.9% to 70% within a posture of roughly cash 12%, base 18%, high beta 70%.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "totalSessions": 7,
+        "executedRotations": 6,
+        "holdSessions": 0,
+        "blockedSessions": 0,
+        "targetSessions": 0,
+        "unclassifiedSessions": 1
+      },
+      "weekTimeline": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "days": [
+          {
+            "day": "2026-08-31",
+            "weekday": "Mon",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "8df80585-398d-4bc2-bd06-4aba91ad1ca3",
+            "sessionCount": 2
+          },
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "2f6ac5ac-af06-4a6f-a8c3-15d6f6e6fb11",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-02",
+            "weekday": "Wed",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "46a40907-37d6-48ef-ad94-e5b80ca9bece",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-03",
+            "weekday": "Thu",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "58768ae1-65af-4601-94d9-878b5c650a7e",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-04",
+            "weekday": "Fri",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "c1b83d2a-ff12-4408-a523-c71d892092d1",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-05",
+            "weekday": "Sat",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+            "sessionCount": 1
+          }
+        ],
+        "label": "Mon exec · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+        "sessionCount": 7,
+        "execDays": 6,
+        "holdDays": 0
+      },
+      "latestWeekSessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+      "earliestWeekSessionId": "45ffeee1-91ef-4b96-b92e-2ad07cbee38b",
+      "screening": {
+        "runDate": "5 September 2026",
+        "aggDate": "4 September 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "BALD",
+            "name": "Bald",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 2.75, best rank 2, recency score 13.42."
+          },
+          {
+            "rank": 2,
+            "symbol": "ROOST",
+            "name": "Roost",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 3.00, best rank 3, recency score 7.69."
+          },
+          {
+            "rank": 3,
+            "symbol": "TYBG",
+            "name": "Base God",
+            "reason": "Appeared in 3/7 source run(s) with avg rank 4.67, best rank 1, recency score 5.50."
+          }
+        ]
+      },
+      "positionCount": 7,
+      "pricedAt": "2026-09-05T11:00:18.335641Z",
+      "chairInsight": {
+        "postureLine": "Cash 13.4% → 12.4% · Base 17.6% · High-beta 68.9% → 70%",
+        "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
+        "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
+        "notes": [
+          "Top-1 position (tybg, 19.6% NAV) and top-3 concentration (47.3% NAV) remain elevated against an effective position count of 4.96; still inside the derived 4-10 breadth band but worth monitoring if a new add…",
+          "Fresh screening this session produced mostly thin, single-source-only candidates (byte, neiro, nut, bobo, nogs, dogeverse) with degraded aggregate context; treat any addition from this set as fresh-only…",
+          "DRB has aggregate rank 6 but was absent from the latest fresh run; if this repeats next session it should be weighed as a coverage concern rather than held on the current single-session sample."
+        ],
+        "themes": [
+          "fresh_only_add",
+          "rank_watch"
+        ],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "weekStory": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "8df80585-398d-4bc2-bd06-4aba91ad1ca3",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "2f6ac5ac-af06-4a6f-a8c3-15d6f6e6fb11",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "46a40907-37d6-48ef-ad94-e5b80ca9bece",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "58768ae1-65af-4601-94d9-878b5c650a7e",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "c1b83d2a-ff12-4408-a523-c71d892092d1",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 7,
+          "execDays": 6,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 13.2% → 12.4% · Base 14.7% → 17.6% · High-beta 72.1% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Drb was increased last session (weth->drb); re-trimming it this session reverses a very recent action without a new adverse signal beyond one-session ATR/24h move, and pays execution friction twice."
+          }
+        ],
+        "closingSessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+        "openingSessionId": "45ffeee1-91ef-4b96-b92e-2ad07cbee38b"
+      }
+    },
+    {
+      "id": "mvf-base05",
+      "name": "base05",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base05",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-base05/council",
+      "nav": "$45.89",
+      "ret1d": {
+        "value": "-2.3%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-5.8%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "-0.9%",
+        "cls": "neg",
+        "window": "30d"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "CASH",
+          "detail": "USDC",
+          "weight": "12.9",
+          "pnl": null,
+          "color": "#64748b",
+          "warning": false,
+          "kind": "cash"
+        },
+        {
+          "symbol": "BASE",
+          "detail": "WETH",
+          "weight": "17.4",
+          "pnl": null,
+          "color": "#94a3b8",
+          "warning": false,
+          "kind": "base"
+        },
+        {
+          "symbol": "BOOMER",
+          "detail": null,
+          "weight": "19.6",
+          "pnl": -0.103769485470773,
+          "color": "#ff69b4",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "ROOST",
+          "detail": null,
+          "weight": "11.0",
+          "pnl": 0.136003089925356,
+          "color": "#fbbf24",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "RIZ",
+          "detail": null,
+          "weight": "10.7",
+          "pnl": 1.5220270803286817,
+          "color": "#60a5fa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "BENI",
+          "detail": null,
+          "weight": "9.6",
+          "pnl": -0.0670229415427925,
+          "color": "#34d399",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "UP",
+          "detail": null,
+          "weight": "9.6",
+          "pnl": -0.149549920679742,
+          "color": "#a78bfa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "CHAD",
+          "detail": null,
+          "weight": "9.1",
+          "pnl": -0.32873685680925,
+          "color": "#f87171",
+          "warning": false,
+          "kind": "beta"
+        }
+      ],
+      "bookPosture": {
+        "cash": 12.9,
+        "base": 17.4,
+        "beta": 69.7,
+        "label": "Cash 12.9% · Base 17.4% · High-beta 69.7%"
+      },
+      "hasHoldingsBar": true,
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$8",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "outcomeLabel": "executed reconciled",
+        "date": "5 September 2026",
+        "shortDate": "5 Sept",
+        "headline": "The council's rebalance executed and reconciled: una was exited and the proceeds redeployed into boomer, while chad, riz, up, roost, and beni were held, all within an unchanged fund posture of roughly 12% cash, 18% base, and 70% high beta whose post-execution realized weights are not yet available.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "totalSessions": 7,
+        "executedRotations": 5,
+        "holdSessions": 0,
+        "blockedSessions": 0,
+        "targetSessions": 1,
+        "unclassifiedSessions": 1
+      },
+      "weekTimeline": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "days": [
+          {
+            "day": "2026-08-31",
+            "weekday": "Mon",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "66168b40-b286-435e-9d9f-9146471b8581",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "other",
+            "label": "session",
+            "sessionId": "ef446d18-0c35-4586-b45e-2da98f062462",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-02",
+            "weekday": "Wed",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "0cbcf06f-d4b4-4a99-b636-c9f915d6b10f",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-03",
+            "weekday": "Thu",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "a5c194ae-ecdd-464c-9f2b-3206746ce10c",
+            "sessionCount": 2
+          },
+          {
+            "day": "2026-09-04",
+            "weekday": "Fri",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "26b4fc1d-6d7e-4a82-9405-680dda43a72c",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-05",
+            "weekday": "Sat",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "c433eedd-5749-43f7-95ee-9c2dd785faa1",
+            "sessionCount": 1
+          }
+        ],
+        "label": "Mon exec · Tue session · Wed exec · Thu exec · Fri exec · Sat exec",
+        "sessionCount": 7,
+        "execDays": 5,
+        "holdDays": 0
+      },
+      "latestWeekSessionId": "c433eedd-5749-43f7-95ee-9c2dd785faa1",
+      "earliestWeekSessionId": "66168b40-b286-435e-9d9f-9146471b8581",
+      "screening": {
+        "runDate": "5 September 2026",
+        "aggDate": "5 September 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "SCL",
+            "name": "Shadow Combat League",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 4.50, best rank 1, recency score 25.36."
+          },
+          {
+            "rank": 2,
+            "symbol": "UNA",
+            "name": "Unagi Token",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 6.17, best rank 4, recency score 17.47."
+          },
+          {
+            "rank": 3,
+            "symbol": "OS",
+            "name": "bunnyOS",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 8.40, best rank 7, recency score 8.53."
+          }
+        ]
+      },
+      "positionCount": 6,
+      "pricedAt": "2026-09-05T11:00:18.335641Z",
+      "chairInsight": {
+        "postureLine": "Cash 12.3% · Base 17.7% · High-beta 70%",
+        "postureRationale": "No bucket movement is recommended because current allocation already satisfies the computed posture.",
+        "actionSummary": "Keep cash unchanged, keep base unchanged, and keep high beta unchanged.",
+        "notes": [
+          "una's exit proceeds are targeted by two competing redeployment proposals (boomer increase, clawnch new entry); only one can be funded from the single sell leg without exceeding sell-fundable capacity of $31.41.",
+          "clawnch carries fresh-rank-3 status with no aggregate screening history — fresh-only evidence, size conservatively if added.",
+          "riz shows a supportive +17.3% unrealized gain but a sharp -17.4% 24h move with no fresh-rank coverage; this is a timing caution flagged by macro_tactical_pm, not an exit trigger on its own."
+        ],
+        "themes": [
+          "fresh_only_add"
+        ],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "weekStory": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "66168b40-b286-435e-9d9f-9146471b8581",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "other",
+              "label": "session",
+              "sessionId": "ef446d18-0c35-4586-b45e-2da98f062462",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "0cbcf06f-d4b4-4a99-b636-c9f915d6b10f",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "a5c194ae-ecdd-464c-9f2b-3206746ce10c",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "26b4fc1d-6d7e-4a82-9405-680dda43a72c",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "c433eedd-5749-43f7-95ee-9c2dd785faa1",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue session · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 7,
+          "execDays": 5,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 24% → 12.3% · Base 17.4% → 17.7% · High-beta 58.6% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-02",
+            "weekday": "Wed",
+            "beat": "exec",
+            "text": "Cash reduction of -15.0pp is at the maximum single-session move allowed; further band compliance will require additional sessions."
+          }
+        ],
+        "closingSessionId": "c433eedd-5749-43f7-95ee-9c2dd785faa1",
+        "openingSessionId": "66168b40-b286-435e-9d9f-9146471b8581"
+      }
+    },
+    {
+      "id": "mvf-base06",
+      "name": "base06",
+      "group": "guru-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base06",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-base06/council",
+      "nav": "$31.49",
+      "ret1d": {
+        "value": "+0.6%",
+        "cls": "pos"
+      },
+      "ret7d": {
+        "value": "+5.7%",
+        "cls": "pos"
+      },
+      "ret30d": {
+        "value": "+32.9%",
+        "cls": "pos",
+        "window": "30d"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "CASH",
+          "detail": "USDC",
+          "weight": "17.4",
+          "pnl": null,
+          "color": "#64748b",
+          "warning": false,
+          "kind": "cash"
+        },
+        {
+          "symbol": "BASE",
+          "detail": "WETH",
+          "weight": "16.6",
+          "pnl": null,
+          "color": "#94a3b8",
+          "warning": false,
+          "kind": "base"
+        },
+        {
+          "symbol": "NPC",
+          "detail": null,
+          "weight": "20.1",
+          "pnl": 1.1815865713568146,
+          "color": "#ff69b4",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "SPX",
+          "detail": null,
+          "weight": "14.0",
+          "pnl": 0.6500081988638983,
+          "color": "#fbbf24",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "DRV",
+          "detail": null,
+          "weight": "8.1",
+          "pnl": 0.005738973377965,
+          "color": "#60a5fa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "ZEN",
+          "detail": null,
+          "weight": "7.3",
+          "pnl": 0.4889088797493588,
+          "color": "#34d399",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "WRSETH",
+          "detail": null,
+          "weight": "6.1",
+          "pnl": -0.0082014068515841,
+          "color": "#a78bfa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "OMI",
+          "detail": null,
+          "weight": "5.1",
+          "pnl": -0.1168056782225091,
+          "color": "#f87171",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "WSTETH",
+          "detail": null,
+          "weight": "4.1",
+          "pnl": -0.0031621294948127,
+          "color": "#fb923c",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "VVV",
+          "detail": null,
+          "weight": "1.1",
+          "pnl": 0.03540889838434436,
+          "color": "#e879f9",
+          "warning": false,
+          "kind": "beta"
+        }
+      ],
+      "bookPosture": {
+        "cash": 17.4,
+        "base": 16.6,
+        "beta": 66,
+        "label": "Cash 17.4% · Base 16.6% · High-beta 66%"
+      },
+      "hasHoldingsBar": true,
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$5",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "outcomeLabel": "executed reconciled",
+        "date": "5 September 2026",
+        "shortDate": "5 Sept",
+        "headline": "The MFV-BASE06 rebalance executed and reconciled, mutating the fund.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "totalSessions": 8,
+        "executedRotations": 5,
+        "holdSessions": 0,
+        "blockedSessions": 0,
+        "targetSessions": 1,
+        "unclassifiedSessions": 2
+      },
+      "weekTimeline": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "days": [
+          {
+            "day": "2026-08-31",
+            "weekday": "Mon",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "e1a800a4-0e5f-4f4c-812b-ec5b296fabf4",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "adbf3d43-7c1c-4bf3-bea4-8a3017af138e",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-02",
+            "weekday": "Wed",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "7fb7c6d3-cee1-49c1-8a97-450bfd5e982b",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-03",
+            "weekday": "Thu",
+            "beat": "target",
+            "label": "target",
+            "sessionId": "9a17c74a-d5b6-431b-a1d1-7fe212f570e1",
+            "sessionCount": 3
+          },
+          {
+            "day": "2026-09-04",
+            "weekday": "Fri",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "463ab2d3-4a75-4b35-a5d3-dc1e63370d32",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-05",
+            "weekday": "Sat",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "6cda635b-783f-4605-9a33-b5836a4236f5",
+            "sessionCount": 1
+          }
+        ],
+        "label": "Mon exec · Tue exec · Wed exec · Thu target · Fri exec · Sat exec",
+        "sessionCount": 8,
+        "execDays": 5,
+        "holdDays": 0
+      },
+      "latestWeekSessionId": "6cda635b-783f-4605-9a33-b5836a4236f5",
+      "earliestWeekSessionId": "e1a800a4-0e5f-4f4c-812b-ec5b296fabf4",
+      "screening": {
+        "runDate": "5 September 2026",
+        "aggDate": "5 September 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "NPC",
+            "name": "Non-Playable Coin",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 1.86, best rank 1, recency score 34.14."
+          },
+          {
+            "rank": 2,
+            "symbol": "SPX",
+            "name": "SPX6900",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 4.00, best rank 3, recency score 25.03."
+          },
+          {
+            "rank": 3,
+            "symbol": "VVV",
+            "name": "Venice Token",
+            "reason": "Appeared in 6/7 source run(s) with avg rank 8.50, best rank 6, recency score 9.93."
+          }
+        ]
+      },
+      "positionCount": 8,
+      "pricedAt": "2026-09-05T11:00:18.335641Z",
+      "chairInsight": {
+        "postureLine": "Cash 11.7% · Base 16.4% · High-beta 71.9%",
+        "postureRationale": "No bucket movement is recommended because current allocation already satisfies the computed posture.",
+        "actionSummary": "Keep cash unchanged, keep base unchanged, and keep high beta unchanged.",
+        "notes": [
+          "zro (token 9318) and tibbir (token 9444) are sub-minimum-value dust positions ($0.41/$0.27) with coverage gaps (zro absent from both fresh/agg screens; tibbir absent from fresh) — closing either is…",
+          "taot and drv are fresh-only single-source candidates with zero aggregate history; size small if added, consistent with unconfirmed-evidence guidance.",
+          "zen 24h move +22.9% and RSI 81.4 reflect one session of overbought/divergent signal (fresh rank 2 vs agg rank 8) — supports a trim rationale but is not itself sufficient grounds for a larger reduction absent…"
+        ],
+        "themes": [
+          "fresh_only_add"
+        ],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "weekStory": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "e1a800a4-0e5f-4f4c-812b-ec5b296fabf4",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "adbf3d43-7c1c-4bf3-bea4-8a3017af138e",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "7fb7c6d3-cee1-49c1-8a97-450bfd5e982b",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "target",
+              "label": "target",
+              "sessionId": "9a17c74a-d5b6-431b-a1d1-7fe212f570e1",
+              "sessionCount": 3
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "463ab2d3-4a75-4b35-a5d3-dc1e63370d32",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "6cda635b-783f-4605-9a33-b5836a4236f5",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue exec · Wed exec · Thu target · Fri exec · Sat exec",
+          "sessionCount": 8,
+          "execDays": 5,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 13.2% → 11.7% · Base 16% → 16.4% · High-beta 70.8% → 71.9%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Top-3 concentration remains 54.4% of NAV against a derived 4-10 breadth band and effective count of 4.42; this is a standing condition, not new, but continues to warrant breadth-additive action rather than…"
+          }
+        ],
+        "closingSessionId": "6cda635b-783f-4605-9a33-b5836a4236f5",
+        "openingSessionId": "e1a800a4-0e5f-4f4c-812b-ec5b296fabf4"
+      }
+    },
+    {
+      "id": "mvf-lg-base01",
+      "name": "lg-base01",
+      "group": "lagoon-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-lg-base01",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-lg-base01/council",
+      "nav": "$52.42",
+      "ret1d": {
+        "value": "-2.7%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-1.6%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "+9.7%",
+        "cls": "pos",
+        "window": "27d*"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "CASH",
+          "detail": "USDC",
+          "weight": "11.9",
+          "pnl": null,
+          "color": "#64748b",
+          "warning": false,
+          "kind": "cash"
+        },
+        {
+          "symbol": "BASE",
+          "detail": "WETH",
+          "weight": "17.8",
+          "pnl": null,
+          "color": "#94a3b8",
+          "warning": false,
+          "kind": "base"
+        },
+        {
+          "symbol": "OMI",
+          "detail": null,
+          "weight": "14.3",
+          "pnl": -0.10272817515397,
+          "color": "#ff69b4",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "ZORA",
+          "detail": null,
+          "weight": "14.2",
+          "pnl": 0.400053030450396,
+          "color": "#fbbf24",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "NPC",
+          "detail": null,
+          "weight": "11.5",
+          "pnl": 1.008373569325425,
+          "color": "#60a5fa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "PROPS",
+          "detail": null,
+          "weight": "11.5",
+          "pnl": -0.1973012661516785,
+          "color": "#34d399",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "CBBTC",
+          "detail": null,
+          "weight": "10.8",
+          "pnl": 0.032422140814539,
+          "color": "#a78bfa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "WOON",
+          "detail": null,
+          "weight": "5.7",
+          "pnl": -0.1770531685098056,
+          "color": "#f87171",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "DRB",
+          "detail": null,
+          "weight": "2.3",
+          "pnl": -0.066146507074005,
+          "color": "#fb923c",
+          "warning": false,
+          "kind": "beta"
+        }
+      ],
+      "bookPosture": {
+        "cash": 11.9,
+        "base": 17.8,
+        "beta": 70.3,
+        "label": "Cash 11.9% · Base 17.8% · High-beta 70.3%"
+      },
+      "hasHoldingsBar": true,
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$9",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "outcomeLabel": "executed reconciled",
+        "date": "5 September 2026",
+        "shortDate": "5 Sept",
+        "headline": "The council's rebalance executed and reconciled, actually mutating the fund's holdings.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "totalSessions": 9,
+        "executedRotations": 6,
+        "holdSessions": 0,
+        "blockedSessions": 0,
+        "targetSessions": 0,
+        "unclassifiedSessions": 3
+      },
+      "weekTimeline": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "days": [
+          {
+            "day": "2026-08-31",
+            "weekday": "Mon",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "21bd55c3-a4ab-434d-9600-e1a6ae4bfe1f",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "fb54b691-7235-4a32-bda6-1497f668df5c",
+            "sessionCount": 2
+          },
+          {
+            "day": "2026-09-02",
+            "weekday": "Wed",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "b8c82d5b-57e2-4903-909e-8798f735ee45",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-03",
+            "weekday": "Thu",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "e28e4ba5-5823-4c37-9bbb-2e2bdbb14395",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-04",
+            "weekday": "Fri",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "1858ebba-9b69-4c52-881a-66fb23dfc5a3",
+            "sessionCount": 3
+          },
+          {
+            "day": "2026-09-05",
+            "weekday": "Sat",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "aaace83b-2371-4298-ab07-ef4438b99482",
+            "sessionCount": 1
+          }
+        ],
+        "label": "Mon exec · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+        "sessionCount": 9,
+        "execDays": 6,
+        "holdDays": 0
+      },
+      "latestWeekSessionId": "aaace83b-2371-4298-ab07-ef4438b99482",
+      "earliestWeekSessionId": "21bd55c3-a4ab-434d-9600-e1a6ae4bfe1f",
+      "screening": {
+        "runDate": "5 September 2026",
+        "aggDate": "5 September 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "WOON",
+            "name": "Woon",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 4.00, best rank 2, recency score 27.00."
+          },
+          {
+            "rank": 2,
+            "symbol": "FRIEND",
+            "name": "Friend.tech",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 4.20, best rank 2, recency score 13.12."
+          },
+          {
+            "rank": 3,
+            "symbol": "SPARK",
+            "name": "SPARK",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 6.40, best rank 4, recency score 12.09."
+          }
+        ]
+      },
+      "positionCount": 7,
+      "pricedAt": "2026-09-05T11:00:18.335641Z",
+      "chairInsight": {
+        "postureLine": "Cash 16% → 12% · Base 18% · High-beta 66% → 70%",
+        "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
+        "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
+        "notes": [
+          "Deployable capacity is only $2.11 with 2 unfunded new-entry slots; multiple new adds (props, zora, slc) cannot all be funded without a same-sleeve sell that meets minimum trade size.",
+          "WOON exit cost is 107bps and liquidity is thin ($407.4k global); any material trim should be sized conservatively against slippage.",
+          "PROPS liquidity is very thin ($20.7k global, $6.5k vol24h); adding here at scale risks material slippage despite low quoted round-trip."
+        ],
+        "themes": [],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "weekStory": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "21bd55c3-a4ab-434d-9600-e1a6ae4bfe1f",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "fb54b691-7235-4a32-bda6-1497f668df5c",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "b8c82d5b-57e2-4903-909e-8798f735ee45",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "e28e4ba5-5823-4c37-9bbb-2e2bdbb14395",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "1858ebba-9b69-4c52-881a-66fb23dfc5a3",
+              "sessionCount": 3
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "aaace83b-2371-4298-ab07-ef4438b99482",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 9,
+          "execDays": 6,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 16% → 12% · Base 17.1% → 18% · High-beta 66.9% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Beta position count (4) sits at the floor of the derived 4-10 breadth band; further concentration without breadth-building action recurs as a standing risk each session it persists."
+          }
+        ],
+        "closingSessionId": "aaace83b-2371-4298-ab07-ef4438b99482",
+        "openingSessionId": "21bd55c3-a4ab-434d-9600-e1a6ae4bfe1f"
+      }
+    },
+    {
+      "id": "mvf-lg-base02",
+      "name": "lg-base02",
+      "group": "lagoon-micro",
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-lg-base02",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-lg-base02/council",
+      "nav": "$53.22",
+      "ret1d": {
+        "value": "-3.5%",
+        "cls": "neg"
+      },
+      "ret7d": {
+        "value": "-4.8%",
+        "cls": "neg"
+      },
+      "ret30d": {
+        "value": "n/a",
+        "cls": "neu",
+        "window": "21d*"
+      },
+      "holdingsBar": [
+        {
+          "symbol": "CASH",
+          "detail": "USDC",
+          "weight": "12.4",
+          "pnl": null,
+          "color": "#64748b",
+          "warning": false,
+          "kind": "cash"
+        },
+        {
+          "symbol": "BASE",
+          "detail": "WETH",
+          "weight": "18.2",
+          "pnl": null,
+          "color": "#94a3b8",
+          "warning": false,
+          "kind": "base"
+        },
+        {
+          "symbol": "NPC",
+          "detail": null,
+          "weight": "22.2",
+          "pnl": 1.846304298824448,
+          "color": "#ff69b4",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "JITOSOL",
+          "detail": null,
+          "weight": "14.7",
+          "pnl": 0.088953989562448,
+          "color": "#fbbf24",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "WOON",
+          "detail": null,
+          "weight": "13.6",
+          "pnl": -0.512794810972934,
+          "color": "#60a5fa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "ZORA",
+          "detail": null,
+          "weight": "12.5",
+          "pnl": 0.303739852864043,
+          "color": "#34d399",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "ALTT",
+          "detail": null,
+          "weight": "3.5",
+          "pnl": -0.0712152365777206,
+          "color": "#a78bfa",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "CBBTC",
+          "detail": null,
+          "weight": "2.9",
+          "pnl": 0.011038966092364,
+          "color": "#f87171",
+          "warning": false,
+          "kind": "beta"
+        }
+      ],
+      "bookPosture": {
+        "cash": 12.4,
+        "base": 18.2,
+        "beta": 69.4,
+        "label": "Cash 12.4% · Base 18.2% · High-beta 69.4%"
+      },
+      "hasHoldingsBar": true,
+      "basePositions": [
+        {
+          "symbol": "WETH",
+          "value": "$10",
+          "pnl": null
+        }
+      ],
+      "council": {
+        "outcome": "executed_reconciled",
+        "outcomeLabel": "executed reconciled",
+        "date": "5 September 2026",
+        "shortDate": "5 Sept",
+        "headline": "The council's rebalance executed and reconciled, rotating spark out of the sleeve to fund a cautious new zora entry while raising high beta toward a ratified 70% target; realized post-execution bucket weights are not yet available, so the achieved posture cannot yet be confirmed against that target.",
+        "riskNotes": "Rebalance executed and reconciled.",
+        "targetFinalization": null,
+        "targetFinalizationBlocked": false,
+        "actionItems": null,
+        "executionStatus": "resolved",
+        "outcomeKind": "executed_reconciled"
+      },
+      "councilWeek": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "totalSessions": 9,
+        "executedRotations": 5,
+        "holdSessions": 0,
+        "blockedSessions": 0,
+        "targetSessions": 0,
+        "unclassifiedSessions": 4
+      },
+      "weekTimeline": {
+        "weekStart": "2026-08-31",
+        "weekEnd": "2026-09-05",
+        "days": [
+          {
+            "day": "2026-08-31",
+            "weekday": "Mon",
+            "beat": "other",
+            "label": "session",
+            "sessionId": "3bfb1e12-39e0-4d81-b861-3314efeb23bc",
+            "sessionCount": 3
+          },
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "c776687b-c55c-42de-979c-76ffd4c2e1a6",
+            "sessionCount": 2
+          },
+          {
+            "day": "2026-09-02",
+            "weekday": "Wed",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "22fad545-8cf4-427d-a469-49fa85996822",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-03",
+            "weekday": "Thu",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "fa14dfef-8aa2-479c-bb74-1b34972b28a7",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-04",
+            "weekday": "Fri",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "1ce1c30e-711a-4b5c-89af-67398e77a73a",
+            "sessionCount": 1
+          },
+          {
+            "day": "2026-09-05",
+            "weekday": "Sat",
+            "beat": "exec",
+            "label": "exec",
+            "sessionId": "cfcb9d27-351e-44e3-ae19-7b3943a80d5c",
+            "sessionCount": 1
+          }
+        ],
+        "label": "Mon session · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+        "sessionCount": 9,
+        "execDays": 5,
+        "holdDays": 0
+      },
+      "latestWeekSessionId": "cfcb9d27-351e-44e3-ae19-7b3943a80d5c",
+      "earliestWeekSessionId": "3bfb1e12-39e0-4d81-b861-3314efeb23bc",
+      "screening": {
+        "runDate": "5 September 2026",
+        "aggDate": "5 September 2026",
+        "aggLookback": 7,
+        "aggSourceRuns": 7,
+        "aggCandidates": [
+          {
+            "rank": 1,
+            "symbol": "WOON",
+            "name": "Woon",
+            "reason": "Appeared in 7/7 source run(s) with avg rank 4.71, best rank 3, recency score 23.57."
+          },
+          {
+            "rank": 2,
+            "symbol": "SPARK",
+            "name": "SPARK",
+            "reason": "Appeared in 5/7 source run(s) with avg rank 6.80, best rank 5, recency score 10.79."
+          },
+          {
+            "rank": 3,
+            "symbol": "FRIEND",
+            "name": "Friend.tech",
+            "reason": "Appeared in 4/7 source run(s) with avg rank 3.75, best rank 2, recency score 10.23."
+          }
+        ]
+      },
+      "positionCount": 6,
+      "pricedAt": "2026-09-05T11:00:18.335641Z",
+      "chairInsight": {
+        "postureLine": "Cash 14.4% → 11.8% · Base 18.2% · High-beta 67.4% → 70%",
+        "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
+        "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
+        "notes": [
+          "Capacity is thin: deployable $1.36, sell-funded $35.75, max 1 new entry — limits this session to a single funded rotation, not a broader reshuffle.",
+          "Sleeve has 6 active members; any full exit must land freed weight on a remaining member, a ratified addition, or a required-exit tranche.",
+          "NPC concentration (22.6% top-1, 48.7% top-3) was flagged by the risk manager and by two PM seats as exceeding what the sleeve's breadth band supports, but I judged the underlying evidence too strong to trim…"
+        ],
+        "themes": [],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "weekStory": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "other",
+              "label": "session",
+              "sessionId": "3bfb1e12-39e0-4d81-b861-3314efeb23bc",
+              "sessionCount": 3
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "c776687b-c55c-42de-979c-76ffd4c2e1a6",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "22fad545-8cf4-427d-a469-49fa85996822",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "fa14dfef-8aa2-479c-bb74-1b34972b28a7",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "1ce1c30e-711a-4b5c-89af-67398e77a73a",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "cfcb9d27-351e-44e3-ae19-7b3943a80d5c",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon session · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 9,
+          "execDays": 5,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 13.2% → 11.8% · Base 16.2% → 18.2% · High-beta 70.6% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Altt's 135bps exit cost and $360.8k global liquidity mean a full exit versus a partial reduce materially changes realized slippage; size the trim to sell-fundable capacity ($37.49) rather than a full…"
+          }
+        ],
+        "closingSessionId": "cfcb9d27-351e-44e3-ae19-7b3943a80d5c",
+        "openingSessionId": "3bfb1e12-39e0-4d81-b861-3314efeb23bc"
+      }
+    }
+  ],
+  "hasReadOnlyGuru": false,
+  "weeklyRollup": {
+    "weekStart": "2026-08-31",
+    "weekEnd": "2026-09-05",
+    "totalSessions": 40,
+    "executed": 27,
+    "holds": 0,
+    "blocked": 0,
+    "fundsWithSessions": 5
+  },
+  "comparison": [
+    {
+      "name": "base04",
+      "id": "mvf-base04",
+      "nav": "$47.13",
+      "ret7d": {
+        "value": "+2.8%",
+        "cls": "pos"
+      },
+      "sessions": 7,
+      "executed": 6,
+      "holds": 0,
+      "blocked": 0,
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base04",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-base04/council"
+    },
+    {
+      "name": "base05",
+      "id": "mvf-base05",
+      "nav": "$45.89",
+      "ret7d": {
+        "value": "-5.8%",
+        "cls": "neg"
+      },
+      "sessions": 7,
+      "executed": 5,
+      "holds": 0,
+      "blocked": 0,
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base05",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-base05/council"
+    },
+    {
+      "name": "base06",
+      "id": "mvf-base06",
+      "nav": "$31.49",
+      "ret7d": {
+        "value": "+5.7%",
+        "cls": "pos"
+      },
+      "sessions": 8,
+      "executed": 5,
+      "holds": 0,
+      "blocked": 0,
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-base06",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-base06/council"
+    },
+    {
+      "name": "lg-base01",
+      "id": "mvf-lg-base01",
+      "nav": "$52.42",
+      "ret7d": {
+        "value": "-1.6%",
+        "cls": "neg"
+      },
+      "sessions": 9,
+      "executed": 6,
+      "holds": 0,
+      "blocked": 0,
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-lg-base01",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-lg-base01/council"
+    },
+    {
+      "name": "lg-base02",
+      "id": "mvf-lg-base02",
+      "nav": "$53.22",
+      "ret7d": {
+        "value": "-4.8%",
+        "cls": "neg"
+      },
+      "sessions": 9,
+      "executed": 5,
+      "holds": 0,
+      "blocked": 0,
+      "appUrl": "https://app.messyvirgo.com/funds/mvf-lg-base02",
+      "councilUrl": "https://app.messyvirgo.com/funds/mvf-lg-base02/council"
+    }
+  ],
+  "weekDebateDigest": {
+    "title": "Across the councils",
+    "bullets": [
+      "Fresh-only candidates were added cautiously (small size, watch for aggregate confirmation) rather than as full slate replacements. (base04, base05, base06; 3 funds)."
+    ]
+  },
+  "sessionContext": {
+    "unavailable": false,
+    "reason": null,
+    "source": {
+      "fundId": "mvf-base04",
+      "fundName": "base04",
+      "sessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+      "startedAt": "2026-09-05T07:11:56.956222Z",
+      "asOf": "2026-09-05",
+      "scope": "week_closing_briefs"
+    },
+    "weekPath": {
+      "points": [
+        {
+          "day": "2026-08-31",
+          "weekday": "Mon",
+          "beat": "exec",
+          "regimeCode": "R+",
+          "regimeLabel": "Risk-on (R+)",
+          "observed": "R+",
+          "effective": "R+",
+          "fundName": "lg-base01"
+        },
+        {
+          "day": "2026-09-01",
+          "weekday": "Tue",
+          "beat": "exec",
+          "regimeCode": "N",
+          "regimeLabel": "Neutral (N)",
+          "observed": "N",
+          "effective": "N",
+          "fundName": "lg-base01"
+        },
+        {
+          "day": "2026-09-02",
+          "weekday": "Wed",
+          "beat": "exec",
+          "regimeCode": "N",
+          "regimeLabel": "Neutral (N)",
+          "observed": "N",
+          "effective": "N",
+          "fundName": "lg-base01"
+        },
+        {
+          "day": "2026-09-03",
+          "weekday": "Thu",
+          "beat": "exec",
+          "regimeCode": "R+",
+          "regimeLabel": "Risk-on (R+)",
+          "observed": "R+",
+          "effective": "R+",
+          "fundName": "lg-base01"
+        },
+        {
+          "day": "2026-09-04",
+          "weekday": "Fri",
+          "beat": "exec",
+          "regimeCode": "R+",
+          "regimeLabel": "Risk-on (R+)",
+          "observed": "R+",
+          "effective": "R+",
+          "fundName": "lg-base01"
+        },
+        {
+          "day": "2026-09-05",
+          "weekday": "Sat",
+          "beat": "exec",
+          "regimeCode": "R+",
+          "regimeLabel": "Risk-on (R+)",
+          "observed": "R+",
+          "effective": "R+",
+          "fundName": "lg-base01"
+        }
+      ],
+      "label": "Risk-on (R+) all week",
+      "changed": false,
+      "sourceFundName": "lg-base01",
+      "uniqueCodes": [
+        "R+",
+        "N"
+      ]
+    },
+    "tapeMotif": null,
+    "macro": {
+      "summary": "Effective macro regime is R+ with fresh coverage and 80% confidence.",
+      "asOf": "2026-09-05",
+      "observedRegime": "R+",
+      "effectiveRegime": "R+",
+      "regimeLabel": "Risk-on (R+)",
+      "regimeCode": "R+",
+      "regimeHoldState": {
+        "active_regime": "R+",
+        "observed_regime": "R+",
+        "transition_pending": false,
+        "confirmation_status": "confirmed",
+        "prior_actionable_regime": null,
+        "confirmation_days_observed": 0,
+        "confirmation_days_required": 0,
+        "proposed_actionable_regime": "R+"
+      }
+    },
+    "narrative": {
+      "summary": "Across 16 active narrative(s), 30d momentum vs TOTAL3ES ranges from Privacy Coins at +67.3pp to Gaming (GameFi) at -26.4pp.",
+      "asOf": "2026-09-05",
+      "signals": []
+    },
+    "chairByFundId": {
+      "mvf-base04": {
+        "postureLine": "Cash 13.4% → 12.4% · Base 17.6% · High-beta 68.9% → 70%",
+        "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
+        "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
+        "notes": [
+          "Top-1 position (tybg, 19.6% NAV) and top-3 concentration (47.3% NAV) remain elevated against an effective position count of 4.96; still inside the derived 4-10 breadth band but worth monitoring if a new add…",
+          "Fresh screening this session produced mostly thin, single-source-only candidates (byte, neiro, nut, bobo, nogs, dogeverse) with degraded aggregate context; treat any addition from this set as fresh-only…",
+          "DRB has aggregate rank 6 but was absent from the latest fresh run; if this repeats next session it should be weighed as a coverage concern rather than held on the current single-session sample."
+        ],
+        "themes": [
+          "fresh_only_add",
+          "rank_watch"
+        ],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "mvf-base05": {
+        "postureLine": "Cash 12.3% · Base 17.7% · High-beta 70%",
+        "postureRationale": "No bucket movement is recommended because current allocation already satisfies the computed posture.",
+        "actionSummary": "Keep cash unchanged, keep base unchanged, and keep high beta unchanged.",
+        "notes": [
+          "una's exit proceeds are targeted by two competing redeployment proposals (boomer increase, clawnch new entry); only one can be funded from the single sell leg without exceeding sell-fundable capacity of $31.41.",
+          "clawnch carries fresh-rank-3 status with no aggregate screening history — fresh-only evidence, size conservatively if added.",
+          "riz shows a supportive +17.3% unrealized gain but a sharp -17.4% 24h move with no fresh-rank coverage; this is a timing caution flagged by macro_tactical_pm, not an exit trigger on its own."
+        ],
+        "themes": [
+          "fresh_only_add"
+        ],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "mvf-base06": {
+        "postureLine": "Cash 11.7% · Base 16.4% · High-beta 71.9%",
+        "postureRationale": "No bucket movement is recommended because current allocation already satisfies the computed posture.",
+        "actionSummary": "Keep cash unchanged, keep base unchanged, and keep high beta unchanged.",
+        "notes": [
+          "zro (token 9318) and tibbir (token 9444) are sub-minimum-value dust positions ($0.41/$0.27) with coverage gaps (zro absent from both fresh/agg screens; tibbir absent from fresh) — closing either is…",
+          "taot and drv are fresh-only single-source candidates with zero aggregate history; size small if added, consistent with unconfirmed-evidence guidance.",
+          "zen 24h move +22.9% and RSI 81.4 reflect one session of overbought/divergent signal (fresh rank 2 vs agg rank 8) — supports a trim rationale but is not itself sufficient grounds for a larger reduction absent…"
+        ],
+        "themes": [
+          "fresh_only_add"
+        ],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "mvf-lg-base01": {
+        "postureLine": "Cash 16% → 12% · Base 18% · High-beta 66% → 70%",
+        "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
+        "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
+        "notes": [
+          "Deployable capacity is only $2.11 with 2 unfunded new-entry slots; multiple new adds (props, zora, slc) cannot all be funded without a same-sleeve sell that meets minimum trade size.",
+          "WOON exit cost is 107bps and liquidity is thin ($407.4k global); any material trim should be sized conservatively against slippage.",
+          "PROPS liquidity is very thin ($20.7k global, $6.5k vol24h); adding here at scale risks material slippage despite low quoted round-trip."
+        ],
+        "themes": [],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      },
+      "mvf-lg-base02": {
+        "postureLine": "Cash 14.4% → 11.8% · Base 18.2% · High-beta 67.4% → 70%",
+        "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
+        "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
+        "notes": [
+          "Capacity is thin: deployable $1.36, sell-funded $35.75, max 1 new entry — limits this session to a single funded rotation, not a broader reshuffle.",
+          "Sleeve has 6 active members; any full exit must land freed weight on a remaining member, a ratified addition, or a required-exit tranche.",
+          "NPC concentration (22.6% top-1, 48.7% top-3) was flagged by the risk manager and by two PM seats as exceeding what the sleeve's breadth band supports, but I judged the underlying evidence too strong to trim…"
+        ],
+        "themes": [],
+        "hold": false,
+        "scope": "closing",
+        "scopeLabel": "Closing session"
+      }
+    },
+    "weekStoryByFundId": {
+      "mvf-base04": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "8df80585-398d-4bc2-bd06-4aba91ad1ca3",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "2f6ac5ac-af06-4a6f-a8c3-15d6f6e6fb11",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "46a40907-37d6-48ef-ad94-e5b80ca9bece",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "58768ae1-65af-4601-94d9-878b5c650a7e",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "c1b83d2a-ff12-4408-a523-c71d892092d1",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 7,
+          "execDays": 6,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 13.2% → 12.4% · Base 14.7% → 17.6% · High-beta 72.1% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Drb was increased last session (weth->drb); re-trimming it this session reverses a very recent action without a new adverse signal beyond one-session ATR/24h move, and pays execution friction twice."
+          }
+        ],
+        "closingSessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+        "openingSessionId": "45ffeee1-91ef-4b96-b92e-2ad07cbee38b"
+      },
+      "mvf-base05": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "66168b40-b286-435e-9d9f-9146471b8581",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "other",
+              "label": "session",
+              "sessionId": "ef446d18-0c35-4586-b45e-2da98f062462",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "0cbcf06f-d4b4-4a99-b636-c9f915d6b10f",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "a5c194ae-ecdd-464c-9f2b-3206746ce10c",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "26b4fc1d-6d7e-4a82-9405-680dda43a72c",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "c433eedd-5749-43f7-95ee-9c2dd785faa1",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue session · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 7,
+          "execDays": 5,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 24% → 12.3% · Base 17.4% → 17.7% · High-beta 58.6% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-02",
+            "weekday": "Wed",
+            "beat": "exec",
+            "text": "Cash reduction of -15.0pp is at the maximum single-session move allowed; further band compliance will require additional sessions."
+          }
+        ],
+        "closingSessionId": "c433eedd-5749-43f7-95ee-9c2dd785faa1",
+        "openingSessionId": "66168b40-b286-435e-9d9f-9146471b8581"
+      },
+      "mvf-base06": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "e1a800a4-0e5f-4f4c-812b-ec5b296fabf4",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "adbf3d43-7c1c-4bf3-bea4-8a3017af138e",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "7fb7c6d3-cee1-49c1-8a97-450bfd5e982b",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "target",
+              "label": "target",
+              "sessionId": "9a17c74a-d5b6-431b-a1d1-7fe212f570e1",
+              "sessionCount": 3
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "463ab2d3-4a75-4b35-a5d3-dc1e63370d32",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "6cda635b-783f-4605-9a33-b5836a4236f5",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue exec · Wed exec · Thu target · Fri exec · Sat exec",
+          "sessionCount": 8,
+          "execDays": 5,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 13.2% → 11.7% · Base 16% → 16.4% · High-beta 70.8% → 71.9%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Top-3 concentration remains 54.4% of NAV against a derived 4-10 breadth band and effective count of 4.42; this is a standing condition, not new, but continues to warrant breadth-additive action rather than…"
+          }
+        ],
+        "closingSessionId": "6cda635b-783f-4605-9a33-b5836a4236f5",
+        "openingSessionId": "e1a800a4-0e5f-4f4c-812b-ec5b296fabf4"
+      },
+      "mvf-lg-base01": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "21bd55c3-a4ab-434d-9600-e1a6ae4bfe1f",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "fb54b691-7235-4a32-bda6-1497f668df5c",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "b8c82d5b-57e2-4903-909e-8798f735ee45",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "e28e4ba5-5823-4c37-9bbb-2e2bdbb14395",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "1858ebba-9b69-4c52-881a-66fb23dfc5a3",
+              "sessionCount": 3
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "aaace83b-2371-4298-ab07-ef4438b99482",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon exec · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 9,
+          "execDays": 6,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 16% → 12% · Base 17.1% → 18% · High-beta 66.9% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Beta position count (4) sits at the floor of the derived 4-10 breadth band; further concentration without breadth-building action recurs as a standing risk each session it persists."
+          }
+        ],
+        "closingSessionId": "aaace83b-2371-4298-ab07-ef4438b99482",
+        "openingSessionId": "21bd55c3-a4ab-434d-9600-e1a6ae4bfe1f"
+      },
+      "mvf-lg-base02": {
+        "timeline": {
+          "weekStart": "2026-08-31",
+          "weekEnd": "2026-09-05",
+          "days": [
+            {
+              "day": "2026-08-31",
+              "weekday": "Mon",
+              "beat": "other",
+              "label": "session",
+              "sessionId": "3bfb1e12-39e0-4d81-b861-3314efeb23bc",
+              "sessionCount": 3
+            },
+            {
+              "day": "2026-09-01",
+              "weekday": "Tue",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "c776687b-c55c-42de-979c-76ffd4c2e1a6",
+              "sessionCount": 2
+            },
+            {
+              "day": "2026-09-02",
+              "weekday": "Wed",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "22fad545-8cf4-427d-a469-49fa85996822",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-03",
+              "weekday": "Thu",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "fa14dfef-8aa2-479c-bb74-1b34972b28a7",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-04",
+              "weekday": "Fri",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "1ce1c30e-711a-4b5c-89af-67398e77a73a",
+              "sessionCount": 1
+            },
+            {
+              "day": "2026-09-05",
+              "weekday": "Sat",
+              "beat": "exec",
+              "label": "exec",
+              "sessionId": "cfcb9d27-351e-44e3-ae19-7b3943a80d5c",
+              "sessionCount": 1
+            }
+          ],
+          "label": "Mon session · Tue exec · Wed exec · Thu exec · Fri exec · Sat exec",
+          "sessionCount": 9,
+          "execDays": 5,
+          "holdDays": 0
+        },
+        "netPosture": {
+          "line": "Week net · Cash 13.2% → 11.8% · Base 16.2% → 18.2% · High-beta 70.6% → 70%",
+          "changed": true
+        },
+        "earlierNotes": [
+          {
+            "day": "2026-09-01",
+            "weekday": "Tue",
+            "beat": "exec",
+            "text": "Altt's 135bps exit cost and $360.8k global liquidity mean a full exit versus a partial reduce materially changes realized slippage; size the trim to sell-fundable capacity ($37.49) rather than a full…"
+          }
+        ],
+        "closingSessionId": "cfcb9d27-351e-44e3-ae19-7b3943a80d5c",
+        "openingSessionId": "3bfb1e12-39e0-4d81-b861-3314efeb23bc"
+      }
+    },
+    "perFund": [
+      {
+        "fundId": "mvf-base04",
+        "fundName": "base04",
+        "sessionId": "148f3710-e87d-47c2-bcec-2b58b1e6babd",
+        "macroSummary": "Effective macro regime is R+ with fresh coverage and 80% confidence.",
+        "narrativeSummary": "Across 16 active narrative(s), 30d momentum vs TOTAL3ES ranges from Privacy Coins at +67.3pp to Gaming (GameFi) at -26.4pp.",
+        "effectiveRegime": "R+"
+      },
+      {
+        "fundId": "mvf-base06",
+        "fundName": "base06",
+        "sessionId": "6cda635b-783f-4605-9a33-b5836a4236f5",
+        "macroSummary": "Effective macro regime is R+ with fresh coverage and 80% confidence.",
+        "narrativeSummary": "Across 16 active narrative(s), 30d momentum vs TOTAL3ES ranges from Privacy Coins at +67.3pp to Gaming (GameFi) at -26.4pp.",
+        "effectiveRegime": "R+"
+      },
+      {
+        "fundId": "mvf-base05",
+        "fundName": "base05",
+        "sessionId": "c433eedd-5749-43f7-95ee-9c2dd785faa1",
+        "macroSummary": "Effective macro regime is R+ with fresh coverage and 80% confidence.",
+        "narrativeSummary": "Across 16 active narrative(s), 30d momentum vs TOTAL3ES ranges from Privacy Coins at +67.3pp to Gaming (GameFi) at -26.4pp.",
+        "effectiveRegime": "R+"
+      },
+      {
+        "fundId": "mvf-lg-base02",
+        "fundName": "lg-base02",
+        "sessionId": "cfcb9d27-351e-44e3-ae19-7b3943a80d5c",
+        "macroSummary": "Effective macro regime is R+ with fresh coverage and 80% confidence.",
+        "narrativeSummary": "Across 16 active narrative(s), 30d momentum vs TOTAL3ES ranges from Privacy Coins at +67.3pp to Gaming (GameFi) at -26.4pp.",
+        "effectiveRegime": "R+"
+      },
+      {
+        "fundId": "mvf-lg-base01",
+        "fundName": "lg-base01",
+        "sessionId": "aaace83b-2371-4298-ab07-ef4438b99482",
+        "macroSummary": "Effective macro regime is R+ with fresh coverage and 80% confidence.",
+        "narrativeSummary": "Across 16 active narrative(s), 30d momentum vs TOTAL3ES ranges from Privacy Coins at +67.3pp to Gaming (GameFi) at -26.4pp.",
+        "effectiveRegime": "R+"
+      }
+    ]
+  },
+  "macro": null,
+  "narratives": [],
+  "signalExample": {
+    "symbol": "WOON",
+    "name": "Woon",
+    "body": "Appeared in <strong>7/7 daily runs</strong> across lg-base01 and lg-base02 over the 7-day lookback. Appeared in 7/7 source run(s) with avg rank 4.00, best rank 2, recency score 27.00.",
+    "tags": [
+      "7/7 days",
+      "aggregate"
+    ]
+  },
+  "riskReject": null,
+  "weeklyHighlights": [
+    "40 council sessions across 5 micro funds — 27 executed.",
+    "Week regime path: Risk-on (R+) all week — Effective macro regime is R+ with fresh coverage and 80% confidence.",
+    "Narrative tape (session-frozen): Across 16 active narrative(s), 30d momentum vs TOTAL3ES ranges from Privacy Coins at +67.3pp to Gaming (GameFi) at -26.4pp.",
+    "base05 NAV $45.89 (-5.8% 7d, 5 exec / 0 hold).",
+    "base06 NAV $31.49 (+5.7% 7d, 5 exec / 0 hold).",
+    "WOON led aggregate screens this week — a candidate signal, not an automatic trade."
+  ],
+  "readerNotes": [
+    {
+      "showFrom": "2026-08-29",
+      "showUntil": "2026-09-12",
+      "text": "The public suite is still five micro books: Guru Lotus base04, base05, and base06, plus Lagoon lg-base01 and lg-base02. Closed verification books base01 and base02 stay off this page. The marketing site now lists only the same current books as app.messyvirgo.com/funds. Screens still stop at ideas: council and execution decide size, venue, and fills."
+    }
+  ],
+  "providerRiskLabeling": {
+    "eyebrow": "Custody / provider",
+    "body": [
+      "This week's public micro books use two Base custody adapters. base04, base05, and base06 sit on Guru Lotus vaults. Messy's engine runs research, council decisioning, and trade construction; capital on those books sits in Guru's vault contracts. On the Guru books, the trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. lg-base01 and lg-base02 sit on Lagoon vaults for custody and share accounting. Provider-side contract failure is venue risk on either adapter. Keys live in Turnkey; our backend never holds key material."
+    ],
+    "linkLead": "For the blast-radius map (engine vs custody vs token), see",
+    "link": {
+      "href": "/blog/2026/07/custody-broke-the-engine-didnt-heres-the-boundary/",
+      "label": "Custody Broke. The Engine Didn’t."
+    }
+  },
+  "suiteIntro": "Weekly workflow proof for Messy-managed micro test funds on Base: Guru Lotus books base04, base05, and base06, plus Lagoon books lg-base01 and lg-base02. Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used, not a live market refresh at publish time."
+}
