@@ -10,8 +10,8 @@ const API = "https://api.messyvirgo.com/api/v1/public";
 /** Snapshot schema / layout generation for weekly Fund Reports. */
 const REPORT_VERSION = "vnext-2026-07-24";
 
-/** Installed Messy CLI; week-story fields need an authenticated 0.45 profile. */
-const MESSY_CLI_SPEC = "@messyvirgo/cli@0.45.0";
+/** Installed Messy CLI; week-story fields need an authenticated 0.47 profile. */
+const MESSY_CLI_SPEC = "@messyvirgo/cli@0.47.0";
 
 const PUBLIC_MICRO_GROUPS = new Set(["guru-micro", "micro", "lagoon-micro"]);
 
@@ -29,9 +29,13 @@ const FUNDS = [
   // Council workflow started week of 2026-08-01 (first manage_fund session 2026-07-27).
   { id: "mvf-base06", name: "base06", sleeveId: "mvs-base06-1", group: "guru-micro", since: "2026-07-27" },
   // Lagoon workflow books (first manage_fund: lg-base01 2026-08-18, lg-base02 2026-08-19).
-  // mvf-lg-base00 is live with council but was never in this public suite; omit unless asked.
-  { id: "mvf-lg-base01", name: "lg-base01", sleeveId: "mvs-lg-base01-1", group: "lagoon-micro", since: "2026-08-18" },
-  { id: "mvf-lg-base02", name: "lg-base02", sleeveId: "mvs-lg-base02-1", group: "lagoon-micro", since: "2026-08-19" },
+  // lg-base00 was omitted while hidden. It is PUBLIC on app.messyvirgo.com/funds as of 2026-10-03.
+  // since 2026-09-27 keeps it out of the published week-of-2026-09-26 suite.
+  { id: "mvf-lg-base00", name: "lg-base00", sleeveId: "mvs-lg-base00-1", group: "lagoon-micro", chain: "base", since: "2026-09-27" },
+  { id: "mvf-lg-base01", name: "lg-base01", sleeveId: "mvs-lg-base01-1", group: "lagoon-micro", chain: "base", since: "2026-08-18" },
+  { id: "mvf-lg-base02", name: "lg-base02", sleeveId: "mvs-lg-base02-1", group: "lagoon-micro", chain: "base", since: "2026-08-19" },
+  // SAFE multi-sig Lagoon book on Robinhood Chain. Provider link created 2026-09-29.
+  { id: "mvf-safe-lg-rh01", name: "safe-lg-rh01", sleeveId: "mvs-safe-lg-rh01-1", group: "lagoon-micro", chain: "robinhood", since: "2026-09-29" },
 ];
 
 const BAR_COLOURS = [
@@ -99,6 +103,7 @@ function activeReaderNotes(asOfDate) {
 /**
  * check-us #1 — provider risk labeling (Fund Update surface).
  * Guru-only copy through week of 2026-08-15; mixed Guru + Lagoon from 2026-08-22.
+ * Seven-book suite (adds public lg-base00 and Robinhood safe-lg-rh01) from 2026-10-03.
  */
 const PROVIDER_RISK_LABELING = [
   {
@@ -116,9 +121,22 @@ const PROVIDER_RISK_LABELING = [
   },
   {
     showFrom: "2026-08-22",
+    showUntil: "2026-10-02",
     eyebrow: "Custody / provider",
     body: [
       "This week's public micro books use two Base custody adapters. base04, base05, and base06 sit on Guru Lotus vaults. Messy's engine runs research, council decisioning, and trade construction; capital on those books sits in Guru's vault contracts. On the Guru books, the trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. lg-base01 and lg-base02 sit on Lagoon vaults for custody and share accounting. Provider-side contract failure is venue risk on either adapter. Keys live in Turnkey; our backend never holds key material.",
+    ],
+    linkLead: "For the blast-radius map (engine vs custody vs token), see",
+    link: {
+      href: "/blog/2026/07/custody-broke-the-engine-didnt-heres-the-boundary/",
+      label: "Custody Broke. The Engine Didn’t.",
+    },
+  },
+  {
+    showFrom: "2026-10-03",
+    eyebrow: "Custody / provider",
+    body: [
+      "This week's public micro books use Guru Lotus and Lagoon custody adapters. base04, base05, and base06 sit on Guru Lotus vaults on Base. Messy's engine runs research, council decisioning, and trade construction; capital on those books sits in Guru's vault contracts. On the Guru books, the trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. lg-base00, lg-base01, and lg-base02 sit on Lagoon vaults on Base. safe-lg-rh01 sits on a Lagoon vault on Robinhood Chain. Provider-side contract failure is venue risk on either adapter. Keys live in Turnkey; our backend never holds key material.",
     ],
     linkLead: "For the blast-radius map (engine vs custody vs token), see",
     link: {
@@ -166,9 +184,12 @@ function buildSuiteIntro(funds) {
   if (lagoon.length) parts.push(`Lagoon books ${joinFundNames(lagoon)}`);
   if (other.length) parts.push(joinFundNames(other));
   const roster = parts.join(", plus ");
+  const chains = [...new Set(live.map((f) => f.chain).filter(Boolean))];
+  const chainLabels = chains.map((chain) => (chain === "robinhood" ? "Robinhood Chain" : chain === "base" ? "Base" : chain));
+  const venue = chainLabels.length ? `on ${joinFundNames(chainLabels)}` : "on Base";
   const lead = roster
-    ? `Weekly workflow proof for Messy-managed micro test funds on Base: ${roster}.`
-    : "Weekly workflow proof for Messy-managed micro test funds on Base.";
+    ? `Weekly workflow proof for Messy-managed micro test funds ${venue}: ${roster}.`
+    : `Weekly workflow proof for Messy-managed micro test funds ${venue}.`;
   return `${lead} Screening prepares evidence; the Chair decides; the system records the resolution; only then can execution mutate the book. Macro and narrative below are the postures those sessions used, not a live market refresh at publish time.`;
 }
 
@@ -2286,7 +2307,7 @@ async function fetchFundUpdateData(options = {}) {
   });
   const readerNotes = activeReaderNotes(asOfDate);
   const providerRiskLabeling = activeProviderRiskLabeling(asOfDate);
-  const suiteIntro = buildSuiteIntro(funds);
+  const suiteIntro = buildSuiteIntro(fundsForAsOf(asOfDate));
 
   return {
     snapshotDate,
