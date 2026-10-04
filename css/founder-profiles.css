@@ -137,7 +137,39 @@ body.founder-profiles-page {
     font-family: 'Inter', system-ui, sans-serif;
     letter-spacing: -0.025em;
     color: #e5e7eb;
+    margin: 0 0 0.35rem 0;
+}
+
+.founder-kyc {
     margin: 0 0 0.5rem 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #9ca3af;
+}
+
+.founder-kyc-proof {
+    display: flex;
+    justify-content: center;
+    margin: 1.75rem 0 0;
+}
+
+.founder-kyc-proof a {
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.3s ease;
+}
+
+.founder-kyc-proof a:hover {
+    transform: scale(1.05);
+}
+
+.founder-kyc-proof img {
+    height: 48px;
+    width: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.35);
 }
 
 .founder-title {
