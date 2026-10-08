@@ -104,9 +104,9 @@ That is how the studio gets better. A mistake does not get quietly patched and f
 
 ## Test where nothing can break
 
-YouTube got the same treatment. The MessyVirgoCoin channel already had a long back catalog. We wanted a new Shorts format, but we were not going to gamble with a channel that had history.
+YouTube got the same treatment. The [MessyVirgoCoin channel](https://www.youtube.com/@MessyVirgoCoin/shorts) already had a long back catalog. We wanted a new Shorts format, but we were not going to gamble with a channel that had history.
 
-So we tested the format first on BANG LULU, a friend's brand. It had no YouTube channel yet, so we created one from scratch: no history, nothing to lose. Only once the format proved itself there did we switch Messy Virgo over and restructure the channel. Proof before autonomy, even on our own brand.
+So we tested the format first on [BANG LULU](https://x.com/BangLuluchan), a friend's brand. It had no YouTube channel yet, so we created one from scratch: no history, nothing to lose. Only once the format proved itself there did we switch Messy Virgo over and restructure the channel. Proof before autonomy, even on our own brand.
 
 ![BANG LULU on YouTube: the channel we built from scratch to test the format.](/images/blog/BANG-LULU-YT.png)
 
