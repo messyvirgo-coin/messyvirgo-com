@@ -10,7 +10,7 @@
 {% set isUpdates = isBuildlog or isFundUpdateWeek or isLiveFundUpdate or isBlog %}
 {% set latestUpdateUrl = collections.fundUpdates[0].url if collections.fundUpdates.length else '/fund-update/' %}
 {% set isTrust = (currentUrl == '/founder-profiles.html') or (currentUrl == '/treasury.html') or (currentUrl == '/association.html') %}
-{% set swapUrl = 'https://aerodrome.finance/swap?from=eth&to=0x09f87f948c88848363b124c9099cbb58e4cc7cb6&chain0=8453&chain1=8453' %}
+{% set swapUrl = 'https://app.aero.xyz/swap?to=8453-0x09f87F948C88848363B124C9099CbB58E4Cc7cB6' %}
 {% set appUrl = 'https://app.messyvirgo.com/' %}
 
 <nav id="navbar" class="glassmorphism shadow-lg">
