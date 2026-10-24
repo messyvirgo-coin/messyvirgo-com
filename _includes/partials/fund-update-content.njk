@@ -6,7 +6,7 @@
 {% else %}
 
 <div class="mv-card glassmorphism rounded-lg p-6 mb-8">
-  <p class="mv-eyebrow mb-3">Fund / Signal update · {{ fu.snapshotDate }}{% if fu.reportVersion %} · {{ fu.reportVersion }}{% endif %}</p>
+  <p class="mv-eyebrow mb-3">Fund / Signal update · {{ fu.snapshotDate }}</p>
 
   {% if showAutogenNotice %}
   <p class="mv-body text-sm text-gray-500 mb-4 pb-4 border-b border-white/10">Auto-generated at build time from <a href="https://api.messyvirgo.com" target="_blank" rel="noopener noreferrer">api.messyvirgo.com</a> and authenticated council prep (session-frozen macro/narrative when available).</p>
