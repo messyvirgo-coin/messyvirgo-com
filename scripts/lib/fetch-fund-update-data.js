@@ -13,7 +13,7 @@ const REPORT_VERSION = "vnext-2026-07-24";
 /** Installed Messy CLI; week-story fields need an authenticated 0.50 profile. */
 const MESSY_CLI_SPEC = "@messyvirgo/cli@0.50.0";
 
-const PUBLIC_MICRO_GROUPS = new Set(["guru-micro", "micro", "lagoon-micro"]);
+const PUBLIC_MICRO_GROUPS = new Set(["guru-micro", "micro", "lagoon-micro", "paper-micro"]);
 
 function isPublicMicroFund(fund) {
   return Boolean(fund && PUBLIC_MICRO_GROUPS.has(fund.group));
@@ -36,6 +36,10 @@ const FUNDS = [
   { id: "mvf-lg-base02", name: "lg-base02", sleeveId: "mvs-lg-base02-1", group: "lagoon-micro", chain: "base", since: "2026-08-19" },
   // SAFE multi-sig Lagoon book on Robinhood Chain. Provider link created 2026-09-29.
   { id: "mvf-safe-lg-rh01", name: "safe-lg-rh01", sleeveId: "mvs-safe-lg-rh01-1", group: "lagoon-micro", chain: "robinhood", since: "2026-09-29" },
+  // Robinhood Chain paper book (PUBLIC on app.messyvirgo.com/funds as of 2026-10-22).
+  // Daily screening list is the public Fund OS screen $SHUFFLE uses for its meme index universe.
+  // since 2026-10-22 keeps it out of the published week-of-2026-10-17 suite.
+  { id: "mvf-paper-meme", name: "paper-meme", sleeveId: "mvs-paper-meme-1", group: "paper-micro", chain: "robinhood", since: "2026-10-22" },
 ];
 
 const BAR_COLOURS = [
@@ -89,6 +93,16 @@ const READER_NOTES = [
     text:
       "The public suite is still five micro books: Guru Lotus base04, base05, and base06, plus Lagoon lg-base01 and lg-base02. Closed verification books base01 and base02 stay off this page. The marketing site now lists only the same current books as app.messyvirgo.com/funds. Screens still stop at ideas: council and execution decide size, venue, and fills.",
   },
+  {
+    showFrom: "2026-10-24",
+    showUntil: "2026-11-07",
+    text:
+      "paper-meme joined the public suite on 22 October as a Robinhood Chain paper book. Its daily screening list is the public Fund OS screen that $SHUFFLE, a meme index on Robinhood Chain, now uses for its token universe. Anyone can inspect the daily candidates on the fund screening page. Screens still stop at ideas: council and execution decide size, venue, and fills on live books.",
+    link: {
+      href: "https://app.messyvirgo.com/funds/mvf-paper-meme/screening",
+      label: "paper-meme screening",
+    },
+  },
 ];
 
 function activeReaderNotes(asOfDate) {
@@ -104,6 +118,7 @@ function activeReaderNotes(asOfDate) {
  * check-us #1 — provider risk labeling (Fund Update surface).
  * Guru-only copy through week of 2026-08-15; mixed Guru + Lagoon from 2026-08-22.
  * Seven-book suite (adds public lg-base00 and Robinhood safe-lg-rh01) from 2026-10-03.
+ * Eight-book suite (adds paper-meme) from 2026-10-24.
  */
 const PROVIDER_RISK_LABELING = [
   {
@@ -134,9 +149,22 @@ const PROVIDER_RISK_LABELING = [
   },
   {
     showFrom: "2026-10-03",
+    showUntil: "2026-10-23",
     eyebrow: "Custody / provider",
     body: [
       "This week's public micro books use Guru Lotus and Lagoon custody adapters. base04, base05, and base06 sit on Guru Lotus vaults on Base. Messy's engine runs research, council decisioning, and trade construction; capital on those books sits in Guru's vault contracts. On the Guru books, the trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. lg-base00, lg-base01, and lg-base02 sit on Lagoon vaults on Base. safe-lg-rh01 sits on a Lagoon vault on Robinhood Chain. Provider-side contract failure is venue risk on either adapter. Keys live in Turnkey; our backend never holds key material.",
+    ],
+    linkLead: "For the blast-radius map (engine vs custody vs token), see",
+    link: {
+      href: "/blog/2026/07/custody-broke-the-engine-didnt-heres-the-boundary/",
+      label: "Custody Broke. The Engine Didn’t.",
+    },
+  },
+  {
+    showFrom: "2026-10-24",
+    eyebrow: "Custody / provider",
+    body: [
+      "This week's public micro books use Guru Lotus and Lagoon custody adapters, plus one paper book. base04, base05, and base06 sit on Guru Lotus vaults on Base. Messy's engine runs research, council decisioning, and trade construction; capital on those books sits in Guru's vault contracts. On the Guru books, the trading key can trade but cannot withdraw, a limit enforced by the vault contracts, not our software. lg-base00, lg-base01, and lg-base02 sit on Lagoon vaults on Base. safe-lg-rh01 sits on a Lagoon vault on Robinhood Chain. paper-meme is a paper-trading book on Robinhood Chain used for public screening proof; it does not hold live capital in a vault adapter. Provider-side contract failure is venue risk on the live adapters. Keys for live books live in Turnkey; our backend never holds key material.",
     ],
     linkLead: "For the blast-radius map (engine vs custody vs token), see",
     link: {
@@ -178,10 +206,18 @@ function buildSuiteIntro(funds) {
   const live = (funds || []).filter(isPublicMicroFund);
   const guru = live.filter((f) => f.group === "guru-micro").map((f) => f.name);
   const lagoon = live.filter((f) => f.group === "lagoon-micro").map((f) => f.name);
+  const paper = live.filter((f) => f.group === "paper-micro").map((f) => f.name);
   const other = live.filter((f) => f.group === "micro").map((f) => f.name);
   const parts = [];
   if (guru.length) parts.push(`Guru Lotus books ${joinFundNames(guru)}`);
   if (lagoon.length) parts.push(`Lagoon books ${joinFundNames(lagoon)}`);
+  if (paper.length) {
+    parts.push(
+      paper.length === 1
+        ? `paper book ${paper[0]}`
+        : `paper books ${joinFundNames(paper)}`
+    );
+  }
   if (other.length) parts.push(joinFundNames(other));
   const roster = parts.join(", plus ");
   const chains = [...new Set(live.map((f) => f.chain).filter(Boolean))];
