@@ -10,8 +10,8 @@ const API = "https://api.messyvirgo.com/api/v1/public";
 /** Snapshot schema / layout generation for weekly Fund Reports. */
 const REPORT_VERSION = "vnext-2026-07-24";
 
-/** Installed Messy CLI; week-story fields need an authenticated 0.47 profile. */
-const MESSY_CLI_SPEC = "@messyvirgo/cli@0.47.0";
+/** Installed Messy CLI; week-story fields need an authenticated 0.50 profile. */
+const MESSY_CLI_SPEC = "@messyvirgo/cli@0.50.0";
 
 const PUBLIC_MICRO_GROUPS = new Set(["guru-micro", "micro", "lagoon-micro"]);
 
