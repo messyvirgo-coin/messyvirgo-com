@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build log draft preview, 27 October 2026</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #111827;
+      color: #e5e7eb;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
+    .banner {
+      border: 1px solid rgba(255, 105, 180, 0.45);
+      background: rgba(255, 105, 180, 0.08);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    h1 { font-size: 32px; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .lead { color: #9ca3af; margin: 0 0 28px; }
+    .buildlog-entry {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 8px 8px 4px;
+      margin: 0 0 20px;
+    }
+    .buildlog-entry-week { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .text-pink-400 { color: #ff69b4; }
+    .text-orange-400 { color: #fb923c; }
+    .text-blue-400 { color: #60a5fa; }
+    ul { margin: 0 0 8px; padding-left: 1.2rem; }
+    li { margin: 0 0 8px; }
+    .mb-6 { margin-bottom: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="banner">Draft for local reading on 28 October 2026. Not published. Three new weeks only. No external requests.</div>
+    <h1>Build Log draft</h1>
+    <p class="lead">Monday to Sunday windows. Newest first. October 19 to 25, October 12 to 18, October 5 to 11, 2026.</p>
+<div class="buildlog-entry fade-in" data-week="Oct 19-25, 2026">
+          <div class="mv-card buildlog-entry-card">
+            <div class="buildlog-entry-header">
+              <div class="buildlog-entry-title">
+                <div class="buildlog-entry-week">
+                  Week of October 19&ndash;25, 2026
+                </div>
+              </div>
+            </div>
+            <div class="buildlog-entry-content">
+              <div class="buildlog-entry-body">
+                <div class="mb-6">
+                  <h4
+                    class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Marketing
+                  </h4>
+                  <ul>
+                    <li>
+                      Continued Market Mood on X through card 18 on 25 October. Each card shows the gauge before and after that day's news, what drags it down, and what still helps.
+                    </li>
+                    <li>
+                      Published the week-of-October 24 Fund Update on the site and announced it on X. Regime path: Risk-off (R-) to Neutral (N). 35 council sessions across 7 micro funds, with 22 executed and 11 holds. WASSIE led aggregate screens as a candidate signal. Screens still stop at ideas.
+                    </li>
+                    <li>
+                      Published &ldquo;Worth the Trip: Impressions from the Emirates&rdquo; on 24 October. The note covers meetings in Dubai, Abu Dhabi and Ras Al Khaimah, and the feedback on Messy Virgo and Fund OS.
+                    </li>
+                    <li>
+                      Posted a public way to inspect a Fund OS book without logging in: Screening for the coins and the rule each one passed, Council for the minutes, and History for the on-chain record.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mb-6">
+                  <h4
+                    class="text-orange-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Business &amp; Operations
+                  </h4>
+                  <ul>
+                    <li>
+                      Published the Saturday Fund Update on 24 October at /updates/2026/10/messy-fund-update-week-of-2026-10-24/.
+                    </li>
+                    <li>
+                      Added paper-meme to the public Fund Update suite. The report records that it joined on 22 October as a Robinhood Chain paper book, with 0 council sessions that week. Its daily list is the public Fund OS screen that the meme index $SHUFFLE uses as its token universe. It is a paper book with no live capital.
+                    </li>
+                    <li>
+                      Pinned the Fund Update data fetch to @messyvirgo/cli 0.50.0.
+                    </li>
+                    <li>
+                      Pointed the public $MESSY swap links at the Aero app, including the home page, the navigation, and the coin page.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4
+                    class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Product Development
+                  </h4>
+                  <ul>
+                    <li>
+                      Allowed operators to trigger trades and rebalances. New entries got a tradability probe at the entry size.
+                    </li>
+                    <li>
+                      Made paper funds plannable with Velora-quoted fills. Released CLI v0.49.0 and v0.50.0.
+                    </li>
+                    <li>
+                      Due diligence: added a sell check that can return NO-GO, separate contract facts with a lock reader, and a separate evidence score. LP-lock facts are stored per pool at each stage.
+                    </li>
+                    <li>
+                      Carried a failed KPI forward with its observation date. Limited news facts to a closed source set. Stored a quiet news window as a quiet window. Moved the runtime to Node 24.22.1 for the October security release, updated dependencies, and removed emSign CA trust from certifi, uv, and pip.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="buildlog-entry fade-in" data-week="Oct 12-18, 2026">
+          <div class="mv-card buildlog-entry-card">
+            <div class="buildlog-entry-header">
+              <div class="buildlog-entry-title">
+                <div class="buildlog-entry-week">
+                  Week of October 12&ndash;18, 2026
+                </div>
+              </div>
+            </div>
+            <div class="buildlog-entry-content">
+              <div class="buildlog-entry-body">
+                <div class="mb-6">
+                  <h4
+                    class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Marketing
+                  </h4>
+                  <ul>
+                    <li>
+                      Continued Market Mood on X. Cards 7, 9 and 11 posted on 13, 16 and 18 October, each one the gauge before and after the day's news.
+                    </li>
+                    <li>
+                      Published the week-of-October 17 Fund Update on the site and announced it on X. Regime path: Neutral (N) to Risk-off (R-). 35 council sessions across 7 micro funds, with 30 executed and 4 holds. WASSIE led aggregate screens as a candidate signal. Screens still stop at ideas.
+                    </li>
+                    <li>
+                      Published x402 sample reports in the live layout, and linked the 402 payment challenge to a free sample and the product index, so a buying agent can read an example before it pays.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mb-6">
+                  <h4
+                    class="text-orange-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Business &amp; Operations
+                  </h4>
+                  <ul>
+                    <li>
+                      Published the Saturday Fund Update on 17 October at /updates/2026/10/messy-fund-update-week-of-2026-10-17/.
+                    </li>
+                    <li>
+                      The 17 October public report covered seven micro books. It did not include a paper book.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4
+                    class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Product Development
+                  </h4>
+                  <ul>
+                    <li>
+                      Made a compact due diligence run fail when a required section is missing.
+                    </li>
+                    <li>
+                      Let a failed news source degrade the briefing, which still returns. Tied news to its own sources, with topic names. Capped the data timestamp at the request time. Wrote macro text from the EMA, and kept each indicator's observation date.
+                    </li>
+                    <li>
+                      Token checks: took spam pools out of the lock check, read Clanker v4 locks, counted only holders that can sell, and labeled exchange custody. Covered Pons launches.
+                    </li>
+                    <li>
+                      Left-aligned token search on the web in this week's platform releases.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="buildlog-entry fade-in" data-week="Oct 5-11, 2026">
+          <div class="mv-card buildlog-entry-card">
+            <div class="buildlog-entry-header">
+              <div class="buildlog-entry-title">
+                <div class="buildlog-entry-week">
+                  Week of October 5&ndash;11, 2026
+                </div>
+              </div>
+            </div>
+            <div class="buildlog-entry-content">
+              <div class="buildlog-entry-body">
+                <div class="mb-6">
+                  <h4
+                    class="text-pink-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Marketing
+                  </h4>
+                  <ul>
+                    <li>
+                      Continued Market Mood on X. Cards 2 and 5 posted on 5 and 10 October, on the same before-and-after gauge launched the previous week.
+                    </li>
+                    <li>
+                      Published &ldquo;One Approval Away&rdquo; on 8 October. The post describes the brand studio: AI desks draft the work, and one human editor gives the go before a post is public.
+                    </li>
+                    <li>
+                      Published the week-of-October 10 Fund Update on the site and announced it on X. Regime path: Risk-on (R+) to Neutral (N). 36 council sessions across 7 micro funds, with 23 executed and 6 holds. OMI led aggregate screens as a candidate signal. Screens still stop at ideas.
+                    </li>
+                  </ul>
+                </div>
+                <div class="mb-6">
+                  <h4
+                    class="text-orange-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Business &amp; Operations
+                  </h4>
+                  <ul>
+                    <li>
+                      Published the September operations note on 11 October. Vendors were paid in dollars first. Settlement then came from $MESSY already held in treasury, not a pool buy.
+                    </li>
+                    <li>
+                      Published the Saturday Fund Update on 10 October at /updates/2026/10/messy-fund-update-week-of-2026-10-10/.
+                    </li>
+                    <li>
+                      Kept app.messyvirgo.com out of search indexes in the platform release published 9 October.
+                    </li>
+                    <li>
+                      Updated dependencies after Dependabot alerts in the platform release published 6 October.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4
+                    class="text-blue-400 font-bold mb-2 uppercase text-xs tracking-wider"
+                  >
+                    Product Development
+                  </h4>
+                  <ul>
+                    <li>
+                      Recorded redelivered signing claims on the claim that was already open. Kept a fixed nonce on a blocked gate. Dry-runs rehearsed the fund action up to the execution line, and dry-run approvals were rejected before the review queue.
+                    </li>
+                    <li>
+                      Parked a missing Lagoon signing setup as a repair item. Recognized a resubmit of an already-rejected signature from the chain and treated it as already sent.
+                    </li>
+                    <li>
+                      Due diligence: treated an unreadable LP lock as unknown. Read minimal-proxy clones and the Virtuals owner tax on-chain. Added an Infrastructure narrative, and a category for tokens with no narrative.
+                    </li>
+                    <li>
+                      Made a bare x402 pay URL return the payment challenge. Added holder facts to product due diligence. Moved SoSoValue news and ETF flows onto the new OpenAPI.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</body>
+</html>
