@@ -20,7 +20,7 @@ Sentence:
 
 Never describe Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack as Messy Virgo work. Do not write that Messy Virgo built, shipped, developed, ran, financed, or owns them. Frame that work as the founders' independent work. A report is allowed in the third person, for example "the founders' Fund OS". Messy Virgo may say that it published the weekly Fund Update or posted about it.
 
-Do not add a Product Development section. Do not read platform pull requests, and do not describe release notes as Messy Virgo product work.
+Do not add a Product Development section. Put Fund OS, platform, CLI, engine, and screening notes in a block headed exactly `Founders' project: Fund OS`, in the third person (`The founders' Fund OS` or `The founders`). Do not read platform pull requests, and do not describe those notes as Messy Virgo work. Website, content, and the association's own tools stay under Marketing, Business & Operations, or `Tools and website`.
 
 Private or non-public matters are never included.
 
@@ -59,7 +59,7 @@ Sections, in order, about four bullets each. Plain English, about 26 words, no j
 1. Marketing (`text-pink-400`, wrapper `mb-6` unless it is the last section)
 2. Business &amp; Operations (`text-orange-400`, wrapper `mb-6` unless it is the last section)
 
-There is no Product Development section. The last section uses an outer `<div>` without `mb-6`.
+There is no Product Development section. When a week reports on Fund OS, add `Founders' project: Fund OS` (`text-founders`) after Marketing and Business. The association's own site tools, if any, use `Tools and website` (`text-blue-400`). The last section uses an outer `<div>` without `mb-6`.
 
 Copy classes from the current newest entry. English. Past tense. A bullet that is not sourced inside the window does not ship.
 

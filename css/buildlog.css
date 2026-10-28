@@ -457,6 +457,11 @@ body.buildlog-page .mv-treasury-sep-inner {
     border-bottom-color: rgba(59, 130, 246, 0.3);
 }
 
+.buildlog-entry-body h4.text-founders {
+    color: #c4b5fd !important;
+    border-bottom-color: rgba(167, 139, 250, 0.35);
+}
+
 .buildlog-entry-body ul {
     list-style: none;
     padding: 0;

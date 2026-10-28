@@ -46,7 +46,7 @@ Leave the top notice and this sentence exactly as they are. Do not add a second 
 
 Never describe Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack as Messy Virgo work. Do not say Messy Virgo built, shipped, developed, ran, financed, or owns them. Reporting is allowed only in the third person, for example "the founders' Fund OS". Messy Virgo may record that it published the weekly Fund Update or posted about it.
 
-Do not read platform pull requests. Do not add a Product Development section. Private or non-public matters are never included.
+Do not read platform pull requests. Do not add a Product Development section. Fund OS items go in a block headed exactly `Founders' project: Fund OS`, written in the third person as the founders' independent work. Website and the association's own tools stay under Marketing, Business & Operations, or `Tools and website`. Private or non-public matters are never included.
 
 If the public fund snapshot's meeting total does not equal the sum of its outcome counts, publish only the total, or omit the figures. Do not invent the missing outcomes. Do not fill gaps in a numbered card series.
 
@@ -57,7 +57,7 @@ Always this order (reorder user bullets if they paste sections out of order):
 1. Marketing – `text-pink-400` heading, `mb-6` wrapper unless it is the last section.
 2. Business & Operations – `text-orange-400`, `Business &amp; Operations` in the heading. The last section uses `<div>` without `mb-6`.
 
-There is no Product Development section. Copy structure, classes, and nesting from the **current newest** `.buildlog-entry`. Do not invent new markup.
+There is no Product Development section. If the week reports on Fund OS, add `Founders' project: Fund OS` with class `text-founders` after the Messy Virgo sections. Copy structure from the **current newest** `.buildlog-entry`. Do not invent new markup.
 
 ## Public prose for bullets
 
