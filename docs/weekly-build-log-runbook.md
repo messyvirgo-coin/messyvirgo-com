@@ -6,6 +6,24 @@ Prose: `.cursor/rules/16-messyvirgo-public-prose.mdc`.
 
 This runbook is the Monday-evening procedure. It is not a public page. `docs/` and `preview/` are listed in `.eleventyignore`.
 
+## Ownership
+
+The page already carries a fixed top notice and one fixed sentence. Do not edit either, and do not add a second copy.
+
+Notice:
+
+> Earlier editions of this Build Log were corrected on 28 October 2026 so that Fund OS is no longer described as work by Messy Virgo.
+
+Sentence:
+
+> Fund OS is developed independently by the founders Franco and Michael. Messy Virgo reports on it and publishes the weekly Fund Update. Messy Virgo did not develop Fund OS and holds no rights to it. A licence for the association has not been decided.
+
+Never describe Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack as Messy Virgo work. Do not write that Messy Virgo built, shipped, developed, ran, financed, or owns them. Frame that work as the founders' independent work. A report is allowed in the third person, for example "the founders' Fund OS". Messy Virgo may say that it published the weekly Fund Update or posted about it.
+
+Do not add a Product Development section. Do not read platform pull requests, and do not describe release notes as Messy Virgo product work.
+
+Private or non-public matters are never included.
+
 ## When
 
 - Clock: Asia/Bangkok (ICT, UTC+7).
@@ -13,7 +31,6 @@ This runbook is the Monday-evening procedure. It is not a public page. `docs/` a
 - Publish target: the following Monday evening, 18:00 to 24:00 ICT.
 - Do not include the Monday of the publish day. That Monday starts the next window.
 - One `.buildlog-entry` per week. A catch-up is several entries in one change, newest first, not one merged block.
-- The week of 26 October to 1 November 2026 is the first window after the October 2026 catch-up. It belongs in the Monday 2 November 2026 draft.
 
 ## What to produce
 
@@ -37,41 +54,34 @@ Cross-month, matching older entries:
 
 The en dash is only for the week label. Bullet text uses periods, commas, colons, or parentheses. No em dash (`—` / `&mdash;`).
 
-Sections, in order, about four bullets each:
+Sections, in order, about four bullets each. Plain English, about 26 words, no jargon.
 
-1. Marketing (`text-pink-400`, wrapper `mb-6`)
-2. Business &amp; Operations (`text-orange-400`, wrapper `mb-6`)
-3. Product Development (`text-blue-400`, outer `<div>` without `mb-6`)
+1. Marketing (`text-pink-400`, wrapper `mb-6` unless it is the last section)
+2. Business &amp; Operations (`text-orange-400`, wrapper `mb-6` unless it is the last section)
+
+There is no Product Development section. The last section uses an outer `<div>` without `mb-6`.
 
 Copy classes from the current newest entry. English. Past tense. A bullet that is not sourced inside the window does not ship.
 
 ## Inputs required each week
 
-Deliver these before the draft. If one is missing, skip that claim. Do not fill the gap.
+Deliver these before the draft. If one is missing, skip that claim. Do not fill the gap. Private or non-public matters are never included.
 
-1. **Site repo** `messyvirgo-coin/messyvirgo-com` (this repo).
-   - `git log --since='<Monday 00:00 ICT>' --until='<next Monday 00:00 ICT>' --date=iso-strict --pretty=format:'%h %ad %s'`
-   - Blog posts under `_blog/_posts/` whose `date` falls in the window. Read the post. Do not promote a side mention that is on the exclusion list.
+1. **This website repo.**
+   - `git log` for the Monday-to-Sunday window, dates in ICT.
+   - Blog posts under `_blog/_posts/` whose `date` falls in the window. Read the post. Do not turn a side mention into a claim that Messy Virgo built Fund OS.
    - Fund update stub plus `_blog/_snapshots/<date>-messy-fund-update.snapshot.json` for the Saturday inside the window.
-2. **Fund process numbers, quoted, not recomputed.** From `weeklyRollup` and `weeklyHighlights` and `sessionContext.weekPath.label` and `signalExample`:
-   - total sessions, executed, holds
-   - regime path label
-   - which symbol led aggregate screens
-   - a reader note that is itself public (for example a new book joining the suite)
-   - Do not add NAV, returns, rankings, or a sum you calculated to explain a gap in the quoted counts.
-3. **Platform releases and merged PRs** in `messyvirgo-coin/messyvirgo-platform`.
-   - Assign each merged PR to the week by `merged_at` converted to ICT.
-   - Describe a change in the public log only after it is in a release. A PR merged inside the window but not yet in a release waits.
-   - If the repo is not readable from the agent, fall back to release `published_at` in ICT and write that limitation in the PR body. Do not guess a merge minute you cannot see.
-   - Monday releases just after 00:00 ICT can contain Sunday merges. When merge time is unknown, do not describe that one-PR release unless its title is already in the input file.
-4. **Marketing input file**, one per week, not stored in this repo today:
-   - Path on the marketing side: `build-log/BUILD-LOG-INPUTS-<YYYY-MM-DD>_<YYYY-MM-DD>.md`
-   - Column `oeff.`: use `j` only. Use `?` only when the task explicitly allows that item. Never use `n`.
-   - Each row needs a date inside the window and a source (URL, commit, snapshot field).
-5. **Virgo Alpha OS** (`MessyFranco/virgo-alpha-os`), only if something merged inside the window.
-   - Public wording is process only: guided paper-review wizard, OpenSpec as the change workflow, deploy locked until a backtest is saved.
-   - No code, no performance, no auth secrets, no allowlists.
-6. **X / YouTube URLs with timestamps** for items you will name (Market Mood card number and date, Fund Update announcement, a short). No impression or follower counts.
+2. **Fund process numbers, quoted, not recomputed.** From the public snapshot fields for that week:
+   - total sessions
+   - regime path label, worded in plain language
+   - which symbol led the public token lists, attributed to the founders' Fund OS
+   - a reader note that is itself public
+   - If the total does not equal the sum of the outcome counts, publish only the total, or omit the figures. Do not invent the missing outcomes.
+   - Do not add NAV, returns, rankings, or holding weights.
+3. **Marketing notes for the week**, with a date inside the window and a source (URL, commit, or snapshot field). Skip any row that is not cleared for the public page.
+4. **X / YouTube URLs with timestamps** for items you will name (a Market Mood card number and date, a Fund Update announcement, a short). No impression or follower counts. Do not fill a gap in a numbered card series.
+
+Do not read platform pull requests. Do not mine private repositories for bullets.
 
 ## Where the inputs are
 
@@ -81,27 +91,19 @@ Deliver these before the draft. If one is missing, skip that claim. Do not fill 
 | Blog and fund stubs | `_blog/_posts/` |
 | Fund process numbers | `_blog/_snapshots/*-messy-fund-update.snapshot.json` |
 | Public site commits | `git log` on this repo, dates in ICT |
-| Platform releases and merge times | GitHub `messyvirgo-coin/messyvirgo-platform` (private; needs repo access) |
-| Virgo Alpha OS merges | GitHub `MessyFranco/virgo-alpha-os` (private; needs repo access) |
-| Marketing rows with `oeff.` | Marketing workspace file named above. Not in this repo. |
-| Live check of a fund page | `https://www.messyvirgo.com/updates/2026/10/messy-fund-update-week-of-<date>/` |
+| Live check of a fund page | `https://www.messyvirgo.com/updates/` |
 
 ## Exclusion list
 
 Do not publish any of these, even if a source mentions them:
 
+- Any claim that Messy Virgo or the association built, shipped, developed, ran, financed, or owns Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack
 - Fund OS performance: NAV, returns, book rankings, holding weights, PnL
 - Reach, impressions, follower counts
-- BANG LULU, Cleondris, Framingo
-- Holding structure, domicile, location-as-legal-seat, taxes
+- Private or non-public matters
 - Wallet addresses, secrets, keys, payment amounts, cost figures
-- Internal routines, incident files, acceptance rates, VPS audits, dashboards
-- Raid2Earn, rewards internals, Telegram announcements that are drafts or unverified posts
+- Internal routines and unpublished drafts
 - Listing applications that are not confirmed sent
-- Pull requests that are not in a release. As of 27 October 2026 that includes platform PRs 2035 through 2042. Re-check the open set every week. The numbers will change.
-- Virgo Alpha OS code, performance, or work that merged after Sunday
-
-If a file says "unbelegt", do not write it as done.
 
 ## Local preview commands
 
@@ -120,7 +122,7 @@ Then open `http://localhost:8080/buildlog.html`.
 
 Also open `preview/buildlog-draft-YYYY-MM-DD.html` directly in a browser. That file must render with no network.
 
-Check the dev page at 1280px width: three sections per new week, one CTA under the newest week, the previous week directly under the CTA, no horizontal overflow. Screenshot that view for the PR.
+Check the dev page at 1280px and 360px: Marketing and Business only, one CTA under the newest week, the previous week directly under the CTA, no horizontal overflow. Screenshot both widths for the PR.
 
 ## Done criteria
 
@@ -128,22 +130,10 @@ Check the dev page at 1280px width: three sections per new week, one CTA under t
 - `Community CTA Section` appears once, directly after that entry.
 - `data-week` and the visible label match the formats above. The label uses `&ndash;`.
 - Build log `lastmod` is the newest Sunday.
-- Bullets are English, past tense, sourced inside the window, about four per section.
-- No em dash in bullet text.
+- Bullets are English, past tense, sourced inside the window, about 26 words, about four per section.
+- No Product Development section. No em dash in bullet text.
+- The fixed notice and the fixed Fund OS sentence are unchanged, and they appear once.
 - `npm run build` exits 0.
 - `npm run dev` serves `/buildlog.html`.
 - The standalone preview has the new entries and no external URLs in `src` or `href` that the browser fetches on load (no Google fonts, no remote images).
 - Draft only until there is an explicit go to push to the default branch and a separate go for the X post. This runbook does not authorize either.
-
-## What is still missing before this can run unattended
-
-Recorded after the 27 October 2026 catch-up:
-
-1. Read access to `messyvirgo-coin/messyvirgo-platform` for release notes and `merged_at`. This agent received HTTP 404. Product lines in the October catch-up follow release publish dates from the 27 October fact base, not a fresh merge-time query.
-2. Read access to `MessyFranco/virgo-alpha-os`. Wizard, OpenSpec, and the deploy lock were merged 26–27 October 2026, outside the three closed weeks, so they are not in this draft. The next Monday draft needs the repo.
-3. A per-week marketing file `build-log/BUILD-LOG-INPUTS-<from>_<to>.md` with the `oeff.` column, dropped somewhere this repo can read. The 27 October fact base was one bundle for 5–27 October, not three weekly files, and it does not live in the site repo.
-4. A public-safe wording sheet for platform release titles. The fact base says that file was not found.
-5. X API access for card-level checks. The connector returned `client-not-enrolled` on 27 October 2026. Public web mirrors covered some posts. They are not a stable input.
-6. A yes/no on `?` rows (for example the volume-VPS security recheck). Until that yes is written in the weekly input, leave them out.
-7. Confirm whether SolidProof KYC on the founders page (commits 4 October 2026, 20:06–20:27 ICT, after the last published log) should be backfilled. It is outside 5–25 October, so this draft omits it.
-8. Explicit go, separate from the draft, before merging to the default branch and before the X announcement. The X post summarizes the live page, not one bullet, and only after the page is actually public.

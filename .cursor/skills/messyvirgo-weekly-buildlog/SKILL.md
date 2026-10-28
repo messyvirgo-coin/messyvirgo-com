@@ -27,7 +27,7 @@ Full inputs, exclusion list, preview commands, and done checks: `docs/weekly-bui
 Prefer this shape (freeform ok if sections are obvious):
 
 1. Week line: `Week of <Month> <D>–<D>, <YYYY>` (en dash in the label). Monday–Sunday.
-2. **Marketing**, **Business & Operations**, **Product Development** with bullets. About four bullets per section. Every bullet needs a source inside the week. Past tense. No em dash in the bullet text.
+2. **Marketing** and **Business & Operations** only. About four bullets per section. Every bullet needs a source inside the week. Past tense. No em dash in the bullet text. No Product Development section.
 
 If the week line is missing, use Monday–Sunday for the week that ended the day before a Monday-evening publish. Still ask when a bullet has no source.
 
@@ -36,19 +36,32 @@ If the week line is missing, use Monday–Sunday for the week that ended the day
 
 **Cross-month weeks**: match existing entries – e.g. `data-week="Feb 23-Mar 1, 2026"` and display `Week of February 23, 2026 – March 1, 2026` (spelled month + en dash around the year break). Same rule if a Monday–Sunday week crosses a month.
 
+## Ownership
+
+Leave the top notice and this sentence exactly as they are. Do not add a second copy.
+
+> Earlier editions of this Build Log were corrected on 28 October 2026 so that Fund OS is no longer described as work by Messy Virgo.
+
+> Fund OS is developed independently by the founders Franco and Michael. Messy Virgo reports on it and publishes the weekly Fund Update. Messy Virgo did not develop Fund OS and holds no rights to it. A licence for the association has not been decided.
+
+Never describe Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack as Messy Virgo work. Do not say Messy Virgo built, shipped, developed, ran, financed, or owns them. Reporting is allowed only in the third person, for example "the founders' Fund OS". Messy Virgo may record that it published the weekly Fund Update or posted about it.
+
+Do not read platform pull requests. Do not add a Product Development section. Private or non-public matters are never included.
+
+If the public fund snapshot's meeting total does not equal the sum of its outcome counts, publish only the total, or omit the figures. Do not invent the missing outcomes. Do not fill gaps in a numbered card series.
+
 ## Section order inside each entry
 
 Always this order (reorder user bullets if they paste sections out of order):
 
-1. Marketing – `text-pink-400` heading, `mb-6` wrapper.
-2. Business & Operations – `text-orange-400`, `Business &amp; Operations` in the heading, `mb-6` wrapper.
-3. Product Development – `text-blue-400`, last block uses `<div>` without `mb-6` on the outer section (same as existing entries).
+1. Marketing – `text-pink-400` heading, `mb-6` wrapper unless it is the last section.
+2. Business & Operations – `text-orange-400`, `Business &amp; Operations` in the heading. The last section uses `<div>` without `mb-6`.
 
-Copy structure, classes, and nesting from the **current newest** `.buildlog-entry` – do not invent new markup.
+There is no Product Development section. Copy structure, classes, and nesting from the **current newest** `.buildlog-entry`. Do not invent new markup.
 
 ## Public prose for bullets
 
-Follow `.cursor/rules/16-messyvirgo-public-prose.mdc` for Marketing / Business / Product bullet copy:
+Follow `.cursor/rules/16-messyvirgo-public-prose.mdc` for Marketing and Business bullet copy:
 
 - Prefer periods/commas/colons over `&mdash;` clause separators in `<li>` text.
 - Keep week **display** labels on the existing en dash HTML convention (`Week of July 21&ndash;27, 2026`).
@@ -91,5 +104,5 @@ In `sitemap.xml.njk`, set `<lastmod>` for the buildlog URL to the **week’s Sun
 - [ ] CTA directly follows that entry; no duplicate CTA.
 - [ ] `data-week` and display line match repo conventions and use en dashes in the visible week line.
 - [ ] Build log `lastmod` in `sitemap.xml.njk` matches the newest week’s Sunday.
-- [ ] Bullet text is past tense, sourced inside that Monday–Sunday window, and has no em dash. About four bullets per section. Exclusions and commands: `docs/weekly-build-log-runbook.md`.
+- [ ] Bullet text is past tense, sourced inside that Monday–Sunday window, about 26 words, and has no em dash. About four bullets per section. No Product Development section. Fund OS, the platform, and the CLI are the founders' independent work, never Messy Virgo work. Exclusions and commands: `docs/weekly-build-log-runbook.md`.
 
