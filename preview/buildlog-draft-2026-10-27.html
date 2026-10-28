@@ -44,7 +44,7 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="banner">Draft for local reading on 28 October 2026. Not published. Three new weeks only. No external requests.</div>
+    <div class="banner">Draft for local reading. Not published. Three new weeks only. No external requests.</div>
     <h1>Build Log draft</h1>
     <p class="lead">Monday to Sunday windows. Newest first. October 19 to 25, October 12 to 18, October 5 to 11, 2026.</p>
 <div class="buildlog-entry fade-in" data-week="Oct 19-25, 2026">
@@ -69,7 +69,10 @@
                       Continued Market Mood on X through card 18 on 25 October. Each card shows the gauge before and after that day's news, what drags it down, and what still helps.
                     </li>
                     <li>
-                      Published the week-of-October 24 Fund Update on the site and announced it on X. Regime path: Risk-off (R-) to Neutral (N). 35 council sessions across 7 micro funds, with 22 executed and 11 holds. WASSIE led aggregate screens as a candidate signal. Screens still stop at ideas.
+                      Published the week-of-October 24 Fund Update on the site and on X, with regime path Risk-off (R-) to Neutral (N).
+                    </li>
+                    <li>
+                      Recorded 35 council sessions across 7 micro funds, with 22 executed and 11 holds, while WASSIE led aggregate screens as a candidate signal and screens still stop at ideas.
                     </li>
                     <li>
                       Published &ldquo;Worth the Trip: Impressions from the Emirates&rdquo; on 24 October. The note covers meetings in Dubai, Abu Dhabi and Ras Al Khaimah, and the feedback on Messy Virgo and Fund OS.
@@ -87,13 +90,13 @@
                   </h4>
                   <ul>
                     <li>
-                      Published the Saturday Fund Update on 24 October at /updates/2026/10/messy-fund-update-week-of-2026-10-24/.
+                      Published the Saturday Fund Update on 24 October at /updates/2026/10/messy-fund-update-week-of-2026-10-24/, the public page for that week's council sessions, regime path, and screen leader.
                     </li>
                     <li>
-                      Added paper-meme to the public Fund Update suite. The report records that it joined on 22 October as a Robinhood Chain paper book, with 0 council sessions that week. Its daily list is the public Fund OS screen that the meme index $SHUFFLE uses as its token universe. It is a paper book with no live capital.
+                      Added paper-meme on 22 October, a Robinhood Chain paper book in the Fund Update suite with 0 council sessions, no live capital, whose daily Fund OS screen is the token universe for meme index $SHUFFLE.
                     </li>
                     <li>
-                      Pinned the Fund Update data fetch to @messyvirgo/cli 0.50.0.
+                      Pinned the Fund Update data fetch to @messyvirgo/cli 0.50.0, so the Saturday report is fetched with that exact CLI version.
                     </li>
                     <li>
                       Pointed the public $MESSY swap links at the Aero app, including the home page, the navigation, and the coin page.
@@ -108,16 +111,19 @@
                   </h4>
                   <ul>
                     <li>
-                      Allowed operators to trigger trades and rebalances. New entries got a tradability probe at the entry size.
+                      Allowed operators to trigger trades and rebalances, and checked each new coin at the entry size to confirm it can be traded at that amount.
                     </li>
                     <li>
-                      Made paper funds plannable with Velora-quoted fills. Released CLI v0.49.0 and v0.50.0.
+                      Made paper funds plannable with Velora-quoted fills, using Velora's quoted price for the plan, and released CLI v0.49.0 and v0.50.0.
                     </li>
                     <li>
-                      Due diligence: added a sell check that can return NO-GO, separate contract facts with a lock reader, and a separate evidence score. LP-lock facts are stored per pool at each stage.
+                      Added a sell check that can return NO-GO, with separate contract facts, a lock reader, and an evidence score, plus LP-lock facts for each pool at each stage.
                     </li>
                     <li>
-                      Carried a failed KPI forward with its observation date. Limited news facts to a closed source set. Stored a quiet news window as a quiet window. Moved the runtime to Node 24.22.1 for the October security release, updated dependencies, and removed emSign CA trust from certifi, uv, and pip.
+                      Carried a failed KPI forward with its observation date, limited news facts to a closed set of sources, and stored a quiet news window as quiet, so a gap is not shown as fresh news.
+                    </li>
+                    <li>
+                      Moved the runtime to Node 24.22.1 for the October security release, updated dependencies, and removed emSign CA trust from certifi, uv, and pip so those tools drop that certificate authority.
                     </li>
                   </ul>
                 </div>
@@ -151,7 +157,10 @@
                       Continued Market Mood on X. Cards 7, 9 and 11 posted on 13, 16 and 18 October, each one the gauge before and after the day's news.
                     </li>
                     <li>
-                      Published the week-of-October 17 Fund Update on the site and announced it on X. Regime path: Neutral (N) to Risk-off (R-). 35 council sessions across 7 micro funds, with 30 executed and 4 holds. WASSIE led aggregate screens as a candidate signal. Screens still stop at ideas.
+                      Published the week-of-October 17 Fund Update on the site and on X, with regime path Neutral (N) to Risk-off (R-).
+                    </li>
+                    <li>
+                      Recorded 35 council sessions across 7 micro funds, with 30 executed and 4 holds, while WASSIE led aggregate screens as a candidate signal and screens still stop at ideas.
                     </li>
                     <li>
                       Published x402 sample reports in the live layout, and linked the 402 payment challenge to a free sample and the product index, so a buying agent can read an example before it pays.
@@ -166,10 +175,10 @@
                   </h4>
                   <ul>
                     <li>
-                      Published the Saturday Fund Update on 17 October at /updates/2026/10/messy-fund-update-week-of-2026-10-17/.
+                      Published the Saturday Fund Update on 17 October at /updates/2026/10/messy-fund-update-week-of-2026-10-17/, the public page for that week's council sessions, regime path, and screen leader.
                     </li>
                     <li>
-                      The 17 October public report covered seven micro books. It did not include a paper book.
+                      The 17 October public report covered seven micro books and included no paper book in the public suite that week.
                     </li>
                   </ul>
                 </div>
@@ -181,16 +190,19 @@
                   </h4>
                   <ul>
                     <li>
-                      Made a compact due diligence run fail when a required section is missing.
+                      Made a compact due diligence run fail when a required section is missing, so the short report cannot go out with a section left blank.
                     </li>
                     <li>
-                      Let a failed news source degrade the briefing, which still returns. Tied news to its own sources, with topic names. Capped the data timestamp at the request time. Wrote macro text from the EMA, and kept each indicator's observation date.
+                      Let a failed news source degrade the briefing without stopping it, and tied each news item to its own source and topic name so a gap does not wipe the briefing.
                     </li>
                     <li>
-                      Token checks: took spam pools out of the lock check, read Clanker v4 locks, counted only holders that can sell, and labeled exchange custody. Covered Pons launches.
+                      Capped the data timestamp at the request time, wrote the macro text from the EMA moving average, and kept each indicator's observation date so the text cannot look newer than the request.
                     </li>
                     <li>
-                      Left-aligned token search on the web in this week's platform releases.
+                      Took spam pools out of the lock check, read Clanker v4 locks, counted only holders that can sell, labeled exchange custody, and covered Pons launches, so spam and unsellable wallets are left out.
+                    </li>
+                    <li>
+                      Left-aligned token search on the web in this week's platform releases, so the search field lines up with the token results.
                     </li>
                   </ul>
                 </div>
@@ -224,7 +236,10 @@
                       Published &ldquo;One Approval Away&rdquo; on 8 October. The post describes the brand studio: AI desks draft the work, and one human editor gives the go before a post is public.
                     </li>
                     <li>
-                      Published the week-of-October 10 Fund Update on the site and announced it on X. Regime path: Risk-on (R+) to Neutral (N). 36 council sessions across 7 micro funds, with 23 executed and 6 holds. OMI led aggregate screens as a candidate signal. Screens still stop at ideas.
+                      Published the week-of-October 10 Fund Update on the site and on X, with regime path Risk-on (R+) to Neutral (N).
+                    </li>
+                    <li>
+                      Recorded 36 council sessions across 7 micro funds, with 23 executed and 6 holds, while OMI led aggregate screens as a candidate signal and screens still stop at ideas.
                     </li>
                   </ul>
                 </div>
@@ -239,13 +254,13 @@
                       Published the September operations note on 11 October. Vendors were paid in dollars first. Settlement then came from $MESSY already held in treasury, not a pool buy.
                     </li>
                     <li>
-                      Published the Saturday Fund Update on 10 October at /updates/2026/10/messy-fund-update-week-of-2026-10-10/.
+                      Published the Saturday Fund Update on 10 October at /updates/2026/10/messy-fund-update-week-of-2026-10-10/, the public page for that week's council sessions, regime path, and screen leader.
                     </li>
                     <li>
-                      Kept app.messyvirgo.com out of search indexes in the platform release published 9 October.
+                      Kept app.messyvirgo.com out of search indexes in the platform release published 9 October, so the app is not offered as a public search result.
                     </li>
                     <li>
-                      Updated dependencies after Dependabot alerts in the platform release published 6 October.
+                      Updated dependencies after Dependabot alerts in the platform release published 6 October, so the packages those alerts flagged were updated in that release.
                     </li>
                   </ul>
                 </div>
@@ -257,16 +272,19 @@
                   </h4>
                   <ul>
                     <li>
-                      Recorded redelivered signing claims on the claim that was already open. Kept a fixed nonce on a blocked gate. Dry-runs rehearsed the fund action up to the execution line, and dry-run approvals were rejected before the review queue.
+                      Recorded a redelivered signing claim on the claim already open and kept a fixed nonce when a gate blocked it, so a retry stayed on that same claim.
                     </li>
                     <li>
-                      Parked a missing Lagoon signing setup as a repair item. Recognized a resubmit of an already-rejected signature from the chain and treated it as already sent.
+                      Dry-runs rehearsed the fund action up to the execution line, and those approvals were rejected before the review queue, so a practice run was not treated as a real approval.
                     </li>
                     <li>
-                      Due diligence: treated an unreadable LP lock as unknown. Read minimal-proxy clones and the Virtuals owner tax on-chain. Added an Infrastructure narrative, and a category for tokens with no narrative.
+                      Parked a missing Lagoon signing setup as a repair item, and treated a resubmit of an already-rejected signature from the chain as already sent, so it was not sent twice.
                     </li>
                     <li>
-                      Made a bare x402 pay URL return the payment challenge. Added holder facts to product due diligence. Moved SoSoValue news and ETF flows onto the new OpenAPI.
+                      Treated an unreadable LP lock as unknown, read minimal-proxy clones (copied contracts) and the Virtuals owner tax on-chain, and added an Infrastructure narrative plus a no-narrative category.
+                    </li>
+                    <li>
+                      Made a bare x402 pay URL return the payment challenge before payment, added holder facts to product due diligence, and moved SoSoValue news and ETF flows onto the new OpenAPI.
                     </li>
                   </ul>
                 </div>
