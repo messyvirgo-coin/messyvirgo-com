@@ -17,16 +17,16 @@ npm run fund-update:publish -- --date YYYY-MM-DD --promote  # promote approved d
 ```
 
 - Draft first; publish/promote only with user approval. Never push without ask.
-- CLI (`@messyvirgo/cli@0.41.0`) required for full week-story; `--no-cli` is degraded.
+- CLI `@messyvirgo/cli@0.50.0` (`MESSY_CLI_SPEC`) with `MESSYVIRGO_ACCESS_TOKEN` is required for a full week-story. Optional `MESSYVIRGO_API_URL` defaults to `https://api.messyvirgo.com`. Headless steps: skill section “Cloud agent / headless run”. `--no-cli` is degraded.
 - `REPORT_VERSION` lives in `scripts/lib/fetch-fund-update-data.js`.
 
 ## Report contract (do not regress)
 
-- **Week story**, not latest-session-only: regime path Mon–Thu, per-fund week strip, week-net posture, mid-week note + **Closing session** Chair notes.
+- **Week story**, not latest-session-only: regime path from Monday through the publication `--date`, per-fund week strip, week-net posture, mid-week note + **Closing session** Chair notes.
 - **Week regime = shared only** (path, closing macro brief, tape motif). Never a single week-level cash/base % — funds differ; bucket moves stay per fund.
 - Book bar includes **cash + base + high-beta** (not beta-only).
 - Top **3** aggregate candidates; Chair decides / system records (no “voted”).
-- Micro funds only: base01/02/04/05 — no read-only Guru Lotus in new weeks.
+- Public micro books are `FUNDS` in `scripts/lib/fetch-fund-update-data.js` (Guru, Lagoon, and paper groups, gated by `since` / `until`). Read-only Guru Lotus (`group: guru`) stays out. `base03` is not in that list.
 - Permalinks under `/updates/…` only — never `/blog/…`.
 - Publish script strips obsolete `sessionContext.postureIntent` if present.
 

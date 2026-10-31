@@ -117,6 +117,8 @@ npm run fund-update:publish -- --no-cli            # API-only (degraded; CI)
 npm run build
 ```
 
+Full week-story fetch pins `@messyvirgo/cli@0.50.0` and needs `MESSYVIRGO_ACCESS_TOKEN` in the environment. `MESSYVIRGO_API_URL` is optional and defaults to `https://api.messyvirgo.com`. Headless auth, success checks, and the draft-PR stop are in `.cursor/skills/messyvirgo-publish-fund-update/SKILL.md` (section “Cloud agent / headless run”).
+
 - **Archive:** date list at the bottom of each fund-update week (and on `/fund-update/`)
 - **Archived week:** `/updates/YYYY/MM/messy-fund-update-week-of-YYYY-MM-DD/` (snapshot in `_blog/_snapshots/`)
 - **Draft preview:** `/drafts/fund-update-week-of-YYYY-MM-DD/`
