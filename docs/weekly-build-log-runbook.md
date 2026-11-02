@@ -20,7 +20,7 @@ Sentence:
 
 Never describe Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack as Messy Virgo work. Do not write that Messy Virgo built, shipped, developed, ran, financed, or owns them. Frame that work as the founders' independent work. A report is allowed in the third person, for example "the founders' Fund OS". Messy Virgo may say that it published the weekly Fund Update or posted about it.
 
-Do not add a Product Development section. Put Fund OS, platform, CLI, engine, and screening notes in a block headed exactly `Founders' project: Fund OS`, in the third person (`The founders' Fund OS` or `The founders`). Do not read platform pull requests, and do not describe those notes as Messy Virgo work. Website, content, and the association's own tools stay under Marketing, Business & Operations, or `Tools and website`.
+Do not add a Product Development section. Put Fund OS, platform, CLI, engine, and screening notes in a block headed exactly `Founders' project: Fund OS`, in the third person (`The founders' Fund OS` or `The founders`). Source that block from the platform repo (see Inputs), and never describe those notes as Messy Virgo work. Website, content, and the association's own tools stay under Marketing, Business & Operations, or `Tools and website`.
 
 Private or non-public matters are never included.
 
@@ -81,7 +81,12 @@ Deliver these before the draft. If one is missing, skip that claim. Do not fill 
 3. **Marketing notes for the week**, with a date inside the window and a source (URL, commit, or snapshot field). Skip any row that is not cleared for the public page.
 4. **X / YouTube URLs with timestamps** for items you will name (a Market Mood card number and date, a Fund Update announcement, a short). No impression or follower counts. Do not fill a gap in a numbered card series.
 
-Do not read platform pull requests. Do not mine private repositories for bullets.
+5. **Founders' block only: platform releases and merged pull requests** in `messyvirgo-coin/messyvirgo-platform` whose release or merge time falls inside the window (convert UTC to ICT). Use them only for the `Founders' project: Fund OS` block.
+   - Write only what a reader can see or use: a feature, a page, a product, a chain it covers. One user-visible change per bullet. Prefer items that are live, and check them on the live app or public API.
+   - Never publish performance, NAV, holdings, wallets, prices, fees, vendor, tool or server names, internal codes or PR numbers, security or access-control details (allowlists, roles, audits), or decision and scoring logic beyond what Franco or Michael cleared for public use.
+   - Skip anything that is not public yet, or whose announcement is scheduled after the Build Log goes live.
+
+Do not mine any other private repository for bullets.
 
 ## Where the inputs are
 
@@ -92,6 +97,7 @@ Do not read platform pull requests. Do not mine private repositories for bullets
 | Fund process numbers | `_blog/_snapshots/*-messy-fund-update.snapshot.json` |
 | Public site commits | `git log` on this repo, dates in ICT |
 | Live check of a fund page | `https://www.messyvirgo.com/updates/` |
+| Founders' block | `messyvirgo-coin/messyvirgo-platform` releases and merged PRs (read-only), checked against `app.messyvirgo.com` |
 
 ## Exclusion list
 
