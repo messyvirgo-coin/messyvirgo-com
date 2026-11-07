@@ -114,7 +114,7 @@
       <p class="fu-session-label">{{ fu.sessionContext.tapeMotif.label if fu.sessionContext.tapeMotif else "Narrative momentum" }}</p>
       {% if fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.summary %}
       <p class="mv-body mb-0 text-gray-300">{{ fu.sessionContext.tapeMotif.summary }}</p>
-      {% elif fu.sessionContext.narrative and fu.sessionContext.narrative.summary %}
+      {% elif fu.sessionContext.narrative and fu.sessionContext.narrative.summary and not fu.processOnly %}
       <p class="mv-body mb-0 text-gray-300">{{ fu.sessionContext.narrative.summary }}</p>
       {% endif %}
       {% if fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.signals and fu.sessionContext.tapeMotif.signals.length %}
@@ -123,7 +123,7 @@
         <li>{{ signal }}</li>
         {% endfor %}
       </ul>
-      {% elif fu.sessionContext.narrative and fu.sessionContext.narrative.signals and fu.sessionContext.narrative.signals.length %}
+      {% elif not fu.processOnly and fu.sessionContext.narrative and fu.sessionContext.narrative.signals and fu.sessionContext.narrative.signals.length %}
       <ul class="fu-session-signals">
         {% for signal in fu.sessionContext.narrative.signals %}
         <li>{{ signal }}</li>
@@ -149,7 +149,7 @@
 {% endif %}
 
 {# Older archived snapshots still include read-only Guru Lotus books #}
-{% if fu.hasReadOnlyGuru %}
+{% if fu.hasReadOnlyGuru and not fu.processOnly %}
 <p class="mv-eyebrow mb-4">Guru Lotus (read-only NAV)</p>
 <div class="fu-fund-grid">
 {% for fund in fu.funds %}
@@ -171,16 +171,33 @@
 <p class="mv-eyebrow mb-4">Micro funds · week scan</p>
 
 {% if fu.comparison and fu.comparison.length %}
+{% if fu.processOnly %}
+<div class="fu-scan-list mb-8">
+  {% for row in fu.comparison %}
+  <div class="fu-scan-row">
+    <a href="{{ row.appUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">{{ row.name }}</a>
+    <span>{{ row.sessions }} sessions</span>
+    <span>{{ row.executed }} exec</span>
+    <span>{{ row.holds }} hold</span>
+    <span>{{ row.blocked }} blocked</span>
+    {% if row.councilUrl %}<a href="{{ row.councilUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Council</a>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% else %}
 <div class="fu-compare-wrap mb-8">
 <table class="fu-compare-table">
   <thead>
     <tr>
       <th>Fund</th>
+      {% if not fu.processOnly %}
       <th>NAV</th>
       <th>7d</th>
+      {% endif %}
       <th>Sessions</th>
       <th>Exec</th>
       <th>Hold</th>
+      {% if fu.processOnly %}<th>Blocked</th>{% endif %}
       <th></th>
     </tr>
   </thead>
@@ -188,11 +205,14 @@
     {% for row in fu.comparison %}
     <tr>
       <td><a href="{{ row.appUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">{{ row.name }}</a></td>
+      {% if not fu.processOnly %}
       <td>{{ row.nav }}</td>
       <td class="{% if row.ret7d.cls == 'pos' %}narr-chg-pos{% elif row.ret7d.cls == 'neg' %}narr-chg-neg{% endif %}">{{ row.ret7d.value }}</td>
+      {% endif %}
       <td>{{ row.sessions }}</td>
       <td>{{ row.executed }}</td>
       <td>{{ row.holds }}</td>
+      {% if fu.processOnly %}<td>{{ row.blocked }}</td>{% endif %}
       <td>{% if row.councilUrl %}<a href="{{ row.councilUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Council</a>{% endif %}</td>
     </tr>
     {% endfor %}
@@ -200,23 +220,29 @@
 </table>
 </div>
 {% endif %}
+{% endif %}
 
 <div class="fu-fund-grid fu-fund-grid--micro">
 {% for fund in fu.funds %}
-  {% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" %}
+  {% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" or (fu.processOnly and fund.group == "paper-micro") %}
   <a class="fu-fund-card mv-card glassmorphism rounded-lg p-6 block text-gray-200 no-underline hover:shadow-lg hover:shadow-pink-500/20" href="{{ fund.appUrl }}" target="_blank" rel="noopener noreferrer">
     <div class="fc-name">{{ fund.name }}</div>
+    {% if not fu.processOnly %}
     <div class="fc-nav">{{ fund.nav }} NAV</div>
     <div class="fc-returns">
       <span class="fc-ret {{ fund.ret1d.cls }}">{{ fund.ret1d.value }} 1d</span>
       <span class="fc-ret {{ fund.ret7d.cls }}">{{ fund.ret7d.value }} 7d</span>
       <span class="fc-ret {{ fund.ret30d.cls }}">{{ fund.ret30d.value }} {{ fund.ret30d.window or "30d" }}</span>
     </div>
+    {% endif %}
     <div class="fc-desc">
-      {% if fund.councilWeek %}
+      {% if fund.weekGap and not fund.councilWeek %}
+        {{ fund.weekGap }}
+      {% elif fund.councilWeek %}
         {{ fund.councilWeek.totalSessions }} session{% if fund.councilWeek.totalSessions != 1 %}s{% endif %}
         · {{ fund.councilWeek.executedRotations }} exec
         · {{ fund.councilWeek.holdSessions }} hold
+        {% if fu.processOnly %} · {{ fund.councilWeek.blockedSessions }} blocked{% endif %}
       {% elif fund.council %}
         council {{ fund.council.outcomeLabel }}
       {% else %}
@@ -231,8 +257,12 @@
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 
 {% for fund in fu.funds %}
-{% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" or fund.group == "guru" %}
+{% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" or fund.group == "guru" or (fu.processOnly and fund.group == "paper-micro") %}
 <p class="mv-eyebrow mb-4">{{ fund.name }} — council &amp; book</p>
+
+{% if fund.weekGap and not fund.council %}
+<p class="mv-body text-gray-300 mb-5">{{ fund.weekGap }}</p>
+{% endif %}
 
 {% if fund.council %}
 <div class="fu-council{% if fund.council.targetFinalizationBlocked %} fu-council--blocked{% elif fund.council.certified == false %} fu-council--pending{% endif %}">
@@ -326,7 +356,7 @@
     {% for seg in fund.holdingsBar %}
     <span class="fu-leg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-leg--sleeve{% endif %}">
       <span class="fu-leg-dot" style="background:{{ seg.color }}"></span>
-      {% if seg.kind == 'cash' or seg.kind == 'base' %}
+      {% if seg.kind == 'cash' or seg.kind == 'base' or seg.detail %}
       {{ seg.symbol }}{% if seg.detail %} <span class="fu-leg-detail">({{ seg.detail }})</span>{% endif %} {{ seg.weight }}%
       {% else %}
       {{ seg.symbol }} {{ seg.weight }}%{% if seg.warning %} ⚠️{% endif %}
@@ -345,11 +375,13 @@
 </p>
 <div class="fu-candidates">
   {% for c in fund.screening.aggCandidates %}
+  {% if not fu.processOnly or c.address %}
   <div class="fu-cand-row">
     <span class="fu-cand-rank">#{{ c.rank }}</span>
-    <span class="fu-cand-sym">{{ c.symbol }}</span>
+    <span class="fu-cand-sym">{{ c.symbol }}{% if c.address %} ({{ c.chain }} {{ c.address }}){% endif %}</span>
     <span class="fu-cand-reason">{{ c.reason }}</span>
   </div>
+  {% endif %}
   {% endfor %}
 </div>
 {% endif %}
@@ -362,10 +394,10 @@
 <div class="mv-treasury-sep"><div class="mv-treasury-sep-inner"></div></div>
 <p class="mv-eyebrow mb-4">Aggregate signal{% if fu.riskReject %} · Risk reject{% endif %}</p>
 <div class="fu-signal-grid">
-  {% if fu.signalExample %}
+  {% if fu.signalExample and (not fu.processOnly or fu.signalExample.address) %}
   <div class="fu-signal-card candidate">
     <div class="fu-signal-eyebrow">✅ Aggregate signal</div>
-    <div class="fu-signal-token">{{ fu.signalExample.symbol }}</div>
+    <div class="fu-signal-token">{{ fu.signalExample.symbol }}{% if fu.signalExample.address %} ({{ fu.signalExample.chain }} {{ fu.signalExample.address }}){% endif %}</div>
     <div class="fu-signal-name">{{ fu.signalExample.name }}</div>
     <div class="fu-signal-body">{{ fu.signalExample.body | safe }}</div>
   </div>

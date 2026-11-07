@@ -97,7 +97,7 @@ const READER_NOTES = [
     showFrom: "2026-10-24",
     showUntil: "2026-11-07",
     text:
-      "paper-meme joined the public suite on 22 October as a Robinhood Chain paper book. Its daily screening list is the public Fund OS screen that $SHUFFLE, a meme index on Robinhood Chain, now uses for its token universe. Anyone can inspect the daily candidates on the fund screening page. Screens still stop at ideas: council and execution decide size, venue, and fills on live books.",
+      "paper-meme joined the public suite on 22 October as a Robinhood Chain paper book. Its daily screening list is the public Fund OS screen for that book's meme-index universe. Anyone can inspect the daily candidates on the fund screening page. Screens still stop at ideas: council and execution decide size, venue, and fills on live books.",
     link: {
       href: "https://app.messyvirgo.com/funds/mvf-paper-meme/screening",
       label: "paper-meme screening",
@@ -268,38 +268,16 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
     highlights.push(`${lead}${detail.endsWith(".") ? detail : `${detail}.`}`);
   }
 
-  if (sessionContext?.narrative?.summary) {
+  if (sessionContext?.narrative?.summary && !/\d+(?:\.\d+)?\s*pp\b/i.test(sessionContext.narrative.summary)) {
     const narrativeLead = firstSentence(sessionContext.narrative.summary);
     highlights.push(
       `Narrative tape (session-frozen): ${narrativeLead}${narrativeLead.endsWith(".") ? "" : "."}`
     );
   }
 
-  const movers = (funds || [])
-    .filter(isPublicMicroFund)
-    .filter((f) => f.ret7d && f.ret7d.value && f.ret7d.value !== "n/a")
-    .slice()
-    .sort((a, b) => Math.abs(parseFloat(b.ret7d.value)) - Math.abs(parseFloat(a.ret7d.value)));
-  for (const fund of movers.slice(0, 2)) {
-    if (!fund.ret7d?.value || fund.ret7d.value === "n/a") continue;
-    const week = fund.councilWeek;
-    const councilBit = week
-      ? `, ${week.executedRotations || 0} exec / ${week.holdSessions || 0} hold`
-      : "";
+  if (signalExample?.symbol && signalExample.address && signalExample.chain) {
     highlights.push(
-      `${fund.name} NAV ${fund.nav} (${fund.ret7d.value} 7d${councilBit}).`
-    );
-  }
-
-  if (weeklyRollup?.blocked > 0) {
-    highlights.push(
-      `${weeklyRollup.blocked} session${weeklyRollup.blocked === 1 ? "" : "s"} blocked or pending review — see fund Council tabs for gates.`
-    );
-  }
-
-  if (signalExample?.symbol) {
-    highlights.push(
-      `${signalExample.symbol} led aggregate screens this week — a candidate signal, not an automatic trade.`
+      `${signalExample.symbol} (${signalExample.chain} ${signalExample.address}) led aggregate screens this week. A candidate signal, not an automatic trade.`
     );
   }
 
@@ -413,9 +391,15 @@ function sessionsInWeek(cliItems, asOfDate) {
     .sort((a, b) => String(a.started_at).localeCompare(String(b.started_at)));
 }
 
+function isCliBlockedKind(kind) {
+  const value = String(kind || "");
+  // CLI uses both "blocked" and specific kinds such as "route_unsafe_blocked".
+  return value === "blocked" || value.endsWith("_blocked");
+}
+
 function outcomeBeat(session) {
   const kind = String(session?.outcome_kind || "");
-  if (kind === "blocked") return "blocked";
+  if (isCliBlockedKind(kind)) return "blocked";
   if (kind === "executed_reconciled" || session?.fund_mutated === true) return "exec";
   if (kind === "maintain_current") return "hold";
   if (kind === "target_change") return "target";
@@ -1005,10 +989,12 @@ function fetchSessionFrozenContext(funds, asOfDate, useCli) {
     .filter((f) => (chairByFundId[f.id]?.themes || []).includes("soft_tape"))
     .map((f) => f.name);
   let tapeMotif = null;
+  const narrativeSummary = truncateInsight(narrativeContent.summary || summary.narrativeSummary, 200);
+  const summaryHasReturnFigure = /\d+(?:\.\d+)?\s*pp\b/i.test(narrativeSummary || "");
   if (softTapeFunds.length >= 2 || tapeSignals.length) {
     tapeMotif = {
       label: softTapeFunds.length ? "Soft narrative tape" : "Narrative tape",
-      summary: truncateInsight(narrativeContent.summary || summary.narrativeSummary, 200),
+      summary: summaryHasReturnFigure ? null : narrativeSummary,
       signals: tapeSignals.slice(0, 2),
       funds: softTapeFunds,
     };
@@ -1112,7 +1098,146 @@ function roundPct(value) {
  * Full-book composition: cash + base sleeves plus high-beta names.
  * Weights are fund NAV percentages so the bar reads as the whole posture.
  */
-function buildBookComposition(positions, statusData = null) {
+function isContractAddress(value) {
+  return /^0x[a-fA-F0-9]{40}$/.test(String(value || "").trim());
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * One verified token per chain + symbol.
+ * A row counts only when contract_address is present. If provider asset_address
+ * is also present it must be the same address. Disagreeing addresses are dropped.
+ * Two different contract addresses for the same chain and symbol are a conflict.
+ */
+function buildTokenIndex(rows) {
+  const groups = new Map();
+  for (const row of rows || []) {
+    const symbol = String(row.symbol || "").trim();
+    const chain = String(row.chain || "").trim().toLowerCase();
+    const address = String(row.contract_address || "").trim();
+    const asset = row.assetAddress ? String(row.assetAddress).trim() : "";
+    if (!symbol || !chain || !isContractAddress(address)) continue;
+    if (asset && asset.toLowerCase() !== address.toLowerCase()) continue;
+    const key = `${chain}:${symbol.toLowerCase()}`;
+    let group = groups.get(key);
+    if (!group) {
+      group = { symbol, chain, addresses: new Map(), tokenIds: new Set() };
+      groups.set(key, group);
+    }
+    const lower = address.toLowerCase();
+    if (!group.addresses.has(lower)) group.addresses.set(lower, address);
+    if (row.token_id != null && Number.isFinite(Number(row.token_id))) {
+      group.tokenIds.add(Number(row.token_id));
+    }
+  }
+
+  const verified = new Map();
+  const conflicts = [];
+  for (const [key, group] of groups) {
+    if (group.addresses.size !== 1) {
+      conflicts.push(key);
+      continue;
+    }
+    verified.set(key, {
+      symbol: group.symbol,
+      chain: group.chain,
+      address: [...group.addresses.values()][0],
+      tokenIds: [...group.tokenIds],
+    });
+  }
+  return { verified, conflicts };
+}
+
+const PROSE_TOKEN_DENY = new Set(["up", "ai", "era", "all", "any", "top"]);
+const UNANNOTATED_TICKER_KEEP = new Set([
+  "NAV", "USD", "RSI", "ATR", "ETF", "API", "CLI", "QA", "TOTAL3ES",
+]);
+
+function attributeTokens(text, tokens, fundChain) {
+  if (!text) return text;
+  const usable = (tokens || [])
+    .filter((token) => token.chain === fundChain && isContractAddress(token.address))
+    .sort((a, b) => b.symbol.length - a.symbol.length);
+  let out = String(text);
+  const knownIds = new Set(usable.flatMap((token) => token.tokenIds.map(String)));
+
+  for (const token of usable) {
+    const sym = escapeRegExp(token.symbol);
+    for (const id of token.tokenIds) {
+      out = out.replace(new RegExp(`\\b${id}\\s+${sym}\\b`, "gi"), token.symbol);
+      out = out.replace(new RegExp(`\\b${sym}\\s*\\(\\s*${id}\\s*\\)`, "gi"), token.symbol);
+    }
+  }
+  out = out.replace(/\b(\d{2,6})\s+([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, id, word) => (
+    knownIds.has(id) ? word : match
+  ));
+  out = out.replace(/\b([A-Za-z][A-Za-z0-9]{1,15})\s*\(\s*(\d{2,6})\s*\)/g, (match, word, id) => (
+    knownIds.has(id) ? word : match
+  ));
+
+  for (const token of usable) {
+    if (PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) continue;
+    const label = `${token.symbol.toUpperCase()} (${token.chain} ${token.address})`;
+    const re = new RegExp(`\\b${escapeRegExp(token.symbol)}\\b`, "gi");
+    out = out.replace(re, (match, offset, str) => {
+      const after = str.slice(offset + match.length, offset + match.length + token.chain.length + 8);
+      if (after.startsWith(` (${token.chain} `)) return match;
+      return label;
+    });
+  }
+
+  out = out.replace(/\$([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, sym) => {
+    const token = usable.find((item) => item.symbol.toLowerCase() === sym.toLowerCase());
+    if (!token || PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) return "";
+    return `${token.symbol.toUpperCase()} (${token.chain} ${token.address})`;
+  });
+  out = out.replace(/\b[A-Z][A-Z0-9]{2,14}\b/g, (match, offset, str) => {
+    if (UNANNOTATED_TICKER_KEEP.has(match)) return match;
+    const after = str.slice(offset + match.length, offset + match.length + 16);
+    if (/^\s+\((?:base|robinhood)\s+0x/i.test(after)) return match;
+    return "";
+  });
+  return out.replace(/\s{2,}/g, " ").replace(/\s+([,.;:])/g, "$1").trim();
+}
+
+function findVerifiedToken(funds, symbol) {
+  const hits = [];
+  for (const fund of funds || []) {
+    for (const token of fund.verifiedTokens || []) {
+      if (token.symbol.toLowerCase() === String(symbol || "").toLowerCase()) hits.push(token);
+    }
+  }
+  const unique = new Set(hits.map((token) => `${token.chain}:${token.address.toLowerCase()}`));
+  if (!hits.length || unique.size !== 1) return null;
+  return hits[0];
+}
+
+function attributeFundProse(fund) {
+  const fix = (text) => attributeTokens(text, fund.verifiedTokens || [], fund.chain);
+  if (fund.council?.headline) fund.council.headline = fix(fund.council.headline);
+  if (fund.chairInsight?.postureRationale) {
+    fund.chairInsight.postureRationale = fix(fund.chairInsight.postureRationale);
+  }
+  if (fund.chairInsight?.notes) {
+    fund.chairInsight.notes = fund.chairInsight.notes.map(fix).filter(Boolean);
+  }
+  if (fund.weekStory?.earlierNotes) {
+    for (const note of fund.weekStory.earlierNotes) {
+      note.text = fix(note.text);
+    }
+    fund.weekStory.earlierNotes = fund.weekStory.earlierNotes.filter((note) => note.text);
+  }
+  if (fund.screening?.aggCandidates) {
+    for (const candidate of fund.screening.aggCandidates) {
+      if (candidate.reason) candidate.reason = fix(candidate.reason);
+    }
+  }
+}
+
+function buildBookComposition(positions, statusData = null, resolveToken = null) {
   const list = Array.isArray(positions) ? positions : [];
   const cashPos = list.filter((p) => p.position_type === "cash" && Number(p.weight_pct) > 0);
   const basePos = list.filter((p) => p.position_type === "base" && Number(p.weight_pct) > 0);
@@ -1134,10 +1259,15 @@ function buildBookComposition(positions, statusData = null) {
 
   const segments = [];
   if (cashPct > 0.05) {
+    const cashToken = resolveToken ? resolveToken(cashPos[0]?.symbol) : null;
     const cashSymbol = cashPos[0]?.symbol?.toUpperCase() || "USDC";
     segments.push({
       symbol: "CASH",
-      detail: cashSymbol,
+      detail: cashToken
+        ? `${cashToken.symbol.toUpperCase()}, ${cashToken.chain} ${cashToken.address}`
+        : (resolveToken ? null : cashSymbol),
+      chain: cashToken?.chain || null,
+      address: cashToken?.address || null,
       weight: roundPct(cashPct).toFixed(1),
       pnl: null,
       color: "#64748b",
@@ -1146,10 +1276,15 @@ function buildBookComposition(positions, statusData = null) {
     });
   }
   if (basePct > 0.05) {
+    const baseToken = resolveToken ? resolveToken(basePos[0]?.symbol) : null;
     const baseSymbol = basePos[0]?.symbol?.toUpperCase() || "WETH";
     segments.push({
       symbol: "BASE",
-      detail: baseSymbol,
+      detail: baseToken
+        ? `${baseToken.symbol.toUpperCase()}, ${baseToken.chain} ${baseToken.address}`
+        : (resolveToken ? null : baseSymbol),
+      chain: baseToken?.chain || null,
+      address: baseToken?.address || null,
       weight: roundPct(basePct).toFixed(1),
       pnl: null,
       color: "#94a3b8",
@@ -1158,13 +1293,16 @@ function buildBookComposition(positions, statusData = null) {
     });
   }
   betaPos.forEach((p, i) => {
+    const token = resolveToken ? resolveToken(p.symbol) : null;
     segments.push({
-      symbol: p.symbol.toUpperCase(),
-      detail: null,
+      symbol: token ? token.symbol.toUpperCase() : (resolveToken ? "Beta" : p.symbol.toUpperCase()),
+      detail: token ? `${token.chain} ${token.address}` : null,
+      chain: token?.chain || null,
+      address: token?.address || null,
       weight: Number(p.weight_pct).toFixed(1),
-      pnl: p.unrealized_pnl_usd != null ? Number(p.unrealized_pnl_usd) : null,
+      pnl: null,
       color: BAR_COLOURS[i % BAR_COLOURS.length],
-      warning: p.unrealized_pnl_usd != null && p.unrealized_pnl_usd < -50,
+      warning: false,
       kind: "beta",
     });
   });
@@ -1242,6 +1380,8 @@ function deriveSignals(funds) {
       signalExample = {
         symbol: entry.symbol,
         name: entry.name,
+        chain: null,
+        address: null,
         body: `Appeared in <strong>${persist}</strong> across ${fundList} over the ${funds[0]?.screening?.aggLookback || 7}-day lookback. ${entry.reasons[0] || "Persistent cross-signal strength, not a one-day spike."}`,
         tags: [
           entry.maxTotal > 0 && entry.maxHit === entry.maxTotal ? `${entry.maxHit}/${entry.maxTotal} days` : `${entry.funds.size}-fund`,
@@ -1270,6 +1410,16 @@ function deriveSignals(funds) {
       tags: ["not screened", `$${w.pnl} pnl`, "rotate out"],
     };
     break;
+  }
+
+  if (signalExample) {
+    const token = findVerifiedToken(funds, signalExample.symbol);
+    if (!token) signalExample = null;
+    else {
+      signalExample.symbol = token.symbol.toUpperCase();
+      signalExample.chain = token.chain;
+      signalExample.address = token.address;
+    }
   }
 
   return { signalExample, riskReject };
@@ -1307,7 +1457,7 @@ function classifyCouncilSession(parsed, cliItem) {
   const outcomeKind = cliItem?.outcome_kind || null;
   if (outcomeKind === "executed_reconciled") return "executed";
   if (outcomeKind === "maintain_current") return "hold";
-  if (outcomeKind === "blocked") return "blocked";
+  if (isCliBlockedKind(outcomeKind)) return "blocked";
   if (outcomeKind === "target_change") return "other";
   // Public meeting presentation outcomes (council/meetings)
   if (parsed.meetingOutcome === "traded" || parsed.outcome === "traded") return "executed";
@@ -1672,12 +1822,30 @@ async function fetchScreening(fundId, sleeveId, asOfDate) {
     ? (runData?.items || []).find((r) => r.run_date === asOfDate)
     : runData?.items?.[0];
 
+  const tokenSources = [];
+  const pushTokenSource = (row) => {
+    if (!row) return;
+    tokenSources.push({
+      symbol: row.symbol,
+      chain: row.chain,
+      contract_address: row.contract_address,
+      token_id: row.token_id,
+    });
+  };
+  for (const candidate of aggData?.candidates || []) pushTokenSource(candidate);
+  for (const run of runData?.items || []) {
+    if (asOfDate && run.run_date && run.run_date > asOfDate) continue;
+    for (const candidate of run.candidates || []) pushTokenSource(candidate);
+  }
+
   const aggCandidates =
     aggData?.candidates?.slice(0, 3).map((c) => ({
       rank: c.rank,
       symbol: c.symbol.toUpperCase(),
       name: c.name,
       reason: c.candidate_reason,
+      chain: c.chain || null,
+      address: isContractAddress(c.contract_address) ? c.contract_address : null,
     })) || [];
 
   return {
@@ -1688,6 +1856,7 @@ async function fetchScreening(fundId, sleeveId, asOfDate) {
     aggLookback: aggData?.execution_trace?.lookback_days || 7,
     aggSourceRuns: aggData?.execution_trace?.source_run_ids?.length || 0,
     aggCandidates,
+    tokenSources,
   };
 }
 
@@ -1932,9 +2101,46 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
             : null,
       }));
 
+  const positionRows = (statusData.positions || []).map((position) => ({
+    symbol: position.symbol,
+    chain: position.chain,
+    contract_address: position.contract_address,
+    token_id: position.token_id,
+    assetAddress: position.provider_source?.asset_address,
+  }));
+  const { verified, conflicts } = buildTokenIndex([
+    ...positionRows,
+    ...(screening.tokenSources || []),
+  ]);
+  const fundChain = String(statusData.chain || "").toLowerCase();
+  const resolveToken = (symbol) => {
+    if (!symbol || !fundChain) return null;
+    return verified.get(`${fundChain}:${String(symbol).toLowerCase()}`) || null;
+  };
+  if (conflicts.length) {
+    console.warn(
+      `[fund-update] ${name}: conflicting contract addresses for ${conflicts.join(", ")}. Those symbols are omitted.`
+    );
+  }
+  if (screening?.aggCandidates) {
+    screening.aggCandidates = screening.aggCandidates
+      .map((candidate) => {
+        const token = resolveToken(candidate.symbol);
+        if (!token) return null;
+        return {
+          ...candidate,
+          symbol: token.symbol.toUpperCase(),
+          chain: token.chain,
+          address: token.address,
+        };
+      })
+      .filter(Boolean);
+  }
+  delete screening.tokenSources;
+
   const book = statusData.historical
     ? buildBookComposition([], statusData)
-    : buildBookComposition(statusData.positions || [], statusData);
+    : buildBookComposition(statusData.positions || [], statusData, resolveToken);
 
   return {
     id,
@@ -1964,6 +2170,8 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
       ? 0
       : (statusData.positions || []).filter((p) => p.position_type === "beta").length,
     pricedAt: statusData.price_as_of || null,
+    chain: fundChain,
+    verifiedTokens: [...verified.values()].filter((token) => token.chain === fundChain),
   };
 }
 
@@ -2311,7 +2519,8 @@ async function fetchFundUpdateData(options = {}) {
       year: "numeric",
     });
 
-  const { signalExample, riskReject } = deriveSignals(funds);
+  const { signalExample } = deriveSignals(funds);
+  const riskReject = null;
 
   const macroPayload = macro
     ? {
@@ -2332,6 +2541,13 @@ async function fetchFundUpdateData(options = {}) {
     }
     if (weekStoryByFundId[fund.id]) {
       fund.weekStory = weekStoryByFundId[fund.id];
+    }
+    attributeFundProse(fund);
+    if (isPublicMicroFund(fund) && !(fund.councilWeek && fund.councilWeek.totalSessions)) {
+      const range = asOfDate ? fundUpdateWeekRange(asOfDate) : null;
+      fund.weekGap = range
+        ? `No council sessions were recorded from ${range.weekStart} through ${range.weekEnd}. There is no Chair note, week strip, or net posture for this book.`
+        : "No council sessions were recorded. There is no Chair note, week strip, or net posture for this book.";
     }
   }
   const weekDebateDigest = buildWeekDebateDigest(funds);
@@ -2366,6 +2582,7 @@ async function fetchFundUpdateData(options = {}) {
     readerNotes,
     providerRiskLabeling,
     suiteIntro,
+    processOnly: true,
   };
 }
 
