@@ -172,17 +172,31 @@
 
 {% if fu.comparison and fu.comparison.length %}
 {% if fu.processOnly %}
-<div class="fu-scan-list mb-8">
-  {% for row in fu.comparison %}
-  <div class="fu-scan-row">
-    <a href="{{ row.appUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">{{ row.name }}</a>
-    <span>{{ row.sessions }} sessions</span>
-    <span>{{ row.executed }} exec</span>
-    <span>{{ row.holds }} hold</span>
-    <span>{{ row.blocked }} blocked</span>
-    {% if row.councilUrl %}<a href="{{ row.councilUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Council</a>{% endif %}
-  </div>
-  {% endfor %}
+<div class="fu-compare-wrap fu-compare-wrap--scroll mb-8" tabindex="0" role="region" aria-label="Micro funds week scan">
+<table class="fu-compare-table">
+  <thead>
+    <tr>
+      <th>Fund</th>
+      <th>Sessions</th>
+      <th>Exec</th>
+      <th>Hold</th>
+      <th>Blocked</th>
+      <th>Council</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in fu.comparison %}
+    <tr>
+      <td><a href="{{ row.appUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">{{ row.name }}</a></td>
+      <td>{{ row.sessions }}</td>
+      <td>{{ row.executed }}</td>
+      <td>{{ row.holds }}</td>
+      <td>{{ row.blocked }}</td>
+      <td>{% if row.councilUrl %}<a href="{{ row.councilUrl }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">Council</a>{% endif %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 </div>
 {% else %}
 <div class="fu-compare-wrap mb-8">
