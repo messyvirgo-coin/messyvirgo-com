@@ -329,22 +329,26 @@ a.fu-fund-card.mv-card:focus-within {
   border: 1px solid var(--mv-glass-border);
   border-radius: var(--mv-border-radius-lg);
 }
+.fu-compare-wrap--scroll:focus {
+  outline: 2px solid rgba(244, 114, 182, 0.75);
+  outline-offset: 2px;
+}
+.fu-compare-wrap--scroll .fu-compare-table {
+  width: max-content;
+  min-width: 100%;
+}
+.fu-compare-wrap--scroll .fu-compare-table th,
+.fu-compare-wrap--scroll .fu-compare-table td,
+.fu-compare-wrap--scroll .fu-compare-table a {
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: nowrap;
+}
 .fu-compare-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.83rem;
   min-width: 520px;
-}
-.fu-scan-list { display: grid; gap: 0.5rem; }
-.fu-scan-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.8rem;
-  align-items: baseline;
-  padding: 0.65rem 0.8rem;
-  border: 1px solid var(--mv-glass-border);
-  border-radius: var(--mv-border-radius-lg);
-  font-size: 0.84rem;
 }
 .prose {
   min-width: 0;
