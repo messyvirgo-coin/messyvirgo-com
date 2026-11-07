@@ -8,7 +8,7 @@
       {% if fundUpdateSnapshot and week.url == page.url %}
       <span class="text-gray-300" aria-current="page">Week of {{ week.date | readableDate }}</span>
       {% else %}
-      <a href="{{ week.url }}" class="text-gray-400 hover:text-pink-400 transition-colors no-underline">Week of {{ week.date | readableDate }}</a>
+      <a href="{{ week.url }}" class="text-gray-400 hover:text-pink-400 transition-colors no-underline" target="_blank" rel="noopener noreferrer">Week of {{ week.date | readableDate }}</a>
       {% endif %}
     </li>
     {% endfor %}
