@@ -103,13 +103,23 @@ a.fu-fund-card.mv-card:focus-within {
   gap: 0.55rem;
 }
 .fu-chair-list li {
+  overflow-wrap: anywhere;
   font-size: 0.84rem;
   line-height: 1.55;
   color: var(--mv-text-primary);
   padding-left: 0.85rem;
   border-left: 2px solid rgba(255, 255, 255, 0.12);
 }
-.fu-leg { display: flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: var(--mv-text-muted); }
+.fu-cand-sym,
+.fu-cand-reason,
+.fu-leg-detail,
+.fu-week-net,
+.fu-council-body,
+.fu-highlight-item,
+.fc-desc {
+  overflow-wrap: anywhere;
+}
+.fu-leg { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; min-width: 0; max-width: 100%; font-size: 0.72rem; color: var(--mv-text-muted); }
 .fu-leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
 .fu-council {
@@ -302,6 +312,22 @@ a.fu-fund-card.mv-card:focus-within {
   border-collapse: collapse;
   font-size: 0.83rem;
   min-width: 520px;
+}
+.fu-scan-list { display: grid; gap: 0.5rem; }
+.fu-scan-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  align-items: baseline;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--mv-glass-border);
+  border-radius: var(--mv-border-radius-lg);
+  font-size: 0.84rem;
+}
+.prose {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 .fu-compare-table th {
   text-align: left;
