@@ -166,16 +166,38 @@ a.fu-fund-card.mv-card:focus-within {
 .fu-candidates { margin: 0.75rem 0 1.25rem; }
 .fu-cand-row {
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
   align-items: baseline;
+  gap: 0.35rem 0.5rem;
   padding: 0.35rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   font-size: 0.83rem;
 }
 .fu-cand-row:last-child { border-bottom: none; }
-.fu-cand-rank { width: 1.25rem; color: #6b7280; font-size: 0.75rem; flex-shrink: 0; }
-.fu-cand-sym { font-weight: 700; color: var(--mv-text-primary); min-width: 3.5rem; flex-shrink: 0; }
-.fu-cand-reason { color: var(--mv-text-muted); font-size: 0.78rem; flex: 1; min-width: 0; word-break: break-word; }
+.fu-cand-rank { color: #6b7280; font-size: 0.75rem; flex: 0 0 auto; }
+.fu-cand-sym {
+  font-weight: 700;
+  color: var(--mv-text-primary);
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+}
+.fu-cand-reason {
+  color: var(--mv-text-muted);
+  font-size: 0.78rem;
+  flex: 1 1 12rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.fu-ca {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: #f472b6;
+  text-decoration: underline;
+}
 
 .fu-session-meta { margin-top: 0; }
 .fu-week-path-strip {

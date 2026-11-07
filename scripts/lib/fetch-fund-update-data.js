@@ -275,9 +275,10 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
     );
   }
 
-  if (signalExample?.symbol && signalExample.address && signalExample.chain) {
+  if (signalExample?.symbol && signalExample.explorerUrl) {
+    const title = `${signalExample.symbol} contract ${signalExample.address} on ${signalExample.chain}`;
     highlights.push(
-      `${signalExample.symbol} (${signalExample.chain} ${signalExample.address}) led aggregate screens this week. A candidate signal, not an automatic trade.`
+      `<a href="${escapeHtml(signalExample.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(signalExample.symbol)}</a> led aggregate screens this week. A candidate signal, not an automatic trade.`
     );
   }
 
@@ -1102,6 +1103,38 @@ function isContractAddress(value) {
   return /^0x[a-fA-F0-9]{40}$/.test(String(value || "").trim());
 }
 
+function contractExplorerUrl(chain, chainId, address) {
+  const key = String(chain || "").toLowerCase();
+  if (!isContractAddress(address)) return null;
+  // Base chain id 8453: BaseScan, already used for Base tokens on this site.
+  // Robinhood chain id 4663: robinhoodchain.blockscout.com, the explorer named
+  // in Robinhood's own connecting documentation.
+  if (key === "base") {
+    if (chainId != null && Number(chainId) !== 8453) return null;
+    return `https://basescan.org/token/${address}`;
+  }
+  if (key === "robinhood") {
+    if (chainId != null && Number(chainId) !== 4663) return null;
+    return `https://robinhoodchain.blockscout.com/token/${address}`;
+  }
+  return null;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function proseTokenAnchor(token) {
+  if (!token?.explorerUrl || !isContractAddress(token.address)) return null;
+  const symbol = token.symbol.toUpperCase();
+  const title = `${symbol} contract ${token.address} on ${token.chain}`;
+  return `<a href="${escapeHtml(token.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(symbol)}</a>`;
+}
+
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -1124,7 +1157,7 @@ function buildTokenIndex(rows) {
     const key = `${chain}:${symbol.toLowerCase()}`;
     let group = groups.get(key);
     if (!group) {
-      group = { symbol, chain, addresses: new Map(), tokenIds: new Set() };
+      group = { symbol, chain, addresses: new Map(), tokenIds: new Set(), chainIds: new Set() };
       groups.set(key, group);
     }
     const lower = address.toLowerCase();
@@ -1132,19 +1165,31 @@ function buildTokenIndex(rows) {
     if (row.token_id != null && Number.isFinite(Number(row.token_id))) {
       group.tokenIds.add(Number(row.token_id));
     }
+    if (row.chain_id != null && Number.isFinite(Number(row.chain_id))) {
+      group.chainIds.add(Number(row.chain_id));
+    }
   }
 
   const verified = new Map();
   const conflicts = [];
   for (const [key, group] of groups) {
-    if (group.addresses.size !== 1) {
+    if (group.addresses.size !== 1 || group.chainIds.size > 1) {
+      conflicts.push(key);
+      continue;
+    }
+    const address = [...group.addresses.values()][0];
+    const chainId = group.chainIds.size === 1 ? [...group.chainIds][0] : null;
+    const explorerUrl = contractExplorerUrl(group.chain, chainId, address);
+    if (!explorerUrl) {
       conflicts.push(key);
       continue;
     }
     verified.set(key, {
       symbol: group.symbol,
       chain: group.chain,
-      address: [...group.addresses.values()][0],
+      chainId,
+      address,
+      explorerUrl,
       tokenIds: [...group.tokenIds],
     });
   }
@@ -1178,29 +1223,30 @@ function attributeTokens(text, tokens, fundChain) {
     knownIds.has(id) ? word : match
   ));
 
+  const linked = new Set(
+    usable
+      .filter((token) => token.explorerUrl && !PROSE_TOKEN_DENY.has(token.symbol.toLowerCase()))
+      .map((token) => token.symbol.toUpperCase())
+  );
+  out = out.replace(/\b[A-Z][A-Z0-9]{2,14}\b/g, (match) => (
+    UNANNOTATED_TICKER_KEEP.has(match) || linked.has(match) ? match : ""
+  ));
+  out = escapeHtml(out);
+
   for (const token of usable) {
     if (PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) continue;
-    const label = `${token.symbol.toUpperCase()} (${token.chain} ${token.address})`;
+    const anchor = proseTokenAnchor(token);
+    if (!anchor) continue;
     const re = new RegExp(`\\b${escapeRegExp(token.symbol)}\\b`, "gi");
-    out = out.replace(re, (match, offset, str) => {
-      const after = str.slice(offset + match.length, offset + match.length + token.chain.length + 8);
-      if (after.startsWith(` (${token.chain} `)) return match;
-      return label;
-    });
+    out = out.replace(re, anchor);
   }
 
   out = out.replace(/\$([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, sym) => {
     const token = usable.find((item) => item.symbol.toLowerCase() === sym.toLowerCase());
     if (!token || PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) return "";
-    return `${token.symbol.toUpperCase()} (${token.chain} ${token.address})`;
+    return proseTokenAnchor(token) || "";
   });
-  out = out.replace(/\b[A-Z][A-Z0-9]{2,14}\b/g, (match, offset, str) => {
-    if (UNANNOTATED_TICKER_KEEP.has(match)) return match;
-    const after = str.slice(offset + match.length, offset + match.length + 16);
-    if (/^\s+\((?:base|robinhood)\s+0x/i.test(after)) return match;
-    return "";
-  });
-  return out.replace(/\s{2,}/g, " ").replace(/\s+([,.;:])/g, "$1").trim();
+  return out.replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:])/g, "$1").trim();
 }
 
 function findVerifiedToken(funds, symbol) {
@@ -1263,11 +1309,11 @@ function buildBookComposition(positions, statusData = null, resolveToken = null)
     const cashSymbol = cashPos[0]?.symbol?.toUpperCase() || "USDC";
     segments.push({
       symbol: "CASH",
-      detail: cashToken
-        ? `${cashToken.symbol.toUpperCase()}, ${cashToken.chain} ${cashToken.address}`
-        : (resolveToken ? null : cashSymbol),
+      detail: null,
+      tokenSymbol: cashToken ? cashToken.symbol.toUpperCase() : null,
       chain: cashToken?.chain || null,
       address: cashToken?.address || null,
+      explorerUrl: cashToken?.explorerUrl || null,
       weight: roundPct(cashPct).toFixed(1),
       pnl: null,
       color: "#64748b",
@@ -1280,11 +1326,11 @@ function buildBookComposition(positions, statusData = null, resolveToken = null)
     const baseSymbol = basePos[0]?.symbol?.toUpperCase() || "WETH";
     segments.push({
       symbol: "BASE",
-      detail: baseToken
-        ? `${baseToken.symbol.toUpperCase()}, ${baseToken.chain} ${baseToken.address}`
-        : (resolveToken ? null : baseSymbol),
+      detail: null,
+      tokenSymbol: baseToken ? baseToken.symbol.toUpperCase() : null,
       chain: baseToken?.chain || null,
       address: baseToken?.address || null,
+      explorerUrl: baseToken?.explorerUrl || null,
       weight: roundPct(basePct).toFixed(1),
       pnl: null,
       color: "#94a3b8",
@@ -1296,9 +1342,11 @@ function buildBookComposition(positions, statusData = null, resolveToken = null)
     const token = resolveToken ? resolveToken(p.symbol) : null;
     segments.push({
       symbol: token ? token.symbol.toUpperCase() : (resolveToken ? "Beta" : p.symbol.toUpperCase()),
-      detail: token ? `${token.chain} ${token.address}` : null,
+      detail: null,
+      tokenSymbol: token ? token.symbol.toUpperCase() : null,
       chain: token?.chain || null,
       address: token?.address || null,
+      explorerUrl: token?.explorerUrl || null,
       weight: Number(p.weight_pct).toFixed(1),
       pnl: null,
       color: BAR_COLOURS[i % BAR_COLOURS.length],
@@ -1419,6 +1467,7 @@ function deriveSignals(funds) {
       signalExample.symbol = token.symbol.toUpperCase();
       signalExample.chain = token.chain;
       signalExample.address = token.address;
+      signalExample.explorerUrl = token.explorerUrl;
     }
   }
 
@@ -1830,6 +1879,7 @@ async function fetchScreening(fundId, sleeveId, asOfDate) {
       chain: row.chain,
       contract_address: row.contract_address,
       token_id: row.token_id,
+      chain_id: row.chain_id,
     });
   };
   for (const candidate of aggData?.candidates || []) pushTokenSource(candidate);
@@ -2106,6 +2156,7 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
     chain: position.chain,
     contract_address: position.contract_address,
     token_id: position.token_id,
+    chain_id: position.provider_source?.chain_id,
     assetAddress: position.provider_source?.asset_address,
   }));
   const { verified, conflicts } = buildTokenIndex([
@@ -2132,6 +2183,7 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
           symbol: token.symbol.toUpperCase(),
           chain: token.chain,
           address: token.address,
+          explorerUrl: token.explorerUrl,
         };
       })
       .filter(Boolean);

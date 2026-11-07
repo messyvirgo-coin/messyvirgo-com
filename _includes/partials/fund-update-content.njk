@@ -24,7 +24,7 @@
   {% endfor %}
   {% if fu.providerRiskLabeling.link %}
   <p class="mv-body mb-0 text-gray-300">
-    {% if fu.providerRiskLabeling.linkLead %}{{ fu.providerRiskLabeling.linkLead }} {% endif %}<a href="{{ fu.providerRiskLabeling.link.href }}" class="text-pink-400 hover:underline">{{ fu.providerRiskLabeling.link.label }}</a>.
+    {% if fu.providerRiskLabeling.linkLead %}{{ fu.providerRiskLabeling.linkLead }} {% endif %}<a href="{{ fu.providerRiskLabeling.link.href }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">{{ fu.providerRiskLabeling.link.label }}</a>.
   </p>
   {% endif %}
 </div>
@@ -35,7 +35,7 @@
   <p class="mv-eyebrow mb-3">This week at a glance</p>
   <ul class="fu-highlights">
     {% for item in fu.weeklyHighlights %}
-    <li class="fu-highlight-item">{{ item }}</li>
+    <li class="fu-highlight-item">{% if fu.processOnly %}{{ item | safe }}{% else %}{{ item }}{% endif %}</li>
     {% endfor %}
   </ul>
 </div>
@@ -60,7 +60,7 @@
     <li class="fu-highlight-item">
       {{ note.text }}
       {% if note.link %}
-      <a href="{{ note.link.href }}" class="text-pink-400 hover:underline">{{ note.link.label }} →</a>
+      <a href="{{ note.link.href }}" class="text-pink-400 hover:underline" target="_blank" rel="noopener noreferrer">{{ note.link.label }} →</a>
       {% endif %}
     </li>
     {% endfor %}
@@ -272,7 +272,7 @@
       Closing session · {{ fund.council.outcomeLabel }}{% if fund.council.date %} · {{ fund.council.date }}{% endif %}
       {% if fund.council.executedLegCount %} · {{ fund.council.executedLegCount }} legs{% endif %}
     </div>
-    <p>{{ fund.council.headline or fund.council.riskNotes or "See app for full council minutes." }}</p>
+    <p>{% if fu.processOnly %}{{ (fund.council.headline or fund.council.riskNotes or "See app for full council minutes.") | safe }}{% else %}{{ fund.council.headline or fund.council.riskNotes or "See app for full council minutes." }}{% endif %}</p>
     {% if fund.weekTimeline and fund.weekTimeline.label %}
     <p class="fu-council-detail">Week strip: {{ fund.weekTimeline.label }} · {{ fund.weekTimeline.sessionCount }} sessions</p>
     {% elif fund.councilWeek %}
@@ -315,7 +315,7 @@
   {% if fund.weekStory.earlierNotes and fund.weekStory.earlierNotes.length %}
   <div class="fu-week-earlier">
     {% for note in fund.weekStory.earlierNotes %}
-    <p class="fu-week-earlier-item"><span class="fu-week-earlier-tag">{{ note.weekday }} {{ note.beat }}</span> {{ note.text }}</p>
+    <p class="fu-week-earlier-item"><span class="fu-week-earlier-tag">{{ note.weekday }} {{ note.beat }}</span> {% if fu.processOnly %}{{ note.text | safe }}{% else %}{{ note.text }}{% endif %}</p>
     {% endfor %}
   </div>
   {% endif %}
@@ -329,12 +329,12 @@
   <p class="fu-chair-posture">{{ fund.chairInsight.postureLine }}</p>
   {% endif %}
   {% if fund.chairInsight.postureRationale %}
-  <p class="fu-chair-rationale">{{ fund.chairInsight.postureRationale }}</p>
+  <p class="fu-chair-rationale">{% if fu.processOnly %}{{ fund.chairInsight.postureRationale | safe }}{% else %}{{ fund.chairInsight.postureRationale }}{% endif %}</p>
   {% endif %}
   {% if fund.chairInsight.notes and fund.chairInsight.notes.length %}
   <ul class="fu-chair-list">
     {% for note in fund.chairInsight.notes %}
-    <li>{{ note }}</li>
+    <li>{% if fu.processOnly %}{{ note | safe }}{% else %}{{ note }}{% endif %}</li>
     {% endfor %}
   </ul>
   {% endif %}
@@ -349,18 +349,20 @@
   {% endif %}
   <div class="fu-bar">
     {% for seg in fund.holdingsBar %}
-    <div class="fu-bar-seg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-bar-seg--sleeve{% endif %}" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.9" title="{% if seg.detail %}{{ seg.symbol }} ({{ seg.detail }}){% else %}{{ seg.symbol }}{% endif %} {{ seg.weight }}%"></div>
+    <div class="fu-bar-seg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-bar-seg--sleeve{% endif %}" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.9" title="{{ seg.symbol }}{% if seg.tokenSymbol and seg.tokenSymbol != seg.symbol %} {{ seg.tokenSymbol }}{% endif %}{% if seg.address %} contract {{ seg.address }} on {{ seg.chain }}{% endif %} {{ seg.weight }}%"></div>
     {% endfor %}
   </div>
   <div class="fu-bar-legend">
     {% for seg in fund.holdingsBar %}
     <span class="fu-leg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-leg--sleeve{% endif %}">
       <span class="fu-leg-dot" style="background:{{ seg.color }}"></span>
-      {% if seg.kind == 'cash' or seg.kind == 'base' or seg.detail %}
-      {{ seg.symbol }}{% if seg.detail %} <span class="fu-leg-detail">({{ seg.detail }})</span>{% endif %} {{ seg.weight }}%
-      {% else %}
-      {{ seg.symbol }} {{ seg.weight }}%{% if seg.warning %} ⚠️{% endif %}
+      <span>{{ seg.symbol }}{% if seg.tokenSymbol and seg.tokenSymbol != seg.symbol %} {{ seg.tokenSymbol }}{% endif %}</span>
+      {% if seg.explorerUrl %}
+      <a class="fu-ca" href="{{ seg.explorerUrl }}" title="{{ seg.tokenSymbol or seg.symbol }} contract {{ seg.address }} on {{ seg.chain }}" aria-label="{{ seg.tokenSymbol or seg.symbol }} contract {{ seg.address }} on {{ seg.chain }}" target="_blank" rel="noopener noreferrer">CA</a>
+      {% elif seg.detail %}
+      <span class="fu-leg-detail">({{ seg.detail }})</span>
       {% endif %}
+      <span>{{ seg.weight }}%</span>
     </span>
     {% endfor %}
   </div>
@@ -378,8 +380,11 @@
   {% if not fu.processOnly or c.address %}
   <div class="fu-cand-row">
     <span class="fu-cand-rank">#{{ c.rank }}</span>
-    <span class="fu-cand-sym">{{ c.symbol }}{% if c.address %} ({{ c.chain }} {{ c.address }}){% endif %}</span>
-    <span class="fu-cand-reason">{{ c.reason }}</span>
+    <span class="fu-cand-sym">{{ c.symbol }}</span>
+    {% if c.explorerUrl %}
+    <a class="fu-ca" href="{{ c.explorerUrl }}" title="{{ c.symbol }} contract {{ c.address }} on {{ c.chain }}" aria-label="{{ c.symbol }} contract {{ c.address }} on {{ c.chain }}" target="_blank" rel="noopener noreferrer">CA</a>
+    {% endif %}
+    <span class="fu-cand-reason">{% if fu.processOnly %}{{ c.reason | safe }}{% else %}{{ c.reason }}{% endif %}</span>
   </div>
   {% endif %}
   {% endfor %}
@@ -397,7 +402,7 @@
   {% if fu.signalExample and (not fu.processOnly or fu.signalExample.address) %}
   <div class="fu-signal-card candidate">
     <div class="fu-signal-eyebrow">✅ Aggregate signal</div>
-    <div class="fu-signal-token">{{ fu.signalExample.symbol }}{% if fu.signalExample.address %} ({{ fu.signalExample.chain }} {{ fu.signalExample.address }}){% endif %}</div>
+    <div class="fu-signal-token">{{ fu.signalExample.symbol }}{% if fu.signalExample.explorerUrl %} <a class="fu-ca" href="{{ fu.signalExample.explorerUrl }}" title="{{ fu.signalExample.symbol }} contract {{ fu.signalExample.address }} on {{ fu.signalExample.chain }}" aria-label="{{ fu.signalExample.symbol }} contract {{ fu.signalExample.address }} on {{ fu.signalExample.chain }}" target="_blank" rel="noopener noreferrer">CA</a>{% endif %}</div>
     <div class="fu-signal-name">{{ fu.signalExample.name }}</div>
     <div class="fu-signal-body">{{ fu.signalExample.body | safe }}</div>
   </div>
