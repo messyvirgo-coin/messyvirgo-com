@@ -15,7 +15,7 @@ Technical and crypto-native readers treat dense em-dash punctuation as an AI tel
 
 - **Do not use em dashes (`—` / `&mdash;`) as clause separators.**
 - Prefer periods, commas, colons, parentheses, or a short new sentence.
-- For week ranges in build log HTML, a spaced en dash is existing convention (`July 21&ndash;27`); in blog Markdown prefer a simple hyphen (`July 21-27`) unless matching an established HTML pattern.
+- For a same-month week range in build log HTML, use an unspaced en dash (`Week of July 21&ndash;27, 2026`). When the week crosses a month, match the runbook: `Week of September 30, 2026 &ndash; October 4, 2026`. In blog Markdown prefer a simple hyphen (`July 21-27`) unless matching an established HTML pattern.
 - Do not stack multiple dash asides in one sentence.
 
 ### Avoid

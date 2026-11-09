@@ -20,7 +20,7 @@ Sentence:
 
 Never describe Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack as Messy Virgo work. Do not write that Messy Virgo built, shipped, developed, ran, financed, or owns them. Frame that work as the founders' independent work. A report is allowed in the third person, for example "the founders' Fund OS". Messy Virgo may say that it published the weekly Fund Update or posted about it.
 
-Do not add a Product Development section. Put Fund OS, platform, CLI, engine, and screening notes in a block headed exactly `Founders' project: Fund OS`, in the third person (`The founders' Fund OS` or `The founders`). Source that block from the platform repo (see Inputs), and never describe those notes as Messy Virgo work. Website, content, and the association's own tools stay under Marketing, Business & Operations, or `Tools and website`.
+Do not add a Product Development section. Put Fund OS, platform, CLI, engine, and screening notes in a block headed exactly `Founders' project: Fund OS`, in the third person (`The founders' Fund OS` or `The founders`). Source that block from both places in Inputs: public snapshot process numbers (quoted, not recomputed) and public user-visible platform releases or merged pull requests. Never describe those notes as Messy Virgo work. Website, content, and the association's own tools stay under Marketing, Business & Operations, or `Tools and website`.
 
 Private or non-public matters are never included.
 
@@ -36,7 +36,7 @@ Private or non-public matters are never included.
 
 1. Newest entry at the top of `<div class="buildlog-timeline text-left">` in `about/buildlog.html`.
 2. Exactly one Community CTA (`<!-- Community CTA Section -->`) directly under that newest entry. Move it. Do not edit its contents.
-3. Older entries stay newest-first under the CTA.
+3. Older entries stay newest-first under the CTA. Never edit or correct older entries. Only add the new week.
 4. `sitemap.xml.njk`: `<lastmod>` for `https://www.messyvirgo.com/buildlog.html` is the Sunday of the newest entry (`YYYY-MM-DD`).
 5. Optional local reading file: `preview/buildlog-draft-YYYY-MM-DD.html` (the publish Monday's date). Static HTML, CSS in a `<style>` block, the new entries on top, no external font, script, or image requests.
 
@@ -54,7 +54,7 @@ Cross-month, matching older entries:
 
 The en dash is only for the week label. Bullet text uses periods, commas, colons, or parentheses. No em dash (`—` / `&mdash;`).
 
-Sections, in order, about four bullets each. Plain English, about 26 words, no jargon.
+Sections, in order, about four bullets each. Plain English, preferably 26 words or less, no jargon. Every named token carries its exact contract address.
 
 Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
 
@@ -76,14 +76,14 @@ Deliver these before the draft. If one is missing, skip that claim. Do not fill 
 2. **Fund process numbers, quoted, not recomputed.** From the public snapshot fields for that week:
    - total sessions
    - regime path label, worded in plain language
-   - which symbol led the public token lists, attributed to the founders' Fund OS
+   - which symbol topped the public aggregate screening lists, with its exact contract address, attributed to the founders' Fund OS as a candidate signal and not an automatic trade
    - a reader note that is itself public
    - If the total does not equal the sum of the outcome counts, publish only the total, or omit the figures. Do not invent the missing outcomes.
    - Do not add NAV, returns, rankings, or holding weights.
 3. **Marketing notes for the week**, with a date inside the window and a source (URL, commit, or snapshot field). Skip any row that is not cleared for the public page.
-4. **X / YouTube URLs with timestamps** for items you will name (a Market Mood card number and date, a Fund Update announcement, a short). No impression or follower counts. Do not fill a gap in a numbered card series.
+4. **X / YouTube URLs with timestamps** for items you will name (a Market Mood series, a Fund Update announcement, a short). No impression or follower counts. Do not fill a gap in a numbered card series. Do not list individual days. Name a date only for a single notable event.
 
-5. **Founders' block only: platform releases and merged pull requests** in `messyvirgo-coin/messyvirgo-platform` whose release or merge time falls inside the window (convert UTC to ICT). Use them only for the `Founders' project: Fund OS` block.
+5. **Founders' block.** It may use both the public snapshot process numbers in item 2 (quoted, not recomputed) and public user-visible platform releases and merged pull requests in `messyvirgo-coin/messyvirgo-platform` whose release or merge time falls inside the window (convert UTC to ICT). Use them only for the `Founders' project: Fund OS` block.
    - Write only what a reader can see or use: a feature, a page, a product, a chain it covers. One user-visible change per bullet. Prefer items that are live, and check them on the live app or public API.
    - Never publish performance, NAV, holdings, wallets, prices, fees, vendor, tool or server names, internal codes or PR numbers, security or access-control details (allowlists, roles, audits), or decision and scoring logic beyond what Franco or Michael cleared for public use.
    - Skip anything that is not public yet, or whose announcement is scheduled after the Build Log goes live.
@@ -99,7 +99,7 @@ Do not mine any other private repository for bullets.
 | Fund process numbers | `_blog/_snapshots/*-messy-fund-update.snapshot.json` |
 | Public site commits | `git log` on this repo, dates in ICT |
 | Live check of a fund page | `https://www.messyvirgo.com/updates/` |
-| Founders' block | `messyvirgo-coin/messyvirgo-platform` releases and merged PRs (read-only), checked against `app.messyvirgo.com` |
+| Founders' block | Public snapshot process numbers, plus `messyvirgo-coin/messyvirgo-platform` releases and merged PRs (read-only), checked against `app.messyvirgo.com` |
 
 ## Exclusion list
 
@@ -109,7 +109,7 @@ Do not publish any of these, even if a source mentions them:
 - Fund OS performance: NAV, returns, book rankings, holding weights, PnL
 - Reach, impressions, follower counts
 - Private or non-public matters
-- Wallet addresses, secrets, keys, payment amounts, cost figures
+- Wallet addresses, secrets, keys, payment amounts, cost figures. A token named in a bullet still carries its exact public contract address. That address is not a wallet, a key, or a secret.
 - Internal routines and unpublished drafts
 - Listing applications that are not confirmed sent
 
@@ -130,15 +130,15 @@ Then open `http://localhost:8080/buildlog.html`.
 
 Also open `preview/buildlog-draft-YYYY-MM-DD.html` directly in a browser. That file must render with no network.
 
-Check the dev page at 1280px and 360px: Marketing and Business only, one CTA under the newest week, the previous week directly under the CTA, no horizontal overflow. Screenshot both widths for the PR.
+Check the dev page at 1280px and 360px: Marketing, Business & Operations, plus the Founders' block when the week reports on Fund OS, one CTA under the newest week, the previous week directly under the CTA, no horizontal overflow. Screenshot both widths for the PR.
 
 ## Done criteria
 
-- First `.buildlog-entry` is the newest Monday–Sunday week.
+- First `.buildlog-entry` is the newest Monday–Sunday week. Never edit or correct older entries. Only add the new week.
 - `Community CTA Section` appears once, directly after that entry.
 - `data-week` and the visible label match the formats above. The label uses `&ndash;`.
 - Build log `lastmod` is the newest Sunday.
-- Bullets are English, past tense, sourced inside the window, about 26 words, about four per section.
+- Bullets are English, past tense, sourced inside the window, preferably 26 words or less, about four per section. Every named token carries its exact contract address.
 - Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
 - No Product Development section. No em dash in bullet text.
 - The fixed notice and the fixed Fund OS sentence are unchanged, and they appear once.
