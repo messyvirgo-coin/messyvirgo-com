@@ -27,9 +27,19 @@ Full inputs, exclusion list, preview commands, and done checks: `docs/weekly-bui
 Prefer this shape (freeform ok if sections are obvious):
 
 1. Week line: `Week of <Month> <D>&ndash;<D>, <YYYY>` (the runbook's HTML en dash in the label). Monday through Sunday.
-2. **Marketing**, **Business & Operations**, and, when the week reports on Fund OS, **Founders' project: Fund OS**. About four bullets per section. Preferably 26 words or less. Every bullet needs a source inside the week. Past tense. No em dash in the bullet text. No Product Development section. Every named token carries its exact contract address. Full rules: `docs/weekly-build-log-runbook.md`.
+2. **Marketing**, **Business & Operations**, and, when the week reports on Fund OS, **Founders' project: Fund OS**. Follow the 9 November 2026 quality standard in `docs/weekly-build-log-runbook.md`. Do not restate it differently.
 
-Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
+Inventory first: one source per bullet, from go-records, the X post log, the clip plan, merged pull requests in `messyvirgo-coin/messyvirgo-platform`, `messyvirgo-coin/messyvirgo-com`, and `MessyFranco/Dashboard`, product and ops files of the week, and the Fund Update snapshot. Only verified claims. Do not embellish a pull request title. Verify a product price or scope on the live endpoint.
+
+Every bullet names a concrete change or finding and why it matters to readers or holders. About 26 to 31 words is fine. Substance beats brevity. About four bullets per section is the target, not a quota. Fewer strong bullets beat four weak ones.
+
+Forbidden: activity counts (for example "we posted six" of anything), cleanup notes, single-ticker screening filler, and padding. No em dash. Do not use the name Franco in a new entry. Do not write `pp`.
+
+Marketing is real marketing, including internal process improvements (video format, independent quality checks, the reach method). Business & Operations is product and operations, including the x402 Token Checker and x402 products (Messy Virgo products, not marketing), the website, the Fund Update, and tools. Founders' project: Fund OS is process changes from `messyvirgo-coin/messyvirgo-platform`, described by effect, never performance.
+
+Exclusions, and only these: credentials and keys; server, security, and access details; exact Token Checker scoring logic; Fund OS performance; Raid2Earn; volume bots; wallets; BANG LULU; contract or private legal matters; the name Franco in a new entry; `pp`. Do not be more cautious than that.
+
+Self-check each bullet: "Would a holder find this interesting and does it show real progress?" Replace or drop a failure. Reference example: the entry `Week of November 2&ndash;8, 2026`. Never edit or correct older entries. Only add the new week.
 
 If the week line is missing, use Monday–Sunday for the week that ended the day before a Monday-evening publish. Still ask when a bullet has no source.
 
@@ -48,7 +58,7 @@ Leave the top notice and this sentence exactly as they are. Do not add a second 
 
 Never describe Fund OS, the platform, the CLI, the Regime Engine, the Fund Engine, the screener, or the stack as Messy Virgo work. Do not say Messy Virgo built, shipped, developed, ran, financed, or owns them. Reporting is allowed only in the third person, for example "the founders' Fund OS". Messy Virgo may record that it published the weekly Fund Update or posted about it.
 
-Do not add a Product Development section. Fund OS items go in a block headed exactly `Founders' project: Fund OS`, written in the third person as the founders' independent work. Source that block the way the runbook states: public snapshot process numbers (quoted, not recomputed) and public user-visible platform releases or merged pull requests. Website and the association's own tools stay under Marketing, Business & Operations, or `Tools and website`. Private or non-public matters are never included. Filters: `docs/weekly-build-log-runbook.md`.
+Do not add a Product Development section. Fund OS process changes go in a block headed exactly `Founders' project: Fund OS`, in the third person, described by effect, never performance. x402 products go under Business & Operations. Internal marketing process improvements go under Marketing. Filters: `docs/weekly-build-log-runbook.md`.
 
 If the public fund snapshot's meeting total does not equal the sum of its outcome counts, publish only the total, or omit the figures. Do not invent the missing outcomes. Do not fill gaps in a numbered card series.
 
@@ -106,6 +116,6 @@ In `sitemap.xml.njk`, set `<lastmod>` for the buildlog URL to the **week’s Sun
 - [ ] CTA directly follows that entry; no duplicate CTA.
 - [ ] `data-week` and the visible label match the runbook. The label uses `&ndash;`.
 - [ ] Build log `lastmod` in `sitemap.xml.njk` matches the newest week’s Sunday.
-- [ ] Bullet text is past tense, sourced inside that Monday through Sunday window, preferably 26 words or less, and has no em dash. About four bullets per section. Every named token carries its exact contract address. No Product Development section. Fund OS, the platform, and the CLI are the founders' independent work, never Messy Virgo work. Exclusions and commands: `docs/weekly-build-log-runbook.md`.
-- [ ] Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
+- [ ] Bullet text is past tense, sourced inside that Monday through Sunday window, and has no em dash. Each bullet names a change or finding and why it matters. About 26 to 31 words is fine. About four per section is the target, not a quota. No activity counts, cleanup notes, or single-ticker screening filler. No Product Development section. Fund OS is the founders' independent work, never Messy Virgo work. The 9 November 2026 quality standard: `docs/weekly-build-log-runbook.md`.
+- [ ] Inventory first, one source per bullet. Self-check: "Would a holder find this interesting and does it show real progress?" Reference entry: `Week of November 2&ndash;8, 2026`. Never edit or correct older entries. Only add the new week.
 
