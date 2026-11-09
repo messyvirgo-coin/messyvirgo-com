@@ -482,6 +482,7 @@ body.buildlog-page .mv-treasury-sep-inner {
     padding-left: 1.5rem;
     position: relative;
     line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
 .buildlog-entry-body li:before {
