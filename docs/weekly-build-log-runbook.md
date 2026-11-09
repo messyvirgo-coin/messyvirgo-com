@@ -56,6 +56,8 @@ The en dash is only for the week label. Bullet text uses periods, commas, colons
 
 Sections, in order, about four bullets each. Plain English, about 26 words, no jargon.
 
+Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
+
 1. Marketing (`text-pink-400`, wrapper `mb-6` unless it is the last section)
 2. Business &amp; Operations (`text-orange-400`, wrapper `mb-6` unless it is the last section)
 
@@ -137,6 +139,7 @@ Check the dev page at 1280px and 360px: Marketing and Business only, one CTA und
 - `data-week` and the visible label match the formats above. The label uses `&ndash;`.
 - Build log `lastmod` is the newest Sunday.
 - Bullets are English, past tense, sourced inside the window, about 26 words, about four per section.
+- Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
 - No Product Development section. No em dash in bullet text.
 - The fixed notice and the fixed Fund OS sentence are unchanged, and they appear once.
 - `npm run build` exits 0.

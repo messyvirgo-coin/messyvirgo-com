@@ -29,6 +29,8 @@ Prefer this shape (freeform ok if sections are obvious):
 1. Week line: `Week of <Month> <D>–<D>, <YYYY>` (en dash in the label). Monday–Sunday.
 2. **Marketing** and **Business & Operations** only. About four bullets per section. Every bullet needs a source inside the week. Past tense. No em dash in the bullet text. No Product Development section.
 
+Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
+
 If the week line is missing, use Monday–Sunday for the week that ended the day before a Monday-evening publish. Still ask when a bullet has no source.
 
 - **Display**: `Week of October 5&ndash;11, 2026` (en dash between day numbers).
@@ -105,4 +107,5 @@ In `sitemap.xml.njk`, set `<lastmod>` for the buildlog URL to the **week’s Sun
 - [ ] `data-week` and display line match repo conventions and use en dashes in the visible week line.
 - [ ] Build log `lastmod` in `sitemap.xml.njk` matches the newest week’s Sunday.
 - [ ] Bullet text is past tense, sourced inside that Monday–Sunday window, about 26 words, and has no em dash. About four bullets per section. No Product Development section. Fund OS, the platform, and the CLI are the founders' independent work, never Messy Virgo work. Exclusions and commands: `docs/weekly-build-log-runbook.md`.
+- [ ] Summarize recurring work across the week into one bullet. Do not list individual days or one bullet per post. Name a date only for a single notable event. Before writing, read the previous 3 entries in about/buildlog.html and match their length and style.
 
