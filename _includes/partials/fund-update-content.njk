@@ -1,7 +1,7 @@
 {% set fu = fu or fundUpdate %}
 {% if not fu %}
 <div class="mv-card glassmorphism rounded-lg p-6 mb-8">
-  <p class="mv-body mb-0">Fund update data unavailable — rebuild after API is reachable.</p>
+  <p class="mv-body mb-0">Fund update data unavailable. Rebuild after the API is reachable.</p>
 </div>
 {% else %}
 
@@ -138,7 +138,7 @@
   </div>
 </div>
 {% elif fu.macro and not fu.macroUnavailable %}
-<p class="mv-eyebrow mb-4">Market regime — macro economics</p>
+<p class="mv-eyebrow mb-4">Market regime: macro economics</p>
 <div class="fu-macro mv-card glassmorphism rounded-lg p-6 mb-6">
   <div class="fu-macro-score">
     <div class="ms-val">{{ fu.macro.score }}</div>
@@ -272,7 +272,7 @@
 
 {% for fund in fu.funds %}
 {% if fund.group == "guru-micro" or fund.group == "micro" or fund.group == "lagoon-micro" or fund.group == "guru" or (fu.processOnly and fund.group == "paper-micro") %}
-<p class="mv-eyebrow mb-4">{{ fund.name }} — council &amp; book</p>
+<p class="mv-eyebrow mb-4">{{ fund.name }}: council and book</p>
 
 {% if fund.weekGap and not fund.council %}
 <p class="mv-body text-gray-300 mb-5">{{ fund.weekGap }}</p>
@@ -363,16 +363,18 @@
   {% endif %}
   <div class="fu-bar">
     {% for seg in fund.holdingsBar %}
-    <div class="fu-bar-seg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-bar-seg--sleeve{% endif %}" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.9" title="{{ seg.symbol }}{% if seg.tokenSymbol and seg.tokenSymbol != seg.symbol %} {{ seg.tokenSymbol }}{% endif %}{% if seg.address %} contract {{ seg.address }} on {{ seg.chain }}{% endif %} {{ seg.weight }}%"></div>
+    <div class="fu-bar-seg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-bar-seg--sleeve{% endif %}" style="width:{{ seg.weight }}%;background:{{ seg.color }};opacity:0.9" title="{% if seg.address %}{{ seg.tokenSymbol or seg.symbol }} contract {{ seg.address }} on {{ seg.chain }}{% elif seg.kind == 'cash' or seg.kind == 'base' or seg.symbol == 'Beta' %}{{ seg.symbol }}{% endif %} {{ seg.weight }}%"></div>
     {% endfor %}
   </div>
   <div class="fu-bar-legend">
     {% for seg in fund.holdingsBar %}
     <span class="fu-leg{% if seg.kind == 'cash' or seg.kind == 'base' %} fu-leg--sleeve{% endif %}">
       <span class="fu-leg-dot" style="background:{{ seg.color }}"></span>
-      <span>{{ seg.symbol }}{% if seg.tokenSymbol and seg.tokenSymbol != seg.symbol %} {{ seg.tokenSymbol }}{% endif %}</span>
-      {% if seg.explorerUrl %}
-      <a class="fu-ca" href="{{ seg.explorerUrl }}" title="{{ seg.tokenSymbol or seg.symbol }} contract {{ seg.address }} on {{ seg.chain }}" aria-label="{{ seg.tokenSymbol or seg.symbol }} contract {{ seg.address }} on {{ seg.chain }}" target="_blank" rel="noopener noreferrer">CA</a>
+      <span>{% if seg.kind == 'cash' or seg.kind == 'base' %}{{ seg.symbol }}{% if seg.address and seg.tokenSymbol %} {{ seg.tokenSymbol }}{% endif %}{% elif seg.address %}{{ seg.tokenSymbol or seg.symbol }}{% elif seg.symbol == 'Beta' %}Beta{% endif %}</span>
+      {% if seg.address and seg.explorerUrl %}
+      <a class="fu-ca" href="{{ seg.explorerUrl }}" title="{{ seg.tokenSymbol or seg.symbol }} contract {{ seg.address }} on {{ seg.chain }}" aria-label="{{ seg.tokenSymbol or seg.symbol }} contract {{ seg.address }} on {{ seg.chain }}" target="_blank" rel="noopener noreferrer">{{ seg.address }}</a>
+      {% elif seg.address %}
+      <span class="fu-leg-detail">{{ seg.address }}</span>
       {% elif seg.detail %}
       <span class="fu-leg-detail">({{ seg.detail }})</span>
       {% endif %}
@@ -386,7 +388,7 @@
 {% if fund.screening and fund.screening.aggCandidates and fund.screening.aggCandidates.length %}
 <p style="font-size:.8rem;color:#6b7280;margin-bottom:.5rem;">
   <strong style="color:#9ca3af;">Top aggregate candidates</strong>
-  {% if fund.screening.aggLookback %} — {{ fund.screening.aggLookback }}-day lookback{% endif %}
+  {% if fund.screening.aggLookback %}, {{ fund.screening.aggLookback }}-day lookback{% endif %}
   {% if fund.screening.aggDate %}, as of {{ fund.screening.aggDate }}{% endif %}
 </p>
 <div class="fu-candidates">
@@ -396,7 +398,9 @@
     <span class="fu-cand-rank">#{{ c.rank }}</span>
     <span class="fu-cand-sym">{{ c.symbol }}</span>
     {% if c.explorerUrl %}
-    <a class="fu-ca" href="{{ c.explorerUrl }}" title="{{ c.symbol }} contract {{ c.address }} on {{ c.chain }}" aria-label="{{ c.symbol }} contract {{ c.address }} on {{ c.chain }}" target="_blank" rel="noopener noreferrer">CA</a>
+    <a class="fu-ca" href="{{ c.explorerUrl }}" title="{{ c.symbol }} contract {{ c.address }} on {{ c.chain }}" aria-label="{{ c.symbol }} contract {{ c.address }} on {{ c.chain }}" target="_blank" rel="noopener noreferrer">{{ c.address }}</a>
+    {% elif c.address %}
+    <span class="fu-ca">{{ c.address }}</span>
     {% endif %}
     <span class="fu-cand-reason">{% if fu.processOnly %}{{ c.reason | safe }}{% else %}{{ c.reason }}{% endif %}</span>
   </div>
@@ -416,7 +420,7 @@
   {% if fu.signalExample and (not fu.processOnly or fu.signalExample.address) %}
   <div class="fu-signal-card candidate">
     <div class="fu-signal-eyebrow">✅ Aggregate signal</div>
-    <div class="fu-signal-token">{{ fu.signalExample.symbol }}{% if fu.signalExample.explorerUrl %} <a class="fu-ca" href="{{ fu.signalExample.explorerUrl }}" title="{{ fu.signalExample.symbol }} contract {{ fu.signalExample.address }} on {{ fu.signalExample.chain }}" aria-label="{{ fu.signalExample.symbol }} contract {{ fu.signalExample.address }} on {{ fu.signalExample.chain }}" target="_blank" rel="noopener noreferrer">CA</a>{% endif %}</div>
+    <div class="fu-signal-token">{{ fu.signalExample.symbol }}{% if fu.signalExample.address %} {% if fu.signalExample.explorerUrl %}<a class="fu-ca" href="{{ fu.signalExample.explorerUrl }}" title="{{ fu.signalExample.symbol }} contract {{ fu.signalExample.address }} on {{ fu.signalExample.chain }}" aria-label="{{ fu.signalExample.symbol }} contract {{ fu.signalExample.address }} on {{ fu.signalExample.chain }}" target="_blank" rel="noopener noreferrer">{{ fu.signalExample.address }}</a>{% else %}<span class="fu-ca">{{ fu.signalExample.address }}</span>{% endif %}{% endif %}</div>
     <div class="fu-signal-name">{{ fu.signalExample.name }}</div>
     <div class="fu-signal-body">{{ fu.signalExample.body | safe }}</div>
   </div>
@@ -439,7 +443,7 @@
   <div class="fu-agent-patterns">
     <div class="fu-pattern">
       <div class="fu-pattern-num">1</div>
-      <div class="fu-pattern-text"><strong>Macro gates exposure.</strong> Use the session-frozen regime the council actually saw{% if fu.sessionContext and fu.sessionContext.macro and fu.sessionContext.macro.regimeLabel %} (this week: {{ fu.sessionContext.macro.regimeLabel }}){% endif %} — not a later live refresh.</div>
+      <div class="fu-pattern-text"><strong>Macro gates exposure.</strong> Use the session-frozen regime the council actually saw{% if fu.sessionContext and fu.sessionContext.macro and fu.sessionContext.macro.regimeLabel %} (this week: {{ fu.sessionContext.macro.regimeLabel }}){% endif %}, not a later live refresh.</div>
     </div>
     <div class="fu-pattern">
       <div class="fu-pattern-num">2</div>

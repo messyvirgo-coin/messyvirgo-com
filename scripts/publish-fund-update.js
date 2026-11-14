@@ -121,7 +121,7 @@ function writePostStub(dateStr, { draft = false } = {}) {
     const frontmatter = `---
 title: "Messy Fund Update (draft)"
 date: ${dateStr}
-description: "DRAFT — week-story Fund Report (${REPORT_VERSION}). Not published to /updates/."
+description: "DRAFT. Week-story Fund Report (${REPORT_VERSION}). Not published to /updates/."
 tags: [fund-update-draft]
 layout: fund-update-post.njk
 fundUpdateSnapshot: "${dateStr}"
@@ -212,6 +212,9 @@ function summarizeSnapshot(data, { useCli }) {
     chairFunds: withChair,
     stripFunds: withStrip,
     netFunds: withNet,
+    quietFunds: funds
+      .filter((f) => f.weekGap && !(f.councilWeek && f.councilWeek.totalSessions))
+      .map((f) => f.name),
     cliDegraded: !useCli,
   };
 }
@@ -283,6 +286,9 @@ function logSummary(summary) {
   if (summary.tapeMotif) console.log(`  tape     → ${summary.tapeMotif}`);
   if (summary.debateBullets) {
     console.log(`  digest   → ${summary.debateBullets} cross-fund theme bullet(s)`);
+  }
+  if (summary.quietFunds?.length) {
+    console.log(`  quiet    → ${summary.quietFunds.join(", ")} held no sessions this week`);
   }
   if (summary.cliDegraded) {
     console.log("  note     → CLI disabled; week-story fields may be incomplete");

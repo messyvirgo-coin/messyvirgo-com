@@ -347,11 +347,11 @@
 
                 // Style tables
                 proseContent.querySelectorAll('table').forEach(table => {
-                    // Skip fund-update tables — they have their own scroll wrapper (.fu-narr-wrap)
+                    // Skip fund-update tables. They have their own scroll wrapper (.fu-narr-wrap)
                     // and adding overflow:hidden + a second wrapper breaks mobile scrolling.
                     const parent = table.parentElement;
                     if (parent && (parent.classList.contains('fu-narr-wrap') || table.className.includes('fu-'))) {
-                        // Still colour PnL cells, but don't touch layout
+                        // Still colour signed cells, but don't touch layout
                         table.querySelectorAll('td').forEach(td => {
                             const text = td.textContent.trim();
                             if (/^\+[\d.]/.test(text)) td.classList.add('positive');

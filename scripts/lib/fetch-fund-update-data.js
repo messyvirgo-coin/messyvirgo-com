@@ -247,7 +247,7 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
       bits.push(`${weeklyRollup.blocked} blocked`);
     }
     if (bits.length) parts.push(bits.join(", "));
-    highlights.push(`${parts.join(" — ")}.`);
+    highlights.push(`${parts.join(": ")}.`);
   }
 
   if (sessionContext?.macro?.regimeLabel || sessionContext?.macro?.summary) {
@@ -263,7 +263,7 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
         ? `Sessions this week ran under macro regime ${regime}`
         : "Sessions this week used a frozen macro allocation brief";
     const detail = sessionContext.macro.summary
-      ? ` — ${firstSentence(sessionContext.macro.summary)}`
+      ? `. ${firstSentence(sessionContext.macro.summary)}`
       : ".";
     highlights.push(`${lead}${detail.endsWith(".") ? detail : `${detail}.`}`);
   }
@@ -275,11 +275,13 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
     );
   }
 
-  if (signalExample?.symbol && signalExample.explorerUrl) {
-    const title = `${signalExample.symbol} contract ${signalExample.address} on ${signalExample.chain}`;
-    highlights.push(
-      `<a href="${escapeHtml(signalExample.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(signalExample.symbol)}</a> led aggregate screens this week. A candidate signal, not an automatic trade.`
-    );
+  if (signalExample?.symbol && signalExample.explorerUrl && isContractAddress(signalExample.address)) {
+    const anchor = proseTokenAnchor(signalExample);
+    if (anchor) {
+      highlights.push(
+        `${anchor} led aggregate screens this week. A candidate signal, not an automatic trade.`
+      );
+    }
   }
 
   return highlights.slice(0, 6);
@@ -341,16 +343,44 @@ function artifactUuidFromRef(ref) {
   return parts[parts.length - 1] || null;
 }
 
+function cliFailureKind(err) {
+  const blob = `${err && err.stderr ? err.stderr : ""} ${err && err.message ? err.message : ""}`;
+  if (/401|403|unauthor|forbidden|AUTH_/i.test(blob)) return "auth";
+  if (/timed out|ETIMEDOUT|TIMEOUT|AbortError/i.test(blob)) return "timeout";
+  if (/ENOTFOUND|ECONN|EAI_AGAIN|network/i.test(blob)) return "network";
+  return "error";
+}
+
+function execCli(args, timeoutMs) {
+  return execSync(`npx -y ${MESSY_CLI_SPEC} ${args}`, {
+    encoding: "utf8",
+    timeout: timeoutMs,
+    stdio: ["pipe", "pipe", "pipe"],
+    maxBuffer: 10 * 1024 * 1024,
+  });
+}
+
+function execCliRetry(label, args, timeoutMs) {
+  try {
+    return execCli(args, timeoutMs);
+  } catch (err) {
+    console.warn(`[fund-update] ${label} failed (${cliFailureKind(err)}); retrying once`);
+    return execCli(args, timeoutMs);
+  }
+}
+
 function fetchCouncilCliGet(fundId, sessionId) {
   try {
-    const raw = execSync(
-      `npx -y ${MESSY_CLI_SPEC} funds council get ${fundId} ${sessionId} --json --no-update-check`,
-      { encoding: "utf8", timeout: 60000, stdio: ["pipe", "pipe", "pipe"] }
+    const raw = execCliRetry(
+      `council get ${fundId}`,
+      `funds council get ${fundId} ${sessionId} --json --no-update-check`,
+      60000
     );
     const start = raw.indexOf("{");
     if (start === -1) return null;
     return JSON.parse(raw.slice(start));
-  } catch {
+  } catch (err) {
+    console.warn(`[fund-update] council get ${fundId} failed after retry (${cliFailureKind(err)})`);
     return null;
   }
 }
@@ -358,14 +388,16 @@ function fetchCouncilCliGet(fundId, sessionId) {
 function fetchCouncilCliArtifact(fundId, artifactId) {
   if (!artifactId) return null;
   try {
-    const raw = execSync(
-      `npx -y ${MESSY_CLI_SPEC} funds council artifact ${fundId} ${artifactId} --json --no-update-check`,
-      { encoding: "utf8", timeout: 60000, stdio: ["pipe", "pipe", "pipe"] }
+    const raw = execCliRetry(
+      `council artifact ${fundId}`,
+      `funds council artifact ${fundId} ${artifactId} --json --no-update-check`,
+      60000
     );
     const start = raw.indexOf("{");
     if (start === -1) return null;
     return JSON.parse(raw.slice(start));
-  } catch {
+  } catch (err) {
+    console.warn(`[fund-update] council artifact ${fundId} failed after retry (${cliFailureKind(err)})`);
     return null;
   }
 }
@@ -716,7 +748,7 @@ function buildWeekDebateDigest(funds) {
   const themeMeta = {
     soft_tape: {
       label: "soft tape",
-      text: "Several Chairs flagged soft narrative tape — a large share of beta book value sat in narratives with negative 30d momentum vs TOTAL3ES.",
+      text: "Several Chairs flagged soft narrative tape. A large share of beta book value sat in narratives with negative 30d momentum vs TOTAL3ES.",
     },
     coverage_exit: {
       label: "coverage-death exits",
@@ -724,7 +756,7 @@ function buildWeekDebateDigest(funds) {
     },
     cautious_sizing: {
       label: "cautious sizing",
-      text: "Posture moves stayed partial — Chairs sized with cautious conviction rather than jumping fully to target bucket midpoints.",
+      text: "Posture moves stayed partial. Chairs sized with cautious conviction rather than jumping fully to target bucket midpoints.",
     },
     fresh_only_add: {
       label: "fresh-only adds",
@@ -1132,11 +1164,16 @@ function proseTokenAnchor(token) {
   if (!token?.explorerUrl || !isContractAddress(token.address)) return null;
   const symbol = token.symbol.toUpperCase();
   const title = `${symbol} contract ${token.address} on ${token.chain}`;
-  return `<a href="${escapeHtml(token.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(symbol)}</a>`;
+  const label = `${symbol} (${token.address})`;
+  return `<a href="${escapeHtml(token.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
 }
 
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function symbolPattern(symbol) {
+  return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(symbol)}(?![\\p{L}\\p{N}])`, "giu");
 }
 
 /**
@@ -1212,8 +1249,8 @@ function attributeTokens(text, tokens, fundChain) {
   for (const token of usable) {
     const sym = escapeRegExp(token.symbol);
     for (const id of token.tokenIds) {
-      out = out.replace(new RegExp(`\\b${id}\\s+${sym}\\b`, "gi"), token.symbol);
-      out = out.replace(new RegExp(`\\b${sym}\\s*\\(\\s*${id}\\s*\\)`, "gi"), token.symbol);
+      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${id}\\s+${sym}(?![\\p{L}\\p{N}])`, "giu"), token.symbol);
+      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${sym}\\s*\\(\\s*${id}\\s*\\)(?![\\p{L}\\p{N}])`, "giu"), token.symbol);
     }
   }
   out = out.replace(/\b(\d{2,6})\s+([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, id, word) => (
@@ -1237,12 +1274,20 @@ function attributeTokens(text, tokens, fundChain) {
     if (PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) continue;
     const anchor = proseTokenAnchor(token);
     if (!anchor) continue;
-    const re = new RegExp(`\\b${escapeRegExp(token.symbol)}\\b`, "gi");
+    const re = symbolPattern(token.symbol);
     out = out.replace(re, anchor);
   }
 
-  out = out.replace(/\$([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, sym) => {
-    const token = usable.find((item) => item.symbol.toLowerCase() === sym.toLowerCase());
+  out = out.replace(/(?<![\p{L}\p{N}])\$([A-Za-z][A-Za-z0-9]{1,15})(?![\p{L}\p{N}])/gu, (match, sym, offset, str) => {
+    const before = str.slice(0, offset);
+    const open = before.lastIndexOf("<a ");
+    const close = before.lastIndexOf("</a>");
+    if (open !== -1 && open > close) return match;
+    const token = usable.find((item) => {
+      const name = item.symbol.toLowerCase();
+      const bare = sym.toLowerCase();
+      return name === bare || name === `$${bare}`;
+    });
     if (!token || PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) return "";
     return proseTokenAnchor(token) || "";
   });
@@ -1454,7 +1499,7 @@ function deriveSignals(funds) {
       symbol: w.symbol,
       name: w.symbol,
       fundName: fund.name,
-      body: `Held in book with unrealized ~$${w.pnl}. Flagged in council rotation — no longer passes aggregate screening discipline. Price alone does not override a failed screen.`,
+      body: `Held in book with unrealized ~$${w.pnl}. Flagged in council rotation. It no longer passes aggregate screening discipline. Price alone does not override a failed screen.`,
       tags: ["not screened", `$${w.pnl} pnl`, "rotate out"],
     };
     break;
@@ -1585,18 +1630,47 @@ function summarizeCouncilWeek(publicItems, cliItems, asOfDate) {
 }
 
 function fetchCouncilCliList(fundId, limit = 25) {
+  const parseItems = (raw) => {
+    try {
+      const start = String(raw || "").indexOf("{");
+      if (start === -1) return null;
+      const parsed = JSON.parse(raw.slice(start));
+      return parsed.items || [];
+    } catch {
+      return null;
+    }
+  };
+  let raw;
   try {
-    const raw = execSync(
-      `npx -y ${MESSY_CLI_SPEC} funds council list ${fundId} --limit ${limit} --json`,
-      { encoding: "utf8", timeout: 45000, stdio: ["pipe", "pipe", "pipe"] }
+    raw = execCliRetry(
+      `council list ${fundId}`,
+      `funds council list ${fundId} --limit ${limit} --json`,
+      45000
     );
-    const start = raw.indexOf("{");
-    if (start === -1) return [];
-    const d = JSON.parse(raw.slice(start));
-    return d.items || [];
-  } catch {
-    return [];
+  } catch (err) {
+    throw new Error(
+      `[fund-update] council list ${fundId} failed after one retry (${cliFailureKind(err)})`
+    );
   }
+  const items = parseItems(raw);
+  if (items) return items;
+  console.warn(`[fund-update] council list ${fundId} returned no JSON; retrying once`);
+  let rawRetry;
+  try {
+    rawRetry = execCli(
+      `funds council list ${fundId} --limit ${limit} --json`,
+      45000
+    );
+  } catch (err) {
+    throw new Error(
+      `[fund-update] council list ${fundId} failed after one retry (${cliFailureKind(err)})`
+    );
+  }
+  const retried = parseItems(rawRetry);
+  if (!retried) {
+    throw new Error(`[fund-update] council list ${fundId} returned no JSON after one retry`);
+  }
+  return retried;
 }
 
 function fetchCouncilCliLatest(fundId, asOfDate) {
@@ -1785,7 +1859,8 @@ async function fetchCouncilPublic(fundId, asOfDate) {
   // Public list surface is council/meetings (compact presentation).
   // Legacy council/sessions list is no longer exposed publicly.
   const data = await safeFetch(`${API}/funds/${fundId}/council/meetings?limit=40`);
-  if (!data?.items?.length) return { council: null, publicItems: [] };
+  if (!data) return { council: null, publicItems: [], publicError: true };
+  if (!data.items?.length) return { council: null, publicItems: [], publicError: false };
 
   let item = data.items[0];
   if (asOfDate) {
@@ -1799,7 +1874,7 @@ async function fetchCouncilPublic(fundId, asOfDate) {
 
   const council = parseCouncilItem(item);
   delete council.sessionDateIso;
-  return { council, publicItems: data.items };
+  return { council, publicItems: data.items, publicError: false };
 }
 
 async function fetchCouncil(fundId, useCli, asOfDate) {
@@ -1808,8 +1883,17 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
   const latestWeek = useCli ? pickLatestCliSessionInWeek(cliItems, asOfDate) : null;
   const earliestWeek = useCli ? pickEarliestCliSessionInWeek(cliItems, asOfDate) : null;
   const weekTimeline = useCli ? buildWeekTimeline(cliItems, asOfDate) : null;
-  const { council: publicCouncil, publicItems } = await fetchCouncilPublic(fundId, asOfDate);
+  const { council: publicCouncil, publicItems, publicError } = await fetchCouncilPublic(fundId, asOfDate);
   const weekSummary = summarizeCouncilWeek(publicItems, cliItems, asOfDate);
+  if (useCli && asOfDate && !weekSummary) {
+    const range = fundUpdateWeekRange(asOfDate);
+    const publicState = publicError
+      ? "public meetings fetch failed"
+      : `public meetings ${publicItems.length}`;
+    console.log(
+      `[fund-update] ${fundId}: held no sessions this week (${range.weekStart} through ${range.weekEnd}); cli list ${cliItems.length}, ${publicState}`
+    );
+  }
 
   if (council && publicCouncil) {
     const cliOutcomeKnown =
@@ -1851,7 +1935,7 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
   }
 
   if (council?.executionStatus === "running" || council?.executionStatus === "queued") {
-    council.outcomeLabel = `${council.executionStatus} — check app`;
+    council.outcomeLabel = `${council.executionStatus}. Check the app.`;
     council.riskNotes = council.headline || "Council session still in progress.";
   }
 
@@ -2246,11 +2330,10 @@ const REGIME_LABELS = {
 };
 
 function formatRegimeDisplay(raw) {
-  const text = String(raw || "").trim();
+  const text = String(raw || "").trim().replace(/\s*(?:—|&mdash;|&#8212;)\s*/g, " ").trim();
   if (!text) return "Neutral";
-  if (/—/.test(text)) return text;
   const name = REGIME_LABELS[text];
-  return name ? `${text} — ${name}` : text;
+  return name ? `${name} (${text})` : text;
 }
 
 function parseCliJson(raw) {
@@ -2521,6 +2604,87 @@ async function fetchNarratives(asOfDate, useCli = true) {
   return fetchNarrativesPublic(asOfDate);
 }
 
+function scrubPublicProse(text) {
+  if (typeof text !== "string") return text;
+  let out = text.replace(/(\d+(?:\.\d+)?%)\s*NAV\b/g, "$1 of book");
+  out = out.replace(/\bNAV\b/g, "book");
+  out = out.replace(/\bPnL\b/g, "");
+  out = out.replace(/\bP&L\b/g, "");
+  out = out.replace(/\bunrealized(?:\s+pnl)?\b/gi, "");
+  out = out.replace(/\s*\([^)]*\b(?:trend|mom\/vol|momentum\/vol|entry\/risk|relstr)\b[^)]*\)/gi, "");
+  out = out.replace(/,?\s*(?:and\s+)?(?:a\s+)?[+-]?\d+(?:\.\d+)?%\s+drawdown\b[^,.;]*/gi, "");
+  out = out.replace(/,?\s*(?:and\s+)?\bATR%\s+(?:up|down|at)?\s*[+-]?\d+(?:\.\d+)?%?(?:\s*pp)?/gi, "");
+  out = out.replace(/\s*[+-]?\d+(?:\.\d+)?pp\b/gi, "");
+  out = out.replace(/\b(?:mom\/vol|momentum\/vol)\s+(?:drop|change)?\s*(?:of\s+)?[+-]?\d+(?:\.\d+)?/gi, "");
+  out = out.replace(/\bone-session\s+Mom\/Vol\s+drop\s+of\s+[+-]?\d+(?:\.\d+)?/gi, "a one-session momentum change");
+  out = out.replace(/[ \t]{2,}/g, " ");
+  out = out.replace(/\s+([,.;:])/g, "$1");
+  out = out.replace(/,\s*,/g, ",");
+  out = out.replace(/,\s*\./g, ".");
+  out = out.replace(/,\s*;/g, ";");
+  out = out.replace(/\(\s*\)/g, "");
+  if (/—|&mdash;|&#8212;/.test(out)) {
+    out = out.replace(/\s*(?:—|&mdash;|&#8212;)\s*/g, ". ");
+    out = out.replace(/\.\s+\./g, ".");
+    out = out.replace(/\. ([a-z])/g, (_, ch) => `. ${ch.toUpperCase()}`);
+    out = out.replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:])/g, "$1");
+  }
+  return out.trim();
+}
+
+function redactPerformanceFields(data) {
+  const hasReturnFigure = (value) => /[+-]?\d+(?:\.\d+)?pp\b/i.test(String(value || ""));
+  for (const fund of data.funds || []) {
+    delete fund.nav;
+    delete fund.ret1d;
+    delete fund.ret7d;
+    delete fund.ret30d;
+    delete fund.basePositions;
+    for (const seg of fund.holdingsBar || []) {
+      if (seg && typeof seg === "object") delete seg.pnl;
+    }
+  }
+  for (const row of data.comparison || []) {
+    delete row.nav;
+    delete row.ret7d;
+  }
+  if (data.macro?.summary && hasReturnFigure(data.macro.summary)) data.macro.summary = null;
+  const narrative = data.sessionContext?.narrative;
+  if (narrative?.summary && hasReturnFigure(narrative.summary)) narrative.summary = null;
+  if (data.sessionContext?.tapeMotif?.summary && hasReturnFigure(data.sessionContext.tapeMotif.summary)) {
+    data.sessionContext.tapeMotif.summary = null;
+  }
+  for (const row of data.sessionContext?.perFund || []) {
+    if (row?.narrativeSummary && hasReturnFigure(row.narrativeSummary)) row.narrativeSummary = null;
+    if (row?.macroSummary && hasReturnFigure(row.macroSummary)) row.macroSummary = null;
+  }
+  if (data.processOnly) {
+    data.narratives = [];
+    if (data.macro && typeof data.macro === "object") delete data.macro.aiAgentsNote;
+  }
+}
+
+function scrubPublicSnapshot(data) {
+  redactPerformanceFields(data);
+  const walk = (value) => {
+    if (Array.isArray(value)) {
+      for (let i = 0; i < value.length; i++) {
+        if (typeof value[i] === "string") value[i] = scrubPublicProse(value[i]);
+        else if (value[i] && typeof value[i] === "object") walk(value[i]);
+      }
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+    for (const key of Object.keys(value)) {
+      const child = value[key];
+      if (typeof child === "string") value[key] = scrubPublicProse(child);
+      else if (child && typeof child === "object") walk(child);
+    }
+  };
+  walk(data);
+  return data;
+}
+
 /**
  * @param {{ useCli?: boolean, snapshotDate?: string, asOfDate?: string }} options
  */
@@ -2597,9 +2761,15 @@ async function fetchFundUpdateData(options = {}) {
     attributeFundProse(fund);
     if (isPublicMicroFund(fund) && !(fund.councilWeek && fund.councilWeek.totalSessions)) {
       const range = asOfDate ? fundUpdateWeekRange(asOfDate) : null;
+      const longDate = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      });
       fund.weekGap = range
-        ? `No council sessions were recorded from ${range.weekStart} through ${range.weekEnd}. There is no Chair note, week strip, or net posture for this book.`
-        : "No council sessions were recorded. There is no Chair note, week strip, or net posture for this book.";
+        ? `${fund.name} held no sessions this week (${longDate(range.weekStart)} through ${longDate(range.weekEnd)}). There is no Chair note, week strip, or net posture for this book.`
+        : `${fund.name} held no sessions this week. There is no Chair note, week strip, or net posture for this book.`;
     }
   }
   const weekDebateDigest = buildWeekDebateDigest(funds);
@@ -2613,7 +2783,7 @@ async function fetchFundUpdateData(options = {}) {
   const providerRiskLabeling = activeProviderRiskLabeling(asOfDate);
   const suiteIntro = buildSuiteIntro(fundsForAsOf(asOfDate));
 
-  return {
+  const payload = {
     snapshotDate,
     asOfDate,
     reportVersion: REPORT_VERSION,
@@ -2636,6 +2806,7 @@ async function fetchFundUpdateData(options = {}) {
     suiteIntro,
     processOnly: true,
   };
+  return scrubPublicSnapshot(payload);
 }
 
 module.exports = {
