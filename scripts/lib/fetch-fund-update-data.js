@@ -1164,8 +1164,7 @@ function proseTokenAnchor(token) {
   if (!token?.explorerUrl || !isContractAddress(token.address)) return null;
   const symbol = token.symbol.toUpperCase();
   const title = `${symbol} contract ${token.address} on ${token.chain}`;
-  const label = `${symbol} (${token.address})`;
-  return `<a href="${escapeHtml(token.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
+  return `<a href="${escapeHtml(token.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(symbol)}</a>`;
 }
 
 function escapeRegExp(value) {
@@ -1180,7 +1179,9 @@ function symbolPattern(symbol) {
  * One verified token per chain + symbol.
  * A row counts only when contract_address is present. If provider asset_address
  * is also present it must be the same address. Disagreeing addresses are dropped.
- * Two different contract addresses for the same chain and symbol are a conflict.
+ * Several contract addresses for one chain and symbol are resolved, not dropped:
+ * the fund holding address wins, and otherwise the latest dated source wins
+ * when that date names a single address.
  */
 function buildTokenIndex(rows) {
   const groups = new Map();
@@ -1194,43 +1195,88 @@ function buildTokenIndex(rows) {
     const key = `${chain}:${symbol.toLowerCase()}`;
     let group = groups.get(key);
     if (!group) {
-      group = { symbol, chain, addresses: new Map(), tokenIds: new Set(), chainIds: new Set() };
+      group = { symbol, chain, byAddress: new Map() };
       groups.set(key, group);
     }
     const lower = address.toLowerCase();
-    if (!group.addresses.has(lower)) group.addresses.set(lower, address);
+    let entry = group.byAddress.get(lower);
+    if (!entry) {
+      entry = {
+        address,
+        tokenIds: new Set(),
+        chainIds: new Set(),
+        sources: new Set(),
+        asOf: null,
+      };
+      group.byAddress.set(lower, entry);
+    }
+    entry.sources.add(row.source === "holding" ? "holding" : "screen");
+    if (row.asOf && (!entry.asOf || String(row.asOf) > entry.asOf)) {
+      entry.asOf = String(row.asOf).slice(0, 10);
+    }
     if (row.token_id != null && Number.isFinite(Number(row.token_id))) {
-      group.tokenIds.add(Number(row.token_id));
+      entry.tokenIds.add(Number(row.token_id));
     }
     if (row.chain_id != null && Number.isFinite(Number(row.chain_id))) {
-      group.chainIds.add(Number(row.chain_id));
+      entry.chainIds.add(Number(row.chain_id));
     }
   }
 
   const verified = new Map();
   const conflicts = [];
+  const resolutions = [];
   for (const [key, group] of groups) {
-    if (group.addresses.size !== 1 || group.chainIds.size > 1) {
+    const entries = [...group.byAddress.values()];
+    const holdings = entries.filter((entry) => entry.sources.has("holding"));
+    let chosen = null;
+    if (holdings.length === 1) chosen = holdings[0];
+    else if (holdings.length > 1) {
+      conflicts.push(key);
+      continue;
+    } else if (entries.length === 1) chosen = entries[0];
+    else {
+      const latest = entries.reduce((best, entry) => (
+        (entry.asOf || "") > (best.asOf || "") ? entry : best
+      ));
+      const sameDay = entries.filter((entry) => entry.asOf && entry.asOf === latest.asOf);
+      if (!latest.asOf || sameDay.length !== 1) {
+        conflicts.push(key);
+        continue;
+      }
+      chosen = latest;
+    }
+    if (!chosen || chosen.chainIds.size > 1) {
       conflicts.push(key);
       continue;
     }
-    const address = [...group.addresses.values()][0];
-    const chainId = group.chainIds.size === 1 ? [...group.chainIds][0] : null;
-    const explorerUrl = contractExplorerUrl(group.chain, chainId, address);
+    const chainId = chosen.chainIds.size === 1 ? [...chosen.chainIds][0] : null;
+    const explorerUrl = contractExplorerUrl(group.chain, chainId, chosen.address);
     if (!explorerUrl) {
       conflicts.push(key);
       continue;
+    }
+    const discarded = entries
+      .filter((entry) => entry !== chosen)
+      .map((entry) => entry.address);
+    if (discarded.length) {
+      resolutions.push({
+        key,
+        address: chosen.address,
+        via: chosen.sources.has("holding") ? "holding" : "latest-screen",
+        asOf: chosen.asOf,
+        discarded,
+      });
     }
     verified.set(key, {
       symbol: group.symbol,
       chain: group.chain,
       chainId,
-      address,
+      address: chosen.address,
       explorerUrl,
-      tokenIds: [...group.tokenIds],
+      tokenIds: [...chosen.tokenIds],
     });
   }
-  return { verified, conflicts };
+  return { verified, conflicts, resolutions };
 }
 
 const PROSE_TOKEN_DENY = new Set(["up", "ai", "era", "all", "any", "top"]);
@@ -1956,7 +2002,7 @@ async function fetchScreening(fundId, sleeveId, asOfDate) {
     : runData?.items?.[0];
 
   const tokenSources = [];
-  const pushTokenSource = (row) => {
+  const pushTokenSource = (row, asOf) => {
     if (!row) return;
     tokenSources.push({
       symbol: row.symbol,
@@ -1964,12 +2010,16 @@ async function fetchScreening(fundId, sleeveId, asOfDate) {
       contract_address: row.contract_address,
       token_id: row.token_id,
       chain_id: row.chain_id,
+      source: "screen",
+      asOf: asOf || null,
     });
   };
-  for (const candidate of aggData?.candidates || []) pushTokenSource(candidate);
+  for (const candidate of aggData?.candidates || []) {
+    pushTokenSource(candidate, aggData?.as_of_date || null);
+  }
   for (const run of runData?.items || []) {
     if (asOfDate && run.run_date && run.run_date > asOfDate) continue;
-    for (const candidate of run.candidates || []) pushTokenSource(candidate);
+    for (const candidate of run.candidates || []) pushTokenSource(candidate, run.run_date || null);
   }
 
   const aggCandidates =
@@ -2242,8 +2292,10 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
     token_id: position.token_id,
     chain_id: position.provider_source?.chain_id,
     assetAddress: position.provider_source?.asset_address,
+    source: "holding",
+    asOf: statusData.price_as_of || null,
   }));
-  const { verified, conflicts } = buildTokenIndex([
+  const { verified, conflicts, resolutions } = buildTokenIndex([
     ...positionRows,
     ...(screening.tokenSources || []),
   ]);
@@ -2252,6 +2304,14 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
     if (!symbol || !fundChain) return null;
     return verified.get(`${fundChain}:${String(symbol).toLowerCase()}`) || null;
   };
+  for (const item of resolutions || []) {
+    const via = item.via === "holding"
+      ? "fund holding"
+      : `latest screen source${item.asOf ? ` ${item.asOf}` : ""}`;
+    console.warn(
+      `[fund-update] ${name}: ${item.key} resolved to ${item.address} from the ${via}; discarded ${item.discarded.join(", ")}.`
+    );
+  }
   if (conflicts.length) {
     console.warn(
       `[fund-update] ${name}: conflicting contract addresses for ${conflicts.join(", ")}. Those symbols are omitted.`

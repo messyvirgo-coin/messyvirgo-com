@@ -4,7 +4,7 @@
   "reportVersion": "vnext-2026-07-24",
   "macroUnavailable": false,
   "narrativesUnavailable": false,
-  "publishedAt": "2026-11-14T10:23:37.971Z",
+  "publishedAt": "2026-11-14T10:40:20.036Z",
   "funds": [
     {
       "id": "mvf-base04",
@@ -50,7 +50,7 @@
         "outcomeLabel": "executed reconciled",
         "date": "14 November 2026",
         "shortDate": "14 Nov",
-        "headline": "The rebalance executed and reconciled, but only the funding leg settled: about $2.45 of <a href=\"https://basescan.org/token/0x4200000000000000000000000000000000000006\" title=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" aria-label=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" target=\"_blank\" rel=\"noopener noreferrer\">WETH (0x4200000000000000000000000000000000000006)</a> was reduced into about $2.44 of <a href=\"https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\" title=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" aria-label=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" target=\"_blank\" rel=\"noopener noreferrer\">USDC (0x833589fcd6edb6e08f4c7c32d4f71b54bda02913)</a>, while the ratified <a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB (0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89)</a> high-beta entry was withheld by the entry gate because its measured round-trip cost of roughly 3,998 basis points exceeded the 500 basis point ceiling.",
+        "headline": "The rebalance executed and reconciled, but only the funding leg settled: about $2.45 of <a href=\"https://basescan.org/token/0x4200000000000000000000000000000000000006\" title=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" aria-label=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" target=\"_blank\" rel=\"noopener noreferrer\">WETH</a> was reduced into about $2.44 of <a href=\"https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\" title=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" aria-label=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" target=\"_blank\" rel=\"noopener noreferrer\">USDC</a>, while the ratified <a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB</a> high-beta entry was withheld by the entry gate because its measured round-trip cost of roughly 3,998 basis points exceeded the 500 basis point ceiling.",
         "riskNotes": "Rebalance executed and reconciled.",
         "targetFinalization": null,
         "targetFinalizationBlocked": false,
@@ -164,7 +164,7 @@
         ]
       },
       "positionCount": 0,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -404,8 +404,8 @@
         "actionSummary": "Reduce cash, reduce base, and Raise high beta.",
         "notes": [
           "Effective Risk Off regime with fearful sentiment and contracting stablecoin/ETF flows argues for sizing the beta raise at the session minimum (15%) rather than the band midpoint",
-          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB (0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89)</a>'s fresh rank 7 vs aggregate rank 2 is a divergence to weigh, though the aggregate record (7/7 appearances) is the stronger evidence base",
-          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB (0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89)</a> has no measured ATR% or RSI short reading this session; entry timing and volatility sizing inputs are absent"
+          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB</a>'s fresh rank 7 vs aggregate rank 2 is a divergence to weigh, though the aggregate record (7/7 appearances) is the stronger evidence base",
+          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB</a> has no measured ATR% or RSI short reading this session; entry timing and volatility sizing inputs are absent"
         ],
         "themes": [
           "rank_watch"
@@ -482,7 +482,7 @@
             "day": "2026-11-11",
             "weekday": "Wed",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE (0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4)</a> carries a flagged +1021 bps route gap and 1446 bps round trip; any entry above the $1.00 minimum risks friction exceeding expected edge. Size at the minimum or not at all"
+            "text": "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> carries a flagged +1021 bps route gap and 1446 bps round trip; any entry above the $1.00 minimum risks friction exceeding expected edge. Size at the minimum or not at all"
           }
         ],
         "closingSessionId": "e5fe3e3c-530a-4817-8418-1b57891cda40",
@@ -503,7 +503,7 @@
           "chain": "base",
           "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
           "explorerUrl": "https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "weight": "30.8",
+          "weight": "30.7",
           "color": "#64748b",
           "warning": false,
           "kind": "cash"
@@ -570,10 +570,10 @@
         }
       ],
       "bookPosture": {
-        "cash": 30.8,
+        "cash": 30.7,
         "base": 36.9,
         "beta": 32.4,
-        "label": "Cash 30.8% · Base 36.9% · High-beta 32.4%"
+        "label": "Cash 30.7% · Base 36.9% · High-beta 32.4%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -581,7 +581,7 @@
         "outcomeLabel": "executed reconciled",
         "date": "14 November 2026",
         "shortDate": "14 Nov",
-        "headline": "The rebalance executed and reconciled: the council ratified a posture of about 31% cash, 37% base, and 32% high beta and adopted a rotation exiting <a href=\"https://basescan.org/token/0x65553f5c85c78b977668cec098ec09475099aa61\" title=\"QCV contract 0x65553f5c85c78b977668cec098ec09475099aa61 on base\" aria-label=\"QCV contract 0x65553f5c85c78b977668cec098ec09475099aa61 on base\" target=\"_blank\" rel=\"noopener noreferrer\">QCV (0x65553f5c85c78b977668cec098ec09475099aa61)</a> on coverage death and entering <a href=\"https://basescan.org/token/0x7ce02e86354ea0cc3b302aeadc0ab56bc7eb44b8\" title=\"SIRE contract 0x7ce02e86354ea0cc3b302aeadc0ab56bc7eb44b8 on base\" aria-label=\"SIRE contract 0x7ce02e86354ea0cc3b302aeadc0ab56bc7eb44b8 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SIRE (0x7ce02e86354ea0cc3b302aeadc0ab56bc7eb44b8)</a> from the base reserve.",
+        "headline": "The rebalance executed and reconciled: the council ratified a posture of about 31% cash, 37% base, and 32% high beta and adopted a rotation exiting <a href=\"https://basescan.org/token/0x65553f5c85c78b977668cec098ec09475099aa61\" title=\"QCV contract 0x65553f5c85c78b977668cec098ec09475099aa61 on base\" aria-label=\"QCV contract 0x65553f5c85c78b977668cec098ec09475099aa61 on base\" target=\"_blank\" rel=\"noopener noreferrer\">QCV</a> on coverage death and entering <a href=\"https://basescan.org/token/0x7ce02e86354ea0cc3b302aeadc0ab56bc7eb44b8\" title=\"SIRE contract 0x7ce02e86354ea0cc3b302aeadc0ab56bc7eb44b8 on base\" aria-label=\"SIRE contract 0x7ce02e86354ea0cc3b302aeadc0ab56bc7eb44b8 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SIRE</a> from the base reserve.",
         "riskNotes": "Rebalance executed and reconciled.",
         "targetFinalization": null,
         "targetFinalizationBlocked": false,
@@ -695,7 +695,7 @@
         ]
       },
       "positionCount": 4,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -1356,7 +1356,7 @@
         "notes": [
           "Effective regime is risk-off on a headline overlay over a neutral macro base; crypto-specific flows (stablecoin contraction, negative ETF flows, fearful sentiment) are the weak link. New beta entries should…",
           "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES; narrative momentum is context, not a sell trigger, but it caps conviction on adds.",
-          "Fresh-only candidates (<a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT (0x91da780bc7f4b7cf19abe90411a2a296ec5ff787)</a> 11611, <a href=\"https://basescan.org/token/0xcef8db49e456f872e288e1c042f916e9ced7c781\" title=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" aria-label=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" target=\"_blank\" rel=\"noopener noreferrer\">MAG7 (0xcef8db49e456f872e288e1c042f916e9ced7c781)</a> 43818) have no aggregate track record; <a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT (0x91da780bc7f4b7cf19abe90411a2a296ec5ff787)</a>'s +6.7% 24h move and RSI 78.1 make it a momentum-chase profile at a 30-day horizon."
+          "Fresh-only candidates (<a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT</a> 11611, <a href=\"https://basescan.org/token/0xcef8db49e456f872e288e1c042f916e9ced7c781\" title=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" aria-label=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" target=\"_blank\" rel=\"noopener noreferrer\">MAG7</a> 43818) have no aggregate track record; <a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT</a>'s +6.7% 24h move and RSI 78.1 make it a momentum-chase profile at a 30-day horizon."
         ],
         "themes": [
           "soft_tape",
@@ -1467,7 +1467,7 @@
           "chain": "base",
           "address": "0x4200000000000000000000000000000000000006",
           "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "weight": "35.0",
+          "weight": "35.1",
           "color": "#94a3b8",
           "warning": false,
           "kind": "base"
@@ -1491,20 +1491,8 @@
           "chain": "base",
           "address": "0x624e2e7fdc8903165f64891672267ab0fcb98831",
           "explorerUrl": "https://basescan.org/token/0x624e2e7fdc8903165f64891672267ab0fcb98831",
-          "weight": "6.9",
+          "weight": "6.8",
           "color": "#fbbf24",
-          "warning": false,
-          "kind": "beta"
-        },
-        {
-          "symbol": "ZRO",
-          "detail": null,
-          "tokenSymbol": "ZRO",
-          "chain": "base",
-          "address": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
-          "explorerUrl": "https://basescan.org/token/0x6985884c4392d348587b19cb9eaaf157f13271cd",
-          "weight": "6.7",
-          "color": "#60a5fa",
           "warning": false,
           "kind": "beta"
         },
@@ -1516,7 +1504,7 @@
           "address": "0x50da645f148798f68ef2d7db7c1cb22a6819bb2c",
           "explorerUrl": "https://basescan.org/token/0x50da645f148798f68ef2d7db7c1cb22a6819bb2c",
           "weight": "6.7",
-          "color": "#34d399",
+          "color": "#60a5fa",
           "warning": false,
           "kind": "beta"
         },
@@ -1528,6 +1516,18 @@
           "address": "0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
           "explorerUrl": "https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
           "weight": "6.7",
+          "color": "#34d399",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "ZRO",
+          "detail": null,
+          "tokenSymbol": "ZRO",
+          "chain": "base",
+          "address": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
+          "explorerUrl": "https://basescan.org/token/0x6985884c4392d348587b19cb9eaaf157f13271cd",
+          "weight": "6.7",
           "color": "#a78bfa",
           "warning": false,
           "kind": "beta"
@@ -1535,9 +1535,9 @@
       ],
       "bookPosture": {
         "cash": 30.5,
-        "base": 35,
-        "beta": 34.5,
-        "label": "Cash 30.5% · Base 35% · High-beta 34.5%"
+        "base": 35.1,
+        "beta": 34.3,
+        "label": "Cash 30.5% · Base 35.1% · High-beta 34.3%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -1659,7 +1659,7 @@
         ]
       },
       "positionCount": 5,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -2098,9 +2098,9 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU (0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b)</a> entry: 78 bps probed round trip and $15.9k global 24h volume. Size the ticket so execution cost is small against the 30-day thesis horizon.",
-          "<a href=\"https://basescan.org/token/0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196\" title=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" aria-label=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" target=\"_blank\" rel=\"noopener noreferrer\">LINK (0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196)</a> exit is coverage-driven and the position is the book's largest at 9.3% of book; freed weight must land on a remaining member, a ratified addition, or reserve. An exit of every member without a landing place…",
-          "<a href=\"https://basescan.org/token/0x0555e30da8f98308edb960aa94c0db47230d2b9c\" title=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" aria-label=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" target=\"_blank\" rel=\"noopener noreferrer\">WBTC (0x0555e30da8f98308edb960aa94c0db47230d2b9c)</a> reduction rests on one session of score deterioration and screen absence; stage it rather than treat it as thesis invalidation."
+          "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> entry: 78 bps probed round trip and $15.9k global 24h volume. Size the ticket so execution cost is small against the 30-day thesis horizon.",
+          "<a href=\"https://basescan.org/token/0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196\" title=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" aria-label=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" target=\"_blank\" rel=\"noopener noreferrer\">LINK</a> exit is coverage-driven and the position is the book's largest at 9.3% of book; freed weight must land on a remaining member, a ratified addition, or reserve. An exit of every member without a landing place…",
+          "<a href=\"https://basescan.org/token/0x0555e30da8f98308edb960aa94c0db47230d2b9c\" title=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" aria-label=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" target=\"_blank\" rel=\"noopener noreferrer\">WBTC</a> reduction rests on one session of score deterioration and screen absence; stage it rather than treat it as thesis invalidation."
         ],
         "themes": [],
         "hold": false,
@@ -2188,75 +2188,9 @@
       "group": "lagoon-micro",
       "appUrl": "https://app.messyvirgo.com/funds/mvf-lg-base00",
       "councilUrl": "https://app.messyvirgo.com/funds/mvf-lg-base00/council",
-      "holdingsBar": [
-        {
-          "symbol": "CASH",
-          "detail": null,
-          "tokenSymbol": "USDC",
-          "chain": "base",
-          "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "explorerUrl": "https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "weight": "31.3",
-          "color": "#64748b",
-          "warning": false,
-          "kind": "cash"
-        },
-        {
-          "symbol": "BASE",
-          "detail": null,
-          "tokenSymbol": "WETH",
-          "chain": "base",
-          "address": "0x4200000000000000000000000000000000000006",
-          "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "weight": "36.7",
-          "color": "#94a3b8",
-          "warning": false,
-          "kind": "base"
-        },
-        {
-          "symbol": "AERO",
-          "detail": null,
-          "tokenSymbol": "AERO",
-          "chain": "base",
-          "address": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
-          "explorerUrl": "https://basescan.org/token/0x940181a94a35a4569e4529a3cdfb74e38fd98631",
-          "weight": "18.1",
-          "color": "#ff69b4",
-          "warning": false,
-          "kind": "beta"
-        },
-        {
-          "symbol": "VVV",
-          "detail": null,
-          "tokenSymbol": "VVV",
-          "chain": "base",
-          "address": "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
-          "explorerUrl": "https://basescan.org/token/0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
-          "weight": "8.6",
-          "color": "#fbbf24",
-          "warning": false,
-          "kind": "beta"
-        },
-        {
-          "symbol": "AUKI",
-          "detail": null,
-          "tokenSymbol": "AUKI",
-          "chain": "base",
-          "address": "0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4",
-          "explorerUrl": "https://basescan.org/token/0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4",
-          "weight": "5.3",
-          "color": "#60a5fa",
-          "warning": false,
-          "kind": "beta"
-        }
-      ],
-      "bookPosture": {
-        "cash": 31.3,
-        "base": 36.7,
-        "beta": 32,
-        "label": "Cash 31.3% · Base 36.7% · High-beta 32%"
-      },
-      "hasHoldingsBar": true,
+      "holdingsBar": [],
+      "bookPosture": null,
+      "hasHoldingsBar": false,
       "council": {
         "outcome": "maintain_current",
         "outcomeLabel": "maintain current",
@@ -2345,409 +2279,20 @@
         "aggDate": "14 November 2026",
         "aggLookback": 7,
         "aggSourceRuns": 7,
-        "aggCandidates": [
-          {
-            "rank": 1,
-            "symbol": "WAGMI",
-            "name": "Wagmi",
-            "reason": "Appeared in 7/7 source run(s) with avg rank 1.57, best rank 1, recency score 37.39.",
-            "chain": "base",
-            "address": "0xaf20f5f19698f1d19351028cd7103b63d30de7d7",
-            "explorerUrl": "https://basescan.org/token/0xaf20f5f19698f1d19351028cd7103b63d30de7d7"
-          },
-          {
-            "rank": 2,
-            "symbol": "SHRUB",
-            "name": "Shrub",
-            "reason": "Appeared in 7/7 source run(s) with avg rank 2.57, best rank 2, recency score 33.51.",
-            "chain": "base",
-            "address": "0x1eefd52f6e218f262da7b0089b9e343a1eb5c9f4",
-            "explorerUrl": "https://basescan.org/token/0x1eefd52f6e218f262da7b0089b9e343a1eb5c9f4"
-          },
-          {
-            "rank": 3,
-            "symbol": "ASM",
-            "name": "Assemble AI",
-            "reason": "Appeared in 7/7 source run(s) with avg rank 4.86, best rank 4, recency score 21.98.",
-            "chain": "base",
-            "address": "0x3b53604113b5677291bfc0bc255379e7a796559b",
-            "explorerUrl": "https://basescan.org/token/0x3b53604113b5677291bfc0bc255379e7a796559b"
-          }
-        ]
+        "aggCandidates": []
       },
-      "positionCount": 3,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
-      "chain": "base",
-      "verifiedTokens": [
-        {
-          "symbol": "usdc",
-          "chain": "base",
-          "chainId": 8453,
-          "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "explorerUrl": "https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "tokenIds": [
-            9246
-          ]
-        },
-        {
-          "symbol": "weth",
-          "chain": "base",
-          "chainId": 8453,
-          "address": "0x4200000000000000000000000000000000000006",
-          "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "tokenIds": [
-            464
-          ]
-        },
-        {
-          "symbol": "aero",
-          "chain": "base",
-          "chainId": 8453,
-          "address": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
-          "explorerUrl": "https://basescan.org/token/0x940181a94a35a4569e4529a3cdfb74e38fd98631",
-          "tokenIds": [
-            9354
-          ]
-        },
-        {
-          "symbol": "auki",
-          "chain": "base",
-          "chainId": 8453,
-          "address": "0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4",
-          "explorerUrl": "https://basescan.org/token/0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4",
-          "tokenIds": [
-            9716
-          ]
-        },
-        {
-          "symbol": "vvv",
-          "chain": "base",
-          "chainId": 8453,
-          "address": "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
-          "explorerUrl": "https://basescan.org/token/0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
-          "tokenIds": [
-            9357
-          ]
-        },
-        {
-          "symbol": "wagmi",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xaf20f5f19698f1d19351028cd7103b63d30de7d7",
-          "explorerUrl": "https://basescan.org/token/0xaf20f5f19698f1d19351028cd7103b63d30de7d7",
-          "tokenIds": [
-            888
-          ]
-        },
-        {
-          "symbol": "shrub",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x1eefd52f6e218f262da7b0089b9e343a1eb5c9f4",
-          "explorerUrl": "https://basescan.org/token/0x1eefd52f6e218f262da7b0089b9e343a1eb5c9f4",
-          "tokenIds": [
-            11425
-          ]
-        },
-        {
-          "symbol": "asm",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x3b53604113b5677291bfc0bc255379e7a796559b",
-          "explorerUrl": "https://basescan.org/token/0x3b53604113b5677291bfc0bc255379e7a796559b",
-          "tokenIds": [
-            10152
-          ]
-        },
-        {
-          "symbol": "rem",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x83d5d441ed15737d34226b682f7427d2217f2a8f",
-          "explorerUrl": "https://basescan.org/token/0x83d5d441ed15737d34226b682f7427d2217f2a8f",
-          "tokenIds": [
-            11785
-          ]
-        },
-        {
-          "symbol": "gldt",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x86856814e74456893cfc8946bedcbb472b5fa856",
-          "explorerUrl": "https://basescan.org/token/0x86856814e74456893cfc8946bedcbb472b5fa856",
-          "tokenIds": [
-            12184
-          ]
-        },
-        {
-          "symbol": "dip",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xac86f3556cbd2b4d800d17adc3a266b500fcb9f5",
-          "explorerUrl": "https://basescan.org/token/0xac86f3556cbd2b4d800d17adc3a266b500fcb9f5",
-          "tokenIds": [
-            308
-          ]
-        },
-        {
-          "symbol": "re7weth",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xa2cac0023a4797b4729db94783405189a4203afc",
-          "explorerUrl": "https://basescan.org/token/0xa2cac0023a4797b4729db94783405189a4203afc",
-          "tokenIds": [
-            677
-          ]
-        },
-        {
-          "symbol": "aleph",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xc0fbc4967259786c743361a5885ef49380473dcf",
-          "explorerUrl": "https://basescan.org/token/0xc0fbc4967259786c743361a5885ef49380473dcf",
-          "tokenIds": [
-            10589
-          ]
-        },
-        {
-          "symbol": "flower",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xb043bad01195700e737d0aee852584eae9393134",
-          "explorerUrl": "https://basescan.org/token/0xb043bad01195700e737d0aee852584eae9393134",
-          "tokenIds": [
-            49571
-          ]
-        },
-        {
-          "symbol": "ynethx",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xe231db5f348d709239ef1741ea30961b3b635a61",
-          "explorerUrl": "https://basescan.org/token/0xe231db5f348d709239ef1741ea30961b3b635a61",
-          "tokenIds": [
-            942
-          ]
-        },
-        {
-          "symbol": "boson",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x2192607c3cba9ec3d490206d10d831e68e5f3c97",
-          "explorerUrl": "https://basescan.org/token/0x2192607c3cba9ec3d490206d10d831e68e5f3c97",
-          "tokenIds": [
-            10460
-          ]
-        },
-        {
-          "symbol": "wexo",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xac12f930318be4f9d37f602cbf89cd33e99aa9d4",
-          "explorerUrl": "https://basescan.org/token/0xac12f930318be4f9d37f602cbf89cd33e99aa9d4",
-          "tokenIds": [
-            10287
-          ]
-        },
-        {
-          "symbol": "supr",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
-          "explorerUrl": "https://basescan.org/token/0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
-          "tokenIds": [
-            796
-          ]
-        },
-        {
-          "symbol": "stbu",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xe0c0f44a84cc4a60206360006eba237a5e8fc2dd",
-          "explorerUrl": "https://basescan.org/token/0xe0c0f44a84cc4a60206360006eba237a5e8fc2dd",
-          "tokenIds": [
-            44284
-          ]
-        },
-        {
-          "symbol": "era",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x00312400303d02c323295f6e8b7309bc30fb6bce",
-          "explorerUrl": "https://basescan.org/token/0x00312400303d02c323295f6e8b7309bc30fb6bce",
-          "tokenIds": [
-            9889
-          ]
-        },
-        {
-          "symbol": "cetes",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x834df4c1d8f51be24322e39e4766697be015512f",
-          "explorerUrl": "https://basescan.org/token/0x834df4c1d8f51be24322e39e4766697be015512f",
-          "tokenIds": [
-            181
-          ]
-        },
-        {
-          "symbol": "surge",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xedb6970b7be5a522cff14c8b679a2d813ff97b4d",
-          "explorerUrl": "https://basescan.org/token/0xedb6970b7be5a522cff14c8b679a2d813ff97b4d",
-          "tokenIds": [
-            10332
-          ]
-        },
-        {
-          "symbol": "sauce",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xa4ff56ef7ef4a2cad03cfa130208c9bc1b45d293",
-          "explorerUrl": "https://basescan.org/token/0xa4ff56ef7ef4a2cad03cfa130208c9bc1b45d293",
-          "tokenIds": [
-            9979
-          ]
-        },
-        {
-          "symbol": "pepper",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x5e985e4bca4664e985f3faf8140eba25b10e28c2",
-          "explorerUrl": "https://basescan.org/token/0x5e985e4bca4664e985f3faf8140eba25b10e28c2",
-          "tokenIds": [
-            1607
-          ]
-        },
-        {
-          "symbol": "krl",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xdae49c25fad3a62a8e8bfb6da12c46be611f9f7a",
-          "explorerUrl": "https://basescan.org/token/0xdae49c25fad3a62a8e8bfb6da12c46be611f9f7a",
-          "tokenIds": [
-            10426
-          ]
-        },
-        {
-          "symbol": "pythusdc",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x0fabfeacedf47e890c50c8120177fff69c6a1d9b",
-          "explorerUrl": "https://basescan.org/token/0x0fabfeacedf47e890c50c8120177fff69c6a1d9b",
-          "tokenIds": [
-            663
-          ]
-        },
-        {
-          "symbol": "gtbtc",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xc2d09cf86b9ff43cb29ef8ddca57a4eb4410d5f3",
-          "explorerUrl": "https://basescan.org/token/0xc2d09cf86b9ff43cb29ef8ddca57a4eb4410d5f3",
-          "tokenIds": [
-            1328
-          ]
-        },
-        {
-          "symbol": "rbtc",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x441fcb23dfe8289cf572126fedcf450974adc891",
-          "explorerUrl": "https://basescan.org/token/0x441fcb23dfe8289cf572126fedcf450974adc891",
-          "tokenIds": [
-            716
-          ]
-        },
-        {
-          "symbol": "pros",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x915424ac489433130d92b04096f3b96c82e92a9d",
-          "explorerUrl": "https://basescan.org/token/0x915424ac489433130d92b04096f3b96c82e92a9d",
-          "tokenIds": [
-            658
-          ]
-        },
-        {
-          "symbol": "ogn",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x7002458b1df59eccb57387bc79ffc7c29e22e6f7",
-          "explorerUrl": "https://basescan.org/token/0x7002458b1df59eccb57387bc79ffc7c29e22e6f7",
-          "tokenIds": [
-            10051
-          ]
-        },
-        {
-          "symbol": "mbs",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x8fbd0648971d56f1f2c35fa075ff5bc75fb0e39d",
-          "explorerUrl": "https://basescan.org/token/0x8fbd0648971d56f1f2c35fa075ff5bc75fb0e39d",
-          "tokenIds": [
-            45160
-          ]
-        },
-        {
-          "symbol": "fbtc",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xc96de26018a54d51c097160568752c4e3bd6c364",
-          "explorerUrl": "https://basescan.org/token/0xc96de26018a54d51c097160568752c4e3bd6c364",
-          "tokenIds": [
-            412
-          ]
-        },
-        {
-          "symbol": "iaero",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x81034fb34009115f215f5d5f564aac9ffa46a1dc",
-          "explorerUrl": "https://basescan.org/token/0x81034fb34009115f215f5d5f564aac9ffa46a1dc",
-          "tokenIds": [
-            407
-          ]
-        },
-        {
-          "symbol": "almanak",
-          "chain": "base",
-          "chainId": null,
-          "address": "0xdefa1d21c5f1cbeac00eeb54b44c7d86467cc3a3",
-          "explorerUrl": "https://basescan.org/token/0xdefa1d21c5f1cbeac00eeb54b44c7d86467cc3a3",
-          "tokenIds": [
-            11453
-          ]
-        },
-        {
-          "symbol": "copi",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x0a953dd9fc813fefaf6015b804c9dfa0624690c0",
-          "explorerUrl": "https://basescan.org/token/0x0a953dd9fc813fefaf6015b804c9dfa0624690c0",
-          "tokenIds": [
-            219
-          ]
-        },
-        {
-          "symbol": "dolz",
-          "chain": "base",
-          "chainId": null,
-          "address": "0x8102b2864eade51a1c36497747132af689824b59",
-          "explorerUrl": "https://basescan.org/token/0x8102b2864eade51a1c36497747132af689824b59",
-          "tokenIds": [
-            277
-          ]
-        }
-      ],
+      "positionCount": 0,
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
+      "chain": "",
+      "verifiedTokens": [],
       "chairInsight": {
         "postureLine": "Cash 31.2% → 30.8% · Base 36.4% → 36.9% · High-beta 32.4%",
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
           "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES under an effective Risk Off regime; this is a standing posture concentration, not a per-position exit trigger, but it…",
-          "<a href=\"https://basescan.org/token/0x940181a94a35a4569e4529a3cdfb74e38fd98631\" title=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" aria-label=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AERO (0x940181a94a35a4569e4529a3cdfb74e38fd98631)</a> shows broad one-session score deterioration; one sample does not justify a reduce, but a second…",
-          "<a href=\"https://basescan.org/token/0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4\" title=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" aria-label=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AUKI (0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4)</a> carries 5.3% of book against $301k primary-pool liquidity and $58.5k 24h volume; exit cost is quoted at 9 bps but realizable exit at position notional would be a multi-tranche event. Size any future…"
+          "aero shows broad one-session score deterioration; one sample does not justify a reduce, but a second…",
+          "auki carries 5.3% of book against $301k primary-pool liquidity and $58.5k 24h volume; exit cost is quoted at 9 bps but realizable exit at position notional would be a multi-tranche event. Size any future…"
         ],
         "themes": [
           "soft_tape"
@@ -2824,7 +2369,7 @@
             "day": "2026-11-10",
             "weekday": "Tue",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4\" title=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" aria-label=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AUKI (0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4)</a> exit intent rests on one session of score deterioration; sustained multi-session decline or a hard trigger is the standard for exit"
+            "text": "auki exit intent rests on one session of score deterioration; sustained multi-session decline or a hard trigger is the standard for exit"
           }
         ],
         "closingSessionId": "d0283a28-419c-4d8c-908d-9cd7bb7f1542",
@@ -3025,7 +2570,7 @@
         ]
       },
       "positionCount": 3,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -3954,8 +3499,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xb200000000000000000000c2e324d24d7eecd1fb\" title=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" aria-label=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" target=\"_blank\" rel=\"noopener noreferrer\">AAPLC (0xb200000000000000000000c2e324d24d7eecd1fb)</a> at 17.4% of book top-1 concentration: any add that grows it further compounds single-name risk; a partial trim on strength to fund breadth is the cleaner path.",
-          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC (0x6bd83abc39391af1e24826e90237c4bd3468b5d2)</a> and one-session: hold is defensible, increase is not; size any future add conservatively.",
+          "<a href=\"https://basescan.org/token/0xb200000000000000000000c2e324d24d7eecd1fb\" title=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" aria-label=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" target=\"_blank\" rel=\"noopener noreferrer\">AAPLC</a> at 17.4% of book top-1 concentration: any add that grows it further compounds single-name risk; a partial trim on strength to fund breadth is the cleaner path.",
+          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC</a> and one-session: hold is defensible, increase is not; size any future add conservatively.",
           "Fresh-only candidates (45150, 10726, 10721, 23052, 1574) have no aggregate track record and no measured axes; if entered, size as unconfirmed and expect wide outcome variance."
         ],
         "themes": [
@@ -4033,7 +3578,7 @@
             "day": "2026-11-11",
             "weekday": "Wed",
             "beat": "exec",
-            "text": "<a href=\"https://basescan.org/token/0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979\" title=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" aria-label=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" target=\"_blank\" rel=\"noopener noreferrer\">FBOMB (0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979)</a> exit cost quoted at 191 bps and <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI (0xd080ed3c74a20250a2c9821885203034acd2d5ae)</a> at 224 bps. Material friction on any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI (0xd080ed3c74a20250a2c9821885203034acd2d5ae)</a>-related reshuffle; complete the required exits before considering any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI (0xd080ed3c74a20250a2c9821885203034acd2d5ae)</a> action."
+            "text": "<a href=\"https://basescan.org/token/0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979\" title=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" aria-label=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" target=\"_blank\" rel=\"noopener noreferrer\">FBOMB</a> exit cost quoted at 191 bps and <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI</a> at 224 bps. Material friction on any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI</a>-related reshuffle; complete the required exits before considering any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI</a> action."
           }
         ],
         "closingSessionId": "2742a8ea-7aa0-48a7-9bd7-532f9ad43b3b",
@@ -4066,7 +3611,7 @@
           "chain": "base",
           "address": "0x4200000000000000000000000000000000000006",
           "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "weight": "35.0",
+          "weight": "35.1",
           "color": "#94a3b8",
           "warning": false,
           "kind": "base"
@@ -4078,7 +3623,7 @@
           "chain": "base",
           "address": "0xd080ed3c74a20250a2c9821885203034acd2d5ae",
           "explorerUrl": "https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae",
-          "weight": "8.9",
+          "weight": "8.6",
           "color": "#ff69b4",
           "warning": false,
           "kind": "beta"
@@ -4126,7 +3671,7 @@
           "chain": "base",
           "address": "0x6bd83abc39391af1e24826e90237c4bd3468b5d2",
           "explorerUrl": "https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2",
-          "weight": "5.5",
+          "weight": "5.6",
           "color": "#a78bfa",
           "warning": false,
           "kind": "beta"
@@ -4158,9 +3703,9 @@
       ],
       "bookPosture": {
         "cash": 28,
-        "base": 35,
-        "beta": 37,
-        "label": "Cash 28% · Base 35% · High-beta 37%"
+        "base": 35.1,
+        "beta": 36.9,
+        "label": "Cash 28% · Base 35.1% · High-beta 36.9%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -4168,7 +3713,7 @@
         "outcomeLabel": "executed reconciled",
         "date": "14 November 2026",
         "shortDate": "14 Nov",
-        "headline": "The rebalance executed and reconciled: the council ratified a posture of about 35% base, 28% cash, and 37% high beta (from roughly 28/26/46), funded by trimming <a href=\"https://basescan.org/token/0xe014d2a4da6e450f21b5050120d291e63c8940fd\" title=\"SOGNI contract 0xe014d2a4da6e450f21b5050120d291e63c8940fd on base\" aria-label=\"SOGNI contract 0xe014d2a4da6e450f21b5050120d291e63c8940fd on base\" target=\"_blank\" rel=\"noopener noreferrer\">SOGNI (0xe014d2a4da6e450f21b5050120d291e63c8940fd)</a> and Citrea into reserve with no new beta entries; realized post-execution weights are not yet available, so residual drift against the target remains to be confirmed.",
+        "headline": "The rebalance executed and reconciled: the council ratified a posture of about 35% base, 28% cash, and 37% high beta (from roughly 28/26/46), funded by trimming <a href=\"https://basescan.org/token/0xe014d2a4da6e450f21b5050120d291e63c8940fd\" title=\"SOGNI contract 0xe014d2a4da6e450f21b5050120d291e63c8940fd on base\" aria-label=\"SOGNI contract 0xe014d2a4da6e450f21b5050120d291e63c8940fd on base\" target=\"_blank\" rel=\"noopener noreferrer\">SOGNI</a> and Citrea into reserve with no new beta entries; realized post-execution weights are not yet available, so residual drift against the target remains to be confirmed.",
         "riskNotes": "Rebalance executed and reconciled.",
         "targetFinalization": null,
         "targetFinalizationBlocked": false,
@@ -4282,7 +3827,7 @@
         ]
       },
       "positionCount": 7,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -5203,7 +4748,7 @@
         "notes": [
           "75.3% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES; the trim reduces but does not eliminate this concentration.",
           "Effective regime is risk-off (confirmed 7/0) while the underlying macro score is near-neutral; crypto-specific flows (stablecoin contraction, negative ETF flows, fearful sentiment) are the weak link. Size…",
-          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC (0x6bd83abc39391af1e24826e90237c4bd3468b5d2)</a> shows and a -22 one-session momentum/vol drop; a single-session sample is not a sell trigger, but it is the next name to review if the signal repeats."
+          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC</a> shows and a -22 one-session momentum/vol drop; a single-session sample is not a sell trigger, but it is the next name to review if the signal repeats."
         ],
         "themes": [
           "soft_tape"
@@ -5301,7 +4846,7 @@
           "chain": "robinhood",
           "address": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
           "explorerUrl": "https://robinhoodchain.blockscout.com/token/0x5fc5360d0400a0fd4f2af552add042d716f1d168",
-          "weight": "52.2",
+          "weight": "52.3",
           "color": "#64748b",
           "warning": false,
           "kind": "cash"
@@ -5313,7 +4858,7 @@
           "chain": "robinhood",
           "address": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
           "explorerUrl": "https://robinhoodchain.blockscout.com/token/0x0bd7d308f8e1639fab988df18a8011f41eacad73",
-          "weight": "18.6",
+          "weight": "18.7",
           "color": "#94a3b8",
           "warning": false,
           "kind": "base"
@@ -5325,7 +4870,7 @@
           "chain": "robinhood",
           "address": "0x5d102d1e69e77591d486aa4f663b3645151bbdf6",
           "explorerUrl": "https://robinhoodchain.blockscout.com/token/0x5d102d1e69e77591d486aa4f663b3645151bbdf6",
-          "weight": "15.0",
+          "weight": "15.1",
           "color": "#ff69b4",
           "warning": false,
           "kind": "beta"
@@ -5337,17 +4882,17 @@
           "chain": "robinhood",
           "address": "0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725",
           "explorerUrl": "https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725",
-          "weight": "14.2",
+          "weight": "13.9",
           "color": "#fbbf24",
           "warning": false,
           "kind": "beta"
         }
       ],
       "bookPosture": {
-        "cash": 52.2,
-        "base": 18.6,
-        "beta": 29.2,
-        "label": "Cash 52.2% · Base 18.6% · High-beta 29.2%"
+        "cash": 52.3,
+        "base": 18.7,
+        "beta": 29,
+        "label": "Cash 52.3% · Base 18.7% · High-beta 29%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -5355,7 +4900,7 @@
         "outcomeLabel": "executed reconciled",
         "date": "14 November 2026",
         "shortDate": "14 Nov",
-        "headline": "The rebalance executed and reconciled: three transactions settled (a base-reserve increase of about $4.21, a <a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK (0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725)</a> trim of about $0.48, and a full exit of <a href=\"https://robinhoodchain.blockscout.com/token/0xceebf25b318201f1f949be2fabbfcee231737139\" title=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" aria-label=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">富贵 (0xceebf25b318201f1f949be2fabbfcee231737139)</a> of about $3.80), but <a href=\"https://robinhoodchain.blockscout.com/token/0x5d102d1e69e77591d486aa4f663b3645151bbdf6\" title=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" aria-label=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">VOLT (0x5d102d1e69e77591d486aa4f663b3645151bbdf6)</a>'s required exit again failed on route rejection and remains outstanding.",
+        "headline": "The rebalance executed and reconciled: three transactions settled (a base-reserve increase of about $4.21, a <a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> trim of about $0.48, and a full exit of <a href=\"https://robinhoodchain.blockscout.com/token/0xceebf25b318201f1f949be2fabbfcee231737139\" title=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" aria-label=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">富贵</a> of about $3.80), but <a href=\"https://robinhoodchain.blockscout.com/token/0x5d102d1e69e77591d486aa4f663b3645151bbdf6\" title=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" aria-label=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">VOLT</a>'s required exit again failed on route rejection and remains outstanding.",
         "riskNotes": "Rebalance executed and reconciled.",
         "targetFinalization": null,
         "targetFinalizationBlocked": false,
@@ -5469,7 +5014,7 @@
         ]
       },
       "positionCount": 2,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
       "chain": "robinhood",
       "verifiedTokens": [
         {
@@ -5903,6 +5448,16 @@
           ]
         },
         {
+          "symbol": "gme",
+          "chain": "robinhood",
+          "chainId": null,
+          "address": "0x1b0e319c6a659f002271b69db8a7df2f911c153e",
+          "explorerUrl": "https://robinhoodchain.blockscout.com/token/0x1b0e319c6a659f002271b69db8a7df2f911c153e",
+          "tokenIds": [
+            18519
+          ]
+        },
+        {
           "symbol": "astro",
           "chain": "robinhood",
           "chainId": null,
@@ -5959,8 +5514,8 @@
         "actionSummary": "Reduce cash, Raise base, and reduce high beta.",
         "notes": [
           "100% of beta book value sits in the Meme narrative with negative trailing 30d momentum vs TOTAL3ES. Single-narrative concentration is a standing condition, not a one-session trigger; the posture reduction…",
-          "<a href=\"https://robinhoodchain.blockscout.com/token/0xceebf25b318201f1f949be2fabbfcee231737139\" title=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" aria-label=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">富贵 (0xceebf25b318201f1f949be2fabbfcee231737139)</a> exit cost of 159 bps is the book's worst; sizing the trim at the minimum needed to reach the 37% high-beta target limits round-trip friction.",
-          "<a href=\"https://robinhoodchain.blockscout.com/token/0x5d102d1e69e77591d486aa4f663b3645151bbdf6\" title=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" aria-label=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">VOLT (0x5d102d1e69e77591d486aa4f663b3645151bbdf6)</a>'s unfilled exit last session was a route rejection (okx_route_unacceptable); verify the <a href=\"https://robinhoodchain.blockscout.com/token/0x0bd7d308f8e1639fab988df18a8011f41eacad73\" title=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" aria-label=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">WETH (0x0bd7d308f8e1639fab988df18a8011f41eacad73)</a> reserve route is executable before relying on it again."
+          "<a href=\"https://robinhoodchain.blockscout.com/token/0xceebf25b318201f1f949be2fabbfcee231737139\" title=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" aria-label=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">富贵</a> exit cost of 159 bps is the book's worst; sizing the trim at the minimum needed to reach the 37% high-beta target limits round-trip friction.",
+          "<a href=\"https://robinhoodchain.blockscout.com/token/0x5d102d1e69e77591d486aa4f663b3645151bbdf6\" title=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" aria-label=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">VOLT</a>'s unfilled exit last session was a route rejection (okx_route_unacceptable); verify the <a href=\"https://robinhoodchain.blockscout.com/token/0x0bd7d308f8e1639fab988df18a8011f41eacad73\" title=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" aria-label=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">WETH</a> reserve route is executable before relying on it again."
         ],
         "themes": [
           "soft_tape"
@@ -6094,7 +5649,7 @@
         ]
       },
       "positionCount": 0,
-      "pricedAt": "2026-11-14T10:20:03.952621Z",
+      "pricedAt": "2026-11-14T10:35:06.387731Z",
       "chain": "robinhood",
       "verifiedTokens": [
         {
@@ -6606,8 +6161,8 @@
         "actionSummary": "Reduce cash, reduce base, and Raise high beta.",
         "notes": [
           "Effective Risk Off regime with fearful sentiment and contracting stablecoin/ETF flows argues for sizing the beta raise at the session minimum (15%) rather than the band midpoint",
-          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB (0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89)</a>'s fresh rank 7 vs aggregate rank 2 is a divergence to weigh, though the aggregate record (7/7 appearances) is the stronger evidence base",
-          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB (0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89)</a> has no measured ATR% or RSI short reading this session; entry timing and volatility sizing inputs are absent"
+          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB</a>'s fresh rank 7 vs aggregate rank 2 is a divergence to weigh, though the aggregate record (7/7 appearances) is the stronger evidence base",
+          "<a href=\"https://basescan.org/token/0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89\" title=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" aria-label=\"BOB contract 0xecc5f868add75f4ff9fd00bbbde12c35ba2c9c89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BOB</a> has no measured ATR% or RSI short reading this session; entry timing and volatility sizing inputs are absent"
         ],
         "themes": [
           "rank_watch"
@@ -6623,7 +6178,7 @@
         "notes": [
           "Effective regime is risk-off on a headline overlay over a neutral macro base; crypto-specific flows (stablecoin contraction, negative ETF flows, fearful sentiment) are the weak link. New beta entries should…",
           "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES; narrative momentum is context, not a sell trigger, but it caps conviction on adds.",
-          "Fresh-only candidates (<a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT (0x91da780bc7f4b7cf19abe90411a2a296ec5ff787)</a> 11611, <a href=\"https://basescan.org/token/0xcef8db49e456f872e288e1c042f916e9ced7c781\" title=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" aria-label=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" target=\"_blank\" rel=\"noopener noreferrer\">MAG7 (0xcef8db49e456f872e288e1c042f916e9ced7c781)</a> 43818) have no aggregate track record; <a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT (0x91da780bc7f4b7cf19abe90411a2a296ec5ff787)</a>'s +6.7% 24h move and RSI 78.1 make it a momentum-chase profile at a 30-day horizon."
+          "Fresh-only candidates (<a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT</a> 11611, <a href=\"https://basescan.org/token/0xcef8db49e456f872e288e1c042f916e9ced7c781\" title=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" aria-label=\"MAG7 contract 0xcef8db49e456f872e288e1c042f916e9ced7c781 on base\" target=\"_blank\" rel=\"noopener noreferrer\">MAG7</a> 43818) have no aggregate track record; <a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT</a>'s +6.7% 24h move and RSI 78.1 make it a momentum-chase profile at a 30-day horizon."
         ],
         "themes": [
           "soft_tape",
@@ -6638,9 +6193,9 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU (0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b)</a> entry: 78 bps probed round trip and $15.9k global 24h volume. Size the ticket so execution cost is small against the 30-day thesis horizon.",
-          "<a href=\"https://basescan.org/token/0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196\" title=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" aria-label=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" target=\"_blank\" rel=\"noopener noreferrer\">LINK (0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196)</a> exit is coverage-driven and the position is the book's largest at 9.3% of book; freed weight must land on a remaining member, a ratified addition, or reserve. An exit of every member without a landing place…",
-          "<a href=\"https://basescan.org/token/0x0555e30da8f98308edb960aa94c0db47230d2b9c\" title=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" aria-label=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" target=\"_blank\" rel=\"noopener noreferrer\">WBTC (0x0555e30da8f98308edb960aa94c0db47230d2b9c)</a> reduction rests on one session of score deterioration and screen absence; stage it rather than treat it as thesis invalidation."
+          "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> entry: 78 bps probed round trip and $15.9k global 24h volume. Size the ticket so execution cost is small against the 30-day thesis horizon.",
+          "<a href=\"https://basescan.org/token/0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196\" title=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" aria-label=\"LINK contract 0x88fb150bdc53a65fe94dea0c9ba0a6daf8c6e196 on base\" target=\"_blank\" rel=\"noopener noreferrer\">LINK</a> exit is coverage-driven and the position is the book's largest at 9.3% of book; freed weight must land on a remaining member, a ratified addition, or reserve. An exit of every member without a landing place…",
+          "<a href=\"https://basescan.org/token/0x0555e30da8f98308edb960aa94c0db47230d2b9c\" title=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" aria-label=\"WBTC contract 0x0555e30da8f98308edb960aa94c0db47230d2b9c on base\" target=\"_blank\" rel=\"noopener noreferrer\">WBTC</a> reduction rests on one session of score deterioration and screen absence; stage it rather than treat it as thesis invalidation."
         ],
         "themes": [],
         "hold": false,
@@ -6653,8 +6208,8 @@
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
           "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES under an effective Risk Off regime; this is a standing posture concentration, not a per-position exit trigger, but it…",
-          "<a href=\"https://basescan.org/token/0x940181a94a35a4569e4529a3cdfb74e38fd98631\" title=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" aria-label=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AERO (0x940181a94a35a4569e4529a3cdfb74e38fd98631)</a> shows broad one-session score deterioration; one sample does not justify a reduce, but a second…",
-          "<a href=\"https://basescan.org/token/0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4\" title=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" aria-label=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AUKI (0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4)</a> carries 5.3% of book against $301k primary-pool liquidity and $58.5k 24h volume; exit cost is quoted at 9 bps but realizable exit at position notional would be a multi-tranche event. Size any future…"
+          "aero shows broad one-session score deterioration; one sample does not justify a reduce, but a second…",
+          "auki carries 5.3% of book against $301k primary-pool liquidity and $58.5k 24h volume; exit cost is quoted at 9 bps but realizable exit at position notional would be a multi-tranche event. Size any future…"
         ],
         "themes": [
           "soft_tape"
@@ -6668,8 +6223,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xb200000000000000000000c2e324d24d7eecd1fb\" title=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" aria-label=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" target=\"_blank\" rel=\"noopener noreferrer\">AAPLC (0xb200000000000000000000c2e324d24d7eecd1fb)</a> at 17.4% of book top-1 concentration: any add that grows it further compounds single-name risk; a partial trim on strength to fund breadth is the cleaner path.",
-          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC (0x6bd83abc39391af1e24826e90237c4bd3468b5d2)</a> and one-session: hold is defensible, increase is not; size any future add conservatively.",
+          "<a href=\"https://basescan.org/token/0xb200000000000000000000c2e324d24d7eecd1fb\" title=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" aria-label=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" target=\"_blank\" rel=\"noopener noreferrer\">AAPLC</a> at 17.4% of book top-1 concentration: any add that grows it further compounds single-name risk; a partial trim on strength to fund breadth is the cleaner path.",
+          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC</a> and one-session: hold is defensible, increase is not; size any future add conservatively.",
           "Fresh-only candidates (45150, 10726, 10721, 23052, 1574) have no aggregate track record and no measured axes; if entered, size as unconfirmed and expect wide outcome variance."
         ],
         "themes": [
@@ -6686,7 +6241,7 @@
         "notes": [
           "75.3% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES; the trim reduces but does not eliminate this concentration.",
           "Effective regime is risk-off (confirmed 7/0) while the underlying macro score is near-neutral; crypto-specific flows (stablecoin contraction, negative ETF flows, fearful sentiment) are the weak link. Size…",
-          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC (0x6bd83abc39391af1e24826e90237c4bd3468b5d2)</a> shows and a -22 one-session momentum/vol drop; a single-session sample is not a sell trigger, but it is the next name to review if the signal repeats."
+          "<a href=\"https://basescan.org/token/0x6bd83abc39391af1e24826e90237c4bd3468b5d2\" title=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" aria-label=\"SLC contract 0x6bd83abc39391af1e24826e90237c4bd3468b5d2 on base\" target=\"_blank\" rel=\"noopener noreferrer\">SLC</a> shows and a -22 one-session momentum/vol drop; a single-session sample is not a sell trigger, but it is the next name to review if the signal repeats."
         ],
         "themes": [
           "soft_tape"
@@ -6701,8 +6256,8 @@
         "actionSummary": "Reduce cash, Raise base, and reduce high beta.",
         "notes": [
           "100% of beta book value sits in the Meme narrative with negative trailing 30d momentum vs TOTAL3ES. Single-narrative concentration is a standing condition, not a one-session trigger; the posture reduction…",
-          "<a href=\"https://robinhoodchain.blockscout.com/token/0xceebf25b318201f1f949be2fabbfcee231737139\" title=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" aria-label=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">富贵 (0xceebf25b318201f1f949be2fabbfcee231737139)</a> exit cost of 159 bps is the book's worst; sizing the trim at the minimum needed to reach the 37% high-beta target limits round-trip friction.",
-          "<a href=\"https://robinhoodchain.blockscout.com/token/0x5d102d1e69e77591d486aa4f663b3645151bbdf6\" title=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" aria-label=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">VOLT (0x5d102d1e69e77591d486aa4f663b3645151bbdf6)</a>'s unfilled exit last session was a route rejection (okx_route_unacceptable); verify the <a href=\"https://robinhoodchain.blockscout.com/token/0x0bd7d308f8e1639fab988df18a8011f41eacad73\" title=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" aria-label=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">WETH (0x0bd7d308f8e1639fab988df18a8011f41eacad73)</a> reserve route is executable before relying on it again."
+          "<a href=\"https://robinhoodchain.blockscout.com/token/0xceebf25b318201f1f949be2fabbfcee231737139\" title=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" aria-label=\"富贵 contract 0xceebf25b318201f1f949be2fabbfcee231737139 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">富贵</a> exit cost of 159 bps is the book's worst; sizing the trim at the minimum needed to reach the 37% high-beta target limits round-trip friction.",
+          "<a href=\"https://robinhoodchain.blockscout.com/token/0x5d102d1e69e77591d486aa4f663b3645151bbdf6\" title=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" aria-label=\"VOLT contract 0x5d102d1e69e77591d486aa4f663b3645151bbdf6 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">VOLT</a>'s unfilled exit last session was a route rejection (okx_route_unacceptable); verify the <a href=\"https://robinhoodchain.blockscout.com/token/0x0bd7d308f8e1639fab988df18a8011f41eacad73\" title=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" aria-label=\"WETH contract 0x0bd7d308f8e1639fab988df18a8011f41eacad73 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">WETH</a> reserve route is executable before relying on it again."
         ],
         "themes": [
           "soft_tape"
@@ -6781,7 +6336,7 @@
             "day": "2026-11-11",
             "weekday": "Wed",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE (0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4)</a> carries a flagged +1021 bps route gap and 1446 bps round trip; any entry above the $1.00 minimum risks friction exceeding expected edge. Size at the minimum or not at all"
+            "text": "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> carries a flagged +1021 bps route gap and 1446 bps round trip; any entry above the $1.00 minimum risks friction exceeding expected edge. Size at the minimum or not at all"
           }
         ],
         "closingSessionId": "e5fe3e3c-530a-4817-8418-1b57891cda40",
@@ -7003,7 +6558,7 @@
             "day": "2026-11-10",
             "weekday": "Tue",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4\" title=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" aria-label=\"AUKI contract 0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AUKI (0xf9569cfb8fd265e91aa478d86ae8c78b8af55df4)</a> exit intent rests on one session of score deterioration; sustained multi-session decline or a hard trigger is the standard for exit"
+            "text": "auki exit intent rests on one session of score deterioration; sustained multi-session decline or a hard trigger is the standard for exit"
           }
         ],
         "closingSessionId": "d0283a28-419c-4d8c-908d-9cd7bb7f1542",
@@ -7077,7 +6632,7 @@
             "day": "2026-11-11",
             "weekday": "Wed",
             "beat": "exec",
-            "text": "<a href=\"https://basescan.org/token/0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979\" title=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" aria-label=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" target=\"_blank\" rel=\"noopener noreferrer\">FBOMB (0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979)</a> exit cost quoted at 191 bps and <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI (0xd080ed3c74a20250a2c9821885203034acd2d5ae)</a> at 224 bps. Material friction on any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI (0xd080ed3c74a20250a2c9821885203034acd2d5ae)</a>-related reshuffle; complete the required exits before considering any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI (0xd080ed3c74a20250a2c9821885203034acd2d5ae)</a> action."
+            "text": "<a href=\"https://basescan.org/token/0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979\" title=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" aria-label=\"FBOMB contract 0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979 on base\" target=\"_blank\" rel=\"noopener noreferrer\">FBOMB</a> exit cost quoted at 191 bps and <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI</a> at 224 bps. Material friction on any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI</a>-related reshuffle; complete the required exits before considering any <a href=\"https://basescan.org/token/0xd080ed3c74a20250a2c9821885203034acd2d5ae\" title=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" aria-label=\"ZFI contract 0xd080ed3c74a20250a2c9821885203034acd2d5ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">ZFI</a> action."
           }
         ],
         "closingSessionId": "2742a8ea-7aa0-48a7-9bd7-532f9ad43b3b",
@@ -7309,7 +6864,7 @@
   "weeklyHighlights": [
     "42 council sessions across 7 micro funds: 24 executed, 14 holds.",
     "Week regime path: Risk-off (R-) all week. Effective macro regime is R- with fresh coverage and 80% confidence.",
-    "<a href=\"https://basescan.org/token/0x50da645f148798f68ef2d7db7c1cb22a6819bb2c\" title=\"SPX contract 0x50da645f148798f68ef2d7db7c1cb22a6819bb2c on base\" aria-label=\"SPX contract 0x50da645f148798f68ef2d7db7c1cb22a6819bb2c on base\" target=\"_blank\" rel=\"noopener noreferrer\">SPX (0x50da645f148798f68ef2d7db7c1cb22a6819bb2c)</a> led aggregate screens this week. A candidate signal, not an automatic trade."
+    "<a href=\"https://basescan.org/token/0x50da645f148798f68ef2d7db7c1cb22a6819bb2c\" title=\"SPX contract 0x50da645f148798f68ef2d7db7c1cb22a6819bb2c on base\" aria-label=\"SPX contract 0x50da645f148798f68ef2d7db7c1cb22a6819bb2c on base\" target=\"_blank\" rel=\"noopener noreferrer\">SPX</a> led aggregate screens this week. A candidate signal, not an automatic trade."
   ],
   "readerNotes": [],
   "providerRiskLabeling": {
