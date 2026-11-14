@@ -247,7 +247,7 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
       bits.push(`${weeklyRollup.blocked} blocked`);
     }
     if (bits.length) parts.push(bits.join(", "));
-    highlights.push(`${parts.join(" — ")}.`);
+    highlights.push(`${parts.join(": ")}.`);
   }
 
   if (sessionContext?.macro?.regimeLabel || sessionContext?.macro?.summary) {
@@ -263,7 +263,7 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
         ? `Sessions this week ran under macro regime ${regime}`
         : "Sessions this week used a frozen macro allocation brief";
     const detail = sessionContext.macro.summary
-      ? ` — ${firstSentence(sessionContext.macro.summary)}`
+      ? `. ${firstSentence(sessionContext.macro.summary)}`
       : ".";
     highlights.push(`${lead}${detail.endsWith(".") ? detail : `${detail}.`}`);
   }
@@ -275,11 +275,13 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
     );
   }
 
-  if (signalExample?.symbol && signalExample.explorerUrl) {
-    const title = `${signalExample.symbol} contract ${signalExample.address} on ${signalExample.chain}`;
-    highlights.push(
-      `<a href="${escapeHtml(signalExample.explorerUrl)}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}" target="_blank" rel="noopener noreferrer">${escapeHtml(signalExample.symbol)}</a> led aggregate screens this week. A candidate signal, not an automatic trade.`
-    );
+  if (signalExample?.symbol && signalExample.explorerUrl && isContractAddress(signalExample.address)) {
+    const anchor = proseTokenAnchor(signalExample);
+    if (anchor) {
+      highlights.push(
+        `${anchor} led aggregate screens this week. A candidate signal, not an automatic trade.`
+      );
+    }
   }
 
   return highlights.slice(0, 6);
@@ -341,16 +343,44 @@ function artifactUuidFromRef(ref) {
   return parts[parts.length - 1] || null;
 }
 
+function cliFailureKind(err) {
+  const blob = `${err && err.stderr ? err.stderr : ""} ${err && err.message ? err.message : ""}`;
+  if (/401|403|unauthor|forbidden|AUTH_/i.test(blob)) return "auth";
+  if (/timed out|ETIMEDOUT|TIMEOUT|AbortError/i.test(blob)) return "timeout";
+  if (/ENOTFOUND|ECONN|EAI_AGAIN|network/i.test(blob)) return "network";
+  return "error";
+}
+
+function execCli(args, timeoutMs) {
+  return execSync(`npx -y ${MESSY_CLI_SPEC} ${args}`, {
+    encoding: "utf8",
+    timeout: timeoutMs,
+    stdio: ["pipe", "pipe", "pipe"],
+    maxBuffer: 10 * 1024 * 1024,
+  });
+}
+
+function execCliRetry(label, args, timeoutMs) {
+  try {
+    return execCli(args, timeoutMs);
+  } catch (err) {
+    console.warn(`[fund-update] ${label} failed (${cliFailureKind(err)}); retrying once`);
+    return execCli(args, timeoutMs);
+  }
+}
+
 function fetchCouncilCliGet(fundId, sessionId) {
   try {
-    const raw = execSync(
-      `npx -y ${MESSY_CLI_SPEC} funds council get ${fundId} ${sessionId} --json --no-update-check`,
-      { encoding: "utf8", timeout: 60000, stdio: ["pipe", "pipe", "pipe"] }
+    const raw = execCliRetry(
+      `council get ${fundId}`,
+      `funds council get ${fundId} ${sessionId} --json --no-update-check`,
+      60000
     );
     const start = raw.indexOf("{");
     if (start === -1) return null;
     return JSON.parse(raw.slice(start));
-  } catch {
+  } catch (err) {
+    console.warn(`[fund-update] council get ${fundId} failed after retry (${cliFailureKind(err)})`);
     return null;
   }
 }
@@ -358,14 +388,16 @@ function fetchCouncilCliGet(fundId, sessionId) {
 function fetchCouncilCliArtifact(fundId, artifactId) {
   if (!artifactId) return null;
   try {
-    const raw = execSync(
-      `npx -y ${MESSY_CLI_SPEC} funds council artifact ${fundId} ${artifactId} --json --no-update-check`,
-      { encoding: "utf8", timeout: 60000, stdio: ["pipe", "pipe", "pipe"] }
+    const raw = execCliRetry(
+      `council artifact ${fundId}`,
+      `funds council artifact ${fundId} ${artifactId} --json --no-update-check`,
+      60000
     );
     const start = raw.indexOf("{");
     if (start === -1) return null;
     return JSON.parse(raw.slice(start));
-  } catch {
+  } catch (err) {
+    console.warn(`[fund-update] council artifact ${fundId} failed after retry (${cliFailureKind(err)})`);
     return null;
   }
 }
@@ -716,7 +748,7 @@ function buildWeekDebateDigest(funds) {
   const themeMeta = {
     soft_tape: {
       label: "soft tape",
-      text: "Several Chairs flagged soft narrative tape — a large share of beta book value sat in narratives with negative 30d momentum vs TOTAL3ES.",
+      text: "Several Chairs flagged soft narrative tape. A large share of beta book value sat in narratives with negative 30d momentum vs TOTAL3ES.",
     },
     coverage_exit: {
       label: "coverage-death exits",
@@ -724,7 +756,7 @@ function buildWeekDebateDigest(funds) {
     },
     cautious_sizing: {
       label: "cautious sizing",
-      text: "Posture moves stayed partial — Chairs sized with cautious conviction rather than jumping fully to target bucket midpoints.",
+      text: "Posture moves stayed partial. Chairs sized with cautious conviction rather than jumping fully to target bucket midpoints.",
     },
     fresh_only_add: {
       label: "fresh-only adds",
@@ -1139,11 +1171,17 @@ function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function symbolPattern(symbol) {
+  return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(symbol)}(?![\\p{L}\\p{N}])`, "giu");
+}
+
 /**
  * One verified token per chain + symbol.
  * A row counts only when contract_address is present. If provider asset_address
  * is also present it must be the same address. Disagreeing addresses are dropped.
- * Two different contract addresses for the same chain and symbol are a conflict.
+ * Several contract addresses for one chain and symbol are resolved, not dropped:
+ * the fund holding address wins, and otherwise the latest dated source wins
+ * when that date names a single address.
  */
 function buildTokenIndex(rows) {
   const groups = new Map();
@@ -1157,43 +1195,88 @@ function buildTokenIndex(rows) {
     const key = `${chain}:${symbol.toLowerCase()}`;
     let group = groups.get(key);
     if (!group) {
-      group = { symbol, chain, addresses: new Map(), tokenIds: new Set(), chainIds: new Set() };
+      group = { symbol, chain, byAddress: new Map() };
       groups.set(key, group);
     }
     const lower = address.toLowerCase();
-    if (!group.addresses.has(lower)) group.addresses.set(lower, address);
+    let entry = group.byAddress.get(lower);
+    if (!entry) {
+      entry = {
+        address,
+        tokenIds: new Set(),
+        chainIds: new Set(),
+        sources: new Set(),
+        asOf: null,
+      };
+      group.byAddress.set(lower, entry);
+    }
+    entry.sources.add(row.source === "holding" ? "holding" : "screen");
+    if (row.asOf && (!entry.asOf || String(row.asOf) > entry.asOf)) {
+      entry.asOf = String(row.asOf).slice(0, 10);
+    }
     if (row.token_id != null && Number.isFinite(Number(row.token_id))) {
-      group.tokenIds.add(Number(row.token_id));
+      entry.tokenIds.add(Number(row.token_id));
     }
     if (row.chain_id != null && Number.isFinite(Number(row.chain_id))) {
-      group.chainIds.add(Number(row.chain_id));
+      entry.chainIds.add(Number(row.chain_id));
     }
   }
 
   const verified = new Map();
   const conflicts = [];
+  const resolutions = [];
   for (const [key, group] of groups) {
-    if (group.addresses.size !== 1 || group.chainIds.size > 1) {
+    const entries = [...group.byAddress.values()];
+    const holdings = entries.filter((entry) => entry.sources.has("holding"));
+    let chosen = null;
+    if (holdings.length === 1) chosen = holdings[0];
+    else if (holdings.length > 1) {
+      conflicts.push(key);
+      continue;
+    } else if (entries.length === 1) chosen = entries[0];
+    else {
+      const latest = entries.reduce((best, entry) => (
+        (entry.asOf || "") > (best.asOf || "") ? entry : best
+      ));
+      const sameDay = entries.filter((entry) => entry.asOf && entry.asOf === latest.asOf);
+      if (!latest.asOf || sameDay.length !== 1) {
+        conflicts.push(key);
+        continue;
+      }
+      chosen = latest;
+    }
+    if (!chosen || chosen.chainIds.size > 1) {
       conflicts.push(key);
       continue;
     }
-    const address = [...group.addresses.values()][0];
-    const chainId = group.chainIds.size === 1 ? [...group.chainIds][0] : null;
-    const explorerUrl = contractExplorerUrl(group.chain, chainId, address);
+    const chainId = chosen.chainIds.size === 1 ? [...chosen.chainIds][0] : null;
+    const explorerUrl = contractExplorerUrl(group.chain, chainId, chosen.address);
     if (!explorerUrl) {
       conflicts.push(key);
       continue;
+    }
+    const discarded = entries
+      .filter((entry) => entry !== chosen)
+      .map((entry) => entry.address);
+    if (discarded.length) {
+      resolutions.push({
+        key,
+        address: chosen.address,
+        via: chosen.sources.has("holding") ? "holding" : "latest-screen",
+        asOf: chosen.asOf,
+        discarded,
+      });
     }
     verified.set(key, {
       symbol: group.symbol,
       chain: group.chain,
       chainId,
-      address,
+      address: chosen.address,
       explorerUrl,
-      tokenIds: [...group.tokenIds],
+      tokenIds: [...chosen.tokenIds],
     });
   }
-  return { verified, conflicts };
+  return { verified, conflicts, resolutions };
 }
 
 const PROSE_TOKEN_DENY = new Set(["up", "ai", "era", "all", "any", "top"]);
@@ -1212,8 +1295,8 @@ function attributeTokens(text, tokens, fundChain) {
   for (const token of usable) {
     const sym = escapeRegExp(token.symbol);
     for (const id of token.tokenIds) {
-      out = out.replace(new RegExp(`\\b${id}\\s+${sym}\\b`, "gi"), token.symbol);
-      out = out.replace(new RegExp(`\\b${sym}\\s*\\(\\s*${id}\\s*\\)`, "gi"), token.symbol);
+      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${id}\\s+${sym}(?![\\p{L}\\p{N}])`, "giu"), token.symbol);
+      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${sym}\\s*\\(\\s*${id}\\s*\\)(?![\\p{L}\\p{N}])`, "giu"), token.symbol);
     }
   }
   out = out.replace(/\b(\d{2,6})\s+([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, id, word) => (
@@ -1237,12 +1320,20 @@ function attributeTokens(text, tokens, fundChain) {
     if (PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) continue;
     const anchor = proseTokenAnchor(token);
     if (!anchor) continue;
-    const re = new RegExp(`\\b${escapeRegExp(token.symbol)}\\b`, "gi");
+    const re = symbolPattern(token.symbol);
     out = out.replace(re, anchor);
   }
 
-  out = out.replace(/\$([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, sym) => {
-    const token = usable.find((item) => item.symbol.toLowerCase() === sym.toLowerCase());
+  out = out.replace(/(?<![\p{L}\p{N}])\$([A-Za-z][A-Za-z0-9]{1,15})(?![\p{L}\p{N}])/gu, (match, sym, offset, str) => {
+    const before = str.slice(0, offset);
+    const open = before.lastIndexOf("<a ");
+    const close = before.lastIndexOf("</a>");
+    if (open !== -1 && open > close) return match;
+    const token = usable.find((item) => {
+      const name = item.symbol.toLowerCase();
+      const bare = sym.toLowerCase();
+      return name === bare || name === `$${bare}`;
+    });
     if (!token || PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) return "";
     return proseTokenAnchor(token) || "";
   });
@@ -1454,7 +1545,7 @@ function deriveSignals(funds) {
       symbol: w.symbol,
       name: w.symbol,
       fundName: fund.name,
-      body: `Held in book with unrealized ~$${w.pnl}. Flagged in council rotation — no longer passes aggregate screening discipline. Price alone does not override a failed screen.`,
+      body: `Held in book with unrealized ~$${w.pnl}. Flagged in council rotation. It no longer passes aggregate screening discipline. Price alone does not override a failed screen.`,
       tags: ["not screened", `$${w.pnl} pnl`, "rotate out"],
     };
     break;
@@ -1585,18 +1676,47 @@ function summarizeCouncilWeek(publicItems, cliItems, asOfDate) {
 }
 
 function fetchCouncilCliList(fundId, limit = 25) {
+  const parseItems = (raw) => {
+    try {
+      const start = String(raw || "").indexOf("{");
+      if (start === -1) return null;
+      const parsed = JSON.parse(raw.slice(start));
+      return parsed.items || [];
+    } catch {
+      return null;
+    }
+  };
+  let raw;
   try {
-    const raw = execSync(
-      `npx -y ${MESSY_CLI_SPEC} funds council list ${fundId} --limit ${limit} --json`,
-      { encoding: "utf8", timeout: 45000, stdio: ["pipe", "pipe", "pipe"] }
+    raw = execCliRetry(
+      `council list ${fundId}`,
+      `funds council list ${fundId} --limit ${limit} --json`,
+      45000
     );
-    const start = raw.indexOf("{");
-    if (start === -1) return [];
-    const d = JSON.parse(raw.slice(start));
-    return d.items || [];
-  } catch {
-    return [];
+  } catch (err) {
+    throw new Error(
+      `[fund-update] council list ${fundId} failed after one retry (${cliFailureKind(err)})`
+    );
   }
+  const items = parseItems(raw);
+  if (items) return items;
+  console.warn(`[fund-update] council list ${fundId} returned no JSON; retrying once`);
+  let rawRetry;
+  try {
+    rawRetry = execCli(
+      `funds council list ${fundId} --limit ${limit} --json`,
+      45000
+    );
+  } catch (err) {
+    throw new Error(
+      `[fund-update] council list ${fundId} failed after one retry (${cliFailureKind(err)})`
+    );
+  }
+  const retried = parseItems(rawRetry);
+  if (!retried) {
+    throw new Error(`[fund-update] council list ${fundId} returned no JSON after one retry`);
+  }
+  return retried;
 }
 
 function fetchCouncilCliLatest(fundId, asOfDate) {
@@ -1785,7 +1905,8 @@ async function fetchCouncilPublic(fundId, asOfDate) {
   // Public list surface is council/meetings (compact presentation).
   // Legacy council/sessions list is no longer exposed publicly.
   const data = await safeFetch(`${API}/funds/${fundId}/council/meetings?limit=40`);
-  if (!data?.items?.length) return { council: null, publicItems: [] };
+  if (!data) return { council: null, publicItems: [], publicError: true };
+  if (!data.items?.length) return { council: null, publicItems: [], publicError: false };
 
   let item = data.items[0];
   if (asOfDate) {
@@ -1799,7 +1920,7 @@ async function fetchCouncilPublic(fundId, asOfDate) {
 
   const council = parseCouncilItem(item);
   delete council.sessionDateIso;
-  return { council, publicItems: data.items };
+  return { council, publicItems: data.items, publicError: false };
 }
 
 async function fetchCouncil(fundId, useCli, asOfDate) {
@@ -1808,8 +1929,17 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
   const latestWeek = useCli ? pickLatestCliSessionInWeek(cliItems, asOfDate) : null;
   const earliestWeek = useCli ? pickEarliestCliSessionInWeek(cliItems, asOfDate) : null;
   const weekTimeline = useCli ? buildWeekTimeline(cliItems, asOfDate) : null;
-  const { council: publicCouncil, publicItems } = await fetchCouncilPublic(fundId, asOfDate);
+  const { council: publicCouncil, publicItems, publicError } = await fetchCouncilPublic(fundId, asOfDate);
   const weekSummary = summarizeCouncilWeek(publicItems, cliItems, asOfDate);
+  if (useCli && asOfDate && !weekSummary) {
+    const range = fundUpdateWeekRange(asOfDate);
+    const publicState = publicError
+      ? "public meetings fetch failed"
+      : `public meetings ${publicItems.length}`;
+    console.log(
+      `[fund-update] ${fundId}: held no sessions this week (${range.weekStart} through ${range.weekEnd}); cli list ${cliItems.length}, ${publicState}`
+    );
+  }
 
   if (council && publicCouncil) {
     const cliOutcomeKnown =
@@ -1851,7 +1981,7 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
   }
 
   if (council?.executionStatus === "running" || council?.executionStatus === "queued") {
-    council.outcomeLabel = `${council.executionStatus} — check app`;
+    council.outcomeLabel = `${council.executionStatus}. Check the app.`;
     council.riskNotes = council.headline || "Council session still in progress.";
   }
 
@@ -1872,7 +2002,7 @@ async function fetchScreening(fundId, sleeveId, asOfDate) {
     : runData?.items?.[0];
 
   const tokenSources = [];
-  const pushTokenSource = (row) => {
+  const pushTokenSource = (row, asOf) => {
     if (!row) return;
     tokenSources.push({
       symbol: row.symbol,
@@ -1880,12 +2010,16 @@ async function fetchScreening(fundId, sleeveId, asOfDate) {
       contract_address: row.contract_address,
       token_id: row.token_id,
       chain_id: row.chain_id,
+      source: "screen",
+      asOf: asOf || null,
     });
   };
-  for (const candidate of aggData?.candidates || []) pushTokenSource(candidate);
+  for (const candidate of aggData?.candidates || []) {
+    pushTokenSource(candidate, aggData?.as_of_date || null);
+  }
   for (const run of runData?.items || []) {
     if (asOfDate && run.run_date && run.run_date > asOfDate) continue;
-    for (const candidate of run.candidates || []) pushTokenSource(candidate);
+    for (const candidate of run.candidates || []) pushTokenSource(candidate, run.run_date || null);
   }
 
   const aggCandidates =
@@ -2158,8 +2292,10 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
     token_id: position.token_id,
     chain_id: position.provider_source?.chain_id,
     assetAddress: position.provider_source?.asset_address,
+    source: "holding",
+    asOf: statusData.price_as_of || null,
   }));
-  const { verified, conflicts } = buildTokenIndex([
+  const { verified, conflicts, resolutions } = buildTokenIndex([
     ...positionRows,
     ...(screening.tokenSources || []),
   ]);
@@ -2168,6 +2304,14 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
     if (!symbol || !fundChain) return null;
     return verified.get(`${fundChain}:${String(symbol).toLowerCase()}`) || null;
   };
+  for (const item of resolutions || []) {
+    const via = item.via === "holding"
+      ? "fund holding"
+      : `latest screen source${item.asOf ? ` ${item.asOf}` : ""}`;
+    console.warn(
+      `[fund-update] ${name}: ${item.key} resolved to ${item.address} from the ${via}; discarded ${item.discarded.join(", ")}.`
+    );
+  }
   if (conflicts.length) {
     console.warn(
       `[fund-update] ${name}: conflicting contract addresses for ${conflicts.join(", ")}. Those symbols are omitted.`
@@ -2246,11 +2390,10 @@ const REGIME_LABELS = {
 };
 
 function formatRegimeDisplay(raw) {
-  const text = String(raw || "").trim();
+  const text = String(raw || "").trim().replace(/\s*(?:—|&mdash;|&#8212;)\s*/g, " ").trim();
   if (!text) return "Neutral";
-  if (/—/.test(text)) return text;
   const name = REGIME_LABELS[text];
-  return name ? `${text} — ${name}` : text;
+  return name ? `${name} (${text})` : text;
 }
 
 function parseCliJson(raw) {
@@ -2521,6 +2664,87 @@ async function fetchNarratives(asOfDate, useCli = true) {
   return fetchNarrativesPublic(asOfDate);
 }
 
+function scrubPublicProse(text) {
+  if (typeof text !== "string") return text;
+  let out = text.replace(/(\d+(?:\.\d+)?%)\s*NAV\b/g, "$1 of book");
+  out = out.replace(/\bNAV\b/g, "book");
+  out = out.replace(/\bPnL\b/g, "");
+  out = out.replace(/\bP&L\b/g, "");
+  out = out.replace(/\bunrealized(?:\s+pnl)?\b/gi, "");
+  out = out.replace(/\s*\([^)]*\b(?:trend|mom\/vol|momentum\/vol|entry\/risk|relstr)\b[^)]*\)/gi, "");
+  out = out.replace(/,?\s*(?:and\s+)?(?:a\s+)?[+-]?\d+(?:\.\d+)?%\s+drawdown\b[^,.;]*/gi, "");
+  out = out.replace(/,?\s*(?:and\s+)?\bATR%\s+(?:up|down|at)?\s*[+-]?\d+(?:\.\d+)?%?(?:\s*pp)?/gi, "");
+  out = out.replace(/\s*[+-]?\d+(?:\.\d+)?pp\b/gi, "");
+  out = out.replace(/\b(?:mom\/vol|momentum\/vol)\s+(?:drop|change)?\s*(?:of\s+)?[+-]?\d+(?:\.\d+)?/gi, "");
+  out = out.replace(/\bone-session\s+Mom\/Vol\s+drop\s+of\s+[+-]?\d+(?:\.\d+)?/gi, "a one-session momentum change");
+  out = out.replace(/[ \t]{2,}/g, " ");
+  out = out.replace(/\s+([,.;:])/g, "$1");
+  out = out.replace(/,\s*,/g, ",");
+  out = out.replace(/,\s*\./g, ".");
+  out = out.replace(/,\s*;/g, ";");
+  out = out.replace(/\(\s*\)/g, "");
+  if (/—|&mdash;|&#8212;/.test(out)) {
+    out = out.replace(/\s*(?:—|&mdash;|&#8212;)\s*/g, ". ");
+    out = out.replace(/\.\s+\./g, ".");
+    out = out.replace(/\. ([a-z])/g, (_, ch) => `. ${ch.toUpperCase()}`);
+    out = out.replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:])/g, "$1");
+  }
+  return out.trim();
+}
+
+function redactPerformanceFields(data) {
+  const hasReturnFigure = (value) => /[+-]?\d+(?:\.\d+)?pp\b/i.test(String(value || ""));
+  for (const fund of data.funds || []) {
+    delete fund.nav;
+    delete fund.ret1d;
+    delete fund.ret7d;
+    delete fund.ret30d;
+    delete fund.basePositions;
+    for (const seg of fund.holdingsBar || []) {
+      if (seg && typeof seg === "object") delete seg.pnl;
+    }
+  }
+  for (const row of data.comparison || []) {
+    delete row.nav;
+    delete row.ret7d;
+  }
+  if (data.macro?.summary && hasReturnFigure(data.macro.summary)) data.macro.summary = null;
+  const narrative = data.sessionContext?.narrative;
+  if (narrative?.summary && hasReturnFigure(narrative.summary)) narrative.summary = null;
+  if (data.sessionContext?.tapeMotif?.summary && hasReturnFigure(data.sessionContext.tapeMotif.summary)) {
+    data.sessionContext.tapeMotif.summary = null;
+  }
+  for (const row of data.sessionContext?.perFund || []) {
+    if (row?.narrativeSummary && hasReturnFigure(row.narrativeSummary)) row.narrativeSummary = null;
+    if (row?.macroSummary && hasReturnFigure(row.macroSummary)) row.macroSummary = null;
+  }
+  if (data.processOnly) {
+    data.narratives = [];
+    if (data.macro && typeof data.macro === "object") delete data.macro.aiAgentsNote;
+  }
+}
+
+function scrubPublicSnapshot(data) {
+  redactPerformanceFields(data);
+  const walk = (value) => {
+    if (Array.isArray(value)) {
+      for (let i = 0; i < value.length; i++) {
+        if (typeof value[i] === "string") value[i] = scrubPublicProse(value[i]);
+        else if (value[i] && typeof value[i] === "object") walk(value[i]);
+      }
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+    for (const key of Object.keys(value)) {
+      const child = value[key];
+      if (typeof child === "string") value[key] = scrubPublicProse(child);
+      else if (child && typeof child === "object") walk(child);
+    }
+  };
+  walk(data);
+  return data;
+}
+
 /**
  * @param {{ useCli?: boolean, snapshotDate?: string, asOfDate?: string }} options
  */
@@ -2597,9 +2821,15 @@ async function fetchFundUpdateData(options = {}) {
     attributeFundProse(fund);
     if (isPublicMicroFund(fund) && !(fund.councilWeek && fund.councilWeek.totalSessions)) {
       const range = asOfDate ? fundUpdateWeekRange(asOfDate) : null;
+      const longDate = (iso) => new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      });
       fund.weekGap = range
-        ? `No council sessions were recorded from ${range.weekStart} through ${range.weekEnd}. There is no Chair note, week strip, or net posture for this book.`
-        : "No council sessions were recorded. There is no Chair note, week strip, or net posture for this book.";
+        ? `${fund.name} held no sessions this week (${longDate(range.weekStart)} through ${longDate(range.weekEnd)}). There is no Chair note, week strip, or net posture for this book.`
+        : `${fund.name} held no sessions this week. There is no Chair note, week strip, or net posture for this book.`;
     }
   }
   const weekDebateDigest = buildWeekDebateDigest(funds);
@@ -2613,7 +2843,7 @@ async function fetchFundUpdateData(options = {}) {
   const providerRiskLabeling = activeProviderRiskLabeling(asOfDate);
   const suiteIntro = buildSuiteIntro(fundsForAsOf(asOfDate));
 
-  return {
+  const payload = {
     snapshotDate,
     asOfDate,
     reportVersion: REPORT_VERSION,
@@ -2636,6 +2866,7 @@ async function fetchFundUpdateData(options = {}) {
     suiteIntro,
     processOnly: true,
   };
+  return scrubPublicSnapshot(payload);
 }
 
 module.exports = {
