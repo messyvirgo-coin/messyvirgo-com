@@ -146,7 +146,7 @@ permalink: ${permalink}
   const frontmatter = `---
 title: "Messy Fund Update"
 date: ${dateStr}
-description: "Weekly Fund Report for Guru micro test funds on Base: week regime path, council strips, Chair notes, book posture, and screening — with links to inspect the same workflow in the app."
+description: "Weekly Fund Report for Guru micro test funds on Base: week regime path, council strips, Chair notes, book posture, and screening, with links to inspect the same workflow in the app."
 tags: [fund-update, signal-brief, guru-lotus, base, macro, messy-virgo]
 layout: fund-update-post.njk
 fundUpdateSnapshot: "${dateStr}"
