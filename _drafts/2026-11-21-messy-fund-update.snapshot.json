@@ -385,8 +385,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity, size entries well below the probed ceiling and expect realized slippage at larger clips",
-          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay, ratify as required exit, not discretionary trim",
+          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity; size entries well below the probed ceiling and expect realized slippage at larger clips.",
+          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay; ratify as required exit, not discretionary trim.",
           "Effective regime is R- with negative ETF flows and shrinking stablecoin cap; deploy the posture minimum toward the 33% floor rather than the full band top"
         ],
         "themes": [],
@@ -3961,7 +3961,7 @@
             "day": "2026-11-20",
             "weekday": "Fri",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old, name what changed beyond the fresh-run dropout before paying friction twice"
+            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old; name what changed beyond the fresh-run dropout before paying friction twice."
           }
         ],
         "closingSessionId": "466fb455-531b-4bc9-a0b5-e89aae3154ce",
@@ -5781,7 +5781,7 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and Raise high beta.",
         "notes": [
-          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap, the raise is policy-binding but regime-adverse; size the add to the minimum that satisfies the band",
+          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap. The raise is policy-binding but regime-adverse; size the add to the minimum that satisfies the band.",
           "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> fails the entry evidence standard: absent from latest fresh run, meme narrative, sharply deteriorating fresh scores",
           "<a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a> exit cost of 281 bps is an execution ceiling at position notional; realized slippage on an unpriceable chain-local route may be worse"
         ],
@@ -6408,8 +6408,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity, size entries well below the probed ceiling and expect realized slippage at larger clips",
-          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay, ratify as required exit, not discretionary trim",
+          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity; size entries well below the probed ceiling and expect realized slippage at larger clips.",
+          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay; ratify as required exit, not discretionary trim.",
           "Effective regime is R- with negative ETF flows and shrinking stablecoin cap; deploy the posture minimum toward the 33% floor rather than the full band top"
         ],
         "themes": [],
@@ -6502,7 +6502,7 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and Raise high beta.",
         "notes": [
-          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap, the raise is policy-binding but regime-adverse; size the add to the minimum that satisfies the band",
+          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap. The raise is policy-binding but regime-adverse; size the add to the minimum that satisfies the band.",
           "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> fails the entry evidence standard: absent from latest fresh run, meme narrative, sharply deteriorating fresh scores",
           "<a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a> exit cost of 281 bps is an execution ceiling at position notional; realized slippage on an unpriceable chain-local route may be worse"
         ],
@@ -6837,7 +6837,7 @@
             "day": "2026-11-20",
             "weekday": "Fri",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old, name what changed beyond the fresh-run dropout before paying friction twice"
+            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old; name what changed beyond the fresh-run dropout before paying friction twice."
           }
         ],
         "closingSessionId": "466fb455-531b-4bc9-a0b5-e89aae3154ce",
