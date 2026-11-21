@@ -2677,14 +2677,30 @@ function scrubPublicProse(text) {
   out = out.replace(/\s*[+-]?\d+(?:\.\d+)?pp\b/gi, "");
   out = out.replace(/\b(?:mom\/vol|momentum\/vol)\s+(?:drop|change)?\s*(?:of\s+)?[+-]?\d+(?:\.\d+)?/gi, "");
   out = out.replace(/\bone-session\s+Mom\/Vol\s+drop\s+of\s+[+-]?\d+(?:\.\d+)?/gi, "a one-session momentum change");
+  // Token price results are not book process. Allocation percents ("cash down from 41%") stay.
+  out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+loss(?:es)?\b/gi, "");
+  out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+(?:gain|gains|profit)\b/gi, "");
+  out = out.replace(/\b(?:up|down|gained|lost|rose|fell)\s+[+-]?\d+(?:\.\d+)?%/gi, "");
+  out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+ATR%?\w*/gi, "");
+  out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+below\s+(?:its\s+)?\d+d\s+high\b/gi, "");
+  out = out.replace(/\b\d+(?:\.\d+)?%h\b/gi, "");
+  out = out.replace(/,?\s*both axes that ranked negatively against \d+d forward returns\b/gi, "");
+  out = out.replace(/\bforward returns\b/gi, "");
+  out = out.replace(/\bdrawdown risk\b/gi, "risk");
+  out = out.replace(/\b(?:carries|sits)\s*(?=,|;|\.|$)/gi, "");
+  out = out.replace(/\s+and\s+(?=,|;|\.)/gi, " ");
+  out = out.replace(/(?:,\s*){2,}/g, ", ");
   out = out.replace(/[ \t]{2,}/g, " ");
   out = out.replace(/\s+([,.;:])/g, "$1");
   out = out.replace(/,\s*,/g, ",");
   out = out.replace(/,\s*\./g, ".");
   out = out.replace(/,\s*;/g, ";");
   out = out.replace(/\(\s*\)/g, "");
-  if (/—|&mdash;|&#8212;/.test(out)) {
-    out = out.replace(/\s*(?:—|&mdash;|&#8212;)\s*/g, ". ");
+  out = out.replace(/:\s*\./g, ".");
+  out = out.replace(/(\b[A-Z][A-Z0-9]{1,14}|<\/a>)\s*;\s*(?=[a-z])/g, "$1: ");
+  out = out.replace(/\$\s+(?=\d)/g, "$");
+  if (/—|&mdash;|&#8212;|–|&ndash;|&#8211;/.test(out)) {
+    out = out.replace(/\s*(?:—|&mdash;|&#8212;|–|&ndash;|&#8211;)\s*/g, ". ");
     out = out.replace(/\.\s+\./g, ".");
     out = out.replace(/\. ([a-z])/g, (_, ch) => `. ${ch.toUpperCase()}`);
     out = out.replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:])/g, "$1");
