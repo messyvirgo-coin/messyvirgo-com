@@ -630,17 +630,22 @@ function formatBucketMove(currentWeights, ratifiedWeights) {
   return parts.length ? parts.join(" · ") : null;
 }
 
-function truncateInsight(text, maxLen = 220) {
+function truncateInsight(text, maxLen = 480) {
   const clean = String(text || "")
     .replace(/\s+/g, " ")
-    .replace(/\s*\(\d{3,}\)/g, "") // drop internal token ids like (10364)
     .replace(/\bsleeve\s+mvs-[\w-]+/gi, "the sleeve")
     .trim();
   if (!clean) return null;
   if (clean.length <= maxLen) return clean;
-  const cut = clean.slice(0, maxLen - 1);
-  const lastSpace = cut.lastIndexOf(" ");
-  return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+  // Finish the sentence that crosses the cap. Never cut mid-sentence or add an ellipsis.
+  const parts = clean.split(/(?<=[.!?])\s+/);
+  let out = "";
+  for (const part of parts) {
+    const next = out ? `${out} ${part}` : part;
+    if (out && next.length > maxLen) break;
+    out = next;
+  }
+  return (out || parts[0] || clean).trim();
 }
 
 function noteThemeKey(text) {
@@ -1030,6 +1035,7 @@ function fetchSessionFrozenContext(funds, asOfDate, useCli) {
       summary: summaryHasReturnFigure ? null : narrativeSummary,
       signals: tapeSignals.slice(0, 2),
       funds: softTapeFunds,
+      signalFund: tapeSignals.length ? (summary.fundName || null) : null,
     };
   }
 
@@ -1171,8 +1177,21 @@ function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function symbolPattern(symbol) {
-  return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(symbol)}(?![\\p{L}\\p{N}])`, "giu");
+function symbolPattern(symbol, flags = "gu") {
+  return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(symbol)}(?![\\p{L}\\p{N}])`, flags);
+}
+
+function replaceOutsideMarkup(text, re, replacement) {
+  return text.replace(re, (match, offset, str) => {
+    const before = str.slice(0, offset);
+    const openTag = before.lastIndexOf("<");
+    const closeTag = before.lastIndexOf(">");
+    if (openTag > closeTag) return match;
+    const openA = before.lastIndexOf("<a ");
+    const closeA = before.lastIndexOf("</a>");
+    if (openA > closeA) return match;
+    return typeof replacement === "function" ? replacement(match, offset, str) : replacement;
+  });
 }
 
 /**
@@ -1283,6 +1302,20 @@ const PROSE_TOKEN_DENY = new Set(["up", "ai", "era", "all", "any", "top"]);
 const UNANNOTATED_TICKER_KEEP = new Set([
   "NAV", "USD", "RSI", "ATR", "ETF", "API", "CLI", "QA", "TOTAL3ES",
 ]);
+// Ordinary English words that are also tickers. Link them only when the
+// source writes the ticker in full uppercase, or with a $ prefix.
+const ORDINARY_PROSE = new Set([
+  "ai", "all", "any", "based", "beam", "bucket", "bun", "cake", "chop", "chump",
+  "common", "cost", "dark", "dip", "dope", "dual", "era", "fair", "fluid",
+  "friend", "g", "gold", "hedge", "hey", "higher", "hot", "island",
+  "jack", "link", "motion", "pepper", "ping", "pod", "rage", "react", "red",
+  "rip", "seam", "spec", "spring", "surge", "t", "top", "torch", "up",
+  "velvet", "volt", "wallet", "wolf", "woo", "worm",
+]);
+const NAME_ALIASES = [
+  { re: /\bCostco\b/g, symbol: "COST" },
+  { re: /\bLilly\b/g, symbol: "LLY" },
+];
 
 function attributeTokens(text, tokens, fundChain) {
   if (!text) return text;
@@ -1291,13 +1324,36 @@ function attributeTokens(text, tokens, fundChain) {
     .sort((a, b) => b.symbol.length - a.symbol.length);
   let out = String(text);
   const knownIds = new Set(usable.flatMap((token) => token.tokenIds.map(String)));
+  const byUpper = new Map(usable.map((token) => [token.symbol.toUpperCase(), token]));
 
   for (const token of usable) {
+    const ticker = token.symbol.toUpperCase();
     const sym = escapeRegExp(token.symbol);
     for (const id of token.tokenIds) {
-      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${id}\\s+${sym}(?![\\p{L}\\p{N}])`, "giu"), token.symbol);
-      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${sym}\\s*\\(\\s*${id}\\s*\\)(?![\\p{L}\\p{N}])`, "giu"), token.symbol);
+      // "sn子的 ... (11203)" resolves the corrupted label in that sentence to the fund token.
+      out = out.replace(new RegExp(`[^.!?;]*\\(\\s*${id}\\s*\\)[^.!?;]*`, "gu"), (sentence) => {
+        const hasGarbage = /\S+/u.test(sentence) && [...sentence].some((ch) => (
+          /\p{L}/u.test(ch) && !/\p{Script=Latin}/u.test(ch)
+        )) && /\p{Script=Latin}/u.test(sentence);
+        if (!hasGarbage) return sentence;
+        return sentence
+          .replace(new RegExp(`\\(\\s*${id}\\s*\\)`, "g"), "")
+          .replace(/\S+/gu, (word) => {
+            const core = word.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
+            const latin = /\p{Script=Latin}/u.test(core);
+            const other = [...core].some((ch) => /\p{L}/u.test(ch) && !/\p{Script=Latin}/u.test(ch));
+            if (!(latin && other)) return word;
+            const possessive = /的$/.test(core) ? "'s" : "";
+            return `${ticker}${possessive}`;
+          });
+      });
+      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${id}\\s+${sym}(?![\\p{L}\\p{N}])`, "giu"), ticker);
+      out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}])${sym}\\s*\\(\\s*${id}\\s*\\)(?![\\p{L}\\p{N}])`, "giu"), ticker);
     }
+  }
+  for (const alias of NAME_ALIASES) {
+    if (!byUpper.has(alias.symbol)) continue;
+    out = out.replace(alias.re, alias.symbol);
   }
   out = out.replace(/\b(\d{2,6})\s+([A-Za-z][A-Za-z0-9]{1,15})\b/g, (match, id, word) => (
     knownIds.has(id) ? word : match
@@ -1317,11 +1373,15 @@ function attributeTokens(text, tokens, fundChain) {
   out = escapeHtml(out);
 
   for (const token of usable) {
+    if (token.symbol.length < 2) continue;
     if (PROSE_TOKEN_DENY.has(token.symbol.toLowerCase())) continue;
     const anchor = proseTokenAnchor(token);
     if (!anchor) continue;
-    const re = symbolPattern(token.symbol);
-    out = out.replace(re, anchor);
+    const ticker = token.symbol.toUpperCase();
+    out = replaceOutsideMarkup(out, symbolPattern(ticker, "gu"), anchor);
+    if (!ORDINARY_PROSE.has(token.symbol.toLowerCase())) {
+      out = replaceOutsideMarkup(out, symbolPattern(token.symbol, "giu"), anchor);
+    }
   }
 
   out = out.replace(/(?<![\p{L}\p{N}])\$([A-Za-z][A-Za-z0-9]{1,15})(?![\p{L}\p{N}])/gu, (match, sym, offset, str) => {
@@ -2252,6 +2312,25 @@ async function fetchFund({ id, name, sleeveId, group }, useCli, asOfDate) {
       };
     }
   }
+  if (statusData?.historical && asOfDate) {
+    // A timed-out performance lookup can force the position-less historical stub
+    // even when this as-of date is still the live book. Keep that book's tokens.
+    const liveStatus = await safeFetch(`${API}/funds/${id}/status`, {
+      retries: 2,
+      timeoutMs: 20000,
+    });
+    const liveDay = String(liveStatus?.price_as_of || "").slice(0, 10);
+    if (liveStatus?.chain && liveDay === asOfDate) {
+      statusData = {
+        ...liveStatus,
+        performance_1d_pct: statusData.performance_1d_pct ?? liveStatus.performance_1d_pct,
+        performance_7d_pct: statusData.performance_7d_pct ?? liveStatus.performance_7d_pct,
+        performance_30d_pct: statusData.performance_30d_pct ?? liveStatus.performance_30d_pct,
+        performance_30d_window_days: statusData.performance_30d_window_days,
+        historical: false,
+      };
+    }
+  }
   if (statusData) {
     statusData = await supplementPerformanceWindows(statusData, id);
   }
@@ -2677,6 +2756,8 @@ function scrubPublicProse(text) {
   out = out.replace(/\s*[+-]?\d+(?:\.\d+)?pp\b/gi, "");
   out = out.replace(/\b(?:mom\/vol|momentum\/vol)\s+(?:drop|change)?\s*(?:of\s+)?[+-]?\d+(?:\.\d+)?/gi, "");
   out = out.replace(/\bone-session\s+Mom\/Vol\s+drop\s+of\s+[+-]?\d+(?:\.\d+)?/gi, "a one-session momentum change");
+  out = out.replace(/,?\s*and\s+perf(?:ormance)?\s+fell\s+\d+\b/gi, "");
+  out = out.replace(/\s*\(\d{3,}\)/g, "");
   // Token price results are not book process. Allocation percents ("cash down from 41%") stay.
   out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+loss(?:es)?\b/gi, "");
   out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+(?:gain|gains|profit)\b/gi, "");
@@ -2700,12 +2781,51 @@ function scrubPublicProse(text) {
   out = out.replace(/(\b[A-Z][A-Z0-9]{1,14}|<\/a>)\s*;\s*(?=[a-z])/g, "$1: ");
   out = out.replace(/\$\s+(?=\d)/g, "$");
   if (/—|&mdash;|&#8212;|–|&ndash;|&#8211;/.test(out)) {
-    out = out.replace(/\s*(?:—|&mdash;|&#8212;|–|&ndash;|&#8211;)\s*/g, ". ");
-    out = out.replace(/\.\s+\./g, ".");
-    out = out.replace(/\. ([a-z])/g, (_, ch) => `. ${ch.toUpperCase()}`);
-    out = out.replace(/[ \t]{2,}/g, " ").replace(/\s+([,.;:])/g, "$1");
+    // A dash is a clause join, not a new sentence. A period here leaves fragments.
+    out = out.replace(/\s*(?:—|&mdash;|&#8212;|–|&ndash;|&#8211;)\s*/g, ", ");
   }
+  // Spaced hyphen used as a dash: "TOTAL3ES - systematic".
+  out = out.replace(/(\p{L}|\p{N})\s+-\s+(?=\p{L})/gu, "$1: ");
+  out = out.replace(/,\s*,/g, ",");
+  out = out.replace(/\s+([,.;:])/g, "$1");
+  out = out.replace(/[ \t]{2,}/g, " ");
   return out.trim();
+}
+
+function mixedScriptGarbage(text) {
+  const plain = String(text || "").replace(/<[^>]+>/g, " ");
+  const words = plain.match(/\S+/g) || [];
+  const hits = [];
+  for (const word of words) {
+    const core = word.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
+    if (!core) continue;
+    const hasLatin = /\p{Script=Latin}/u.test(core);
+    const hasOther = [...core].some((ch) => /\p{L}/u.test(ch) && !/\p{Script=Latin}/u.test(ch));
+    if (hasLatin && hasOther) hits.push(core);
+  }
+  return hits;
+}
+
+function assertNoMixedScriptGarbage(data) {
+  const hits = [];
+  const walk = (value, path) => {
+    if (typeof value === "string") {
+      for (const hit of mixedScriptGarbage(value)) hits.push(`${path}: ${hit}`);
+      return;
+    }
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => walk(item, `${path}[${index}]`));
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+    for (const key of Object.keys(value)) walk(value[key], `${path}.${key}`);
+  };
+  walk(data, "snapshot");
+  if (hits.length) {
+    throw new Error(
+      `Chair or report text has mixed-script token garbage (${hits.slice(0, 5).join("; ")}).`
+    );
+  }
 }
 
 function redactPerformanceFields(data) {
@@ -2882,7 +3002,9 @@ async function fetchFundUpdateData(options = {}) {
     suiteIntro,
     processOnly: true,
   };
-  return scrubPublicSnapshot(payload);
+  const scrubbed = scrubPublicSnapshot(payload);
+  assertNoMixedScriptGarbage(scrubbed);
+  return scrubbed;
 }
 
 module.exports = {
@@ -2890,4 +3012,7 @@ module.exports = {
   FUNDS,
   REPORT_VERSION,
   isPublicMicroFund,
+  assertNoMixedScriptGarbage,
+  attributeTokens,
+  scrubPublicProse,
 };

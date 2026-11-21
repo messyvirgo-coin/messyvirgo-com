@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { fetchFundUpdateData } = require("./scripts/lib/fetch-fund-update-data");
+const { fetchFundUpdateData, assertNoMixedScriptGarbage } = require("./scripts/lib/fetch-fund-update-data");
 
 module.exports = function (eleventyConfig) {
   // Linux inotify limits (max_user_instances) are often low; polling avoids EMFILE in dev.
@@ -178,6 +178,7 @@ module.exports = function (eleventyConfig) {
         if (snap.hasReadOnlyGuru == null) {
           snap.hasReadOnlyGuru = (snap.funds || []).some((f) => f.group === "guru");
         }
+        assertNoMixedScriptGarbage(snap);
         return snap;
       }
 

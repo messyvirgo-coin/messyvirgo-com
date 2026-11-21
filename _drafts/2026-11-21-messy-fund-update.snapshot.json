@@ -4,7 +4,7 @@
   "reportVersion": "vnext-2026-07-24",
   "macroUnavailable": false,
   "narrativesUnavailable": false,
-  "publishedAt": "2026-11-21T10:00:27.610Z",
+  "publishedAt": "2026-11-21T10:26:47.117Z",
   "funds": [
     {
       "id": "mvf-base04",
@@ -156,7 +156,7 @@
         ]
       },
       "positionCount": 0,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -385,8 +385,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity. Size entries well below the probed ceiling and expect realized slippage at larger clips",
-          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay. Ratify as required exit, not…",
+          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity, size entries well below the probed ceiling and expect realized slippage at larger clips",
+          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay, ratify as required exit, not discretionary trim",
           "Effective regime is R- with negative ETF flows and shrinking stablecoin cap; deploy the posture minimum toward the 33% floor rather than the full band top"
         ],
         "themes": [],
@@ -659,7 +659,7 @@
         ]
       },
       "positionCount": 4,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -1358,8 +1358,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "Effective regime R- with weak crypto-specific flows (negative 5d ETF flows, shrinking stablecoin cap, Fear &amp; Greed ~18): any new beta entry this session carries adverse-regime tail risk; sizing should reflect…",
-          "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES - systematic beta risk in a confirmed risk-off regime; no single-name action follows, but the sleeve-level…",
+          "Effective regime R- with weak crypto-specific flows (negative 5d ETF flows, shrinking stablecoin cap, Fear &amp; Greed ~18): any new beta entry this session carries adverse-regime tail risk; sizing should reflect it.",
+          "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES: systematic beta risk in a confirmed risk-off regime; no single-name action follows, but the sleeve-level exposure is real.",
           "Exit liquidity is thin on two holdings: <a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT</a>'s primary pool is $5.7k and <a href=\"https://basescan.org/token/0x368cd1d5af181be4f8b8707559e57c323a119e3a\" title=\"ANI contract 0x368cd1d5af181be4f8b8707559e57c323a119e3a on base\" aria-label=\"ANI contract 0x368cd1d5af181be4f8b8707559e57c323a119e3a on base\" target=\"_blank\" rel=\"noopener noreferrer\">ANI</a>'s $22.3k against ~8.5% of book positions; a forced exit would face material slippage beyond the quoted route gaps."
         ],
         "themes": [
@@ -1450,7 +1450,7 @@
           "chain": "base",
           "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
           "explorerUrl": "https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "weight": "31.6",
+          "weight": "31.7",
           "color": "#64748b",
           "warning": false,
           "kind": "cash"
@@ -1462,7 +1462,7 @@
           "chain": "base",
           "address": "0x4200000000000000000000000000000000000006",
           "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "weight": "35.1",
+          "weight": "35.2",
           "color": "#94a3b8",
           "warning": false,
           "kind": "base"
@@ -1486,7 +1486,7 @@
           "chain": "base",
           "address": "0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
           "explorerUrl": "https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
-          "weight": "8.6",
+          "weight": "8.4",
           "color": "#fbbf24",
           "warning": false,
           "kind": "beta"
@@ -1517,10 +1517,10 @@
         }
       ],
       "bookPosture": {
-        "cash": 31.6,
-        "base": 35.1,
-        "beta": 33.3,
-        "label": "Cash 31.6% · Base 35.1% · High-beta 33.3%"
+        "cash": 31.7,
+        "base": 35.2,
+        "beta": 33.1,
+        "label": "Cash 31.7% · Base 35.2% · High-beta 33.1%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -1634,7 +1634,7 @@
         ]
       },
       "positionCount": 4,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -2085,7 +2085,7 @@
         "notes": [
           "Effective regime (R-) diverges materially from observed regime via a news overlay (~25 quality-adjusted points); conviction should be cautious and any beta add sized accordingly.",
           "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES: this is a standing regime condition, not a per-holding exit trigger.",
-          "<a href=\"https://basescan.org/token/0xf4d97f2da56e8c3098f3a8d538db630a2606a024\" title=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" aria-label=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DIEM</a>'s trend score fell 43 points in one session (32, -43) and perf fell 19; a single-session sample, but it is the largest one-day score move in the book and warrants a named watch condition rather than…"
+          "<a href=\"https://basescan.org/token/0xf4d97f2da56e8c3098f3a8d538db630a2606a024\" title=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" aria-label=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DIEM</a>'s trend score fell 43 points in one session (32, -43); a single-session sample, but it is the largest one-day score move in the book and warrants a named watch condition rather than action."
         ],
         "themes": [
           "cautious_sizing",
@@ -2188,7 +2188,7 @@
           "chain": "base",
           "address": "0x4200000000000000000000000000000000000006",
           "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "weight": "36.3",
+          "weight": "36.4",
           "color": "#94a3b8",
           "warning": false,
           "kind": "base"
@@ -2200,7 +2200,7 @@
           "chain": "base",
           "address": "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
           "explorerUrl": "https://basescan.org/token/0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
-          "weight": "21.1",
+          "weight": "21.0",
           "color": "#ff69b4",
           "warning": false,
           "kind": "beta"
@@ -2220,9 +2220,9 @@
       ],
       "bookPosture": {
         "cash": 38.2,
-        "base": 36.3,
-        "beta": 25.5,
-        "label": "Cash 38.2% · Base 36.3% · High-beta 25.5%"
+        "base": 36.4,
+        "beta": 25.4,
+        "label": "Cash 38.2% · Base 36.4% · High-beta 25.4%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -2230,7 +2230,7 @@
         "outcomeLabel": "executed reconciled",
         "date": "21 November 2026",
         "shortDate": "21 Nov",
-        "headline": "The rebalance executed and reconciled: the council ratified a fund posture of roughly 36% base, 31% cash, and 33% high beta (cash down from about 41%, high beta up from about 24%), and the resulting reserve-funded trades. Reducing about $1.00 of <a href=\"https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\" title=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" aria-label=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" target=\"_blank\" rel=\"noopener noreferrer\">USDC</a> and increasing about $0.60 of <a href=\"https://basescan.org/token/0x4200000000000000000000000000000000000006\" title=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" aria-label=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" target=\"_blank\" rel=\"noopener noreferrer\">WETH</a> and $0.40 of <a href=\"https://basescan.org/token/0x940181a94a35a4569e4529a3cdfb74e38fd98631\" title=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" aria-label=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AERO</a>. Were approved, submitted, and reconciled.",
+        "headline": "The rebalance executed and reconciled: the council ratified a fund posture of roughly 36% base, 31% cash, and 33% high beta (cash down from about 41%, high beta up from about 24%), and the resulting reserve-funded trades, reducing about $1.00 of <a href=\"https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\" title=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" aria-label=\"USDC contract 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913 on base\" target=\"_blank\" rel=\"noopener noreferrer\">USDC</a> and increasing about $0.60 of <a href=\"https://basescan.org/token/0x4200000000000000000000000000000000000006\" title=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" aria-label=\"WETH contract 0x4200000000000000000000000000000000000006 on base\" target=\"_blank\" rel=\"noopener noreferrer\">WETH</a> and $0.40 of <a href=\"https://basescan.org/token/0x940181a94a35a4569e4529a3cdfb74e38fd98631\" title=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" aria-label=\"AERO contract 0x940181a94a35a4569e4529a3cdfb74e38fd98631 on base\" target=\"_blank\" rel=\"noopener noreferrer\">AERO</a>, were approved, submitted, and reconciled.",
         "riskNotes": "Rebalance executed and reconciled.",
         "targetFinalization": null,
         "targetFinalizationBlocked": false,
@@ -2336,7 +2336,7 @@
         ]
       },
       "positionCount": 2,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -2795,7 +2795,7 @@
           "chain": "base",
           "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
           "explorerUrl": "https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "weight": "30.7",
+          "weight": "30.8",
           "color": "#64748b",
           "warning": false,
           "kind": "cash"
@@ -2807,7 +2807,7 @@
           "chain": "base",
           "address": "0x4200000000000000000000000000000000000006",
           "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "weight": "35.2",
+          "weight": "35.3",
           "color": "#94a3b8",
           "warning": false,
           "kind": "base"
@@ -2831,7 +2831,7 @@
           "chain": "base",
           "address": "0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
           "explorerUrl": "https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
-          "weight": "7.6",
+          "weight": "7.5",
           "color": "#fbbf24",
           "warning": false,
           "kind": "beta"
@@ -2874,10 +2874,10 @@
         }
       ],
       "bookPosture": {
-        "cash": 30.7,
-        "base": 35.2,
+        "cash": 30.8,
+        "base": 35.3,
         "beta": 34,
-        "label": "Cash 30.7% · Base 35.2% · High-beta 34%"
+        "label": "Cash 30.8% · Base 35.3% · High-beta 34%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -2885,7 +2885,7 @@
         "outcomeLabel": "executed reconciled",
         "date": "21 November 2026",
         "shortDate": "21 Nov",
-        "headline": "The rebalance executed and reconciled: the council ratified a fund posture of roughly 36% base, 31% cash, and 33% high beta plus a rotation exiting <a href=\"https://basescan.org/token/0xb69bbb15095c0949489fbb43951d2b750fa7fa89\" title=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" aria-label=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DEXTF</a> and adding <a href=\"https://basescan.org/token/0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb\" title=\"GHST contract 0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb on base\" aria-label=\"GHST contract 0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb on base\" target=\"_blank\" rel=\"noopener noreferrer\">GHST</a> and <a href=\"https://basescan.org/token/0x11030f79109269d796fd0fb956d6244e502757f7\" title=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" aria-label=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" target=\"_blank\" rel=\"noopener noreferrer\">CTR</a>, and all authorized trades settled on-chain; realized post-execution <a href=\"https://basescan.org/token/0x734f85d78babbfb6030193f13f60b5bc34288bc1\" title=\"BUCKET contract 0x734f85d78babbfb6030193f13f60b5bc34288bc1 on base\" aria-label=\"BUCKET contract 0x734f85d78babbfb6030193f13f60b5bc34288bc1 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BUCKET</a> weights are not yet available, so the ratified posture remains target intent.",
+        "headline": "The rebalance executed and reconciled: the council ratified a fund posture of roughly 36% base, 31% cash, and 33% high beta plus a rotation exiting <a href=\"https://basescan.org/token/0xb69bbb15095c0949489fbb43951d2b750fa7fa89\" title=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" aria-label=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DEXTF</a> and adding <a href=\"https://basescan.org/token/0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb\" title=\"GHST contract 0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb on base\" aria-label=\"GHST contract 0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb on base\" target=\"_blank\" rel=\"noopener noreferrer\">GHST</a> and <a href=\"https://basescan.org/token/0x11030f79109269d796fd0fb956d6244e502757f7\" title=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" aria-label=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" target=\"_blank\" rel=\"noopener noreferrer\">CTR</a>, and all authorized trades settled on-chain; realized post-execution bucket weights are not yet available, so the ratified posture remains target intent.",
         "riskNotes": "Rebalance executed and reconciled.",
         "targetFinalization": null,
         "targetFinalizationBlocked": false,
@@ -2991,7 +2991,7 @@
         ]
       },
       "positionCount": 5,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -3890,7 +3890,7 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and Raise high beta.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xb69bbb15095c0949489fbb43951d2b750fa7fa89\" title=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" aria-label=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DEXTF</a> exit evidence is one session deep. Directionally supported by magnitude, not by multi-session persistence; stage the reduction rather than a full exit if the Chair wants optionality",
+          "<a href=\"https://basescan.org/token/0xb69bbb15095c0949489fbb43951d2b750fa7fa89\" title=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" aria-label=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DEXTF</a> exit evidence is one session deep, directionally supported by magnitude, not by multi-session persistence; stage the reduction rather than a full exit if the Chair wants optionality",
           "<a href=\"https://basescan.org/token/0xb200000000000000000000c2e324d24d7eecd1fb\" title=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" aria-label=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" target=\"_blank\" rel=\"noopener noreferrer\">AAPLC</a> partial trim rests on a single-session coverage signal with stable price and scores; a second session of coverage absence would meet the bar, today does not",
           "<a href=\"https://basescan.org/token/0x11030f79109269d796fd0fb956d6244e502757f7\" title=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" aria-label=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" target=\"_blank\" rel=\"noopener noreferrer\">CTR</a> is a fresh-only candidate with no aggregate track record; size any entry accordingly"
         ],
@@ -3961,7 +3961,7 @@
             "day": "2026-11-20",
             "weekday": "Fri",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old. Name what changed beyond the fresh-run dropout before paying friction twice"
+            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old, name what changed beyond the fresh-run dropout before paying friction twice"
           }
         ],
         "closingSessionId": "466fb455-531b-4bc9-a0b5-e89aae3154ce",
@@ -3982,7 +3982,7 @@
           "chain": "base",
           "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
           "explorerUrl": "https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-          "weight": "28.6",
+          "weight": "28.7",
           "color": "#64748b",
           "warning": false,
           "kind": "cash"
@@ -3994,7 +3994,7 @@
           "chain": "base",
           "address": "0x4200000000000000000000000000000000000006",
           "explorerUrl": "https://basescan.org/token/0x4200000000000000000000000000000000000006",
-          "weight": "35.1",
+          "weight": "35.2",
           "color": "#94a3b8",
           "warning": false,
           "kind": "base"
@@ -4006,7 +4006,7 @@
           "chain": "base",
           "address": "0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb",
           "explorerUrl": "https://basescan.org/token/0xcd2f22236dd9dfe2356d7c543161d4d260fd9bcb",
-          "weight": "7.7",
+          "weight": "7.8",
           "color": "#ff69b4",
           "warning": false,
           "kind": "beta"
@@ -4030,20 +4030,8 @@
           "chain": "base",
           "address": "0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
           "explorerUrl": "https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b",
-          "weight": "7.2",
+          "weight": "7.1",
           "color": "#60a5fa",
-          "warning": false,
-          "kind": "beta"
-        },
-        {
-          "symbol": "KGEN",
-          "detail": null,
-          "tokenSymbol": "KGEN",
-          "chain": "base",
-          "address": "0xf3d5b4c34ed623478cc5141861776e6cf7ae3a1e",
-          "explorerUrl": "https://basescan.org/token/0xf3d5b4c34ed623478cc5141861776e6cf7ae3a1e",
-          "weight": "6.3",
-          "color": "#34d399",
           "warning": false,
           "kind": "beta"
         },
@@ -4055,6 +4043,18 @@
           "address": "0xe62bfbe57763ec24c0f130426f34dbce11fc5b06",
           "explorerUrl": "https://basescan.org/token/0xe62bfbe57763ec24c0f130426f34dbce11fc5b06",
           "weight": "6.3",
+          "color": "#34d399",
+          "warning": false,
+          "kind": "beta"
+        },
+        {
+          "symbol": "KGEN",
+          "detail": null,
+          "tokenSymbol": "KGEN",
+          "chain": "base",
+          "address": "0xf3d5b4c34ed623478cc5141861776e6cf7ae3a1e",
+          "explorerUrl": "https://basescan.org/token/0xf3d5b4c34ed623478cc5141861776e6cf7ae3a1e",
+          "weight": "6.2",
           "color": "#a78bfa",
           "warning": false,
           "kind": "beta"
@@ -4073,10 +4073,10 @@
         }
       ],
       "bookPosture": {
-        "cash": 28.6,
-        "base": 35.1,
-        "beta": 36.2,
-        "label": "Cash 28.6% · Base 35.1% · High-beta 36.2%"
+        "cash": 28.7,
+        "base": 35.2,
+        "beta": 36.1,
+        "label": "Cash 28.7% · Base 35.2% · High-beta 36.1%"
       },
       "hasHoldingsBar": true,
       "council": {
@@ -4190,7 +4190,7 @@
         ]
       },
       "positionCount": 6,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "base",
       "verifiedTokens": [
         {
@@ -5039,9 +5039,9 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "Effective regime R- with negative ETF flows, shrinking stablecoin cap, and fearful sentiment: any beta adds should be sized cautiously and funded by realized reductions, not reserve drawdown beyond the…",
-          "64.8% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES. A standing book-level exposure fact, not a single-session sell trigger.",
-          "sn子的 1560 bps probe round trip is an execution ceiling that makes small entries uneconomic; treat as effectively untradable at minimum ticket sizes."
+          "Effective regime R- with negative ETF flows, shrinking stablecoin cap, and fearful sentiment: any beta adds should be sized cautiously and funded by realized reductions, not reserve drawdown beyond the ratified posture.",
+          "64.8% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES, a standing book-level exposure fact, not a single-session sell trigger.",
+          "<a href=\"https://basescan.org/token/0x3124678d62d2aa1f615b54525310fbfda6dcf7ae\" title=\"SNSY contract 0x3124678d62d2aa1f615b54525310fbfda6dcf7ae on base\" aria-label=\"SNSY contract 0x3124678d62d2aa1f615b54525310fbfda6dcf7ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">SNSY</a>'s 1560 bps probe round trip is an execution ceiling that makes small entries uneconomic; treat as effectively untradable at minimum ticket sizes."
         ],
         "themes": [
           "cautious_sizing",
@@ -5156,7 +5156,7 @@
           "chain": "robinhood",
           "address": "0x4ea005168d7f09a7a0ba9d1def21a479950e44c2",
           "explorerUrl": "https://robinhoodchain.blockscout.com/token/0x4ea005168d7f09a7a0ba9d1def21a479950e44c2",
-          "weight": "19.9",
+          "weight": "20.0",
           "color": "#ff69b4",
           "warning": false,
           "kind": "beta"
@@ -5186,7 +5186,7 @@
         "outcomeLabel": "executed reconciled",
         "date": "21 November 2026",
         "shortDate": "21 Nov",
-        "headline": "The rebalance executed and reconciled: the council ratified a posture of about 36% base, 31% cash, and 33% high beta, trimmed Costco and Lilly, fully exited <a href=\"https://robinhoodchain.blockscout.com/token/0x6572eade9fb17f4027baf92feac222b9aa746bd0\" title=\"GOO contract 0x6572eade9fb17f4027baf92feac222b9aa746bd0 on robinhood\" aria-label=\"GOO contract 0x6572eade9fb17f4027baf92feac222b9aa746bd0 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">GOO</a> and <a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a>, and declined the <a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> candidate; realized post-execution weights are not yet available.",
+        "headline": "The rebalance executed and reconciled: the council ratified a posture of about 36% base, 31% cash, and 33% high beta, trimmed <a href=\"https://robinhoodchain.blockscout.com/token/0x4ea005168d7f09a7a0ba9d1def21a479950e44c2\" title=\"COST contract 0x4ea005168d7f09a7a0ba9d1def21a479950e44c2 on robinhood\" aria-label=\"COST contract 0x4ea005168d7f09a7a0ba9d1def21a479950e44c2 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">COST</a> and <a href=\"https://robinhoodchain.blockscout.com/token/0x8005d266423c7ea827372c9c864491e5786600ea\" title=\"LLY contract 0x8005d266423c7ea827372c9c864491e5786600ea on robinhood\" aria-label=\"LLY contract 0x8005d266423c7ea827372c9c864491e5786600ea on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">LLY</a>, fully exited <a href=\"https://robinhoodchain.blockscout.com/token/0x6572eade9fb17f4027baf92feac222b9aa746bd0\" title=\"GOO contract 0x6572eade9fb17f4027baf92feac222b9aa746bd0 on robinhood\" aria-label=\"GOO contract 0x6572eade9fb17f4027baf92feac222b9aa746bd0 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">GOO</a> and <a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a>, and declined the <a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> candidate; realized post-execution weights are not yet available.",
         "riskNotes": "Rebalance executed and reconciled.",
         "targetFinalization": null,
         "targetFinalizationBlocked": false,
@@ -5292,7 +5292,7 @@
         ]
       },
       "positionCount": 2,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "robinhood",
       "verifiedTokens": [
         {
@@ -5781,9 +5781,9 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and Raise high beta.",
         "notes": [
-          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap. The raise is policy-binding but regime-adverse; size the add to the minimum…",
+          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap, the raise is policy-binding but regime-adverse; size the add to the minimum that satisfies the band",
           "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> fails the entry evidence standard: absent from latest fresh run, meme narrative, sharply deteriorating fresh scores",
-          "<a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a> exit <a href=\"https://robinhoodchain.blockscout.com/token/0x4ea005168d7f09a7a0ba9d1def21a479950e44c2\" title=\"COST contract 0x4ea005168d7f09a7a0ba9d1def21a479950e44c2 on robinhood\" aria-label=\"COST contract 0x4ea005168d7f09a7a0ba9d1def21a479950e44c2 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">COST</a> of 281 bps is an execution ceiling at position notional; realized slippage on an unpriceable chain-local route may be worse"
+          "<a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a> exit cost of 281 bps is an execution ceiling at position notional; realized slippage on an unpriceable chain-local route may be worse"
         ],
         "themes": [],
         "hold": false,
@@ -5850,7 +5850,7 @@
             "day": "2026-11-18",
             "weekday": "Wed",
             "beat": "hold",
-            "text": "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> carries the worst measured profile in the book. It is a hold on the patience standard. No…"
+            "text": "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> carries the worst measured profile in the book."
           }
         ],
         "closingSessionId": "f3a0db0d-d026-4778-89d5-a28f7c62b081",
@@ -5907,7 +5907,7 @@
         ]
       },
       "positionCount": 0,
-      "pricedAt": "2026-11-21T09:55:04.304331Z",
+      "pricedAt": "2026-11-21T10:20:06.558816Z",
       "chain": "robinhood",
       "verifiedTokens": [
         {
@@ -6374,7 +6374,8 @@
         "base05",
         "base06",
         "lg-base02"
-      ]
+      ],
+      "signalFund": "safe-lg-rh01"
     },
     "macro": {
       "summary": "Effective macro regime is R- with fresh coverage and 80% confidence.",
@@ -6407,8 +6408,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity. Size entries well below the probed ceiling and expect realized slippage at larger clips",
-          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay. Ratify as required exit, not…",
+          "<a href=\"https://basescan.org/token/0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4\" title=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" aria-label=\"BYTE contract 0xe095780ba2a64a4efa7a74830f0b71656f0b0ad4 on base\" target=\"_blank\" rel=\"noopener noreferrer\">BYTE</a> round trip 2403 bps with flagged +2049 bps route gap against ~$548 primary-pool liquidity, size entries well below the probed ceiling and expect realized slippage at larger clips",
+          "<a href=\"https://basescan.org/token/0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a\" title=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" aria-label=\"NEIRO contract 0x5ca35ebc4f25b042d2cae75914c7e882e631fa9a on base\" target=\"_blank\" rel=\"noopener noreferrer\">NEIRO</a> exit carries a flagged +9601 bps route gap and 869 bps exit cost; the exit rationale rests on execution/coverage deterioration, not sustained multi-session rank decay, ratify as required exit, not discretionary trim",
           "Effective regime is R- with negative ETF flows and shrinking stablecoin cap; deploy the posture minimum toward the 33% floor rather than the full band top"
         ],
         "themes": [],
@@ -6421,8 +6422,8 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "Effective regime R- with weak crypto-specific flows (negative 5d ETF flows, shrinking stablecoin cap, Fear &amp; Greed ~18): any new beta entry this session carries adverse-regime tail risk; sizing should reflect…",
-          "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES - systematic beta risk in a confirmed risk-off regime; no single-name action follows, but the sleeve-level…",
+          "Effective regime R- with weak crypto-specific flows (negative 5d ETF flows, shrinking stablecoin cap, Fear &amp; Greed ~18): any new beta entry this session carries adverse-regime tail risk; sizing should reflect it.",
+          "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES: systematic beta risk in a confirmed risk-off regime; no single-name action follows, but the sleeve-level exposure is real.",
           "Exit liquidity is thin on two holdings: <a href=\"https://basescan.org/token/0x91da780bc7f4b7cf19abe90411a2a296ec5ff787\" title=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" aria-label=\"HINT contract 0x91da780bc7f4b7cf19abe90411a2a296ec5ff787 on base\" target=\"_blank\" rel=\"noopener noreferrer\">HINT</a>'s primary pool is $5.7k and <a href=\"https://basescan.org/token/0x368cd1d5af181be4f8b8707559e57c323a119e3a\" title=\"ANI contract 0x368cd1d5af181be4f8b8707559e57c323a119e3a on base\" aria-label=\"ANI contract 0x368cd1d5af181be4f8b8707559e57c323a119e3a on base\" target=\"_blank\" rel=\"noopener noreferrer\">ANI</a>'s $22.3k against ~8.5% of book positions; a forced exit would face material slippage beyond the quoted route gaps."
         ],
         "themes": [
@@ -6439,7 +6440,7 @@
         "notes": [
           "Effective regime (R-) diverges materially from observed regime via a news overlay (~25 quality-adjusted points); conviction should be cautious and any beta add sized accordingly.",
           "100% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES: this is a standing regime condition, not a per-holding exit trigger.",
-          "<a href=\"https://basescan.org/token/0xf4d97f2da56e8c3098f3a8d538db630a2606a024\" title=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" aria-label=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DIEM</a>'s trend score fell 43 points in one session (32, -43) and perf fell 19; a single-session sample, but it is the largest one-day score move in the book and warrants a named watch condition rather than…"
+          "<a href=\"https://basescan.org/token/0xf4d97f2da56e8c3098f3a8d538db630a2606a024\" title=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" aria-label=\"DIEM contract 0xf4d97f2da56e8c3098f3a8d538db630a2606a024 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DIEM</a>'s trend score fell 43 points in one session (32, -43); a single-session sample, but it is the largest one-day score move in the book and warrants a named watch condition rather than action."
         ],
         "themes": [
           "cautious_sizing",
@@ -6468,7 +6469,7 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and Raise high beta.",
         "notes": [
-          "<a href=\"https://basescan.org/token/0xb69bbb15095c0949489fbb43951d2b750fa7fa89\" title=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" aria-label=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DEXTF</a> exit evidence is one session deep. Directionally supported by magnitude, not by multi-session persistence; stage the reduction rather than a full exit if the Chair wants optionality",
+          "<a href=\"https://basescan.org/token/0xb69bbb15095c0949489fbb43951d2b750fa7fa89\" title=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" aria-label=\"DEXTF contract 0xb69bbb15095c0949489fbb43951d2b750fa7fa89 on base\" target=\"_blank\" rel=\"noopener noreferrer\">DEXTF</a> exit evidence is one session deep, directionally supported by magnitude, not by multi-session persistence; stage the reduction rather than a full exit if the Chair wants optionality",
           "<a href=\"https://basescan.org/token/0xb200000000000000000000c2e324d24d7eecd1fb\" title=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" aria-label=\"AAPLC contract 0xb200000000000000000000c2e324d24d7eecd1fb on base\" target=\"_blank\" rel=\"noopener noreferrer\">AAPLC</a> partial trim rests on a single-session coverage signal with stable price and scores; a second session of coverage absence would meet the bar, today does not",
           "<a href=\"https://basescan.org/token/0x11030f79109269d796fd0fb956d6244e502757f7\" title=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" aria-label=\"CTR contract 0x11030f79109269d796fd0fb956d6244e502757f7 on base\" target=\"_blank\" rel=\"noopener noreferrer\">CTR</a> is a fresh-only candidate with no aggregate track record; size any entry accordingly"
         ],
@@ -6484,9 +6485,9 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and keep high beta unchanged.",
         "notes": [
-          "Effective regime R- with negative ETF flows, shrinking stablecoin cap, and fearful sentiment: any beta adds should be sized cautiously and funded by realized reductions, not reserve drawdown beyond the…",
-          "64.8% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES. A standing book-level exposure fact, not a single-session sell trigger.",
-          "sn子的 1560 bps probe round trip is an execution ceiling that makes small entries uneconomic; treat as effectively untradable at minimum ticket sizes."
+          "Effective regime R- with negative ETF flows, shrinking stablecoin cap, and fearful sentiment: any beta adds should be sized cautiously and funded by realized reductions, not reserve drawdown beyond the ratified posture.",
+          "64.8% of beta book value sits in narratives with negative trailing 30d momentum vs TOTAL3ES, a standing book-level exposure fact, not a single-session sell trigger.",
+          "<a href=\"https://basescan.org/token/0x3124678d62d2aa1f615b54525310fbfda6dcf7ae\" title=\"SNSY contract 0x3124678d62d2aa1f615b54525310fbfda6dcf7ae on base\" aria-label=\"SNSY contract 0x3124678d62d2aa1f615b54525310fbfda6dcf7ae on base\" target=\"_blank\" rel=\"noopener noreferrer\">SNSY</a>'s 1560 bps probe round trip is an execution ceiling that makes small entries uneconomic; treat as effectively untradable at minimum ticket sizes."
         ],
         "themes": [
           "cautious_sizing",
@@ -6501,9 +6502,9 @@
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, Raise base, and Raise high beta.",
         "notes": [
-          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap. The raise is policy-binding but regime-adverse; size the add to the minimum…",
+          "Locked posture mandates raising high beta into a confirmed risk-off regime with negative ETF flows and shrinking stablecoin cap, the raise is policy-binding but regime-adverse; size the add to the minimum that satisfies the band",
           "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> fails the entry evidence standard: absent from latest fresh run, meme narrative, sharply deteriorating fresh scores",
-          "<a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a> exit <a href=\"https://robinhoodchain.blockscout.com/token/0x4ea005168d7f09a7a0ba9d1def21a479950e44c2\" title=\"COST contract 0x4ea005168d7f09a7a0ba9d1def21a479950e44c2 on robinhood\" aria-label=\"COST contract 0x4ea005168d7f09a7a0ba9d1def21a479950e44c2 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">COST</a> of 281 bps is an execution ceiling at position notional; realized slippage on an unpriceable chain-local route may be worse"
+          "<a href=\"https://robinhoodchain.blockscout.com/token/0x72be1277e198d0c476869253cb4e62807e14533c\" title=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" aria-label=\"RAETO contract 0x72be1277e198d0c476869253cb4e62807e14533c on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">RAETO</a> exit cost of 281 bps is an execution ceiling at position notional; realized slippage on an unpriceable chain-local route may be worse"
         ],
         "themes": [],
         "hold": false,
@@ -6836,7 +6837,7 @@
             "day": "2026-11-20",
             "weekday": "Fri",
             "beat": "hold",
-            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old. Name what changed beyond the fresh-run dropout before paying friction twice"
+            "text": "<a href=\"https://basescan.org/token/0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b\" title=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" aria-label=\"ACU contract 0xc5fed7c8ccc75d8a72b601a66dffd7a489073f0b on base\" target=\"_blank\" rel=\"noopener noreferrer\">ACU</a> exit reverses a position increased in the prior session (~$1.17, 2026-11-19); the adverse evidence is one session old, name what changed beyond the fresh-run dropout before paying friction twice"
           }
         ],
         "closingSessionId": "466fb455-531b-4bc9-a0b5-e89aae3154ce",
@@ -6968,7 +6969,7 @@
             "day": "2026-11-18",
             "weekday": "Wed",
             "beat": "hold",
-            "text": "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> carries the worst measured profile in the book. It is a hold on the patience standard. No…"
+            "text": "<a href=\"https://robinhoodchain.blockscout.com/token/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725\" title=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" aria-label=\"MICRODUCK contract 0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725 on robinhood\" target=\"_blank\" rel=\"noopener noreferrer\">MICRODUCK</a> carries the worst measured profile in the book."
           }
         ],
         "closingSessionId": "f3a0db0d-d026-4778-89d5-a28f7c62b081",
