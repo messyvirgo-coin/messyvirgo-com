@@ -246,6 +246,9 @@ function buildWeeklyHighlights({ funds, sessionContext, signalExample, weeklyRol
     if (weeklyRollup.blocked > 0) {
       bits.push(`${weeklyRollup.blocked} blocked`);
     }
+    if (weeklyRollup.target > 0) {
+      bits.push(`${weeklyRollup.target} target${weeklyRollup.target === 1 ? "" : "s"}`);
+    }
     if (bits.length) parts.push(bits.join(", "));
     highlights.push(`${parts.join(": ")}.`);
   }
@@ -292,6 +295,7 @@ function buildWeeklyRollup(funds) {
   let executed = 0;
   let holds = 0;
   let blocked = 0;
+  let target = 0;
   let fundsWithSessions = 0;
   let weekStart = null;
   let weekEnd = null;
@@ -304,6 +308,7 @@ function buildWeeklyRollup(funds) {
     executed += week.executedRotations || 0;
     holds += week.holdSessions || 0;
     blocked += week.blockedSessions || 0;
+    target += week.targetSessions || 0;
     if (week.weekStart && (!weekStart || week.weekStart < weekStart)) weekStart = week.weekStart;
     if (week.weekEnd && (!weekEnd || week.weekEnd > weekEnd)) weekEnd = week.weekEnd;
   }
@@ -316,6 +321,7 @@ function buildWeeklyRollup(funds) {
     executed,
     holds,
     blocked,
+    target,
     fundsWithSessions,
   };
 }
@@ -430,9 +436,14 @@ function isCliBlockedKind(kind) {
   return value === "blocked" || value.endsWith("_blocked");
 }
 
+function isPublicBlockedOutcome(outcome) {
+  const value = String(outcome || "");
+  return value === "blocked" || value.endsWith("_blocked");
+}
+
 function outcomeBeat(session) {
   const kind = String(session?.outcome_kind || "");
-  if (isCliBlockedKind(kind)) return "blocked";
+  if (isCliBlockedKind(kind) || isPublicBlockedOutcome(session?.public_outcome)) return "blocked";
   if (kind === "executed_reconciled" || session?.fund_mutated === true) return "exec";
   if (kind === "maintain_current") return "hold";
   if (kind === "target_change") return "target";
@@ -630,8 +641,14 @@ function formatBucketMove(currentWeights, ratifiedWeights) {
   return parts.length ? parts.join(" · ") : null;
 }
 
+function stripInternalCodes(text) {
+  return String(text || "")
+    .replace(/\b[a-z][a-z0-9]*(?:_[a-z0-9]+)+\s*:\s*/g, "")
+    .replace(/\s*\([a-z][a-z0-9]*(?:_[a-z0-9]+)+\)/g, "");
+}
+
 function truncateInsight(text, maxLen = 480) {
-  const clean = String(text || "")
+  const clean = stripInternalCodes(text)
     .replace(/\s+/g, " ")
     .replace(/\bsleeve\s+mvs-[\w-]+/gi, "the sleeve")
     .trim();
@@ -1301,6 +1318,8 @@ function buildTokenIndex(rows) {
 const PROSE_TOKEN_DENY = new Set(["up", "ai", "era", "all", "any", "top"]);
 const UNANNOTATED_TICKER_KEEP = new Set([
   "NAV", "USD", "RSI", "ATR", "ETF", "API", "CLI", "QA", "TOTAL3ES",
+  // Macro and narrative labels, not fund tokens. Dropping them leaves a hole.
+  "BTC", "ETH", "VIX", "DXY", "RWA", "EMA",
 ]);
 // Ordinary English words that are also tickers. Link them only when the
 // source writes the ticker in full uppercase, or with a $ prefix.
@@ -1655,9 +1674,10 @@ function targetFinalizationLooksBlocked(targetBody, outcome) {
 
 function classifyCouncilSession(parsed, cliItem) {
   const outcomeKind = cliItem?.outcome_kind || null;
+  const publicOutcome = cliItem?.public_outcome || parsed?.publicOutcome || null;
+  if (isCliBlockedKind(outcomeKind) || isPublicBlockedOutcome(publicOutcome)) return "blocked";
   if (outcomeKind === "executed_reconciled") return "executed";
   if (outcomeKind === "maintain_current") return "hold";
-  if (isCliBlockedKind(outcomeKind)) return "blocked";
   if (outcomeKind === "target_change") return "other";
   // Public meeting presentation outcomes (council/meetings)
   if (parsed.meetingOutcome === "traded" || parsed.outcome === "traded") return "executed";
@@ -1679,7 +1699,18 @@ function summarizeCouncilWeek(publicItems, cliItems, asOfDate) {
   if (!asOfDate) return null;
 
   const { weekStart, weekEnd } = fundUpdateWeekRange(asOfDate);
-  const cliBySession = new Map((cliItems || []).map((item) => [item.session_id, item]));
+  const publicOutcomeBySession = new Map(
+    (publicItems || [])
+      .filter((item) => item.session_id && item.outcome)
+      .map((item) => [item.session_id, item.outcome])
+  );
+  const cliBySession = new Map((cliItems || []).map((item) => {
+    const copy = { ...item };
+    if (publicOutcomeBySession.has(item.session_id)) {
+      copy.public_outcome = publicOutcomeBySession.get(item.session_id);
+    }
+    return [item.session_id, copy];
+  }));
 
   const publicInWeek = (publicItems || []).filter((item) => {
     const sessionDate = sessionDateIsoFromCouncilItem(item);
@@ -1711,6 +1742,10 @@ function summarizeCouncilWeek(publicItems, cliItems, asOfDate) {
         }
       : parseCouncilItem(item);
     const cliItem = cliBySession.get(item.session_id) || (item.outcome_kind ? item : null);
+    if (cliItem && !cliItem.public_outcome && publicOutcomeBySession.has(item.session_id)) {
+      cliItem.public_outcome = publicOutcomeBySession.get(item.session_id);
+    }
+    if (!isCliRow && item.outcome) parsed.publicOutcome = item.outcome;
     const kind = classifyCouncilSession(parsed, cliItem);
     if (kind === "executed") executedRotations += 1;
     else if (kind === "hold") holdSessions += 1;
@@ -1792,12 +1827,15 @@ function fetchCouncilCliLatest(fundId, asOfDate) {
     item = eligible[0];
   }
 
+  const started = item.started_at ? String(item.started_at).slice(0, 10) : null;
   return {
     outcome: item.outcome_kind || (item.execution_status === "running" ? "in_progress" : "unknown"),
     outcomeKind: item.outcome_kind || null,
     outcomeLabel: (item.outcome_kind || "in progress").replace(/_/g, " "),
     date: item.started_at ? fmtDate(item.started_at) : null,
     shortDate: item.started_at ? fmtShortDate(item.started_at) : null,
+    sessionDateIso: started,
+    sessionId: item.session_id || null,
     headline: item.headline,
     executionStatus: item.execution_status,
     riskNotes: null,
@@ -1830,7 +1868,8 @@ function inferCouncilOutcome({ decisions, title, summary, resolutionBody, execut
   if (/executed[_\s-]?reconciled|rebalance executed and reconciled|fund was mutated/i.test(text)) {
     return "executed_reconciled";
   }
-  if (/requires review|blocked|override/i.test(text)) return "blocked";
+  // "blocked by zero idle cash" is a skipped candidate, not a blocked session.
+  if (/requires review|\bblocked\b(?!\s+by\b)|override/i.test(text)) return "blocked";
   return "unknown";
 }
 
@@ -1864,32 +1903,48 @@ function parseCouncilMeetingItem(item) {
   const meetingOutcome = item.outcome || null;
   const summary = item.summary || null;
   const title = item.title || null;
-  const traded = meetingOutcome === "traded" || (item.executed_leg_count || 0) > 0;
-  const held = meetingOutcome === "held";
-  const outcome = traded
-    ? "executed_reconciled"
-    : held
-      ? "maintain_current"
-      : "unknown";
-  const outcomeLabel = traded
-    ? "executed reconciled"
-    : held
-      ? "maintain current"
-      : (meetingOutcome || "unknown").replace(/_/g, " ");
+  const blocked = isPublicBlockedOutcome(meetingOutcome);
+  const traded =
+    !blocked &&
+    (meetingOutcome === "traded" ||
+      meetingOutcome === "executed_reconciled" ||
+      ((meetingOutcome === "held" || !meetingOutcome) && (item.executed_leg_count || 0) > 0));
+  const held =
+    !blocked &&
+    !traded &&
+    (meetingOutcome === "held" || meetingOutcome === "maintain_current");
+  const outcome = blocked
+    ? "blocked"
+    : traded
+      ? "executed_reconciled"
+      : held
+        ? "maintain_current"
+        : meetingOutcome === "target_change"
+          ? "target_change"
+          : "unknown";
+  const outcomeLabel = blocked
+    ? String(meetingOutcome).replace(/_/g, " ")
+    : traded
+      ? "executed reconciled"
+      : held
+        ? "maintain current"
+        : (meetingOutcome || "unknown").replace(/_/g, " ");
 
   return {
     outcome,
     meetingOutcome,
+    publicOutcome: meetingOutcome,
     outcomeLabel,
     date: fmtDate(sessionDate),
     shortDate: fmtShortDate(sessionDate),
     sessionDateIso: sessionDate ? String(sessionDate).slice(0, 10) : null,
+    sessionId: item.session_id || null,
     headline: firstSentence(summary || title),
     riskNotes: null,
     certified: null,
     certificationLabel: null,
     targetFinalization: null,
-    targetFinalizationBlocked: false,
+    targetFinalizationBlocked: blocked,
     actionItems: null,
     executionStatus: "resolved",
     executedLegCount: item.executed_leg_count ?? null,
@@ -1897,8 +1952,9 @@ function parseCouncilMeetingItem(item) {
 }
 
 function parseCouncilItem(item) {
-  // Prefer the compact public meeting presentation when present.
-  if (item && (item.outcome === "traded" || item.outcome === "held") && !item.structured_content) {
+  // Compact public meetings name the outcome. Do not re-infer it from words
+  // in the summary ("blocked by zero idle cash" is not a blocked session).
+  if (item && !item.structured_content && item.outcome) {
     return parseCouncilMeetingItem(item);
   }
 
@@ -1950,6 +2006,7 @@ function parseCouncilItem(item) {
     date: fmtDate(sessionDate),
     shortDate: fmtShortDate(sessionDate),
     sessionDateIso: sessionDate ? String(sessionDate).slice(0, 10) : null,
+    sessionId: item.session_id || null,
     headline: firstSentence(summary || title),
     riskNotes: firstSentence(riskBody),
     certified,
@@ -1979,7 +2036,6 @@ async function fetchCouncilPublic(fundId, asOfDate) {
   }
 
   const council = parseCouncilItem(item);
-  delete council.sessionDateIso;
   return { council, publicItems: data.items, publicError: false };
 }
 
@@ -1988,8 +2044,20 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
   const cliItems = useCli ? fetchCouncilCliList(fundId, asOfDate ? 40 : 1) : [];
   const latestWeek = useCli ? pickLatestCliSessionInWeek(cliItems, asOfDate) : null;
   const earliestWeek = useCli ? pickEarliestCliSessionInWeek(cliItems, asOfDate) : null;
-  const weekTimeline = useCli ? buildWeekTimeline(cliItems, asOfDate) : null;
   const { council: publicCouncil, publicItems, publicError } = await fetchCouncilPublic(fundId, asOfDate);
+  if (useCli) {
+    const publicOutcomeBySession = new Map(
+      (publicItems || [])
+        .filter((item) => item.session_id && item.outcome)
+        .map((item) => [item.session_id, item.outcome])
+    );
+    for (const item of cliItems) {
+      if (publicOutcomeBySession.has(item.session_id)) {
+        item.public_outcome = publicOutcomeBySession.get(item.session_id);
+      }
+    }
+  }
+  const weekTimeline = useCli ? buildWeekTimeline(cliItems, asOfDate) : null;
   const weekSummary = summarizeCouncilWeek(publicItems, cliItems, asOfDate);
   if (useCli && asOfDate && !weekSummary) {
     const range = fundUpdateWeekRange(asOfDate);
@@ -2001,13 +2069,24 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
     );
   }
 
-  if (council && publicCouncil) {
+  const sameSession = Boolean(
+    council &&
+    publicCouncil &&
+    (
+      (council.sessionId && publicCouncil.sessionId && council.sessionId === publicCouncil.sessionId) ||
+      (council.sessionDateIso && publicCouncil.sessionDateIso && council.sessionDateIso === publicCouncil.sessionDateIso)
+    )
+  );
+  // A newer CLI session must not inherit the previous day's public minutes.
+  if (council && publicCouncil && sameSession) {
     const cliOutcomeKnown =
       council.outcome && council.outcome !== "in_progress" && council.outcome !== "unknown";
     const publicOutcomeKnown =
       publicCouncil.outcome && publicCouncil.outcome !== "unknown";
-    const outcome =
-      publicCouncil.outcome === "target_change" || publicCouncil.outcome === "maintain_current"
+    const publicBlocked = isPublicBlockedOutcome(publicCouncil.publicOutcome || publicCouncil.meetingOutcome);
+    const outcome = publicBlocked
+      ? "blocked"
+      : publicCouncil.outcome === "target_change" || publicCouncil.outcome === "maintain_current"
         ? publicCouncil.outcome
         : cliOutcomeKnown
           ? council.outcome
@@ -2018,8 +2097,9 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
       ...publicCouncil,
       ...council,
       outcome,
-      outcomeLabel:
-        publicCouncil.outcomeLabel && publicCouncil.outcomeLabel !== "unknown"
+      outcomeLabel: publicBlocked
+        ? publicCouncil.outcomeLabel
+        : publicCouncil.outcomeLabel && publicCouncil.outcomeLabel !== "unknown"
           ? publicCouncil.outcomeLabel
           : buildCouncilOutcomeLabel(outcome, {
               summary: publicCouncil.headline,
@@ -2031,7 +2111,7 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
       date: publicCouncil.date || council.date,
       shortDate: publicCouncil.shortDate || council.shortDate,
       targetFinalization: publicCouncil.targetFinalization,
-      targetFinalizationBlocked: publicCouncil.targetFinalizationBlocked,
+      targetFinalizationBlocked: publicBlocked || publicCouncil.targetFinalizationBlocked,
       actionItems: publicCouncil.actionItems,
       certified: publicCouncil.certified ?? council.certified,
       certificationLabel: publicCouncil.certificationLabel ?? council.certificationLabel,
@@ -2043,6 +2123,17 @@ async function fetchCouncil(fundId, useCli, asOfDate) {
   if (council?.executionStatus === "running" || council?.executionStatus === "queued") {
     council.outcomeLabel = `${council.executionStatus}. Check the app.`;
     council.riskNotes = council.headline || "Council session still in progress.";
+  }
+  if (council?.executionStatus === "action_required") {
+    council.targetFinalizationBlocked = true;
+    council.outcomeLabel = council.outcomeLabel
+      ? `${council.outcomeLabel} · not executed`
+      : "not executed";
+  }
+  if (council) {
+    delete council.sessionDateIso;
+    delete council.sessionId;
+    delete council.publicOutcome;
   }
 
   return { council, weekSummary, latestWeekSessionId: latestWeek?.session_id || null, earliestWeekSessionId: earliestWeek?.session_id || null, weekTimeline, cliItems };
@@ -2754,19 +2845,39 @@ function scrubPublicProse(text) {
   out = out.replace(/,?\s*(?:and\s+)?(?:a\s+)?[+-]?\d+(?:\.\d+)?%\s+drawdown\b[^,.;]*/gi, "");
   out = out.replace(/,?\s*(?:and\s+)?\bATR%\s+(?:up|down|at)?\s*[+-]?\d+(?:\.\d+)?%?(?:\s*pp)?/gi, "");
   out = out.replace(/\s*[+-]?\d+(?:\.\d+)?pp\b/gi, "");
-  out = out.replace(/\b(?:mom\/vol|momentum\/vol)\s+(?:drop|change)?\s*(?:of\s+)?[+-]?\d+(?:\.\d+)?/gi, "");
+  out = out.replace(
+    /\bone-day\s+Mom\/Vol\s+delta\s+of\s+[+-]?\d+(?:\.\d+)?\s+and\s+[+-]?\d+(?:\.\d+)?%\s+below\s+\d+d\s+high\b/gi,
+    "one-day momentum and distance-from-high readings"
+  );
+  out = out.replace(/\b(?:mom\/vol|momentum\/vol)\s+(?:drop|change|delta)?\s*(?:of\s+)?[+-]?\d+(?:\.\d+)?/gi, "");
   out = out.replace(/\bone-session\s+Mom\/Vol\s+drop\s+of\s+[+-]?\d+(?:\.\d+)?/gi, "a one-session momentum change");
   out = out.replace(/,?\s*and\s+perf(?:ormance)?\s+fell\s+\d+\b/gi, "");
   out = out.replace(/\s*\(\d{3,}\)/g, "");
+  // A cost hurdle is process. Leave the round-trip cost and drop the return figure.
+  out = out.replace(
+    /needs a\s*(?:>|&gt;)\s*\d+(?:\.\d+)?%\s+gain to break even\s*(?:\u2014|&mdash;|&#8212;|\u2013|&ndash;|&#8211;)?\s*/gi,
+    "needs a move larger than that cost to break even, and "
+  );
+  out = out.replace(
+    /\brelationship with\s+forward returns\s*(?:\u2014|&mdash;|&#8212;|\u2013|&ndash;|&#8211;)?\s*treat\b/gi,
+    "relationship. Treat"
+  );
+  out = out.replace(/\brelationship with\s+forward returns\b/gi, "relationship");
   // Token price results are not book process. Allocation percents ("cash down from 41%") stay.
+  out = out.replace(/\s+with RSI short at \d+(?:\.\d+)?(?:\s*\(\s*[+-]?\d+(?:\.\d+)?\s*\))?(?:\s+after\s+[+-]?\d+(?:\.\d+)?%\s+in\s+\d+h)?/gi, "");
+  out = out.replace(/\s+after\s+(?:a\s+)?[+-]?\d+(?:\.\d+)?%\s+(?:in\s+)?\d+h(?:\s+move)?\b/gi, "");
+  out = out.replace(/\s*\(\s*[+-]\d+(?:\.\d+)?\s*\)/g, "");
   out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+loss(?:es)?\b/gi, "");
   out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+(?:gain|gains|profit)\b/gi, "");
   out = out.replace(/\b(?:up|down|gained|lost|rose|fell)\s+[+-]?\d+(?:\.\d+)?%/gi, "");
   out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+ATR%?\w*/gi, "");
   out = out.replace(/[+-]?\d+(?:\.\d+)?%\s+below\s+(?:its\s+)?\d+d\s+high\b/gi, "");
+  // Market-move windows ("mcap -5.8% 90d") are not book process. Allocation percents stay.
+  out = out.replace(/\s*[+-]?\d+(?:\.\d+)?%\s+\d+d\b/gi, "");
   out = out.replace(/\b\d+(?:\.\d+)?%h\b/gi, "");
   out = out.replace(/,?\s*both axes that ranked negatively against \d+d forward returns\b/gi, "");
-  out = out.replace(/\bforward returns\b/gi, "");
+  out = out.replace(/\bforward[- ]returns?\b/gi, "");
+  out = out.replace(/\bmaintain_current\b/g, "maintain current");
   out = out.replace(/\bdrawdown risk\b/gi, "risk");
   out = out.replace(/\b(?:carries|sits)\s*(?=,|;|\.|$)/gi, "");
   out = out.replace(/\s+and\s+(?=,|;|\.)/gi, " ");
