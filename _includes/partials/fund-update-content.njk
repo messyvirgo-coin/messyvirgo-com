@@ -111,7 +111,7 @@
     {% endif %}
     {% if fu.sessionContext.tapeMotif or fu.sessionContext.narrative %}
     <div class="fu-session-block">
-      <p class="fu-session-label">{{ fu.sessionContext.tapeMotif.label if fu.sessionContext.tapeMotif else "Narrative momentum" }}</p>
+      <p class="fu-session-label">{{ fu.sessionContext.tapeMotif.label if fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.label else "Narrative momentum" }}</p>
       {% if fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.summary %}
       <p class="mv-body mb-0 text-gray-300">{{ fu.sessionContext.tapeMotif.summary }}</p>
       {% elif fu.sessionContext.narrative and fu.sessionContext.narrative.summary and not fu.processOnly %}
@@ -135,6 +135,16 @@
         {% if fu.sessionContext.tapeMotif.signalFund %}Figure from {{ fu.sessionContext.tapeMotif.signalFund }}.{% endif %}
         {% if fu.sessionContext.tapeMotif.funds and fu.sessionContext.tapeMotif.funds.length %} Soft tape flagged in {{ fu.sessionContext.tapeMotif.funds | join(", ") }} Chair notes.{% endif %}
       </p>
+      {% endif %}
+      {# Empty closing narrative and tape motif: say so. Do not invent a summary. #}
+      {% if not (
+        (fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.summary)
+        or (fu.sessionContext.tapeMotif and fu.sessionContext.tapeMotif.signals and fu.sessionContext.tapeMotif.signals.length)
+        or (fu.sessionContext.narrative and fu.sessionContext.narrative.summary and not fu.processOnly)
+        or (not fu.processOnly and fu.sessionContext.narrative and fu.sessionContext.narrative.signals and fu.sessionContext.narrative.signals.length)
+        or (fu.sessionContext.tapeMotif and (fu.sessionContext.tapeMotif.signalFund or (fu.sessionContext.tapeMotif.funds and fu.sessionContext.tapeMotif.funds.length)))
+      ) %}
+      <p class="mv-body mb-0 text-gray-300">No narrative summary was recorded for this week.</p>
       {% endif %}
     </div>
     {% endif %}
@@ -328,6 +338,9 @@
   {% endif %}
   {% if fund.weekStory.netPosture and fund.weekStory.netPosture.line %}
   <p class="fu-week-net">{{ fund.weekStory.netPosture.line }}</p>
+  {% endif %}
+  {% if fund.weekStory.netPosture and fund.weekStory.netPosture.pendingTarget %}
+  <p class="fu-week-net-note">{{ fund.weekStory.netPosture.pendingTarget }}</p>
   {% endif %}
   {% if fund.weekStory.earlierNotes and fund.weekStory.earlierNotes.length %}
   <div class="fu-week-earlier">
