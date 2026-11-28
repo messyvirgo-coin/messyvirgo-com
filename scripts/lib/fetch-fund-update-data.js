@@ -553,10 +553,63 @@ function friendlyRegimeLabel(code) {
   return regimeFriendly ? `${regimeFriendly} (${regimeCode})` : regimeCode || null;
 }
 
-function formatNetPosture(startLocked, endLocked) {
+function sessionMutatedBook(sessionGet) {
+  const summary = sessionGet?.summary || {};
+  if (summary.fund_mutated === true) return true;
+  const kind = summary.outcome_kind || summary.business_outcome || "";
+  return kind === "executed_reconciled";
+}
+
+/**
+ * Weights of the book actually held at the end of the session.
+ * current_bucket_weights is that held book. ratified_bucket_weights is the
+ * target. The target replaces it only when the session mutated the fund.
+ */
+function executedBookWeights(locked, sessionGet) {
+  if (!locked) return null;
+  const current = locked.current_bucket_weights || null;
+  const ratified = locked.ratified_bucket_weights || null;
+  if (sessionMutatedBook(sessionGet)) return ratified || current;
+  return current || ratified;
+}
+
+const WEEKDAY_NAME = {
+  Mon: "Monday",
+  Tue: "Tuesday",
+  Wed: "Wednesday",
+  Thu: "Thursday",
+  Fri: "Friday",
+  Sat: "Saturday",
+  Sun: "Sunday",
+};
+
+function unexecutedTargetNote(locked, sessionGet, weekday) {
+  if (!locked || sessionMutatedBook(sessionGet)) return null;
+  const kind = sessionGet?.summary?.outcome_kind || sessionGet?.summary?.business_outcome || "";
+  if (kind !== "target_change") return null;
+  const current = locked.current_bucket_weights;
+  const ratified = locked.ratified_bucket_weights;
+  if (!current || !ratified) return null;
+  const parts = [];
+  for (const [key, label] of [
+    ["cash", "Cash"],
+    ["base", "Base"],
+    ["high_beta", "High-beta"],
+  ]) {
+    const from = pctFromWeight(current[key]);
+    const to = pctFromWeight(ratified[key]);
+    if (from == null || to == null) continue;
+    if (Math.abs(to - from) >= 0.05) parts.push(`${label} ${to}%`);
+  }
+  if (!parts.length) return null;
+  const day = WEEKDAY_NAME[weekday] || weekday || "latest";
+  return `The ${day} target (${parts.join(", ")}) was not executed.`;
+}
+
+function formatNetPosture(startLocked, endLocked, endSession) {
   if (!startLocked || !endLocked) return null;
   const from = startLocked.current_bucket_weights || startLocked.ratified_bucket_weights;
-  const to = endLocked.ratified_bucket_weights || endLocked.current_bucket_weights;
+  const to = executedBookWeights(endLocked, endSession);
   if (!from || !to) return null;
   const line = formatBucketMove(from, to);
   if (!line) return null;
@@ -639,6 +692,44 @@ function formatBucketMove(currentWeights, ratifiedWeights) {
     }
   }
   return parts.length ? parts.join(" · ") : null;
+}
+
+function alignBookToLockedWeights(fund, weights) {
+  if (!fund || !weights) return;
+  const cash = pctFromWeight(weights.cash);
+  const base = pctFromWeight(weights.base);
+  const beta = pctFromWeight(weights.high_beta);
+  if (cash == null || base == null || beta == null) return;
+  const bar = Array.isArray(fund.holdingsBar) ? fund.holdingsBar : [];
+  const cashSeg = bar.find((seg) => seg.kind === "cash");
+  const baseSeg = bar.find((seg) => seg.kind === "base");
+  const betaSegs = bar.filter((seg) => seg.kind === "beta");
+  if (cashSeg) cashSeg.weight = cash.toFixed(1);
+  if (baseSeg) baseSeg.weight = base.toFixed(1);
+  if (betaSegs.length) {
+    const raw = betaSegs.map((seg) => Number(seg.weight) || 0);
+    const sum = raw.reduce((total, weight) => total + weight, 0);
+    const shares = sum > 0 ? raw.map((weight) => weight / sum) : betaSegs.map(() => 1 / betaSegs.length);
+    const rounded = shares.map((share) => Math.round(beta * share * 10) / 10);
+    const drift = Math.round((beta - rounded.reduce((total, weight) => total + weight, 0)) * 10) / 10;
+    rounded[rounded.length - 1] = Math.round((rounded[rounded.length - 1] + drift) * 10) / 10;
+    betaSegs.forEach((seg, index) => {
+      seg.weight = rounded[index].toFixed(1);
+    });
+  }
+  fund.bookPosture = {
+    cash,
+    base,
+    beta,
+    label: [
+      cash > 0.05 ? `Cash ${cash}%` : null,
+      base > 0.05 ? `Base ${base}%` : null,
+      beta > 0.05 ? `High-beta ${beta}%` : null,
+    ]
+      .filter(Boolean)
+      .join(" · "),
+  };
+  fund.hasHoldingsBar = bar.length > 0;
 }
 
 function stripInternalCodes(text) {
@@ -883,11 +974,15 @@ function fetchSessionFrozenContext(funds, asOfDate, useCli) {
 
     const startLocked = lockedPostureFromSession(earliestGet);
     const endLocked = lockedPostureFromSession(latestGet);
-    const net = formatNetPosture(startLocked, endLocked);
+    const net = formatNetPosture(startLocked, endLocked, latestGet);
+    alignBookToLockedWeights(fund, executedBookWeights(endLocked, latestGet));
 
     // Optional earlier material note from a mid-week session (not opening/closing).
     const earlierNotes = [];
     const timeline = fund.weekTimeline;
+    const closingWeekday = timeline?.days?.length ? timeline.days[timeline.days.length - 1]?.weekday : null;
+    const pendingTarget = unexecutedTargetNote(endLocked, latestGet, closingWeekday);
+    if (net && pendingTarget) net.pendingTarget = pendingTarget;
     if (timeline?.days?.length > 1) {
       const openingDay = timeline.days[0]?.day;
       const closingDay = timeline.days[timeline.days.length - 1]?.day;
@@ -3151,4 +3246,8 @@ module.exports = {
   attributeTokens,
   scrubPublicProse,
   plainProcessChairLanguage,
+  formatNetPosture,
+  executedBookWeights,
+  unexecutedTargetNote,
+  alignBookToLockedWeights,
 };

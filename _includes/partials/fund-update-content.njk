@@ -339,6 +339,9 @@
   {% if fund.weekStory.netPosture and fund.weekStory.netPosture.line %}
   <p class="fu-week-net">{{ fund.weekStory.netPosture.line }}</p>
   {% endif %}
+  {% if fund.weekStory.netPosture and fund.weekStory.netPosture.pendingTarget %}
+  <p class="fu-week-net-note">{{ fund.weekStory.netPosture.pendingTarget }}</p>
+  {% endif %}
   {% if fund.weekStory.earlierNotes and fund.weekStory.earlierNotes.length %}
   <div class="fu-week-earlier">
     {% for note in fund.weekStory.earlierNotes %}
