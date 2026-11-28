@@ -2834,9 +2834,33 @@ async function fetchNarratives(asOfDate, useCli = true) {
   return fetchNarrativesPublic(asOfDate);
 }
 
+/**
+ * Chair lines sometimes name scoring machinery (measured axes, composite score).
+ * Public pages keep the process meaning and drop that machinery.
+ * Idempotent: already-rewritten lines do not match again.
+ */
+function plainProcessChairLanguage(text) {
+  if (typeof text !== "string" || !text) return text;
+  let out = text;
+  out = out.replace(
+    /\black measured-axis data entirely\b/gi,
+    "have no recorded inputs for sizing risk"
+  );
+  out = out.replace(/\bno measured-axes coverage\b/gi, "no recorded inputs for sizing risk");
+  out = out.replace(/\bno measured-axis coverage\b/gi, "no recorded inputs for sizing risk");
+  out = out.replace(/\bmeasured-axes\b/gi, "screening records");
+  out = out.replace(/\bmeasured-axis\b/gi, "screening record");
+  out = out.replace(
+    /composite score improvement is a one-session sample;\s*the Apr(?:il)?\s*(?:-|\u2013|\u2014|to)\s*Jul(?:y)? study found no positive composite-score relationship(?:\s+with\s+forward returns)?\.?\s*Treat as context, not confirmation/gi,
+    "reading this session is a single sample. The April to July review did not confirm that kind of reading. Treat it as context, not confirmation"
+  );
+  return out;
+}
+
 function scrubPublicProse(text) {
   if (typeof text !== "string") return text;
-  let out = text.replace(/(\d+(?:\.\d+)?%)\s*NAV\b/g, "$1 of book");
+  let out = plainProcessChairLanguage(text);
+  out = out.replace(/(\d+(?:\.\d+)?%)\s*NAV\b/g, "$1 of book");
   out = out.replace(/\bNAV\b/g, "book");
   out = out.replace(/\bPnL\b/g, "");
   out = out.replace(/\bP&L\b/g, "");
@@ -3126,4 +3150,5 @@ module.exports = {
   assertNoMixedScriptGarbage,
   attributeTokens,
   scrubPublicProse,
+  plainProcessChairLanguage,
 };
