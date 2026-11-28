@@ -389,7 +389,7 @@
         }
       ],
       "chairInsight": {
-        "postureLine": "Cash 48.6% → 45.2% · Base 36.8% · High-beta 14.6% → 18%",
+        "postureLine": "Recommended, not executed: Cash 48.6% → 45.2% · Base 36.8% · High-beta 14.6% → 18%",
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
         "notes": [
@@ -6457,7 +6457,7 @@
     },
     "chairByFundId": {
       "mvf-base04": {
-        "postureLine": "Cash 48.6% → 45.2% · Base 36.8% · High-beta 14.6% → 18%",
+        "postureLine": "Recommended, not executed: Cash 48.6% → 45.2% · Base 36.8% · High-beta 14.6% → 18%",
         "postureRationale": "Recommendation was projected onto the regime-band convergence step by validation.",
         "actionSummary": "Reduce cash, keep base unchanged, and Raise high beta.",
         "notes": [

@@ -770,6 +770,17 @@ function noteThemeKey(text) {
   return null;
 }
 
+function targetDiffersFromHeldBook(currentWeights, ratifiedWeights) {
+  if (!currentWeights || !ratifiedWeights) return false;
+  for (const key of ["cash", "base", "high_beta"]) {
+    const held = pctFromWeight(currentWeights[key]);
+    const target = pctFromWeight(ratifiedWeights[key]);
+    if (held == null || target == null) continue;
+    if (Math.abs(target - held) >= 0.05) return true;
+  }
+  return false;
+}
+
 function isOperationalNoise(text) {
   return /guru execution routes|beta-to-beta legs|solver-planned|unknown-token execution buffer|planner applied|no direct beta-to-beta/i.test(
     String(text || "")
@@ -787,10 +798,19 @@ function extractChairInsight(sessionGet) {
     sessionGet.target_finalization_summary?.locked_fund_posture ||
     null;
 
-  const postureLine = formatBucketMove(
+  let postureLine = formatBucketMove(
     locked?.current_bucket_weights,
     locked?.ratified_bucket_weights
   );
+  // The card line is a recommendation. Prefix it only when that target was not
+  // executed and it differs from the held book. A matching recommendation stays bare.
+  if (
+    postureLine &&
+    sessionGet.summary?.fund_mutated === false &&
+    targetDiffersFromHeldBook(locked?.current_bucket_weights, locked?.ratified_bucket_weights)
+  ) {
+    postureLine = `Recommended, not executed: ${postureLine}`;
+  }
   const postureRationale = truncateInsight(locked?.rationale || locked?.decision_summary, 200);
   const actionSummary = locked?.action_summary || null;
 
